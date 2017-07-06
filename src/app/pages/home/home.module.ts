@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HomeRoutingModule } from './home.state';
@@ -10,10 +9,8 @@ import { HomeComponent } from './home.component';
     HomeComponent,
   ],
   imports: [
-    BrowserModule,
     HomeRoutingModule,
   ],
   providers: [/*HomeService*/],
 })
-
 export class HomeModule { }
