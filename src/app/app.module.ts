@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 /* Feature Modules */
 import { HomeModule } from './pages/home/home.module';
+import { SearchModule } from './pages/search/search.module';
+import { ReportModule } from './pages/report/report.module';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { HomeModule } from './pages/home/home.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    SearchModule,
+    ReportModule
   ],
   providers: [],
   bootstrap: [AppComponent],

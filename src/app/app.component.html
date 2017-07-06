@@ -1,9 +1,8 @@
-<h1>
+<div class="title">
   Welcome to {{title}}!!
-</h1>
-<nav>
-  <a routerLink="home" routerLinkActive="active">Home</a>
-  <a routerLink="crisis" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="heroes" routerLinkActive="active">Heroes</a>
-</nav>
+  <div>
+    <a routerLink="/search" routerLinkActive="active">Search Link</a>
+    <a routerLink="/report" routerLinkActive="active">Report Link</a>
+  </div>
+</div>
 <router-outlet></router-outlet>

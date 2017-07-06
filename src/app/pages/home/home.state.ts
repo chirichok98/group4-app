@@ -3,9 +3,15 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-  imports: [RouterModule.forChild([
-    { path: 'home', component: HomeComponent },
+  imports: [
+    RouterModule.forChild([
+    { 
+      path: 'home', 
+      component: HomeComponent 
+    },
   ])],
-  exports: [RouterModule],
+  exports: [
+    RouterModule
+    ],
 })
 export class HomeRoutingModule {}
