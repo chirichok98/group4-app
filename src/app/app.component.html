@@ -1,9 +1,17 @@
-<div class="title">
-  Welcome to {{title}}!!
-  <div>
-    <a routerLink="/search" routerLinkActive="active">Search Link</a>
-    <a routerLink="/report" routerLinkActive="active">Report Link</a>
-    <a routerLink="/profiles" routerLinkActive="active">Profiles Link</a>
+<div class="container">
+  <div class="row">
+    <div class="annotation col s8 offset-s2 m5 l4 offset-l2">
+      <h3>WHERE</h3>
+      <h5 class="color-red">DO YOU GO TO FIND</h5>
+      <h4>GREAT</h4>
+      <h4>EMPLOYEES</h4>
+    </div>
+    <div class="login-block col s12 m5 l5">
+      <h1>Login</h1>
+      <input type="text" value="" placeholder="Username" id="username" />
+      <input type="password" value="" placeholder="Password" id="password" />
+      <button>Sign in</button>
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>

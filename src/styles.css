@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+
+  background: url('./assets/world-map.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+app-root {
+  height: 100%;
+}

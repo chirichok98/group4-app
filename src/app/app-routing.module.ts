@@ -5,7 +5,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { ReportComponent } from './pages/report/report.component';
 import { ProfilesComponent } from './pages/profiles/profiles.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
