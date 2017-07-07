@@ -5,6 +5,7 @@ import { ProfilesComponent } from './profiles.component';
 import { ProfilesRoutingModule } from './profiles.state';
 import { AdminModule } from './admin/admin.module';
 import { HRModule } from './hr/hr.module';
+import { StaffModule } from './staff/staff.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HRModule } from './hr/hr.module';
     ProfilesRoutingModule,
     AdminModule,
     HRModule,
+    StaffModule,
   ],
   providers: []
 })

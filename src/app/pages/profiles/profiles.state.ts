@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProfilesComponent } from './profiles.component';
 import { AdminComponent } from './admin/admin.component';
 import { HRComponent } from './hr/hr.component';
+import { StaffComponent } from './staff/staff.component';
 
 const profilesRoutes: Routes = [
   {
@@ -18,10 +19,10 @@ const profilesRoutes: Routes = [
         path: 'hr',
         component: HRComponent,
       },
-      /*{
+      {
         path: 'staff',
-        //component: StaffComponent,
-      },*/
+        component: StaffComponent,
+      },
     ],
   },
 ];
