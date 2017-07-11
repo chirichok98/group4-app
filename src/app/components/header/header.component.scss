@@ -1,16 +1,42 @@
-.header {
-  height: 5rem;
+.page-header {
+  background-color: #ccc;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px 10px;
+  }
 }
 
-.big-logo {
-  height: auto;
-  width: auto;
-
-  margin-top: 0.5rem;
+//user info
+.user-info { 
+  text-align: center; 
+  &__photo-wrap {
+    display: inline-block;
+    width: 3rem;
+  }
+  &__photo {
+    width: 100%;
+    border-radius: 50%;
+  }
+  &__name {
+    font-family: Source Sans Pro;
+    text-transform: uppercase;
+    color: #9B9B9B;
+    font-size: medium;
+  }
 }
 
-.photo {
-  padding: 0.5rem;
-  max-height: 3rem;
-  width: auto;
+//brand-logo
+.brand-logo {
+  flex-basis: 20rem;
+  flex-shrink: 1;
+  padding-right: 40px;
+  box-sizing: content-box;
+  &__img {
+    display: block; 
+    width: 100%;
+    min-width: 100px;
+  }
 }
