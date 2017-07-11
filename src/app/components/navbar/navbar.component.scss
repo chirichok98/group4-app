@@ -1,0 +1,29 @@
+.navbar {
+  height: auto;
+  width: 100%;
+
+
+  vertical-align: center;
+
+  background-color: #fafafa;
+}
+
+.row {
+  margin: 0;
+}
+
+.navbar-elem {
+  height: 2rem;
+
+  padding: 0.5rem;
+}
+
+.active {
+  height: 2.5rem; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.navbar-elem:hover {
+  height: 2.5rem; 
+}

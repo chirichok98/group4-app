@@ -22,7 +22,7 @@ input[type="text"] {
 		/*Margin, Border & Padding*/
 	border: 0.06rem solid #C4C2EF;
 	margin: 0.5rem 2rem;
-	padding-left: 0.6vw;
+	padding-left: 0.6rem;
 		/*Other*/
 	background: radial-gradient(circle at 50% 33%, #FFFFFF, #EFEFEF);
 	//cursor: url(../images/elements/PF3C_zlk_IBream.cur), text; ///wtf
@@ -42,7 +42,7 @@ input[type="password"] {
 		/*Margin, Border & Padding*/
 	border: 0.06rem solid #C4C2EF;
 	margin: 0.5rem 2rem;
-	padding-left: 0.6vw;
+	padding-left: 0.6rem;
 		/*Other*/
 	background: radial-gradient(circle at 50% 33%, #FFFFFF, #EFEFEF);
 	//cursor: url(../images/elements/PF3C_zlk_IBream.cur), text;
@@ -69,11 +69,11 @@ input[type="password"]:focus{
 	background: radial-gradient(circle at 50% 33%, #596277, #596277);
 	color: #fff;
 	font: 0.8rem "Source Sans Pro";
-	letter-spacing: 0.05vw;
+	letter-spacing: 0.05rem;
 	text-transform: uppercase;
 	//cursor: url(../images/elements/PF3C_zlk_Click2.cur), pointer;
 	display: inline-block;
-	margin-top: 0.56vw;
+	margin-top: 0.56rem;
 	opacity: 0.9;
 	outline: none;
 	/* transition: 0.2s; */
