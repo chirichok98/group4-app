@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { HomeRoutingModule } from './home.state';
 import { HomeComponent } from './home.component';
+import { LoginFormModule } from '../../components/login/login.module';
 // add HomeService
 
 @NgModule({
@@ -10,6 +11,7 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     HomeRoutingModule,
+    LoginFormModule,
   ],
   providers: [/*HomeService*/],
 })

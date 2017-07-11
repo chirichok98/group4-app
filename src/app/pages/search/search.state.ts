@@ -5,13 +5,13 @@ import { SearchComponent } from './search.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-    { 
-      path: 'search', 
-      component: SearchComponent 
-    },
-  ])],
+      {
+        path: 'search',
+        component: SearchComponent,
+      },
+    ])],
   exports: [
-    RouterModule
-    ],
+    RouterModule,
+  ],
 })
-export class SearchRoutingModule {}
+export class SearchRoutingModule { }

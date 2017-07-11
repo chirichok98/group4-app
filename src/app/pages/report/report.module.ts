@@ -1,4 +1,4 @@
-import  { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { ReportComponent } from './report.component';
 import { ReportRoutingModule } from './report.state';
@@ -6,10 +6,10 @@ import { ReportRoutingModule } from './report.state';
 @NgModule({
   declarations: [
     ReportComponent,
-    ],
+  ],
   imports: [
     ReportRoutingModule,
-    ],
-  providers:[],
+  ],
+  providers: [],
 })
 export class ReportModule { }

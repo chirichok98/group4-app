@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 /* Feature Modules */
+import { HeaderModule } from './components/header/header.module';
 import { HomeModule } from './pages/home/home.module';
 import { SearchModule } from './pages/search/search.module';
 import { ReportModule } from './pages/report/report.module';
@@ -19,6 +20,7 @@ import { ProfilesModule } from './pages/profiles/profiles.module';
     AppComponent,
   ],
   imports: [
+    HeaderModule,
     BrowserModule,
     AppRoutingModule,
     HomeModule,

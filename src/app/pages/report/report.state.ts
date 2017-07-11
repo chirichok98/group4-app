@@ -6,13 +6,13 @@ import { ReportComponent } from './report.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { 
-        path: 'report', 
-        component: ReportComponent 
+      {
+        path: 'report',
+        component: ReportComponent,
       },
     ])],
-    exports: [
-      RouterModule
-      ],
+  exports: [
+    RouterModule,
+  ],
 })
 export class ReportRoutingModule { }
