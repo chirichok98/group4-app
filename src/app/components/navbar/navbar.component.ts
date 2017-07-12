@@ -27,9 +27,16 @@ export class NavbarComponent implements OnInit {
   }
 
   getStyleByIndex(index: number): string {
-    switch (index) {
-      case 0: return 'navbar-elem col s4 m4 l3 offset-l2 xl2 offset-xl3 center';
-      default : return 'navbar-elem col s4 m4 l3 xl2 center';
+    let classNames: string = '';
+    if (this.currentState === this.states[index]) {
+      classNames = 'active';
+    }
+    if (index === 0) {
+      return `${classNames} navbar-elem col s4 m4 l3 offset-l2 xl2 offset-xl3 center`;
+    } else {
+      return `${classNames} navbar-elem col s4 m4 l3 xl2 center`;
     }
   }
+
+
 }
