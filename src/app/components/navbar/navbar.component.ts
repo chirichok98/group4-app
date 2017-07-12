@@ -33,8 +33,7 @@ export class NavbarComponent implements OnInit {
     }
     if (index === 0) {
       return `${classNames} navbar-elem col s4 m4 l4 center`;
-    } else {
-      return `${classNames} navbar-elem col s4 m4 l4 center`;
     }
+    return `${classNames} navbar-elem col s4 m4 l4 center`;
   }
 }
