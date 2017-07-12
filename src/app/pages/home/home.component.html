@@ -1,6 +1,5 @@
 <div class="home-page">
   <navbar-menu [states]="routerConfig"></navbar-menu>
-  <candidate-card></candidate-card>
   <br>
   <div>
     <opportunity *ngFor="let opp of opportunities" [opportunity]="opp"></opportunity>

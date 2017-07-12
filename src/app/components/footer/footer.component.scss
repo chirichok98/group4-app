@@ -1,6 +1,6 @@
 .page-footer {
   background-color: #273248;
-  padding: 0;
+  padding: 20px;
   display: flex;
 
   &__inner {
@@ -11,4 +11,6 @@
     margin: 0 auto;
     text-transform: uppercase;
     font-size: 0.8em;
+    font-weight: 500;
+    color: #fff;
 }
