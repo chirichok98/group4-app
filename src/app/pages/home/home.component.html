@@ -1,5 +1,5 @@
 <div class="home-page">
-  <navbar-menu></navbar-menu>
+  <navbar-menu [states]="routerConfig"></navbar-menu>
   <br>
   <br>
   <br>
@@ -7,6 +7,8 @@
   <br>
   <br>
   <br>
+  <div class="container"></div>
+  <opportunity *ngFor="let opp of opportunities" [opportunity]="opp"></opportunity>
   <br>
   <br>
   <br>
