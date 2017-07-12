@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { LoginFormModule } from '../../components/login/login.module';
 import { NavbarModule } from '../../components/navbar/navbar.module';
 import { OpportunityModule } from '../../components/opportunity/opportunity.module';
+import { CandidateCardModule } from '../../components/candidate.card/candidate.card.module';
 // add HomeService
 
 @NgModule({
@@ -18,6 +19,7 @@ import { OpportunityModule } from '../../components/opportunity/opportunity.modu
     LoginFormModule,
     NavbarModule,
     OpportunityModule,
+    CandidateCardModule,
   ],
   providers: [/*HomeService*/],
 })
