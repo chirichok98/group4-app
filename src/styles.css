@@ -10,6 +10,10 @@ body {
   margin: 0 auto;
 }
 
+.row {
+  margin: 0;
+}
+
 .col {
   width: 100%;
   padding: 0;

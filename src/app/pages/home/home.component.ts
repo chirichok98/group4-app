@@ -19,18 +19,14 @@ export class HomeComponent {
   opportunities: IOpportunity[] = [
     {
       title: 'sidfvhf divbldsfh', content: `jldsh bldfhv
-    dsfljvhbfd shvbdlvhj dbvjbfljdh
-    dbhf vbdhfsvbf hbdfhjvdbv dvh
-    abfvhbdfs hbhjbv dhjdbv dhjbdf`,
-      imageUrl: 'https://www.w3schools.com/css/trolltunga.jpg',
+    dsfljvhbfd shvbdlvhj dbvjbfljdh`,
+      imageUrl: './assets/opportunities/2.png',
     },
     {
-      title: 'sjd cljs hvbfjh bdvhja', content: `saldhgvy usgsdgysafd
+      title: 'sjd cljs hvbfjh', content: `saldhgvy usgsdgysafd
     sau yfdgvyu agdvyagshdb
-     hrfjdsg iufergyewg uyeruyv er greyg urey iuh eqr
-     ery gery uerg uyervgffdbhjdf
-      erygv xuv uerygedf`,
-      imageUrl: `https://i.ytimg.com/vi/qh7LLydY8eo/maxresdefault.jpg`,
+     hrfjdsg iufergyewg`,
+      imageUrl: `./assets/opportunities/1.png`,
     },
   ];
   
