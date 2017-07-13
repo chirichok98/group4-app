@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { CandidateCardComponent } from './candidate.card.component';
+import { CandidateCardComponent } from './candidate-card.component';
 
 @NgModule({
   declarations: [CandidateCardComponent],
