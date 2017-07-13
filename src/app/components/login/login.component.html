@@ -1,11 +1,9 @@
 <form class="form col s12 m6 l6">
   <div class="form__item">
-    <label for="first_name" class="form__label">First Name</label>
-    <input placeholder="login" id="firstName" type="text" name="firstName" class="form__input validate">
+    <input #login type="text" placeholder="Login" class="form__input validate">
   </div>
   <div class="form__item">
-    <label for="password" class="form__label">Password</label>
-    <input placeholder="password" id="password" type="password" name="password" class="form__input validate">
+    <input #password placeholder="Password" type="password" class="form__input validate">
   </div>
-  <button class="btn waves-effect waves-light">Sign in</button>   
+  <button class="btn waves-effect waves-light" (click)="signIn()">Sign in</button>   
 </form>

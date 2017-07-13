@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SearchComponent } from './pages/search/search.component';
 import { ReportComponent } from './pages/report/report.component';
-import { ProfilesComponent } from './pages/profiles/profiles.component';
 
 export const routes: Routes = [
   {
@@ -19,18 +18,10 @@ export const routes: Routes = [
     path: 'report',
     component: ReportComponent,
   },
-  {
-    path: 'profiles',
-    component: ProfilesComponent
-  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    ],
-  exports: [
-    RouterModule,
-    ],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

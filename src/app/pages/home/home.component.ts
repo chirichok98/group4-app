@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { INavbarOption } from '../../components/navbar/navbar.component';
-import { IOpportunity } from '../../components/opportunity/opportunity.component';
+import { IDescribeBlock } from '../../components/describe-block/describe-block.component';
 
 @Component({
   selector: 'home',
@@ -11,12 +10,8 @@ import { IOpportunity } from '../../components/opportunity/opportunity.component
 })
 export class HomeComponent {
   loginTitle: string = 'Sign in';
-  routerConfig: INavbarOption[] = [
-    { name: 'CANDIDATES', stateName: 'candidates' },
-    { name: 'OPEN POSITIONS', stateName: 'vacancies' },
-    { name: 'NOTIFICATIONS', stateName: 'notifications' },
-  ];
-  opportunities: IOpportunity[] = [
+  
+  descriptions: IDescribeBlock[] = [
     {
       title: 'sidfvhf divbldsfh', content: `jldsh bldfhv
     dsfljvhbfd shvbdlvhj dbvjbfljdh`,
@@ -36,7 +31,4 @@ export class HomeComponent {
   onLogin(): void {
     this.router.navigate(['/profiles']);
   }
-
-
-
 }
