@@ -8,9 +8,7 @@ import { HRModule } from './hr/hr.module';
 import { StaffModule } from './staff/staff.module';
 
 @NgModule({
-  declarations: [
-    ProfilesComponent,
-  ],
+  declarations: [ProfilesComponent],
   imports: [
     BrowserModule,
     ProfilesRoutingModule,
@@ -18,6 +16,6 @@ import { StaffModule } from './staff/staff.module';
     HRModule,
     StaffModule,
   ],
-  providers: []
+  providers: [],
 })
 export class ProfilesModule { }
