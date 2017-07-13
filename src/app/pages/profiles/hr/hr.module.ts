@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { HRComponent } from './hr.component';
-import { HRRoutingModule } from './hr.state';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,6 @@ import { HRRoutingModule } from './hr.state';
   ],
   imports: [
     RouterModule,
-    HRRoutingModule,
   ],
   providers: [],
 })
