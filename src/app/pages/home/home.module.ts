@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home.state';
 import { HomeComponent } from './home.component';
+import { SloganModule } from '../../components/slogan/slogan.module';
 import { LoginFormModule } from '../../components/login/login.module';
 import { DescribeBlockModule } from '../../components/describe-block/describe-block.module';
-import { CandidateCardModule } from '../../components/candidate.card/candidate.card.module';
 // add HomeService
 
 @NgModule({
@@ -17,7 +17,7 @@ import { CandidateCardModule } from '../../components/candidate.card/candidate.c
     HomeRoutingModule,
     LoginFormModule,
     DescribeBlockModule,
-    CandidateCardModule,
+    SloganModule,
   ],
   providers: [/*HomeService*/],
 })
