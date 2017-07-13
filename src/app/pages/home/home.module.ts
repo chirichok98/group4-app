@@ -17,6 +17,7 @@ import { DescribeBlockModule } from '../../components/describe-block/describe-bl
     HomeRoutingModule,
     LoginFormModule,
     DescribeBlockModule,
+    SloganModule,
   ],
   providers: [/*HomeService*/],
 })
