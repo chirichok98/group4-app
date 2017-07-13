@@ -14,6 +14,8 @@ export interface INavbarOption {
 export class NavbarComponent implements OnInit {
   @Input() states: INavbarOption[];
   currentState: INavbarOption;
+  isSearchVisible: boolean = false;
+  isFilterVisible: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -31,9 +33,29 @@ export class NavbarComponent implements OnInit {
     if (this.currentState === this.states[index]) {
       classNames = 'active';
     }
-    if (index === 0) {
-      return `${classNames} navbar-elem col s4 m4 l4 center`;
-    }
-    return `${classNames} navbar-elem col s4 m4 l4 center`;
+    return `${classNames} navbar-elem`;
   }
+
+  showSearchForm(): void {
+    if (this.isFilterVisible) {
+      this.closeSearchForm();
+    }
+    this.isSearchVisible = !this.isSearchVisible;
+  }
+
+  closeSearchForm(): void {
+    this.isFilterVisible = !this.isFilterVisible;
+  }
+
+  showFilterForm(): void {
+    if (this.isSearchVisible) {
+      this.closeFilterForm();
+    }
+    this.isFilterVisible = !this.isFilterVisible;
+  }
+
+  closeFilterForm(): void {
+    this.isSearchVisible = !this.isSearchVisible;
+  }
+
 }
