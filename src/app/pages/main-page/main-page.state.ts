@@ -3,14 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainPageComponent } from './main-page.component';
 import { CandidatesComponent } from './candidates/candidates.component';
-import { OpenPositionsComponent } from './open-positions/open-positions.component';
-import { NotificationsComponent } from './notifications/notifications.component';
+import { OpenPositionsComponent } from './open-positions/open-positions.component'; 
+import { NotificationsComponent } from './notifications/notifications.component'; 
 
 const mainPageRoutes: Routes = [
   {
     path: 'main-page',
     component: MainPageComponent,
     children: [
+      {
+        path: '', 
+        redirectTo: 'candidates', 
+        pathMatch: 'full',
+      },    
       {
         path: 'candidates',
         component: CandidatesComponent,
