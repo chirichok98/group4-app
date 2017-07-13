@@ -1,10 +1,8 @@
 <div class="home-page">
-  <!--<navbar-menu [states]="routerConfig"></navbar-menu>-->
-
   <div class="row">
     <login-form></login-form>
   </div>
   <div>
-    <opportunity *ngFor="let opp of opportunities" [opportunity]="opp"></opportunity>
+    <describe-block *ngFor="let item of descriptions" [description]="item"></describe-block>
   </div>
 </div>
