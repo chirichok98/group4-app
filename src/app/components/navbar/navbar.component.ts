@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
   goTo(newState: INavbarOption): void {
     this.currentState = newState;
-    this.router.navigate([`../${this.currentState.stateName}`], { relativeTo: this.route });
+    this.router.navigate([`./main-page/${this.currentState.stateName}`]);
   }
 
   getStyleByIndex(index: number): string {
