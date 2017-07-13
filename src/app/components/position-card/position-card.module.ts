@@ -8,4 +8,4 @@ import { PositionPreviewComponent } from './position-card.component';
   imports: [],
   providers: [],
 })
-export class PositionModule { }
+export class PositionPreviewModule { }

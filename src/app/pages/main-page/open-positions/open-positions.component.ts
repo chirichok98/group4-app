@@ -4,7 +4,8 @@ import { IPositionPreviewItem } from '../../../components/position-card/position
 
 @Component({
   selector: 'open-positions',
-  templateUrl: 'open-positions.component.html',
+  templateUrl: './open-positions.component.html',
+  styleUrls: ['./open-positions.component.scss'],
 })
 
 export class OpenPositionsComponent implements OnInit {
