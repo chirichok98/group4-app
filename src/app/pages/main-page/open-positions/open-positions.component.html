@@ -1,2 +1,3 @@
-<h1>You are at open open positions page</h1>
-<position></position>
+<div>
+    <position-card *ngFor="let item of positions" [positionItem]="item"></position-card>
+</div>
