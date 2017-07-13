@@ -20,7 +20,11 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.currentState = this.states[0];
+    const url: string = this.router.url;
+    const start: number = url.lastIndexOf('/');
+    const stateName: string = this.router.url.substring(start + 1);
+    const state = this.states.find(item => item.stateName === stateName);
+    this.currentState = state;
   }
 
   goTo(newState: INavbarOption): void {
