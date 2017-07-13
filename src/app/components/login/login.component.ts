@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-form',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginFormComponent {
-  
- }
+  constructor(private router: Router) { }
+
+  signIn(): void {
+    this.router.navigate([`../main-page`]);
+  }
+}

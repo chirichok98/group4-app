@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home.state';
 import { HomeComponent } from './home.component';
 import { LoginFormModule } from '../../components/login/login.module';
 import { DescribeBlockModule } from '../../components/describe-block/describe-block.module';
-import { CandidateCardModule } from '../../components/candidate.card/candidate.card.module';
 // add HomeService
 
 @NgModule({
@@ -17,7 +16,6 @@ import { CandidateCardModule } from '../../components/candidate.card/candidate.c
     HomeRoutingModule,
     LoginFormModule,
     DescribeBlockModule,
-    CandidateCardModule,
   ],
   providers: [/*HomeService*/],
 })
