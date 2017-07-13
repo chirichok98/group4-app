@@ -1,7 +1,11 @@
 <div class="home-page">
-  <div class="row">
-    <slogan></slogan>
-    <login-form></login-form>
+  <div class="row slogan-login-wrapper">
+    <div class="col l6 m6 s12">
+        <slogan class="slogan"></slogan>
+    </div>
+    <div class="col s12 m6 l6">
+      <login-form class="form"></login-form>
+    </div>
   </div>
   <div>
     <describe-block *ngFor="let item of descriptions" [description]="item"></describe-block>

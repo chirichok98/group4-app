@@ -1,10 +1,38 @@
 .slogan__inner {
     font-weight: bold;
-    height: 246px;
     text-transform: uppercase;
-    font-size: 2.5rem;
-    padding: 50px;
+    font-size: 2.3em;
     color: #273248;
     font-style: italic;
     font-family: serif;
+    text-align: center;
+    padding: 0 15%;
+}
+/* Large devices only */
+@media (min-width: 1560px) {
+	.slogan__inner {
+		font-size: 2.3rem;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1559px) {
+	.slogan__inner {
+        font-size: 2rem;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+ 	.slogan__inner {
+         font-size: 1.8rem;
+     }
+}
+@media (max-width: 767px) {
+	.slogan__inner {
+        font-size: 1.4rem;
+    }
+}
+
+/* Super extra smal devices only (e.g., iPhone 4) */
+@media (max-width: 479px) {
+    .slogan__inner {
+        font-size: 1rem;
+    }
 }
