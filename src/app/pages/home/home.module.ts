@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home.state';
 import { HomeComponent } from './home.component';
+import { SloganModule } from '../../components/slogan/slogan.module';
 import { LoginFormModule } from '../../components/login/login.module';
 import { NavbarModule } from '../../components/navbar/navbar.module';
 import { OpportunityModule } from '../../components/opportunity/opportunity.module';
@@ -20,6 +21,7 @@ import { CandidateCardModule } from '../../components/candidate.card/candidate.c
     NavbarModule,
     OpportunityModule,
     CandidateCardModule,
+    SloganModule,
   ],
   providers: [/*HomeService*/],
 })
