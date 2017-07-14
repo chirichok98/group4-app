@@ -13,14 +13,11 @@ export class HomeComponent {
   
   descriptions: IDescribeBlock[] = [
     {
-      title: 'sidfvhf divbldsfh', content: `jldsh bldfhv
-    dsfljvhbfd shvbdlvhj dbvjbfljdh`,
+      title: 'What KnowBase Is?', content: `KnowBase is a multi-component software tool designed to automate and facilitate the processes involved in finding, attracting, assessing, interviewing and hiring new personnel.`,
       imageUrl: './assets/opportunities/2.png',
     },
     {
-      title: 'sjd cljs hvbfjh', content: `saldhgvy usgsdgysafd
-    sau yfdgvyu agdvyagshdb
-     hrfjdsg iufergyewg`,
+      title: 'Main Features Include', content: `A user-friendly interface Data warehousing Applicant and job tracking Report generation software`,
       imageUrl: `./assets/opportunities/1.png`,
     },
   ];
