@@ -13,13 +13,17 @@ export class HomeComponent {
   
   descriptions: IDescribeBlock[] = [
     {
-      title: 'What KnowBase Is?', content: `KnowBase is a multi-component software tool designed to automate and facilitate the processes involved in finding, attracting, assessing, interviewing and hiring new personnel.`,
-      imageUrl: './assets/opportunities/2.png',
+      title: 'Сontemporary', content: `Only modern and high-quality technologies have been used for development, which simplifies the work with the system in the near future.`,
+      imageUrl: './assets/opportunities/buildings_medium2.png',
     },
     {
-      title: 'Main Features Include', content: `A user-friendly interface Data warehousing Applicant and job tracking Report generation software`,
-      imageUrl: `./assets/opportunities/1.png`,
+      title: 'Minimalistic', content: `Popular, comfortable and familiar design.`,
+      imageUrl: `./assets/opportunities/minimalism_medium.png`,
     },
+    {
+      title: 'Secure', content: `We were able to provide a sufficient level of security. So, the company's employees may not worry.`,
+      imageUrl: `./assets/opportunities/lock_medium.png`,
+    },  
   ];
   
   constructor(private router: Router) {
