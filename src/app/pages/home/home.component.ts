@@ -18,7 +18,7 @@ export class HomeComponent {
     },
     {
       title: 'Minimalistic', content: `Popular, comfortable and familiar design.`,
-      imageUrl: `./assets/opportunities/minimalistic/minimalistic3.png`,
+      imageUrl: `./assets/opportunities/minimalistic3.png`,
     },
     {
       title: 'Secure', content: `We were able to provide a sufficient level of security. So, the company's employees may not worry.`,
