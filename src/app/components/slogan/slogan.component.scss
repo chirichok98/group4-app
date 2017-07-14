@@ -1,38 +1,50 @@
-.slogan__inner {
+.tagline_container {
+    background-color: #526C7B;
+    transform: rotate(1.2deg);
+    margin-right: 1.8rem;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.tagline_inner {
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 2.3em;
-    color: #273248;
-    font-style: italic;
-    font-family: serif;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    font-style: bold;
+    font-family: "Roboto Slab";
     text-align: center;
-    padding: 0 15%;
+    padding: 2% 2%;
+    transform: rotate(-1.2deg);
+    margin-right: 1.6rem;
+}
+
+.blue {
+    color: #56CCF2;
 }
 /* Large devices only */
 @media (min-width: 1560px) {
-	.slogan__inner {
-		font-size: 2.3rem;
+	.tagline_inner {
+		font-size: 1.6rem;
 	}
 }
 @media (min-width: 1024px) and (max-width: 1559px) {
-	.slogan__inner {
-        font-size: 2rem;
+	.tagline_inner {
+        font-size: 1.2rem;
     }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
- 	.slogan__inner {
-         font-size: 1.8rem;
+ 	.tagline_inner {
+         font-size: 1rem;
      }
 }
 @media (max-width: 767px) {
-	.slogan__inner {
-        font-size: 1.4rem;
+	.tagline_inner {
+        font-size: 0.8rem;
     }
 }
 
 /* Super extra smal devices only (e.g., iPhone 4) */
 @media (max-width: 479px) {
-    .slogan__inner {
-        font-size: 1rem;
+    .tagline_inner {
+        font-size: 0.6rem;
     }
 }
