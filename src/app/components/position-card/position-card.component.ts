@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface IPositionPreviewItem {
+  id: number;
   vacancy: string;
   city: string;
   creationDate: Date;
