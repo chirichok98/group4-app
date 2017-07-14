@@ -1,13 +1,8 @@
 .position {
     margin-top: 1rem; 
 
-    width: 15rem;
-    height: 15rem;
-    
-    display: flex;
-    
-    flex-direction: column;
-    justify-content: center;
+    width: 19rem;
+    height: 10rem;
     
     color: #424242;
 }
@@ -18,26 +13,28 @@
 }
 
 .position-container {
+    display: flex;
     
-    padding: 1rem;
-    min-height: 15rem;
-    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 0.5rem;
+    height: 10rem;
+
     background-color: #fff;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
+
 .position-container .position-img {
-    display: flex;
-    justify-content: center;
-    height: 6rem;
+    align-content: center;
+    height: 5rem;
 }
-.position-container img {
-    border-radius: 0;   
+.position-container img {  
     margin: 0 auto;
 }
-.position-container .position-text {
-     display: flex;
-     justify-content: center; 
-     font-size: 1.2rem;
+.position-container .position-vacancy {
+     text-align: center;
+     align-content: center;
 }
 
 .add-info {
