@@ -1,14 +1,14 @@
 .card {
-    width: 50%;
+    width: 100%;
     border-radius: 0;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     padding: 15px;
     color: #000;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0;
 }
 .card .card-image {
-    display: flex;
     width: 100px;
     height: 100px;
 }
