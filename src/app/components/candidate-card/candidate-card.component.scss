@@ -18,12 +18,11 @@
 }
 .card-content .name {
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
-.card-content .email {
-    background: url("../../../assets/mail.png") no-repeat left;
-    padding-left: 30px;
-}
-.card-content .phone {
-    background: url("../../../assets/phone.png") no-repeat left;
-    padding-left: 30px;
+.card-content .material-icons {
+    color: #526c7b;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 1.5rem;
 }
