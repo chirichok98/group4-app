@@ -1,16 +1,26 @@
 .page-footer {
   background-color: #273248;
-  padding: 20px;
-  display: flex;
+  padding: 2rem;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 500;
+  color: #fff;
 
   &__inner {
-    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
   }
 }
-.footer-copyright {
-    margin: 0 auto;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 500;
+.page-footer-social {
+  margin-right: 0;
+}
+.page-footer-social li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.page-footer-copyright {
+    font-weight: bold;
     color: #fff;
 }
