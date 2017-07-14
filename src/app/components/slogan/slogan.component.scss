@@ -20,6 +20,13 @@
 .blue {
     color: #56CCF2;
 }
+
+p::selection {
+    color: #FFFFFF;
+}
+span::selection {
+    color: #56CCF2;
+}
 /* Large devices only */
 @media (min-width: 1560px) {
 	.tagline_inner {

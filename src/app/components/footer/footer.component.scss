@@ -22,5 +22,21 @@
 }
 .page-footer-copyright {
     font-weight: bold;
-    color: #fff;
+    color: #FFFFFF;
+}
+
+span::selection {
+  color: #FFFFFF;
+}
+
+img::selection {
+  color: transparent;
+}
+
+ul::selection {
+  color: transparent;
+}
+
+div::selection {
+  color: #56CCF2; 
 }

@@ -19,3 +19,25 @@
   width: auto;
   height: auto;
 }
+
+.title {
+  font-family: "Roboto Slab";
+   color:#526C7B;
+   font-size: 2rem;
+}
+p {
+  color: #273248;
+  font-size: 1.2rem;
+}
+
+p::selection {
+  color: #56CCF2;
+}
+h4::selection {
+  color: #56CCF2;
+}
+img::selection {
+  color: transparent;
+}
+
+describe-block {}
