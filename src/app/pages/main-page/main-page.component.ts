@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { INavbarOption } from '../../components/navbar/navbar.component';
 
 @Component({
-  selector: 'main-page',
+  selector: 'main',
   templateUrl: 'main-page.component.html',
   styleUrls: ['main-page.component.scss'],
 })
