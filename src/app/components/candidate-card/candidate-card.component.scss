@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 15px;
+    padding: 0.5rem 2rem;
     color: #000;
     margin: 0.5rem 0 0;
 }
@@ -13,7 +13,7 @@
     height: 100px;
 }
 .card-image img {
-    border-radius: 0;   
+    border-radius: 50%;   
     margin: auto;
 }
 .card-content .name {
