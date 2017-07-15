@@ -33,3 +33,7 @@
 .form .btn:focus {
 	background-color: #56CCF2;
 }
+
+input::selection {
+	color: #56CCF2;
+}

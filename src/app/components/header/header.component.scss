@@ -1,6 +1,6 @@
 .page-header {
   background-color: #273248;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   &__inner {
     display: flex;
     align-items: center;
@@ -10,8 +10,8 @@
 }
 
 //user info
-.user-info { 
-  text-align: center; 
+.user-info {
+  text-align: center;
   &__photo-wrap {
     display: inline-block;
     width: 3rem;
@@ -35,8 +35,16 @@
   padding-right: 40px;
   box-sizing: content-box;
   &__img {
-    display: block; 
+    display: block;
     width: 100%;
     min-width: 100px;
   }
+}
+
+img::selection {
+  color: transparent;
+}
+
+div::selection {
+  color: #56CCF2;
 }
