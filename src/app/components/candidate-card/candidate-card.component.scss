@@ -27,3 +27,15 @@
     vertical-align: middle;
     font-size: 1.5rem;
 }
+
+img::selection {
+	color: transparent;
+}
+
+div::selection {
+	color: #56CCF2;
+}
+
+i::selection {
+	color: #526C7B;
+}
