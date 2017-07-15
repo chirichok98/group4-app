@@ -13,7 +13,7 @@ export class HomeComponent {
   
   descriptions: IDescribeBlock[] = [
     {
-      title: 'Сontemporary', content: `Only modern and high-quality technologies have been used for development, which simplifies the work with the system in the near future.`,
+      title: 'Contemporary', content: `Only modern and high-quality technologies have been used for development, which simplifies the work with the system in the near future.`,
       imageUrl: './assets/opportunities/buildings8.png',
     },
     {
