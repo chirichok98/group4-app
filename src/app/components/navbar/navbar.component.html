@@ -1,12 +1,12 @@
 <div class="navbar z-depth-2">
   <div class="navbar-row">
     <!--i class="navbar-icon material-icons" [ngClass]="{active: isSearchVisible}" (click)="showSearchForm()">search</i-->
-    <img class="nb-icon" src=".../../../assets/search6.png" [ngClass]="{active: isSearchVisible}" (click)="showSearchForm()">
+    <img class="nb-icon" src=".../../../assets/search9.png" [ngClass]="{active: isSearchVisible}" (click)="showSearchForm()">
     <div class="navbar-states">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</div>
     </div>
     <!--i class="navbar-icon material-icons" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">filter_list</i-->
-    <img class="nb-icon" src=".../../../assets/filter2.png" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">
+    <img class="nb-icon" src=".../../../assets/filter16.png" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">
   </div>
 </div>
 <search-panel [hidden]="!isSearchVisible"></search-panel>
