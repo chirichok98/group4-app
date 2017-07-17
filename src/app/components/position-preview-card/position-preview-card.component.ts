@@ -11,9 +11,9 @@ export interface IPositionPreviewItem {
 }
 
 @Component({
-  selector: 'position-card',
-  templateUrl: './position-card.component.html',
-  styleUrls: ['./position-card.component.scss'],
+  selector: 'position-preview-card',
+  templateUrl: 'position-preview-card.component.html',
+  styleUrls: ['position-preview-card.component.scss'],
 })
 export class PositionPreviewComponent {
   @Input() positionItem: IPositionPreviewItem;
