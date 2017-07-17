@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
-// tslint:disable-next-line:max-line-length
-import { IPositionPreviewItem } from '../../../../components/position-preview-card/position-preview-card.component';
+import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 
-
-const positions: IPositionPreviewItem[] = [
+const positions: IPositionPreview[] = [
   {
     id: 1,
     projectName: 'Future Factors Executive',
@@ -59,11 +57,11 @@ const positions: IPositionPreviewItem[] = [
 export class PositionsListService {
   constructor() { }
 
-  getAllPositions(): Promise<IPositionPreviewItem[]> {
+  getAllPositions(): Promise<IPositionPreview[]> {
     return Promise.resolve(positions);
   }
 
-  getPositionsSlowly(): Promise<IPositionPreviewItem[]> {
+  getPositionsSlowly(): Promise<IPositionPreview[]> {
     return new Promise((res: any) => setTimeout(() => res(this.getAllPositions()), 1000));
   }
 }
