@@ -9,6 +9,7 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { PositionsListModule } from './open-positions/positions-list/positions-list.module';
 // tslint:disable-next-line:max-line-length
 import { PositionsListItemModule } from './open-positions/positions-list-item/positions-list-item.module';
+import { OpenPositionsModule } from './open-positions/open-positions.module';
 
 @NgModule({
   imports: [
@@ -16,8 +17,7 @@ import { PositionsListItemModule } from './open-positions/positions-list-item/po
     MainPageRoutingModule,
     NavbarModule,
     CandidatesModule,
-    PositionsListModule,
-    PositionsListItemModule,
+    OpenPositionsModule,
     NotificationsModule,
   ],
   exports: [],

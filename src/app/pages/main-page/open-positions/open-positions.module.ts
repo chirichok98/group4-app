@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OpenPositionsComponent } from './open-positions.component';
-import { PositionPreviewModule } from '../../../components/position-card/position-card.module';
+import { PositionsListModule } from './positions-list/positions-list.module';
+import { PositionsListItemModule } from './positions-list-item/positions-list-item.module';
 
 @NgModule({
   imports: [
-    PositionPreviewModule,
+    PositionsListModule,
+    PositionsListItemModule,
     CommonModule,
   ],
   exports: [],

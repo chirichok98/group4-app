@@ -25,6 +25,6 @@ export class PositionPreviewComponent {
   }
 
   goToDetailView() {
-    this.router.navigate([`/vacancies`, this.currentItem.id]);
+    this.router.navigate([`main-page/vacancies`, this.currentItem.id]);
   }
 }

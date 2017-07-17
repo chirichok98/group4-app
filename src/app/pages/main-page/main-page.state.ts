@@ -7,6 +7,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { PositionsListComponent } from './open-positions/positions-list/positions-list.component';
 // tslint:disable-next-line:max-line-length
 import { PositionsListItemComponent } from './open-positions/positions-list-item/positions-list-item.component';
+import { OpenPositionsComponent } from './open-positions/open-positions.component';
 
 const mainPageRoutes: Routes = [
   {
@@ -24,6 +25,7 @@ const mainPageRoutes: Routes = [
       },
       {
         path: 'vacancies',
+        component: OpenPositionsComponent,
         children: [
           {
             path: ':id',
