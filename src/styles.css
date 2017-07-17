@@ -1,7 +1,7 @@
 html {
   font-size: 20px;
   height: 100%;
-  cursor: url('/assets/cursor/defeult.png'), default;
+  cursor: url('/assets/cursor/default_end.png'), default;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   background-color: #e8e8e8;
   width: 100%;
   margin: 0 auto;
-  cursor: url('/assets/cursor/defeult.png'), default;
+  cursor: url('/assets/cursor/default_end.png'), default;
 }
 
 body>.row,
@@ -48,21 +48,18 @@ home {
   background: #273248;
   /*526C7B*/
   opacity: 0.6;
-  cursor: url('/assets/cursor/defeult.png'), default;
 }
 
 ::-webkit-scrollbar-track {
   /*Other*/
   border-radius: 2vw;
   box-shadow: inset 0 0 0 0.1vh rgba(0, 0, 0, 0.3);
-  cursor: url('/assets/cursor/defeult.png'), default;
 }
 
 ::-webkit-scrollbar-track-piece {
   /*Other*/
   border-radius: 2vw;
   opacity: 0.5;
-  cursor: url('/assets/cursor/defeult.png'), default;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -71,5 +68,4 @@ home {
   box-shadow: inset 0 0 0 0.02vh rgba(0, 0, 0, 0.5);
   box-shadow: 0vw 0vw 0.1vw #5c2a00, 0vw 0vw 0.01vw #5c2a00;
   border-radius: 0.3vw;
-  cursor: url('/assets/cursor/defeult.png'), default;
 }
