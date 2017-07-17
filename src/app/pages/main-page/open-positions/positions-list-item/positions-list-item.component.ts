@@ -11,6 +11,7 @@ export class PositionsListItemComponent implements OnInit {
   positions: IPositionPreviewItem[] = [
     {
       id: 1,
+      projectName: 'Future Factors Executive',
       vacancy: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
@@ -18,6 +19,7 @@ export class PositionsListItemComponent implements OnInit {
     },
     {
       id: 2,
+      projectName: 'Future Factors Executive',
       vacancy: 'Senior JS Developer',
       city: 'Vitebsk',
       creationDate: new Date(2017, 1, 2),
@@ -25,6 +27,7 @@ export class PositionsListItemComponent implements OnInit {
     },
     {
       id: 3,
+      projectName: 'Future Factors Executive',
       vacancy: 'Middle DotNet Developer',
       city: 'Vilnus',
       creationDate: new Date(2017, 3, 1),
@@ -32,6 +35,7 @@ export class PositionsListItemComponent implements OnInit {
     },
     {
       id: 4,
+      projectName: 'Future Factors Executive',
       vacancy: 'Junior JS Developer',
       city: 'San-Francisco',
       creationDate: new Date(2017, 0, 15),
@@ -39,6 +43,7 @@ export class PositionsListItemComponent implements OnInit {
     },
     {
       id: 5,
+      projectName: 'Future Factors Executive',
       vacancy: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
@@ -46,6 +51,7 @@ export class PositionsListItemComponent implements OnInit {
     },
     {
       id: 6,
+      projectName: 'Future Factors Executive',
       vacancy: 'Junior JS Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 3, 21),
