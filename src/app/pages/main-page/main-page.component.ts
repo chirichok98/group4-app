@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { INavbarOption } from '../../components/navbar/navbar.component';
+import { INavbarOption } from '../../interfaces/INavbarOption';
 
 @Component({
   selector: 'main',
