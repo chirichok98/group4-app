@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MainPageComponent } from './main-page.component';
 import { CandidatesComponent } from './candidates/candidates.component';
-import { OpenPositionsComponent } from './open-positions/open-positions.component'; 
-import { NotificationsComponent } from './notifications/notifications.component'; 
+import { NotificationsComponent } from './notifications/notifications.component';
+import { PositionsListComponent } from './open-positions/positions-list/positions-list.component';
+// tslint:disable-next-line:max-line-length
+import { PositionsListItemComponent } from './open-positions/positions-list-item/positions-list-item.component';
 
 const mainPageRoutes: Routes = [
   {
@@ -12,17 +14,26 @@ const mainPageRoutes: Routes = [
     component: MainPageComponent,
     children: [
       {
-        path: '', 
-        redirectTo: 'candidates', 
+        path: '',
+        redirectTo: 'candidates',
         pathMatch: 'full',
-      },    
+      },
       {
         path: 'candidates',
         component: CandidatesComponent,
       },
       {
         path: 'vacancies',
-        component: OpenPositionsComponent,
+        children: [
+          {
+            path: ':id',
+            component: PositionsListItemComponent,
+          },
+          {
+            path: '',
+            component: PositionsListComponent,
+          },
+        ],
       },
       {
         path: 'notifications',

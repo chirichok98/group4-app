@@ -1,4 +1,4 @@
-<div class="position" data-id={{currentItem.id}}>
+<div class="position" data-id={{currentItem.id}} (click)=goToDetailView()>
     <div class="position-container">
         <img class="position-img" [src]="currentItem.imageUrl">
         <div class="position-vacancy">{{currentItem.vacancy}}</div>
