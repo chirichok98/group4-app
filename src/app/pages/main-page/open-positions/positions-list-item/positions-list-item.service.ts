@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { IPositionDetail } from '../../../../interfaces/IPositionDetail';
 
@@ -24,5 +25,14 @@ const positions: IPositionDetail[] = [
 
 @Injectable()
 export class PositionsListItemService {
+  currentPositionId: number;
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe((params: ParamMap) => {
+      this.currentPositionId = +params['id'];
+    });
+  }
 
+  getPositionById() {
+    return Promise.resolve(positions.find(i => i.id === this.currentPositionId));
+  }
 }
