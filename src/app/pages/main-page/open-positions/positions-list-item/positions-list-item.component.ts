@@ -47,7 +47,7 @@ export class PositionsListItemComponent implements OnInit {
       vacancy: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/net2.png',
     },
     {
       id: 6,
@@ -55,7 +55,7 @@ export class PositionsListItemComponent implements OnInit {
       vacancy: 'Junior JS Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 3, 21),
-      imageUrl: './assets/languages-icons/js-logo.png',
+      imageUrl: './assets/languages-icons/js2.png',
     },
   ];
 
