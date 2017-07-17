@@ -1,2 +1,4 @@
 <h1>You are at open notifications page</h1>
-<notification></notification>
+<div>
+    <notification *ngFor="let item of notifications" [notification]="item"></notification>
+</div>
