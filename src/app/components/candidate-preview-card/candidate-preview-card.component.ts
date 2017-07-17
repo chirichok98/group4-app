@@ -10,8 +10,8 @@ export interface ICandidatePreview {
 
 @Component({
   selector: 'candidate-card',
-  templateUrl: './candidate-card.component.html',
-  styleUrls: ['./candidate-card.component.scss'],
+  templateUrl: 'candidate-preview-card.component.html',
+  styleUrls: ['candidate-preview-card.component.scss'],
 })
 export class CandidateCardComponent implements OnInit {
   @Input() candidateItem: ICandidatePreview;
