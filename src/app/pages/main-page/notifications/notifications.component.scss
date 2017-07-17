@@ -1,6 +1,35 @@
-h1 {
-    font-size: 1rem;
-    line-height: 1rem;
-    margin: 0;
-    display: none;
+.notifications-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 0.5rem;
+}
+.notifications-indicators .indicator-wrapper {
+    display: flex;
+    align-items: center;
+}
+.notifications-indicators .indicator-color {
+    font-size: 0;
+    height: 1rem;
+    padding: 0;
+    width: 1.5rem;
+    margin: 10px;
+}
+.notifications-indicators .indicator-meaning{
+    text-transform: uppercase;
+    font-size: 0.6rem;
+}
+.notifications-indicators .reminders .indicator-color {
+    background-color: #FF9999;
+}
+.notifications-indicators .news .indicator-color {
+    background-color: #66FF66;
+}
+.notifications-indicators .assignments .indicator-color {
+    background-color: #ffff8c;
+}
+.notifications-wrapper {
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    margin-top: 0.5rem;
 }

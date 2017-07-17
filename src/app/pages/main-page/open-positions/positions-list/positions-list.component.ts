@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IPositionPreviewItem } from '../../../../components/position-card/position-card.component';
 import { PositionsListService } from './positions-list.service';
+import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 
 @Component({
   selector: 'positions-list',
@@ -10,7 +10,7 @@ import { PositionsListService } from './positions-list.service';
 })
 
 export class PositionsListComponent implements OnInit {
-  positions: IPositionPreviewItem[];
+  positions: IPositionPreview[];
 
   constructor(private plService: PositionsListService) { }
 

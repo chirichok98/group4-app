@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ICandidatePreview } from '../../../../components/candidate-card/candidate-card.component';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 
 @Component({
   selector: 'candidates-list-item',
@@ -12,40 +12,52 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CandidatesListItemComponent implements OnInit {
   candidates: ICandidatePreview[] = [
     {
-      name: 'Vladislav Popov',
+      id: 1,
+      firstName: 'Vladislav',
+      lastName: 'Popov',
       email: 'vladislav@mail.ru',
       phoneNumber: '+375291548745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
-      name: 'Nikita Nikitin',
+      id: 2,
+      firstName: 'Nikita',
+      lastName: 'Nikitin',
       email: 'vldgfsd@mail.ru',
       phoneNumber: '+375291124745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
-      name: 'Artem Krotov',
+      id: 3,
+      firstName: 'Artem',
+      lastName: 'Krotov',
       email: 'artem@mail.ru',
       phoneNumber: '+375257848745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
-      name: 'Stanislav Popov',
+      id: 4,
+      firstName: 'Stanislav',
+      lastName: 'Popov',
       email: 'stanislav@mail.ru',
       phoneNumber: '+375257845145',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
-      name: 'Aleksei Pronin',
+      id: 5,
+      firstName: 'Aleksei',
+      lastName: 'Pronin',
       email: 'aleksei@mail.ru',
       phoneNumber: '+375254788745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
-      name: 'Vladislav Popov',
+      id: 6,
+      firstName: 'Vladislav',
+      lastName: 'Popov',
       email: 'vladislav@mail.ru',
       phoneNumber: '+375291548745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
   ];
 
@@ -55,7 +67,7 @@ export class CandidatesListItemComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: ParamMap) => {
-      this.currentCandidate = this.candidates.find(item => item.name === params['name']);
+      this.currentCandidate = this.candidates.find(item => item.id === +params['id']);
     });
   }
 }

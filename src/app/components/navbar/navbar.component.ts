@@ -1,10 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-export interface INavbarOption {
-  name: string;
-  stateName: string;
-}
+import { INavbarOption } from '../../interfaces/INavbarOption';
 
 @Component({
   selector: 'navbar-menu',
@@ -20,9 +17,15 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const url: string = this.router.url;
-    const start: number = url.lastIndexOf('/');
-    const stateName: string = this.router.url.substring(start + 1);
+    const url: string = this.router.url.substring(1);
+    const start: number = url.indexOf('/');
+    const end: number = url.lastIndexOf('/');
+    let stateName: string;
+    if (start === end) {
+      stateName = url.substring(start + 1);
+    } else {
+      stateName = url.substring(start + 1, end);
+    }
     const state = this.states.find(item => item.stateName === stateName);
     this.currentState = state;
   }

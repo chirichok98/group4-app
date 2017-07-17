@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { IPositionPreviewItem } from '../../../../components/position-card/position-card.component';
+// tslint:disable-next-line:max-line-length
+import { IPositionPreviewItem } from '../../../../components/position-preview-card/position-preview-card.component';
 
 
 const positions: IPositionPreviewItem[] = [
   {
     id: 1,
     projectName: 'Future Factors Executive',
-    vacancy: 'Junior DotNet Developer',
+    vacancyName: 'Junior DotNet Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 0, 1),
     imageUrl: './assets/languages-icons/dotnet-logo.png',
@@ -15,7 +16,7 @@ const positions: IPositionPreviewItem[] = [
   {
     id: 2,
     projectName: 'Future Factors Executive',
-    vacancy: 'Senior JS Developer',
+    vacancyName: 'Senior JS Developer',
     city: 'Vitebsk',
     creationDate: new Date(2017, 1, 2),
     imageUrl: './assets/languages-icons/js-logo.png',
@@ -23,7 +24,7 @@ const positions: IPositionPreviewItem[] = [
   {
     id: 3,
     projectName: 'Future Factors Executive',
-    vacancy: 'Middle DotNet Developer',
+    vacancyName: 'Middle DotNet Developer',
     city: 'Vilnus',
     creationDate: new Date(2017, 3, 1),
     imageUrl: './assets/languages-icons/dotnet-logo.png',
@@ -31,7 +32,7 @@ const positions: IPositionPreviewItem[] = [
   {
     id: 4,
     projectName: 'Future Factors Executive',
-    vacancy: 'Junior JS Developer',
+    vacancyName: 'Junior JS Developer',
     city: 'San-Francisco',
     creationDate: new Date(2017, 0, 15),
     imageUrl: './assets/languages-icons/js-logo.png',
@@ -39,7 +40,7 @@ const positions: IPositionPreviewItem[] = [
   {
     id: 5,
     projectName: 'Future Factors Executive',
-    vacancy: 'Junior DotNet Developer',
+    vacancyName: 'Junior DotNet Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 0, 1),
     imageUrl: './assets/languages-icons/dotnet-logo.png',
@@ -47,7 +48,7 @@ const positions: IPositionPreviewItem[] = [
   {
     id: 6,
     projectName: 'Future Factors Executive',
-    vacancy: 'Junior JS Developer',
+    vacancyName: 'Junior JS Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 3, 21),
     imageUrl: './assets/languages-icons/js-logo.png',
@@ -60,5 +61,9 @@ export class PositionsListService {
 
   getAllPositions(): Promise<IPositionPreviewItem[]> {
     return Promise.resolve(positions);
+  }
+
+  getPositionsSlowly(): Promise<IPositionPreviewItem[]> {
+    return new Promise((res: any) => setTimeout(() => res(this.getAllPositions()), 1000));
   }
 }

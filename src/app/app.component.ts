@@ -6,7 +6,4 @@ import { routes } from './app-routing.module';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-
-export class AppComponent {
-  title = 'app';
-}
+export class AppComponent { }

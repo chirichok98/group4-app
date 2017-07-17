@@ -1,14 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface ICandidatePreview {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  imageUrl: string;
-}
+import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 
 @Component({
   selector: 'candidate-card',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-// tslint:disable-next-line:max-line-length
-import { NotificationOption, NotificationType } from '../../../components/notification/notification.component';
+import { INotificationOption } from '../../../interfaces/INotificationOption';
+import { NotificationType } from '../../../components/notification/notification.component';
 
 @Component({
   selector: 'notifications',
@@ -10,7 +10,7 @@ import { NotificationOption, NotificationType } from '../../../components/notifi
 })
 
 export class NotificationsComponent implements OnInit {
-  notifications: NotificationOption[] = [
+  notifications: INotificationOption[] = [
     {
       type: NotificationType[NotificationType.Reminders],
       date: new Date(2017, 7, 16),
@@ -30,6 +30,11 @@ export class NotificationsComponent implements OnInit {
       type: NotificationType[NotificationType.Assignments],
       date: new Date(2017, 7, 10),
       description: 'Natasha assigned the Vladislav Popov candidate to you',
+    },
+    {
+      type: NotificationType[NotificationType.News],
+      date: new Date(2017, 6, 14),
+      description: 'You created the new candidate card for Artem Krotov',
     },
   ];
   constructor() { }

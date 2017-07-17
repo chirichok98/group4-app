@@ -1,10 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-export interface IDescribeBlock {
-  title: string;
-  content: string;
-  imageUrl: string; 
-}
+import { IDescribeBlock } from '../../interfaces/IDescribeBlock';
 
 @Component({
   selector: 'describe-block',
