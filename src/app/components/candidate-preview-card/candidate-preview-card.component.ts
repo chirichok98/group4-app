@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface ICandidatePreview {
-  name: string;
+  id: number;
+  firstName: string;
+  lastName: string;
   email: string;
   phoneNumber: string;
   imageUrl: string;
@@ -24,6 +26,6 @@ export class CandidatePreviewComponent implements OnInit {
   }
 
   goToDetailView() {
-    this.router.navigate(['main-page/candidates', this.curCandidate.name]);
+    this.router.navigate(['main-page/candidates', this.curCandidate.id]);
   }
 }
