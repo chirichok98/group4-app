@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CandidatesComponent } from './candidates.component';
-import { CandidateCardModule } from '../../../components/candidate-card/candidate-card.module';
+import { CandidatesListModule } from './candidates-list/candidates-list.module';
+import { CandidatesListItemModule } from './candidates-list-item/candidates-list-item.module';
 
 @NgModule({
   imports: [
-    CandidateCardModule,
-    CommonModule,
+    CandidatesListModule,
+    CandidatesListItemModule,
   ],
   exports: [],
   declarations: [CandidatesComponent],
