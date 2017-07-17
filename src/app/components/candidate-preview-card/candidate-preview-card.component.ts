@@ -13,7 +13,7 @@ export interface ICandidatePreview {
   templateUrl: 'candidate-preview-card.component.html',
   styleUrls: ['candidate-preview-card.component.scss'],
 })
-export class CandidateCardComponent implements OnInit {
+export class CandidatePreviewComponent implements OnInit {
   @Input() candidateItem: ICandidatePreview;
   curCandidate: ICandidatePreview;
 

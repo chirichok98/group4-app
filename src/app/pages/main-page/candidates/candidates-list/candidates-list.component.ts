@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ICandidatePreview } from '../../../../components/candidate-card/candidate-card.component';
+// tslint:disable-next-line:max-line-length
+import { ICandidatePreview } from '../../../../components/candidate-preview-card/candidate-preview-card.component';
 
 @Component({
   selector: 'candidates-list',

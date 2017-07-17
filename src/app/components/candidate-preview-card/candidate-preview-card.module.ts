@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { CandidateCardComponent } from './candidate-preview-card.component';
+import { CandidatePreviewComponent } from './candidate-preview-card.component';
 
 @NgModule({
-  declarations: [CandidateCardComponent],
-  exports: [CandidateCardComponent],
+  declarations: [CandidatePreviewComponent],
+  exports: [CandidatePreviewComponent],
   providers: [],
 })
-export class CandidateCardModule { }
+export class CandidatePreviewModule { }

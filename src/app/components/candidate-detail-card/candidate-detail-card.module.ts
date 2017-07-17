@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
-import { CandidateDetailCardComponent } from './candidate-detail-card.component';
+import { CandidateDetailComponent } from './candidate-detail-card.component';
 
 @NgModule({
   imports: [],
-  exports: [CandidateDetailCardComponent],
-  declarations: [CandidateDetailCardComponent],
+  exports: [CandidateDetailComponent],
+  declarations: [CandidateDetailComponent],
   providers: [],
 })
-export class CandidateDetailCardModule { }
+export class CandidateDetailModule { }

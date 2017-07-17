@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { CandidatesListComponent } from './candidates-list.component';
 // tslint:disable-next-line:max-line-length
-import { CandidateCardModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
+import { CandidatePreviewModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
 
 @NgModule({
   imports: [
     RouterModule,
-    CandidateCardModule,
+    CandidatePreviewModule,
     CommonModule,
   ],
   exports: [RouterModule],
