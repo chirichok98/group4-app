@@ -31,6 +31,11 @@ export class NotificationsComponent implements OnInit {
       date: new Date(2017, 7, 10),
       description: 'Natasha assigned the Vladislav Popov candidate to you',
     },
+    {
+      type: NotificationType[NotificationType.News],
+      date: new Date(2017, 6, 14),
+      description: 'You created the new candidate card for Artem Krotov',
+    },
   ];
   constructor() { }
 
