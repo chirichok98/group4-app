@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 export interface IPositionPreviewItem {
   id: number;
+  projectName: string;
   vacancy: string;
   city: string;
   creationDate: Date;
