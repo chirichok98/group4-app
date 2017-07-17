@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+// tslint:disable-next-line:max-line-length
 import { NotificationOption, NotificationType } from '../../../components/notification/notification.component';
 
 @Component({
@@ -10,22 +12,22 @@ import { NotificationOption, NotificationType } from '../../../components/notifi
 export class NotificationsComponent implements OnInit {
   notifications: NotificationOption[] = [
     {
-      type: NotificationType.Reminders,
+      type: NotificationType[NotificationType.Reminders],
       date: new Date(2017, 7, 16),
       description: 'You have the Interview with Artem Krotov',
     },
     {
-      type: NotificationType.News,
+      type: NotificationType[NotificationType.News],
       date: new Date(2017, 6, 14),
       description: 'You created the new candidate card for Artem Krotov',
     },
     {
-      type: NotificationType.Assignments,
+      type: NotificationType[NotificationType.Assignments],
       date: new Date(2017, 7, 10),
       description: 'Natasha assigned the Vladislav Popov candidate to you',
     },
     {
-      type: NotificationType.Assignments,
+      type: NotificationType[NotificationType.Assignments],
       date: new Date(2017, 7, 10),
       description: 'Natasha assigned the Vladislav Popov candidate to you',
     },

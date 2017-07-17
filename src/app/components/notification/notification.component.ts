@@ -1,28 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 export enum NotificationType {
-  Reminders,
-  News,
-  Assignments
+    Reminders,
+    News,
+    Assignments,
 }
 
 export interface NotificationOption {
-  type: NotificationType;
+  type: string;
   date: Date;
   description: String;
 }
 
 @Component({
-    selector: 'notification',
-    templateUrl: 'notification.component.html',
-    styleUrls: ['notification.component.scss'],
+  selector: 'notification',
+  templateUrl: 'notification.component.html',
+  styleUrls: ['notification.component.scss'],
 })
 
 export class NotificationComponent implements OnInit {
-    @Input() notification:NotificationOption;
-    currentNotification:NotificationOption; 
-    constructor() { }
+  @Input() notification: NotificationOption;
+  currentNotification: NotificationOption;
+  constructor() { }
 
-    ngOnInit() { 
-        this.currentNotification = this.notification;
-    }
+  ngOnInit() {
+    this.currentNotification = this.notification;
+  }
 }
