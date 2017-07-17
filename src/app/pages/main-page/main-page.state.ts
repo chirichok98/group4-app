@@ -17,7 +17,7 @@ const candidateRoute: Route = {
   component: CandidatesComponent,
   children: [
     {
-      path: ':name',
+      path: ':id',
       component: CandidatesListItemComponent,
     },
     {

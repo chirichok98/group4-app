@@ -1,14 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface IPositionPreviewItem {
-  id: number;
-  projectName: string;
-  vacancy: string;
-  city: string;
-  creationDate: Date;
-  imageUrl: string;
-}
+import { IPositionPreview } from '../../interfaces/IPositionPreview';
 
 @Component({
   selector: 'position-preview-card',
@@ -16,8 +9,8 @@ export interface IPositionPreviewItem {
   styleUrls: ['position-preview-card.component.scss'],
 })
 export class PositionPreviewComponent {
-  @Input() positionItem: IPositionPreviewItem;
-  currentItem: IPositionPreviewItem;
+  @Input() positionItem: IPositionPreview;
+  currentItem: IPositionPreview;
 
   constructor(private router: Router) { }
 

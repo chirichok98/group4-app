@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-// tslint:disable-next-line:max-line-length
-import { ICandidatePreview } from '../../../../components/candidate-preview-card/candidate-preview-card.component';
+import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 
 @Component({
   selector: 'candidates-list',
@@ -16,7 +15,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Popov',
       email: 'vladislav@mail.ru',
       phoneNumber: '+375291548745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
       id: 2,
@@ -24,7 +23,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Nikitin',
       email: 'vldgfsd@mail.ru',
       phoneNumber: '+375291124745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
       id: 3,
@@ -32,7 +31,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Krotov',
       email: 'artem@mail.ru',
       phoneNumber: '+375257848745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
       id: 4,
@@ -40,7 +39,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Popov',
       email: 'stanislav@mail.ru',
       phoneNumber: '+375257845145',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
       id: 5,
@@ -48,7 +47,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Pronin',
       email: 'aleksei@mail.ru',
       phoneNumber: '+375254788745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
     {
       id: 6,
@@ -56,7 +55,7 @@ export class CandidatesListComponent implements OnInit {
       lastName: 'Popov',
       email: 'vladislav@mail.ru',
       phoneNumber: '+375291548745',
-      imageUrl: './assets/blank-avatar.png',
+      skillUrl: './assets/blank-avatar.png',
     },
   ];
   

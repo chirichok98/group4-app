@@ -1,15 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { INotificationOption } from '../../interfaces/INotificationOption';
+
 export enum NotificationType {
     Reminders,
     News,
     Assignments,
-}
-
-export interface NotificationOption {
-  type: string;
-  date: Date;
-  description: String;
 }
 
 @Component({
@@ -19,8 +15,8 @@ export interface NotificationOption {
 })
 
 export class NotificationComponent implements OnInit {
-  @Input() notification: NotificationOption;
-  currentNotification: NotificationOption;
+  @Input() notification: INotificationOption;
+  currentNotification: INotificationOption;
   constructor() { }
 
   ngOnInit() {

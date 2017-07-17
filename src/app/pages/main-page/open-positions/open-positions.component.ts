@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './open-positions.component.html',
   styleUrls: ['./open-positions.component.scss'],
 })
-
 export class OpenPositionsComponent implements OnInit {
   
 

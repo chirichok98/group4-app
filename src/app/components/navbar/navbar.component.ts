@@ -1,10 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-export interface INavbarOption {
-  name: string;
-  stateName: string;
-}
+import { INavbarOption } from '../../interfaces/INavbarOption';
 
 @Component({
   selector: 'navbar-menu',

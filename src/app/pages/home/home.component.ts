@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IDescribeBlock } from '../../components/describe-block/describe-block.component';
+import { IDescribeBlock } from '../../interfaces/IDescribeBlock';
 
 @Component({
   selector: 'home',
@@ -13,19 +13,25 @@ export class HomeComponent {
   
   descriptions: IDescribeBlock[] = [
     {
-      title: 'Contemporary', content: `Only modern and high-quality technologies have been used for development, which simplifies the work with the system in the near future.`,
+      title: 'Contemporary', 
+      content: `Only modern and high-quality technologies have been used for development, 
+        which simplifies the work with the system in the near future.`,
       imageUrl: './assets/opportunities/buildings8.png',
     },
     {
-      title: 'Minimalistic', content: `Popular, comfortable and familiar design.`,
+      title: 'Minimalistic', 
+      content: `Popular, comfortable and familiar design.`,
       imageUrl: `./assets/opportunities/minimalistic3.png`,
     },
     {
-      title: 'Secure', content: `We were able to provide a sufficient level of security. So, the company's employees may not worry.`,
+      title: 'Secure', 
+      content: `We were able to provide a sufficient level of 
+        security. So, the company's employees may not worry.`,
       imageUrl: `./assets/opportunities/lock4.png`,
     },
     {
-      title: 'Powerfull', content: `Our system stay fast even during heavy loads.`,
+      title: 'Powerfull', 
+      content: `Our system stay fast even during heavy loads.`,
       imageUrl: `./assets/opportunities/fast.png`,
     },      
   ];
