@@ -1,6 +1,7 @@
-  html {
+html {
   font-size: 20px;
   height: 100%;
+  cursor: url('/assets/cursor/default.cur'), default;
 }
 
 body {
@@ -8,6 +9,7 @@ body {
   background-color: #e8e8e8;
   width: 100%;
   margin: 0 auto;
+  cursor: url('/assets/cursor/default.cur'), default;
 }
 
 body>.row,
@@ -35,6 +37,7 @@ home {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }
+
 
 
 				/*-----------------Scrollbar-----------------*/
