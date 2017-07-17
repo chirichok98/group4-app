@@ -42,6 +42,7 @@
     padding: 0 15px;
     margin: 0rem auto;
     min-width: 100px;
+    cursor: url('/assets/cursor/text.png'), text;
   }
   input:focus {
     border-bottom: 1px solid #56CCF2;
@@ -54,6 +55,7 @@
   background-color: #273248;
   width: 60%;
   height: 3.5rem;
+  cursor: url('/assets/cursor/pointer.png'), pointer;
 }
 
 .form .btn:hover,

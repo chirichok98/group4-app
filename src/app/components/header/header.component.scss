@@ -25,6 +25,7 @@
     color: #fff;
     font-size: medium;
     font-weight: 500;
+    cursor: url('/assets/cursor/text.png'), text;
   }
 }
 
@@ -38,6 +39,7 @@
     display: block;
     width: 100%;
     min-width: 100px;
+    cursor: url('/assets/cursor/pointer.png'), pointer;
   }
 }
 
@@ -47,4 +49,9 @@ img::selection {
 
 div::selection {
   color: #56CCF2;
+}
+
+h4,
+p {
+  cursor: url('/assets/cursor/text.png'), text !important;
 }

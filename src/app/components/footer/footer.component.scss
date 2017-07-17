@@ -40,3 +40,7 @@ ul::selection {
 div::selection {
   color: #56CCF2; 
 }
+
+img {
+  cursor: url('/assets/cursor/pointer3.png'), pointer;
+}
