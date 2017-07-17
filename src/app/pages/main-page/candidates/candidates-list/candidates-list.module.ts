@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { CandidatesListComponent } from './candidates-list.component';
-import { CandidateCardModule } from '../../../../components/candidate-card/candidate-card.module';
+// tslint:disable-next-line:max-line-length
+import { CandidateCardModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
 
 @NgModule({
   imports: [
