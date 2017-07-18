@@ -19,6 +19,22 @@
 .page-footer-social li {
   display: inline-block;
   vertical-align: middle;
+  margin: 0 3px;
+}
+.page-footer-social a {
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #fff;
+  display: block;
+  opacity: 0.8;
+}
+.page-footer-social a:hover,
+.page-footer-social a:focus {
+  opacity: 1;
+}
+.page-footer-social a img {
+  vertical-align: middle;
 }
 .page-footer-copyright {
     font-weight: bold;
@@ -41,6 +57,7 @@ div::selection {
   color: #56CCF2; 
 }
 
-img {
+.page-footer-social a,
+.page-footer-social img {
   cursor: url('/assets/cursor/pointer3.png'), pointer;
 }

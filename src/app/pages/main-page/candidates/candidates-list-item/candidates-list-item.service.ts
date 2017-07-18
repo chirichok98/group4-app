@@ -43,7 +43,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
@@ -119,7 +119,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
@@ -194,7 +194,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
@@ -269,7 +269,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
@@ -344,7 +344,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
@@ -419,7 +419,7 @@ const candidates: ICandidateDetail[] = [
       vacancyName: 'Junior DotNet Developer',
       city: 'Minsk',
       creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet-logo.png',
+      imageUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     hrm: {
       id: 1,
