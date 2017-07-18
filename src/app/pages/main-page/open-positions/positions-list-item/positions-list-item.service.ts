@@ -4,35 +4,78 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { IPositionDetail } from '../../../../interfaces/IPositionDetail';
 
 const positions: IPositionDetail[] = [
-  /*{
-    id: number,
-    name: string,
-    requestDate: Date,
-    startDate: Date,
-    status: string,
-    link: string,
-    primarySkill: IPrimarySkill,
-    englishLevel: IEnglishLevel,
-    experience: number | null,
-    primarySkillLevel: number | null,
-    city: ICity,
-    vacancyStatus: IVacancyStatus,
-    techSkills: ITechSkill[],
-    candidates: ICandidatePreview[],
-  },*/
+  {
+    id: 1,
+    projectName: 'Gutmann Inc',
+    vacancyName: 'string',
+    requestDate: new Date(2017),
+    startDate: new Date(2018),
+    status: 'string',
+    link: 'string',
+    primarySkill: {
+      id: 3,
+      name: 'string',
+      skillUrl: 'strin',
+    },
+    englishLevel: {
+      id: 3,
+      name: 'B2',
+    },
+    experience: 5,
+    primarySkillLevel: 1,
+    city: {
+      id: 3,
+      name: 'Minsk',
+    },
+    vacancyStatus: {
+      id: 3,
+      name: 'string',
+    },
+    techSkills: [],
+    candidates: [],
+  },
+  {
+    id: 2,
+    projectName: 'stringAuer - Bernhard',
+    vacancyName: 'string',
+    requestDate: new Date(2017),
+    startDate: new Date(2018),
+    status: 'string',
+    link: 'string',
+    primarySkill: {
+      id: 2,
+      name: 'string',
+      skillUrl: 'strin',
+    },
+    englishLevel: {
+      id: 3,
+      name: 'b1',
+    },
+    experience: 5,
+    primarySkillLevel: 1,
+    city: {
+      id: 3,
+      name: 'Vitebsk',
+    },
+    vacancyStatus: {
+      id: 3,
+      name: 'string',
+    },
+    techSkills: [],
+    candidates: [],
+  },
 ];
 
 
 @Injectable()
 export class PositionsListItemService {
-  currentPositionId: number;
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe((params: ParamMap) => {
-      this.currentPositionId = +params['id'];
-    });
-  }
+  constructor() { }
 
-  getPositionById() {
-    return Promise.resolve(positions.find(i => i.id === this.currentPositionId));
+  getPositionById(id): Promise<IPositionDetail> {
+    const position = positions.find(i => i.id === id);
+    return Promise.resolve(position);
+  }
+  getPositionByIdSlowly(id): Promise<IPositionDetail> {
+    return new Promise((res: any) => setTimeout(() => res(this.getPositionById(id)), 1000));
   }
 }

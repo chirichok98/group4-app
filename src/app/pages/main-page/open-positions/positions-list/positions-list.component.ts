@@ -10,13 +10,12 @@ import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 })
 
 export class PositionsListComponent implements OnInit {
-  positions: IPositionPreview[];
+  positions: Promise<IPositionPreview[]>;
 
   constructor(private plService: PositionsListService) { }
 
   getAllPositions(): void {
-    this.plService.getAllPositions()
-      .then(pos => this.positions = pos);
+    this.positions = this.plService.getAllPositions();
   }
 
   ngOnInit() {

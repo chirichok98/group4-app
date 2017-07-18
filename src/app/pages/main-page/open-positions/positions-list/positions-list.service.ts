@@ -9,7 +9,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Junior DotNet Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 0, 1),
-    imageUrl: './assets/languages-icons/dotnet-logo.png',
+    imageUrl: './assets/languages-icons/dotnet_roma.png',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Middle DotNet Developer',
     city: 'Vilnus',
     creationDate: new Date(2017, 3, 1),
-    imageUrl: './assets/languages-icons/dotnet-logo.png',
+    imageUrl: './assets/languages-icons/dotnet_roma.png',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Junior DotNet Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 0, 1),
-    imageUrl: './assets/languages-icons/dotnet-logo.png',
+    imageUrl: './assets/languages-icons/dotnet_roma.png',
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ export class PositionsListService {
     return Promise.resolve(positions);
   }
 
-  getPositionsSlowly(): Promise<IPositionPreview[]> {
+  getAllPositionsSlowly(): Promise<IPositionPreview[]> {
     return new Promise((res: any) => setTimeout(() => res(this.getAllPositions()), 1000));
   }
 }
