@@ -8,6 +8,7 @@ import { ICandidateStatus } from './ICandidateStatus';
 import { IInterviewPreview } from './IInterviewPreview';
 
 export interface ICandidateDetail {
+  id: number;
   firstNameEng: string;
   lastNameEng: string;
   firstNameRus: string;
