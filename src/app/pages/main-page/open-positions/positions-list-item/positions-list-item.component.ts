@@ -7,19 +7,24 @@ import { PositionsListItemService } from './positions-list-item.service';
 @Component({
   selector: 'positions-list-item',
   templateUrl: 'positions-list-item.component.html',
-  styleUrls: ['./positions-list-item.component.scss'],
+  styleUrls: ['positions-list-item.component.scss'],
 })
 export class PositionsListItemComponent implements OnInit {
-  position: IPositionDetail;
+  currentPositionId: number;
+  position: Promise<IPositionDetail>;
 
-  constructor(private pliService: PositionsListItemService) { }
+  constructor(private route: ActivatedRoute, private pliService: PositionsListItemService) {
+    this.route.params.subscribe((params: ParamMap) => {
+      this.currentPositionId = +params['id'];
+    });
+  }
 
-  getPositionById() {
-    this.pliService.getPositionById()
-      .then(pos => this.position = pos);
+  getPositionById(id): void {
+    this.position = this.pliService.getPositionByIdSlowly(id);
   }
 
   ngOnInit() {
-    this.getPositionById();
+    this.getPositionById(this.currentPositionId);    
+    
   }
 }
