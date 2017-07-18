@@ -61,7 +61,7 @@ export class PositionsListService {
     return Promise.resolve(positions);
   }
 
-  getPositionsSlowly(): Promise<IPositionPreview[]> {
+  getAllPositionsSlowly(): Promise<IPositionPreview[]> {
     return new Promise((res: any) => setTimeout(() => res(this.getAllPositions()), 1000));
   }
 }
