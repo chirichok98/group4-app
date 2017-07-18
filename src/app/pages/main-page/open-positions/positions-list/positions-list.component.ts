@@ -15,7 +15,7 @@ export class PositionsListComponent implements OnInit {
   constructor(private plService: PositionsListService) { }
 
   getAllPositions(): void {
-    this.positions = this.plService.getAllPositionsSlowly();
+    this.positions = this.plService.getAllPositions();
   }
 
   ngOnInit() {

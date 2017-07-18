@@ -20,7 +20,7 @@ export class PositionsListItemComponent implements OnInit {
   }
 
   getPositionById(id): void {
-    this.position = this.pliService.getPositionByIdSlowly(id);
+    this.position = this.pliService.getPositionById(id);
   }
 
   ngOnInit() {
