@@ -14,7 +14,7 @@ export class CandidatesListComponent implements OnInit {
   constructor(private clService: CandidatesListService) { }
 
   getAllCandidates(): void {
-    this.candidates = this.clService.getAllCandidatesSlowly();
+    this.candidates = this.clService.getAllCandidates();
   }
 
   ngOnInit() {

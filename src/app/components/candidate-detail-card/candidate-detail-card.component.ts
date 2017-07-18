@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
+import { ICandidateDetail } from '../../interfaces/ICandidateDetail';
 
 @Component({
   selector: 'candidate-detail-card',
@@ -7,8 +7,8 @@ import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
   styleUrls: ['candidate-detail-card.component.scss'],
 })
 export class CandidateDetailComponent implements OnInit {
-  @Input() candidate: ICandidatePreview;
-  curCandidate: ICandidatePreview;
+  @Input() candidate: ICandidateDetail;
+  curCandidate: ICandidateDetail;
   constructor() { }
 
   ngOnInit() { 
