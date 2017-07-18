@@ -1,6 +1,18 @@
-<h1>{{(positionItem | async)?.projectName}}</h1>
-<h1>{{(positionItem | async)?.vacancyName}}</h1>
-<h1>{{(positionItem | async)?.requestDate | date : 'mediumDate'}}</h1>
-<h1>{{(positionItem | async)?.status}}</h1>
-<h1>{{(positionItem | async)?.primarySkill.name}}</h1>
-<h1>{{(positionItem | async)?.englishLevel.name}}</h1>
+<h4 class="position-detail-header">Detail view</h4>
+<div class="position-info-container">
+    <div class="position-blocks">
+        <div class="position-block">
+            <img class="position-photo" src="/assets/languages-icons/dotnet_roma.png">
+        </div>
+        <div class="position-block">
+            <div class="position-feedback">
+                <div class="position-info-item position-status"><span>Status: </span>{{(positionItem | async)?.status}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{(positionItem | async)?.requestDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-skill-name"><span>Language: </span>{{(positionItem | async)?.primarySkill.name}}</div>
+                <div class="position-info-item position-project-name"><span>Project: </span>{{(positionItem | async)?.projectName}}</div>
+                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{(positionItem | async)?.vacancyName}}</div>
+                <div class="position-info-item position-english-level"><span>English(min): </span>{{(positionItem | async)?.englishLevel.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
