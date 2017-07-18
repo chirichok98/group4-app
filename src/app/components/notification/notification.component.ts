@@ -3,9 +3,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { INotificationOption } from '../../interfaces/INotificationOption';
 
 export enum NotificationType {
-    Reminders,
-    News,
-    Assignments,
+  Reminders,
+  News,
+  Assignments,
 }
 
 @Component({
