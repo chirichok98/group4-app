@@ -11,13 +11,10 @@ import { CandidatesListService } from './candidates-list.service';
 export class CandidatesListComponent implements OnInit {
   candidates: Promise<ICandidatePreview[]>;
 
-  constructor(private clService: CandidatesListService) { }
-
-  getAllCandidates(): void {
+  constructor(private clService: CandidatesListService) {
     this.candidates = this.clService.getAllCandidates();
   }
 
   ngOnInit() {
-    this.getAllCandidates();
   }
 }
