@@ -5,16 +5,17 @@ import { ICandidateDetail } from '../../../../interfaces/ICandidateDetail';
 const candidates: ICandidateDetail[] = [
   {
     id: 1,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
     lastNameRus: 'Lang',
     contact: {
       id: 1,
-      phone: 'dfs',
-      email: 'dfkvds',
-      skype: 'dfkjdf',
-      linkedIn: 'fskhvbds',
+      phone: '+375291562454',
+      email: 'averyk@gmail.com',
+      skype: 'averyk',
+      linkedIn: 'somethingStrange',
     },
     city: {
       id: 34,
@@ -23,13 +24,20 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dkajf',
+      skillUrl: './assets/languages-icons/js.png',
     },
-    secondarySkills: [{
-      id: 3,
-      name: 'L',
-      skillUrl: 'dkajf',
-    }],
+    secondarySkills: [
+      {
+        id: 3,
+        name: 'DotNet',
+        skillUrl: './assets/languages-icons/dotnet-logo.png',
+      },
+      {
+        id: 2,
+        name: 'JS',
+        skillUrl: './assets/languages-icons/js.png',
+      },
+    ],
     experience: new Date(2017),
     englishLevel: {
       id: 3,
@@ -37,17 +45,27 @@ const candidates: ICandidateDetail[] = [
     },
     desiredSalary: 5000,
     lastContactDate: new Date(2017, 3, 4),
-    vacancies: [{
-      id: 1,
-      projectName: 'Future Factors Executive',
-      vacancyName: 'Junior DotNet Developer',
-      city: 'Minsk',
-      creationDate: new Date(2017, 0, 1),
-      imageUrl: './assets/languages-icons/dotnet_roma.png',
-    }],
+    vacancies: [
+      {
+        id: 1,
+        projectName: 'Future Factors Executive',
+        vacancyName: 'Junior DotNet Developer',
+        city: 'Minsk',
+        creationDate: new Date(2017, 0, 1),
+        imageUrl: './assets/languages-icons/dotnet_roma.png',
+      },
+      {
+        id: 2,
+        projectName: 'Future Factors Executive',
+        vacancyName: 'Junior DotNet Developer',
+        city: 'Minsk',
+        creationDate: new Date(2017, 0, 1),
+        imageUrl: './assets/languages-icons/dotnet_roma.png',
+      },
+    ],
     hrm: {
       id: 1,
-      name: 'kto-to',
+      name: 'Kakoy-to HR',
       role: {
         id: 1,
         name: 'admin',
@@ -81,6 +99,7 @@ const candidates: ICandidateDetail[] = [
   },
   {
     id: 2,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
@@ -99,12 +118,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: './assets/languages-icons/js.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: './assets/languages-icons/dotnet-logo.png',
     }],
     experience: new Date(2017),
     englishLevel: {
@@ -132,7 +151,7 @@ const candidates: ICandidateDetail[] = [
     status: {
       id: 2,
       name: 'sdfi',
-    }, 
+    },
     reminder: new Date(2016),
     interviews: [{
       id: 1,
@@ -156,6 +175,7 @@ const candidates: ICandidateDetail[] = [
     }],
   }, {
     id: 3,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
@@ -231,6 +251,7 @@ const candidates: ICandidateDetail[] = [
     }],
   }, {
     id: 4,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
@@ -306,6 +327,7 @@ const candidates: ICandidateDetail[] = [
     }],
   }, {
     id: 5,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
@@ -381,6 +403,7 @@ const candidates: ICandidateDetail[] = [
     }],
   }, {
     id: 6,
+    imgUrl: './assets/blank-avatar.png',
     firstNameEng: 'Avery',
     lastNameEng: 'Kautzer',
     firstNameRus: 'Damon',
@@ -399,12 +422,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: './assets/languages-icons/js.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: './assets/languages-icons/js.png',
     }],
     experience: new Date(2017),
     englishLevel: {

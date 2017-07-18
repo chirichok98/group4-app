@@ -76,3 +76,10 @@ i {
 .material-icons {
     color: #c4c4c4;
 }
+
+.possible-vacancies {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+}

@@ -13,6 +13,7 @@ export interface ICandidateDetail {
   lastNameEng: string;
   firstNameRus: string;
   lastNameRus: string;
+  imgUrl: string;
   contact: IContacts;
   city: ICity;
   primarySkill: ITechSkill;

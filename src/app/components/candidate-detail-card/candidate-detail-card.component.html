@@ -2,30 +2,35 @@
 <div class="candidate-info-container">
     <div class="candidate-blocks">
         <div class="candidate-block">
-            <img class="candidate-photo" src="/assets/blank-avatar.png">
+            <img class="candidate-photo" [src]="candidate?.imgUrl">
         </div>
         <div class="candidate-block">
-            <div class="candidate-name">{{(curCandidate|async)?.firstNameEng}} {{(curCandidate|async)?.lastNameEng}}</div>
-            <div class="candidate-info-item candidate-location">{{(curCandidate|async)?.city.name}}</div>
+            <div class="candidate-name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
+            <span class="candidate-info-item candidate-status"><span>Status:</span>{{candidate?.status.name}}</span>
+            <div class="candidate-info-item candidate-location">{{candidate?.city.name}}</div>
             <div class="candidate-feedback">
-                <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{(curCandidate|async)?.contact.phone}}</div>
-                <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{(curCandidate|async)?.contact.email}}</div>
-                <div class="candidate-feedback-item candidate-skype"><img class="feedback-logotypes" src="/assets/skype_logo.png">{{(curCandidate|async)?.contact.skype}}</div>
-                <div class="candidate-feedback-item candidate-linkedin"><img class="feedback-logotypes" src="/assets/linkedin_icon2.png">{{(curCandidate|async)?.contact.linkedIn}}</div>
+                <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{candidate?.contact.phone}}</div>
+                <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{candidate?.contact.email}}</div>
+                <div class="candidate-feedback-item candidate-skype"><img class="feedback-logotypes" src="/assets/skype_logo.png">{{candidate?.contact.skype}}</div>
+                <div class="candidate-feedback-item candidate-linkedin"><img class="feedback-logotypes" src="/assets/linkedin_icon2.png">{{candidate?.contact.linkedIn}}</div>
             </div>
         </div>
     </div>
     <div class="candidate-skills">
         <td><span>Primary skill:</span></td>
-        <img class="candidate-skill" src="/assets/languages-icons/js_n.png">
+        <img class="candidate-skill" [src]="candidate?.primarySkill.skillUrl">
     </div>
     <div class="candidate-skills">
         <td><span>Secondary skills:</span></td>
-        <img class="candidate-skill" src="/assets/languages-icons/dotnet_roma.png">
-        <img class="candidate-skill" src="/assets/languages-icons/njs2.png">
-        <img class="candidate-skill" src="/assets/languages-icons/njs4.png">
+        <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.skillUrl">
     </div>
-    <p class="candidate-info-item candidate-experience"><span>Experience from:</span>{{(curCandidate|async)?.experience | date:"mediumDate"}}</p>
-    <p class="candidate-info-item candidate-english-level"><span>English:</span>{{(curCandidate|async)?.englishLevel.name}}</p>
-    <p class="candidate-info-item candidate-status"><span>Status:</span>{{(curCandidate|async)?.status.name}}</p>
+    <p class="candidate-info-item candidate-experience"><span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}</p>
+    <p class="candidate-info-item candidate-english-level"><span>English: </span>{{candidate?.englishLevel.name}}</p>
+    <p class="candidate-info-item candidate-desired-salary"><span>Desired salary: </span>{{candidate?.desiredSalary}}</p>
+    <p class="candidate-info-item candidate-last-contact"><span>Last connection date: </span>{{candidate?.lastContactDate | date:"mediumDate"}}</p>
+    <p class="candidate-info-item candidate-hr"><span>Current HR: </span>{{candidate?.hrm.name}}</p>
+    <p class="candidate-info-item candidate-hr"><span>Possible vacancies: </span></p>
+    <div class="possible-vacancies">
+        <position-preview-card *ngFor="let item of candidate?.vacancies" [positionItem]="item"></position-preview-card>
+    </div>
 </div>

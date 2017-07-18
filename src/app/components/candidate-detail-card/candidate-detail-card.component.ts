@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ICandidateDetail } from '../../interfaces/ICandidateDetail';
 
 @Component({
@@ -8,10 +8,8 @@ import { ICandidateDetail } from '../../interfaces/ICandidateDetail';
 })
 export class CandidateDetailComponent implements OnInit {
   @Input() candidate: ICandidateDetail;
-  curCandidate: ICandidateDetail;
   constructor() { }
 
   ngOnInit() { 
-    this.curCandidate = this.candidate;
   }
 }
