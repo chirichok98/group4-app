@@ -15,7 +15,7 @@ const positions: IPositionDetail[] = [
     primarySkill: {
       id: 3,
       name: 'string',
-      imgUrl: 'strin',
+      skillUrl: 'strin',
     },
     englishLevel: {
       id: 3,
@@ -45,7 +45,7 @@ const positions: IPositionDetail[] = [
     primarySkill: {
       id: 2,
       name: 'string',
-      imgUrl: 'strin',
+      skillUrl: 'strin',
     },
     englishLevel: {
       id: 3,
