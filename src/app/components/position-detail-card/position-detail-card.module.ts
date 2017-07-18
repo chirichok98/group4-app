@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { PositionDetailComponent } from './position-detail-card.component';
 
 @NgModule({
-  imports: [],
+  imports: [CommonModule],
   exports: [PositionDetailComponent],
   declarations: [PositionDetailComponent],
   providers: [],

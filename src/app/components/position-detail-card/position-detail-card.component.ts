@@ -9,12 +9,11 @@ import { IPositionDetail } from '../../interfaces/IPositionDetail';
 })
 
 export class PositionDetailComponent implements OnInit {
-  @Input() positionItem: IPositionDetail;
-  currentItem: IPositionDetail;
+  @Input() positionItem: Promise<IPositionDetail>;
 
   constructor() { }
 
   ngOnInit() {
-    this.currentItem = this.positionItem;
+    console.log(this.positionItem);
   }
 }
