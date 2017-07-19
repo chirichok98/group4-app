@@ -9,16 +9,14 @@ import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
   styleUrls: ['candidate-preview-card.component.scss'],
 })
 export class CandidatePreviewComponent implements OnInit {
-  @Input() candidateItem: ICandidatePreview;
-  curCandidate: ICandidatePreview;
+  @Input() candidate: ICandidatePreview;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.curCandidate = this.candidateItem;
   }
 
   goToDetailView() {
-    this.router.navigate(['main-page/candidates', this.curCandidate.id]);
+    this.router.navigate(['main-page/candidates', this.candidate.id]);
   }
 }
