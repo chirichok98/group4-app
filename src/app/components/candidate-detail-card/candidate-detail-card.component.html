@@ -15,21 +15,33 @@
             </div>
         </div>
     </div>
-    <div class="candidate-skills">
-        <td><span>Primary skill:</span></td>
-        <img class="candidate-skill" [src]="candidate?.primarySkill.skillUrl">
-    </div>
-    <div class="candidate-skills">
-        <td><span>Secondary skills:</span></td>
-        <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.skillUrl">
-    </div>
-    <p class="candidate-info-item candidate-experience"><span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}</p>
-    <p class="candidate-info-item candidate-english-level"><span>English: </span>{{candidate?.englishLevel.name}}</p>
-    <p class="candidate-info-item candidate-desired-salary"><span>Desired salary: </span>{{candidate?.desiredSalary}}</p>
-    <p class="candidate-info-item candidate-last-contact"><span>Last connection date: </span>{{candidate?.lastContactDate | date:"mediumDate"}}</p>
-    <p class="candidate-info-item candidate-hr"><span>Current HR: </span>{{candidate?.hrm.name}}</p>
-    <p class="candidate-info-item candidate-hr"><span>Possible vacancies: </span></p>
-    <div class="possible-vacancies">
-        <position-preview-card *ngFor="let item of candidate?.vacancies" [position]="item"></position-preview-card>
+    <div class="candidate-info__inner">
+        <div class="candidate-skills">
+            <span>Primary skill:</span>
+            <img class="candidate-skill" [src]="candidate?.primarySkill.skillUrl"/>
+            <span>Secondary skills:</span>
+            <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.skillUrl"/>
+        </div>
+        <div class="candidate-info-item candidate-experience">
+            <span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}
+        </div>
+        <div class="candidate-info-item candidate-english-level">
+            <span>English: </span>{{candidate?.englishLevel.name}}
+        </div>
+        <div class="candidate-info-item candidate-desired-salary">
+            <span>Desired salary: </span>{{candidate?.desiredSalary}}
+        </div>
+        <div class="candidate-info-item candidate-last-contact">
+            <span>Last connection date: </span>{{candidate?.lastContactDate | date:"mediumDate"}}
+        </div>
+        <div class="candidate-info-item candidate-hr">
+            <span>Current HR: </span>{{candidate?.hrm.name}}
+        </div>
+        <div class="candidate-info-item candidate-hr">
+            <span>Possible vacancies: </span>
+        </div>
+        <div class="possible-vacancies">
+            <position-preview-card *ngFor="let item of candidate?.vacancies" [position]="item"></position-preview-card>
+        </div>
     </div>
 </div>
