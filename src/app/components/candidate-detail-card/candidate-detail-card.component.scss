@@ -90,7 +90,11 @@
 }
 
 
-
+.candidate-info-item {
+  span{
+    font-family: "Roboto Slab"; 
+  }
+}
 .possible-vacancies {
   display: flex;
   flex-direction: row;
