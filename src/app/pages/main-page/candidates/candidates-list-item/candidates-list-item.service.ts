@@ -24,7 +24,7 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js_n.png',
+      skillUrl: './assets/languages-icons/js_n2.png',
     },
     secondarySkills: [
       {
@@ -35,7 +35,7 @@ const candidates: ICandidateDetail[] = [
       {
         id: 2,
         name: 'JS',
-        skillUrl: './assets/languages-icons/js_n.png',
+        skillUrl: './assets/languages-icons/js_n2.png',
       },
     ],
     experience: new Date(2017),
@@ -118,7 +118,7 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js_n.png',
+      skillUrl: './assets/languages-icons/js_n2.png',
     },
     secondarySkills: [{
       id: 3,
@@ -422,12 +422,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js_n.png',
+      skillUrl: './assets/languages-icons/js_n2.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js_n.png',
+      skillUrl: './assets/languages-icons/js_n2.png',
     }],
     experience: new Date(2017),
     englishLevel: {
