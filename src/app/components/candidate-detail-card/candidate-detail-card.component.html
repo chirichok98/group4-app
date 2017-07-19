@@ -31,6 +31,6 @@
     <p class="candidate-info-item candidate-hr"><span>Current HR: </span>{{candidate?.hrm.name}}</p>
     <p class="candidate-info-item candidate-hr"><span>Possible vacancies: </span></p>
     <div class="possible-vacancies">
-        <position-preview-card *ngFor="let item of candidate?.vacancies" [positionItem]="item"></position-preview-card>
+        <position-preview-card *ngFor="let item of candidate?.vacancies" [position]="item"></position-preview-card>
     </div>
 </div>
