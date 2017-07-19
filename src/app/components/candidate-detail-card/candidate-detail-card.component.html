@@ -17,11 +17,11 @@
     </div>
     <div class="candidate-skills">
         <td><span>Primary skill:</span></td>
-        <img class="candidate-skill" [src]="candidate?.primarySkill.skillUrl">
+        <img class="candidate-skill" [src]="candidate?.primarySkill.picture">
     </div>
     <div class="candidate-skills">
         <td><span>Secondary skills:</span></td>
-        <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.skillUrl">
+        <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.picture">
     </div>
     <p class="candidate-info-item candidate-experience"><span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}</p>
     <p class="candidate-info-item candidate-english-level"><span>English: </span>{{candidate?.englishLevel.name}}</p>
