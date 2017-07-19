@@ -6,12 +6,12 @@
         </div>
         <div class="position-block">
             <div class="position-feedback">
-                <div class="position-info-item position-status"><span>Status: </span>{{(positionItem | async)?.status}}</div>
-                <div class="position-info-item position-date"><span>Date: </span>{{(positionItem | async)?.requestDate | date : 'mediumDate'}}</div>
-                <div class="position-info-item position-skill-name"><span>Language: </span>{{(positionItem | async)?.primarySkill.name}}</div>
-                <div class="position-info-item position-project-name"><span>Project: </span>{{(positionItem | async)?.projectName}}</div>
-                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{(positionItem | async)?.vacancyName}}</div>
-                <div class="position-info-item position-english-level"><span>English(min): </span>{{(positionItem | async)?.englishLevel.name}}</div>
+                <div class="position-info-item position-status"><span>Status: </span>{{position?.status}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{position?.requestDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-skill-name"><span>Language: </span>{{position?.primarySkill.name}}</div>
+                <div class="position-info-item position-project-name"><span>Project: </span>{{position?.projectName}}</div>
+                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{position?.vacancyName}}</div>
+                <div class="position-info-item position-english-level"><span>English(min): </span>{{position?.englishLevel.name}}</div>
             </div>
         </div>
     </div>

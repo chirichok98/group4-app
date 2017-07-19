@@ -8,6 +8,6 @@
     </div>
   </div>
   <div>
-    <describe-block *ngFor="let item of descriptions" [description]="item"></describe-block>
+    <describe-block *ngFor="let item of descriptions | async" [description]="item"></describe-block>
   </div>
 </div>

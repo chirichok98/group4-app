@@ -11,7 +11,7 @@ import { PositionsListItemService } from './positions-list-item.service';
 })
 export class PositionsListItemComponent implements OnInit {
   currentPositionId: number;
-  position: Promise<IPositionDetail>;
+  currentPosition: Promise<IPositionDetail>;
 
   constructor(private route: ActivatedRoute, private pliService: PositionsListItemService) {
     this.route.params.subscribe((params: ParamMap) => {
@@ -20,11 +20,10 @@ export class PositionsListItemComponent implements OnInit {
   }
 
   getPositionById(id): void {
-    this.position = this.pliService.getPositionById(id);
+    this.currentPosition = this.pliService.getPositionById(id);
   }
 
   ngOnInit() {
-    this.getPositionById(this.currentPositionId);    
-    
+    this.getPositionById(this.currentPositionId);
   }
 }

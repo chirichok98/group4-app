@@ -9,11 +9,9 @@ import { IDescribeBlock } from '../../interfaces/IDescribeBlock';
 })
 export class DescribeBlockComponent implements OnInit {
   @Input() description: IDescribeBlock;
-  loadedDescription: IDescribeBlock;
 
   constructor() { }
 
   ngOnInit() {
-    this.loadedDescription = this.description;
   }
 }

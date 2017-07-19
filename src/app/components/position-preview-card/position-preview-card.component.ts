@@ -9,16 +9,14 @@ import { IPositionPreview } from '../../interfaces/IPositionPreview';
   styleUrls: ['position-preview-card.component.scss'],
 })
 export class PositionPreviewComponent {
-  @Input() positionItem: IPositionPreview;
-  currentItem: IPositionPreview;
+  @Input() position: IPositionPreview;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.currentItem = this.positionItem;
   }
 
   goToDetailView() {
-    this.router.navigate([`main-page/vacancies`, this.currentItem.id]);
+    this.router.navigate([`main-page/vacancies`, this.position.id]);
   }
 }

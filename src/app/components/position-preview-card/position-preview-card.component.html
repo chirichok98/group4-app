@@ -1,11 +1,11 @@
 <div class="position" (click)=goToDetailView()>
     <div class="position-container">
-        <img class="position-img" [src]="currentItem.imageUrl">
-        <div class="position-vacancy">{{currentItem.vacancyName}}</div>
-        <div class="position-project">{{currentItem.projectName}}</div>
+        <img class="position-img" [src]="position?.imageUrl">
+        <div class="position-vacancy">{{position?.vacancyName}}</div>
+        <div class="position-project">{{position?.projectName}}</div>
         <div class="add-info">
-            <div class="position-city">{{currentItem.city}}</div>
-            <div class="position-date">{{currentItem.creationDate | date:"mediumDate"}}</div>
+            <div class="position-city">{{position?.city}}</div>
+            <div class="position-date">{{position?.creationDate | date:"mediumDate"}}</div>
         </div>
     </div>
 </div>
