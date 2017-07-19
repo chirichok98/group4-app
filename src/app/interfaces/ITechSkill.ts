@@ -1,5 +1,5 @@
 export interface ITechSkill {
   id: number;
   name: string;
-  skillUrl: string;
+  picture: string | null;
 }

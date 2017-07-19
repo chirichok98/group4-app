@@ -1,12 +1,12 @@
 <div class="card" (click)="goToDetailView()">
     <div class="card-image">
-        <img [src]="candidate?.skillUrl" alt="photo">
+        <img [src]="candidate?.primarySkill.picture" alt="photo">
     </div>
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">{{candidate?.firstName}} {{candidate?.lastName}}</div>
+            <div class="name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
             <div class="email"><i class="small material-icons">email</i>{{candidate?.email}}</div>
-            <div class="phone"><i class="small material-icons">call</i>{{candidate?.phoneNumber}}</div>
+            <div class="phone"><i class="small material-icons">call</i>{{candidate?.phone}}</div>
         </div>
     </div>
 </div>
