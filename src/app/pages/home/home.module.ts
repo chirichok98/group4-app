@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 import { SloganModule } from '../../components/slogan/slogan.module';
 import { LoginFormModule } from '../../components/login/login.module';
 import { DescribeBlockModule } from '../../components/describe-block/describe-block.module';
-// add HomeService
+import { HomeService } from './home.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,6 @@ import { DescribeBlockModule } from '../../components/describe-block/describe-bl
     DescribeBlockModule,
     SloganModule,
   ],
-  providers: [/*HomeService*/],
+  providers: [HomeService],
 })
 export class HomeModule { }
