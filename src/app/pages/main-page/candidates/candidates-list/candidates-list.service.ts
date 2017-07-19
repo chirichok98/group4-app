@@ -12,8 +12,9 @@ export class CandidatesListService {
   constructor(private http: Http) { }
 
   getAllCandidates(): Promise<ICandidatePreview[]> {
-    return this.http.get(this.apiUrl)
+    const candidates: Promise<ICandidatePreview[]> = this.http.get(this.apiUrl)
       .toPromise()
       .then(res => res.json() as ICandidatePreview[]);
+    return candidates;
   }
 }

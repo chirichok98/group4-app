@@ -1,12 +1,17 @@
 <div class="candidate-info-container">
     <div class="candidate-blocks">
-        <div class="candidate-block">
-            <img class="candidate-photo" [src]="candidate?.imgUrl">
+        <div class="candidate-block" *ngIf="candidate?.picture; else default">
+            <img class="candidate-photo" [src]="candidate.picture">
         </div>
+        <ng-template #default>
+            <div class="candidate-block">
+                <img src="./assets/blank-avatar.png" alt="photo">
+            </div>
+        </ng-template>
         <div class="candidate-block">
             <div class="candidate-name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
-            <div class="candidate-info-item candidate-status">{{candidate?.status.name}}</div>
-            <div class="candidate-info-item candidate-location">({{candidate?.city.name}})</div>
+            <div class="candidate-info-item candidate-status">{{candidate?.status}}</div>
+            <div class="candidate-info-item candidate-location">({{candidate?.city}})</div>
             <div class="candidate-feedback">
                 <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{candidate?.contact.phone}}</div>
                 <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{candidate?.contact.email}}</div>
@@ -24,7 +29,7 @@
         <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.picture">
     </div>
     <p class="candidate-info-item candidate-experience"><span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}</p>
-    <p class="candidate-info-item candidate-english-level"><span>English: </span>{{candidate?.englishLevel.name}}</p>
+    <p class="candidate-info-item candidate-english-level"><span>English: </span>{{candidate?.englishLevel}}</p>
     <p class="candidate-info-item candidate-desired-salary"><span>Desired salary: </span>{{candidate?.desiredSalary}}</p>
     <p class="candidate-info-item candidate-last-contact"><span>Last connection date: </span>{{candidate?.lastContactDate | date:"mediumDate"}}</p>
     <p class="candidate-info-item candidate-hr"><span>Current HR: </span>{{candidate?.hrm.name}}</p>
