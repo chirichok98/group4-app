@@ -25,7 +25,7 @@
     color: #fff;
     font-size: medium;
     font-weight: 500;
-    cursor: url('/assets/cursor/text.png'), text;
+    cursor: url('/assets/cursor/text2.png'), text;
   }
 }
 
@@ -39,7 +39,7 @@
     display: block;
     width: 100%;
     min-width: 100px;
-    cursor: url('/assets/cursor/pointer.png'), pointer;
+    cursor: url('/assets/cursor/pointer3.png'), pointer;
   }
 }
 
@@ -53,5 +53,5 @@ div::selection {
 
 h4,
 p {
-  cursor: url('/assets/cursor/text.png'), text !important;
+  cursor: url('/assets/cursor/text2.png'), text !important;
 }
