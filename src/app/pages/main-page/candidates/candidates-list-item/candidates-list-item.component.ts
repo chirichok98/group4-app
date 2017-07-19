@@ -11,8 +11,8 @@ import { CandidatesListItemService } from './candidates-list-item.service';
 })
 
 export class CandidatesListItemComponent implements OnInit {
-  currentCandidateId: number;
   currentCandidate: Promise<ICandidateDetail>;
+  currentCandidateId: number;
 
   constructor(private route: ActivatedRoute, private cliService: CandidatesListItemService) {
     this.route.params.subscribe((params: ParamMap) => {

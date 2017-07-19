@@ -1,8 +1,10 @@
+import { ITechSkill } from './ITechSkill';
+
 export interface ICandidatePreview {
   id: number;
-  firstName: string;
-  lastName: string;
+  firstNameEng: string;
+  lastNameEng: string;
   email: string;
-  phoneNumber: string;
-  skillUrl: string;
+  phone: string;
+  primarySkill: ITechSkill;
 }
