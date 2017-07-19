@@ -1,7 +1,12 @@
 <div class="card" (click)="goToDetailView()">
-    <div class="card-image">
-        <img [src]="candidate?.primarySkill.picture" alt="photo">
+    <div class="card-image" *ngIf="candidate?.primarySkill.picture; else default">
+        <img [src]="candidate.primarySkill.picture" alt="photo">
     </div>
+    <ng-template #default>
+        <div class="card-image">
+            <img src="./assets/blank-avatar.png" alt="photo">
+        </div>
+    </ng-template>
     <div class="card-stacked">
         <div class="card-content">
             <div class="name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
