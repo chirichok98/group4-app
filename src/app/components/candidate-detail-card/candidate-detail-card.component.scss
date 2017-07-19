@@ -92,11 +92,27 @@
 
 .candidate-info-item {
   span{
-    font-family: "Roboto Slab"; 
+    font-family: "Roboto Slab";
   }
 }
 .possible-vacancies {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+span, p{
+  cursor: url('/assets/cursor/text2.png'), text;
+}
+img, i {
+  cursor: url('/assets/cursor/default_end.png'), default;
+}
+img::selection,
+i::selection {
+  background: transparent;
+}
+
+div::selection,
+span::selection,
+p::selection {
+  color: #52c1e6;
 }
