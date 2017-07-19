@@ -17,7 +17,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Senior JS Developer',
     city: 'Vitebsk',
     creationDate: new Date(2017, 1, 2),
-    imageUrl: './assets/languages-icons/js_n.png',
+    imageUrl: './assets/languages-icons/js_n2.png',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Junior JS Developer',
     city: 'San-Francisco',
     creationDate: new Date(2017, 0, 15),
-    imageUrl: './assets/languages-icons/js_n.png',
+    imageUrl: './assets/languages-icons/js_n2.png',
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const positions: IPositionPreview[] = [
     vacancyName: 'Junior JS Developer',
     city: 'Minsk',
     creationDate: new Date(2017, 3, 21),
-    imageUrl: './assets/languages-icons/js_n.png',
+    imageUrl: './assets/languages-icons/js_n2.png',
   },
 ];
 

@@ -5,9 +5,9 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0.5rem 2rem;
-    color: #000;
+    color:  #273248;;
     margin: 0.5rem 0 0;
-    cursor: url('/assets/cursor/pointer3.png'), pointer;
+    cursor: url('/assets/cursor/link_6.png'), pointer;
 }
 .card .card-image {
     width: 100px;
@@ -17,6 +17,8 @@
 .card-image img {
     border-radius: 50%;   
     margin: auto;
+    width: 100px;
+    height: 100px;
 }
 .card-content .name {
     text-transform: uppercase;
@@ -39,4 +41,11 @@ div::selection {
 
 i::selection {
 	color: #526C7B;
+}
+
+.candidate-phone {
+    color: #e47a7a !important;
+}
+.candidate-email {
+    color: #718faf !important;
 }

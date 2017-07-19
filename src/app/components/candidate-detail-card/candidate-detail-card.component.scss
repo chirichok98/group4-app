@@ -1,35 +1,72 @@
-.candidate-photo {
-  height: 16rem;
+.candidate-info-container .candidate-photo {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
-
-.candidate-name {
-  font-family: "Roboto Slab";
-  color: #526C7B;
-  font-size: 2rem;
-  flex-shrink: 5;
+.candidate-info-container .candidate-blocks {
   display: flex;
-}
-
-.candidate-info-item {
-  font-family: "Roboto";
-  color: #526C7B;
-  font-size: 1.4rem;
-}
-
-.candidate-feedback-item {
-  font-family: "Roboto";
-  color: #526C7B;
-  font-size: 1.4rem;
-  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
-
-.candidate-detail-header {
-  font-family: "Roboto Slab";
-  color: #526C7B;
-  font-size: 2.4rem;
-  margin-left: 1.6rem;
+.candidate-info-container .candidate-blocks .candidate-block {
+  padding: 0 1rem;
 }
+.candidate-info-container {
+  position: relative;
+}
+.candidate-info-container .candidate-blocks .candidate-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #56CCF2;
+  width: 20%;
+  color: #fff;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.candidate-info-container .candidate-blocks .candidate-name {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: inline-block;
+  color: #374b60;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.candidate-info-container .candidate-blocks .candidate-location {
+  display: inline-block;
+  color: #9e9e9e;
+}
+.candidate-info-container .material-icons {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.candidate-info-container .feedback-logotypes {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+.candidate-info-container .candidate-phone .material-icons {
+  color: #e47a7a;
+}
+.candidate-info-container .candidate-email .material-icons {
+  color: #718faf;
+}
+.candidate-info-container .candidate-feedback .feedback-logotypes {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.candidate-info-container .candidate-skype .feedback-logotypes {
+  background: url("../../../assets/skype_logo.png") no-repeat 0 0;
+  background-size: contain;
+}
+.candidate-info-container .candidate-linkedin .feedback-logotypes {
+  background: url("../../../assets/linkedin_icon2.png") no-repeat 0 0;
+  background-size: contain;
+}
+
 
 .candidate-skill {
   height: 4rem;
@@ -52,41 +89,12 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-span {
-  font-family: "Roboto Slab";
-  color: #273248;
-}
 
-.candidate-name {
-  color: #273248;
+.candidate-info-item {
+  span{
+    font-family: "Roboto Slab"; 
+  }
 }
-
-.candidate-blocks {
-  display: flex;
-  padding: 1rem;
-}
-
-.candidate-block {
-  padding: 1rem;
-}
-
-.candidate-feedback {
-  margin-top: 2rem;
-}
-
-i {
-  margin-right: 0.5rem;
-}
-
-.feedback-logotypes {
-  height: 2rem;
-  margin-right: 0.5rem;
-}
-
-.material-icons {
-  color: #c4c4c4;
-}
-
 .possible-vacancies {
   display: flex;
   flex-direction: row;

@@ -75,3 +75,12 @@ i {
   flex-direction: row;
   justify-content: space-around;
 }
+
+img::selection {
+    background: transparent;
+}
+
+div::selection, 
+span::selection {
+    color: #56ccf2;
+}

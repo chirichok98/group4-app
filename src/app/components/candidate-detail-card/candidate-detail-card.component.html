@@ -1,4 +1,3 @@
-<h4 class="candidate-detail-header">Detail view</h4>
 <div class="candidate-info-container">
     <div class="candidate-blocks">
         <div class="candidate-block">
@@ -6,13 +5,13 @@
         </div>
         <div class="candidate-block">
             <div class="candidate-name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
-            <span class="candidate-info-item candidate-status"><span>Status:</span>{{candidate?.status.name}}</span>
-            <div class="candidate-info-item candidate-location">{{candidate?.city.name}}</div>
+            <div class="candidate-info-item candidate-status">{{candidate?.status.name}}</div>
+            <div class="candidate-info-item candidate-location">({{candidate?.city.name}})</div>
             <div class="candidate-feedback">
                 <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{candidate?.contact.phone}}</div>
                 <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{candidate?.contact.email}}</div>
-                <div class="candidate-feedback-item candidate-skype"><img class="feedback-logotypes" src="/assets/skype_logo.png">{{candidate?.contact.skype}}</div>
-                <div class="candidate-feedback-item candidate-linkedin"><img class="feedback-logotypes" src="/assets/linkedin_icon2.png">{{candidate?.contact.linkedIn}}</div>
+                <div class="candidate-feedback-item candidate-skype"><i class="feedback-logotypes"></i>{{candidate?.contact.skype}}</div>
+                <div class="candidate-feedback-item candidate-linkedin"><i class="feedback-logotypes"></i>{{candidate?.contact.linkedIn}}</div>
             </div>
         </div>
     </div>
