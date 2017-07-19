@@ -35,7 +35,7 @@ const candidates: ICandidateDetail[] = [
       {
         id: 2,
         name: 'JS',
-        skillUrl: './assets/languages-icons/njs_logo.png',
+        skillUrl: './assets/languages-icons/js_n.png',
       },
     ],
     experience: new Date(2017),
@@ -118,12 +118,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js.png',
+      skillUrl: './assets/languages-icons/js_n.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/dotnet-logo.png',
+      skillUrl: './assets/languages-icons/dotnet_roma.png',
     }],
     experience: new Date(2017),
     englishLevel: {
@@ -194,12 +194,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs2.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs4.png',
     }],
     experience: new Date(2017),
     englishLevel: {
@@ -270,12 +270,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs4.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs4.png',
     }],
     experience: new Date(2017),
     englishLevel: {
@@ -346,12 +346,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs4.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: 'dka',
+      skillUrl: '/assets/languages-icons/njs4.png',
     }],
     experience: new Date(2017),
     englishLevel: {
@@ -422,12 +422,12 @@ const candidates: ICandidateDetail[] = [
     primarySkill: {
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js.png',
+      skillUrl: './assets/languages-icons/js_n.png',
     },
     secondarySkills: [{
       id: 3,
       name: 'L',
-      skillUrl: './assets/languages-icons/js.png',
+      skillUrl: './assets/languages-icons/js_n.png',
     }],
     experience: new Date(2017),
     englishLevel: {

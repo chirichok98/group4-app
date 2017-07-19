@@ -1,6 +1,18 @@
-<h1>{{position?.projectName}}</h1>
-<h1>{{position?.vacancyName}}</h1>
-<h1>{{position?.requestDate | date : 'mediumDate'}}</h1>
-<h1>{{position?.status}}</h1>
-<h1>{{position?.primarySkill.name}}</h1>
-<h1>{{position?.englishLevel.name}}</h1>
+<h4 class="position-detail-header">Detail view</h4>
+<div class="position-info-container">
+    <div class="position-blocks">
+        <div class="position-block">
+            <img class="position-photo" src="/assets/languages-icons/dotnet_roma.png">
+        </div>
+        <div class="position-block">
+            <div class="position-feedback">
+                <div class="position-info-item position-status"><span>Status: </span>{{position?.status}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{position?.requestDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-skill-name"><span>Language: </span>{{position?.primarySkill.name}}</div>
+                <div class="position-info-item position-project-name"><span>Project: </span>{{position?.projectName}}</div>
+                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{position?.vacancyName}}</div>
+                <div class="position-info-item position-english-level"><span>English(min): </span>{{position?.englishLevel.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>
