@@ -33,7 +33,9 @@ app-root {
 }
 
 main,
-home {
+home,
+create-candidate,
+create-vacancy {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }

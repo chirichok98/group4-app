@@ -14,6 +14,8 @@ import { MainPageModule } from './pages/main-page/main-page.module';
 import { ReportModule } from './pages/report/report.module';
 import { ProfilesModule } from './pages/profiles/profiles.module';
 import { FooterModule } from './components/footer/footer.module';
+import { CreateCandidateModule } from './pages/create/create-candidate/create-candidate.module';
+import { CreateVacancyModule } from './pages/create/create-vacancy/create-vacancy.module';
 
 
 @NgModule({
@@ -22,10 +24,12 @@ import { FooterModule } from './components/footer/footer.module';
   ],
   imports: [
     BrowserModule,
-    HeaderModule,
     AppRoutingModule,
+    HeaderModule,
     HomeModule,
     MainPageModule,
+    CreateCandidateModule,
+    CreateVacancyModule,
     ReportModule,
     ProfilesModule,
     FooterModule,
