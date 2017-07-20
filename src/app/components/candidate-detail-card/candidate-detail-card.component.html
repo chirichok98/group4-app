@@ -1,10 +1,10 @@
 <div *ngIf="candidate as can; else loading">
     <div class="candidate-info-container">
         <div class="candidate-blocks">
-            <div class="candidate-block" *ngIf="can.picture; else default">
+            <div class="candidate-block" *ngIf="can.picture; else defaultPic">
                 <img class="candidate-photo" [src]="can.picture">
             </div>
-            <ng-template #default>
+            <ng-template #defaultPic>
                 <div class="candidate-block">
                     <img src="./assets/blank-avatar.png" alt="photo">
                 </div>

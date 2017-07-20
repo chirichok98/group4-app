@@ -7,7 +7,8 @@
     padding: 0.5rem 2rem;
     color:  #273248;;
     margin: 0.5rem 0 0;
-    cursor: url('/assets/cursor/link_6.png'), pointer;
+    cursor: url('/assets/cursor/default_end.png'), pointer;
+    font-size: 0.8em;
 }
 .card .card-image {
     width: 100px;
@@ -23,6 +24,9 @@
 .card-content .name {
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-family: "Roboto Slab";
+    font-size: 1.5em;
+    color: #273248;
 }
 .card-content .material-icons {
     color: #526c7b;

@@ -1,8 +1,7 @@
-import { IEnglishLevel } from './IEnglishLevel';
-import { ICity } from './ICity';
 import { IVacancyStatus } from './IVacancyStatus';
 import { ITechSkill } from './ITechSkill';
 import { ICandidatePreview } from './ICandidatePreview';
+import { IUserPreview } from './IUserPreview';
 
 export interface IPositionDetail {
   id: number;
@@ -16,9 +15,9 @@ export interface IPositionDetail {
   engLevel: string;
   experience: number | null;
   primarySkillLevel: number | null;
-  city: ICity;
-  vacancyStatus: IVacancyStatus;
-  techSkills: ITechSkill[];
+  city: string;
+  secondarySkills: ITechSkill[];
   candidates: ICandidatePreview[];
+  hrm: IUserPreview;
   // events
 }
