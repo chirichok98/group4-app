@@ -1,6 +1,6 @@
 <div class="position" (click)=goToDetailView()>
     <div class="position-container">
-        <img class="position-img" [src]="position?.imageUrl">
+        <img class="position-img" [src]="position?.primarySkill.picture">
         <div class="position-vacancy">{{position?.vacancyName}}</div>
         <div class="position-project">{{position?.projectName}}</div>
         <div class="add-info">

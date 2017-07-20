@@ -1,13 +1,15 @@
 <div class="navbar z-depth-2">
   <div class="navbar-row">
-    <!--i class="navbar-icon material-icons" [ngClass]="{active: isSearchVisible}" (click)="showSearchForm()">search</i-->
     <img class="nb-icon" src=".../../../assets/search9.png" [ngClass]="{active: isSearchVisible}" (click)="showSearchForm()">
-    <div class="navbar-states">
+    <div class="navbar-states hide-on-med-and-down">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</div>
     </div>
-    <!--i class="navbar-icon material-icons" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">filter_list</i-->
+    <i class="navbar-icon material-icons hide-on-large-only" [ngClass]="{active: isMenuVisible}" (click)="showMenuForm()">menu</i>
     <img class="nb-icon" src=".../../../assets/filter16.png" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">
   </div>
 </div>
 <search-panel [hidden]="!isSearchVisible"></search-panel>
 <filter-panel [hidden]="!isFilterVisible"></filter-panel>
+<ul [hidden]="!isMenuVisible">
+  <li *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</li>
+</ul>

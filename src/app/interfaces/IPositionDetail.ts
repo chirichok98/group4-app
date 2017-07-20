@@ -13,7 +13,7 @@ export interface IPositionDetail {
   status: string;
   link: string;
   primarySkill: ITechSkill;
-  englishLevel: IEnglishLevel;
+  engLevel: string;
   experience: number | null;
   primarySkillLevel: number | null;
   city: ICity;

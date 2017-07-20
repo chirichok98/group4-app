@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
   isFilterVisible: boolean = false;
+  isMenuVisible: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -44,25 +45,41 @@ export class NavbarComponent implements OnInit {
   }
 
   showSearchForm(): void {
-    if (this.isFilterVisible) {
-      this.closeSearchForm();
+    this.toggleMenuForm(false);
+    this.toggleFilterForm(false);
+    if (this.isSearchVisible) {
+      return this.toggleSearchForm(false);
     }
-    this.isSearchVisible = !this.isSearchVisible;
+    this.toggleSearchForm(true);
   }
 
-  closeSearchForm(): void {
-    this.isFilterVisible = !this.isFilterVisible;
+  showMenuForm(): void {
+    this.toggleFilterForm(false);
+    this.toggleSearchForm(false);
+    if (this.isMenuVisible) {
+      return this.toggleMenuForm(false);
+    }
+    this.toggleMenuForm(true);
   }
 
   showFilterForm(): void {
-    if (this.isSearchVisible) {
-      this.closeFilterForm();
+    this.toggleSearchForm(false);
+    this.toggleMenuForm(false);
+    if (this.isFilterVisible) {
+      return this.toggleFilterForm(false);
     }
-    this.isFilterVisible = !this.isFilterVisible;
+    this.toggleFilterForm(true);
   }
 
-  closeFilterForm(): void {
-    this.isSearchVisible = !this.isSearchVisible;
+  toggleFilterForm(value): void {
+    this.isFilterVisible = value;
   }
 
+  toggleSearchForm(value): void {
+    this.isSearchVisible = value;
+  }
+
+  toggleMenuForm(value): void {
+    this.isMenuVisible = value;
+  }
 }
