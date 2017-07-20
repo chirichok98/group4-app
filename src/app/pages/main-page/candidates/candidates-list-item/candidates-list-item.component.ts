@@ -21,7 +21,7 @@ export class CandidatesListItemComponent implements OnInit {
   }
 
   getCandidateById(id) {
-    this.currentCandidate = this.cliService.getCandidateById(id);
+    this.currentCandidate = this.cliService.getCandidateByIdSlowly(id);
   }
 
   ngOnInit() {
