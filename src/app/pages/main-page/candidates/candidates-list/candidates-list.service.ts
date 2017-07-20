@@ -7,7 +7,7 @@ import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 
 @Injectable()
 export class CandidatesListService {
-  private apiUrl: string = 'http://knowbaseserver.azurewebsites.net/api/candidate';
+  private apiUrl: string = 'http://knowbaseserver.azurewebsites.net/api/candidate?skip=0&amount=50';
 
   constructor(private http: Http) { }
 

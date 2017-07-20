@@ -71,6 +71,17 @@ export class NavbarComponent implements OnInit {
     this.toggleFilterForm(true);
   }
 
+  openSearch(): void {
+    const container = $('.search-block');
+    // this.toggleFilterForm(false);
+    if (!container.height()) {
+      container.animate({ height: '16rem' });
+      container.css({ visibility: 'visible', opacity: '1' });
+    } else {
+      container.animate({ height: '0' });
+      container.css({ visibility: 'hidden', opacity: '0' });
+    }
+  }
   toggleFilterForm(value): void {
     this.isFilterVisible = value;
   }
