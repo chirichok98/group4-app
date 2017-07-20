@@ -1,11 +1,21 @@
-<div class="fixed-action-btn horizontal">
-    <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-  </div>
+<div *ngIf="user">
+    <div class="fixed-action-btn horizontal">
+        <ul>
+            <li><a class="btn-floating red">Add candidate</a></li>
+            <li><a class="btn-floating yellow darken-1">Add position</a></li>
+            <li><a class="btn-floating green">Log out</a></li>
+        </ul>
+        <a class="btn-floating btn-large">
+            <div class="user-info__photo-wrap" *ngIf="user?.picture; else default">
+                <img class="user-info__photo" [src]="user.picture" alt="photo">
+            </div>
+            <ng-template #default>
+                <div class="user-info__photo-wrap">
+                    <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
+                </div>
+            </ng-template>
+
+            <div class="user-info__name">{{user.name}}</div>
+        </a>
+    </div>
+</div>

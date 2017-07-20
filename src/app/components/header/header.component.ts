@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUserPreview } from '../../interfaces/IUserPreview';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent { 
-  userName: string = 'Vasya Pupkin';
-  userPhotoUrl: string = '../../../assets/user-photo';
+  loggedUser: IUserPreview = {
+    id: 1,
+    name: "Vasya Pupkin",
+    role: "admin",
+  };
 }
