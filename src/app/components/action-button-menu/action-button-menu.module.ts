@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { ActionButtonComponent } from './action-button-menu.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [],
+    imports: [CommonModule],
     exports: [ActionButtonComponent],
     declarations: [ActionButtonComponent],
     providers: [],

@@ -9,26 +9,6 @@
   }
 }
 
-//user info
-.user-info {
-  text-align: center;
-  &__photo-wrap {
-    display: inline-block;
-    width: 3rem;
-  }
-  &__photo {
-    width: 100%;
-    border-radius: 50%;
-  }
-  &__name {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: medium;
-    font-weight: 500;
-    cursor: url('/assets/cursor/text2.png'), text;
-  }
-}
-
 //brand-logo
 .brand-logo {
   flex-basis: 20rem;
@@ -53,5 +33,5 @@ div::selection {
 
 h4,
 p {
-  cursor: url('/assets/cursor/text2.png'), text !important;
+  cursor: url('/assets/cursor/text.png'), text !important;
 }

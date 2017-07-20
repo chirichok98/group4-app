@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IUserPreview } from '../../interfaces/IUserPreview';
 
 @Component({
     selector: 'action-button-menu',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ActionButtonComponent implements OnInit {
+    @Input() user: IUserPreview;
     constructor() { }
 
     ngOnInit() { }

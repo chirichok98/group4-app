@@ -6,9 +6,11 @@ import { PositionsListComponent } from './positions-list.component';
 // tslint:disable-next-line:max-line-length
 import { PositionPreviewModule } from '../../../../components/position-preview-card/position-preview-card.module';
 import { PositionsListService } from './positions-list.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
+    HttpModule,
     RouterModule,
     PositionPreviewModule,
     CommonModule,
