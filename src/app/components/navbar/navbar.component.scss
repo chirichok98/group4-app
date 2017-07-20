@@ -19,7 +19,7 @@
 .navbar-elem {
   height: 100%;
   padding: 0.5rem 1.5rem;
-  cursor: url('/assets/cursor/link_6.png'), pointer;
+  cursor: url('/assets/cursor/default_end.png'), pointer;
 }
 
 .navbar-icon {
@@ -43,5 +43,5 @@ img::selection {
   height: 2.5rem;
   padding-left: 0.35rem;
   padding-right: 0.35em;
-  cursor: url('/assets/cursor/link_6.png'), pointer;
+  cursor: url('/assets/cursor/default_end.png'), pointer;
 }
