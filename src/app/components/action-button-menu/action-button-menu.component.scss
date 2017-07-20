@@ -46,6 +46,11 @@
 .fixed-action-btn.horizontal ul li .btn-floating.logout {
     background-color: #52c1e6;
 }
+.fixed-action-btn.horizontal ul li:hover .btn-floating.add,
+.fixed-action-btn.horizontal ul li:hover .btn-floating.logout {
+    background-color: #41506d;
+    opacity: 0.8;
+}
 //user info
 .fixed-action-btn .user-info {
   text-align: center;
@@ -64,6 +69,7 @@
     color: #fff;
     font-size: medium;
     font-weight: 500;
-    cursor: url('/assets/cursor/text2.png');
+    line-height: initial;
+    margin: 10px 0 0;
   }
 }
