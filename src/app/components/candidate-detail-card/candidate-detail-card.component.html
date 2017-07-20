@@ -1,52 +1,58 @@
-<div class="candidate-info-container">
-    <div class="candidate-blocks">
-        <div class="candidate-block" *ngIf="candidate?.picture; else default">
-            <img class="candidate-photo" [src]="candidate.picture">
-        </div>
-        <ng-template #default>
+<div *ngIf="candidate as can; else loading">
+    <div class="candidate-info-container">
+        <div class="candidate-blocks">
+            <div class="candidate-block" *ngIf="can.picture; else default">
+                <img class="candidate-photo" [src]="can.picture">
+            </div>
+            <ng-template #default>
+                <div class="candidate-block">
+                    <img src="./assets/blank-avatar.png" alt="photo">
+                </div>
+            </ng-template>
             <div class="candidate-block">
-                <img src="./assets/blank-avatar.png" alt="photo">
-            </div>
-        </ng-template>
-        <div class="candidate-block">
-            <div class="candidate-name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
-            <div class="candidate-info-item candidate-status">{{candidate?.status}}</div>
-            <div class="candidate-info-item candidate-location">({{candidate?.city}})</div>
-            <div class="candidate-feedback">
-                <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{candidate?.contact.phone}}</div>
-                <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{candidate?.contact.email}}</div>
-                <div class="candidate-feedback-item candidate-skype"><i class="feedback-logotypes"></i>{{candidate?.contact.skype}}</div>
-                <div class="candidate-feedback-item candidate-linkedin"><i class="feedback-logotypes"></i>{{candidate?.contact.linkedIn}}</div>
+                <div class="candidate-name">{{can.firstNameEng}} {{can.lastNameEng}}</div>
+                <div class="candidate-info-item candidate-status">{{can.status}}</div>
+                <div class="candidate-info-item candidate-location">({{can.city}})</div>
+                <div class="candidate-feedback">
+                    <div class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{can.contact.phone}}</div>
+                    <div class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{can.contact.email}}</div>
+                    <div class="candidate-feedback-item candidate-skype"><i class="feedback-logotypes"></i>{{can.contact.skype}}</div>
+                    <div class="candidate-feedback-item candidate-linkedin"><i class="feedback-logotypes"></i>{{can.contact.linkedIn}}</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="candidate-info__inner">
-        <div class="candidate-skills">
-            <span>Primary skill:</span>
-            <img class="candidate-skill" [src]="candidate?.primarySkill.picture" [alt]="candidate?.primarySkill.name"/>
-            <span>Secondary skills:</span>
-            <img class="candidate-skill" *ngFor="let item of candidate?.secondarySkills" [src]="item.picture" [alt]="candidate?.primarySkill.name"/>
-        </div>
-        <div class="candidate-info-item candidate-experience">
-            <span>Experience from: </span>{{candidate?.experience | date:"mediumDate"}}
-        </div>
-        <div class="candidate-info-item candidate-english-level">
-            <span>English: </span>{{candidate?.englishLevel}}
-        </div>
-        <div class="candidate-info-item candidate-desired-salary">
-            <span>Desired salary: </span>{{candidate?.desiredSalary}}
-        </div>
-        <div class="candidate-info-item candidate-last-contact">
-            <span>Last connection date: </span>{{candidate?.lastContactDate | date:"mediumDate"}}
-        </div>
-        <div class="candidate-info-item candidate-hr">
-            <span>Current HR: </span>{{candidate?.hrm.name}}
-        </div>
-        <div class="candidate-info-item candidate-hr">
-            <span>Possible vacancies: </span>
-        </div>
-        <div class="possible-vacancies">
-            <position-preview-card *ngFor="let item of candidate?.vacancies" [position]="item"></position-preview-card>
+        <div class="candidate-info__inner">
+            <div class="candidate-skills">
+                <span>Primary skill:</span>
+                <img class="candidate-skill" [src]="can.primarySkill.picture" [alt]="can.primarySkill.name" />
+                <span>Secondary skills:</span>
+                <img class="candidate-skill" *ngFor="let item of can.secondarySkills" [src]="item.picture" [alt]="can.primarySkill.name"
+                />
+            </div>
+            <div class="candidate-info-item candidate-experience">
+                <span>Experience from: </span>{{can.experience | date:"mediumDate"}}
+            </div>
+            <div class="candidate-info-item candidate-english-level">
+                <span>English: </span>{{can.englishLevel}}
+            </div>
+            <div class="candidate-info-item candidate-desired-salary">
+                <span>Desired salary: </span>{{can.desiredSalary}}
+            </div>
+            <div class="candidate-info-item candidate-last-contact">
+                <span>Last connection date: </span>{{can.lastContactDate | date:"mediumDate"}}
+            </div>
+            <div class="candidate-info-item candidate-hr">
+                <span>Current HR: </span>{{can.hrm.name}}
+            </div>
+            <div class="candidate-info-item candidate-hr">
+                <span>Possible vacancies: </span>
+            </div>
+            <div class="possible-vacancies">
+                <position-preview-card *ngFor="let item of can.vacancies" [position]="item"></position-preview-card>
+            </div>
         </div>
     </div>
 </div>
+<ng-template #loading>
+    <spinner></spinner>
+</ng-template>
