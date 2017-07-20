@@ -2,7 +2,7 @@
 <div class="position-info-container">
     <div class="position-blocks">
         <div class="position-block">
-            <img class="position-photo" src="/assets/languages-icons/dotnet_roma.png">
+            <img class="position-photo" [src]="position?.primarySkill.picture">
         </div>
         <div class="position-block">
             <div class="position-feedback">
@@ -11,7 +11,7 @@
                 <div class="position-info-item position-skill-name"><span>Language: </span>{{position?.primarySkill.name}}</div>
                 <div class="position-info-item position-project-name"><span>Project: </span>{{position?.projectName}}</div>
                 <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{position?.vacancyName}}</div>
-                <div class="position-info-item position-english-level"><span>English(min): </span>{{position?.englishLevel.name}}</div>
+                <div class="position-info-item position-english-level"><span>English(min): </span>{{position?.engLevel}}</div>
             </div>
         </div>
     </div>
