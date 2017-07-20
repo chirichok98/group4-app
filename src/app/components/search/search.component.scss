@@ -35,8 +35,7 @@
   input {
     text-transform: uppercase;
     background-color: #fff;
-    font-size: 1rem;
-    // border: 1px solid #ccc;
+    font-size: 1rem; // border: 1px solid #ccc;
     height: 3.5rem;
     box-sizing: border-box;
     padding: 0 15px;
@@ -65,4 +64,25 @@
 
 input::selection {
   color: #56CCF2;
+}
+
+.arrow-block {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .form__item {
+    margin: 2rem 0;
+    max-width: 50%;
+  }
+  .arrow-block {
+    margin-right: calc(10% - 3.5rem);
+    .arrow-img {
+      height: 3rem;
+    }
+  }
 }
