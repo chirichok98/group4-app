@@ -10,6 +10,6 @@ export class LoginFormComponent {
   constructor(private router: Router) { }
 
   signIn(): void {
-    this.router.navigate([`../main-page`]);
+    this.router.navigate([`main-page`]);
   }
 }
