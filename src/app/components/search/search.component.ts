@@ -25,11 +25,11 @@ export class SearchComponent {
       detailed.animate({ height: '8rem', opacity: 1 });
       container.animate({ height: '24rem' });
       this.x += 180;
-      arrow.css({ 'transform': 'rotate(' + this.x + 'deg)', 'transition-duration': '0.5s' });
+      arrow.css({ transform: 'rotate(' + this.x + 'deg)', 'transition-duration': '0.5s' });
     } else {
       detailed.animate({ height: 0, opacity: 0 });
       this.x += 180;
-      arrow.css({ 'transform': 'rotate(' + this.x + 'deg)', 'transition-duration': '0.5s' });
+      arrow.css({ transform: 'rotate(' + this.x + 'deg)', 'transition-duration': '0.5s' });
       container.animate({ height: '16rem' });
     }
   }

@@ -1,5 +1,6 @@
 .filter-block {
-  height: 22rem;
+  height: 0;
+  opacity: 0;
   padding: 0.5rem 0.8rem;
 }
 
@@ -38,7 +39,7 @@
   margin-top: 1rem;
   background-color: #273248;
   width: 60%;
-  height: 3.5rem;
+  height: 3rem;
   cursor: url('/assets/cursor/default_end.png'), pointer;
 }
 
