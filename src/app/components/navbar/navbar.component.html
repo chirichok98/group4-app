@@ -4,8 +4,9 @@
     <div class="navbar-states hide-on-med-and-down">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</div>
     </div>
-    <i class="navbar-icon material-icons hide-on-large-only" (click)="openMenu()">menu</i>
-    <img class="nb-icon" src="/assets/filter16.png" (click)="openFilter()">
+    <!--i class="navbar-icon material-icons hide-on-large-only" (click)="openMenu()">menu</i-->
+    <img class="nb-icon hide-on-large-only" src="/assets/menu11.png" (click)="openMenu()">
+    <img class="nb-icon" src="/assets/filt7.png" (click)="openFilter()">
   </div>
 </div>
 <search-panel></search-panel>
