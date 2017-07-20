@@ -4,7 +4,7 @@
     <div class="navbar-states hide-on-med-and-down">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</div>
     </div>
-    <i class="navbar-icon material-icons hide-on-large-only">menu</i>
+    <i class="navbar-icon material-icons hide-on-large-only" [ngClass]="{active: isMenuVisible}" (click)="showMenuForm()">menu</i>
     <img class="nb-icon" src=".../../../assets/filter16.png" [ngClass]="{active: isFilterVisible}" (click)="showFilterForm()">
   </div>
 </div>
