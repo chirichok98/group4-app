@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare const $;
 @Component({
   selector: 'create-candidate',
   templateUrl: 'create-candidate.component.html',
@@ -8,5 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class CreateCandidateComponent implements OnInit {
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    $(document).ready(() => {
+      $('select').material_select();
+    });
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+    });
+  }
 }
