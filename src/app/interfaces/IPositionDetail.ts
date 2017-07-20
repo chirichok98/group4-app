@@ -1,6 +1,7 @@
 import { IVacancyStatus } from './IVacancyStatus';
 import { ITechSkill } from './ITechSkill';
 import { ICandidatePreview } from './ICandidatePreview';
+import { IUserPreview } from './IUserPreview';
 
 export interface IPositionDetail {
   id: number;
@@ -17,5 +18,6 @@ export interface IPositionDetail {
   city: string;
   secondarySkills: ITechSkill[];
   candidates: ICandidatePreview[];
+  hrm: IUserPreview;
   // events
 }
