@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
   isFilterVisible: boolean = false;
+  isMenuVisible: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
