@@ -8,6 +8,10 @@
     display: flex;
     align-items: center;
 }
+
+ .indicator-wrapper div::selection {
+    color: #52c1e6;
+ }
 .notifications-indicators .indicator-color {
     font-size: 0;
     height: 1rem;

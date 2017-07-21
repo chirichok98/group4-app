@@ -53,3 +53,26 @@
 input::selection {
   color: #56CCF2;
 }
+
+  /*  h4::selection {
+      color: #52c1e6;
+    }
+
+    input[type="checkbox"] {
+        display:none;
+    }
+
+
+    input[type="checkbox"] + label:before {
+      display: inline-block;
+      height: 1.2vw;
+      width: 1.2vw;
+      margin: 0.6vw auto;
+      content: "";
+      background: url(/assets/checkbox2.png) no-repeat;
+      background-size: 1.2vw;
+    }
+
+    input[type="checkbox"]:checked + label:before {
+        background-position: 0 -1.2vw;
+    }*/
