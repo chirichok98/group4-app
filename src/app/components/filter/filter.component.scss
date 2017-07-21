@@ -1,10 +1,12 @@
 .filter-block {
   height: 0;
   opacity: 0;
+  visibility: hidden;
   padding: 0.5rem 0.8rem;
 }
 
 .filter-header {
+  margin-top:0;
   font-family: "Roboto Slab";
   color: #526C7B;
   font-size: 2.4rem;
