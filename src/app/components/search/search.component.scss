@@ -1,5 +1,7 @@
 .search-block {
-  height: 26rem;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
   padding: 0.5rem 0.8rem;
 }
 
@@ -35,9 +37,8 @@
   input {
     text-transform: uppercase;
     background-color: #fff;
-    font-size: 1rem;
-    // border: 1px solid #ccc;
-    height: 3.5rem;
+    font-size: 1rem; // border: 1px solid #ccc;
+    height: 3rem;
     box-sizing: border-box;
     padding: 0 15px;
     margin: 0rem auto;
@@ -54,7 +55,7 @@
   margin-top: 1rem;
   background-color: #273248;
   width: 60%;
-  height: 3.5rem;
+  height: 3rem;
   cursor: url('/assets/cursor/default_end.png'), pointer;
 }
 
@@ -65,4 +66,34 @@
 
 input::selection {
   color: #56CCF2;
+}
+
+.arrow-block {
+  height: 3rem;
+  width: 3rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .form__item {
+    margin: 1rem 0;
+    max-width: 52%;
+  }
+  .arrow-block {
+    margin-right: calc(8% - 3rem);
+    .arrow-img {
+      height: 2rem;
+    }
+  }
+}
+
+.detailed-search {
+  height: 0;
+  opacity: 0;
+}
+
+img::selection {
+  background: transparent;
 }

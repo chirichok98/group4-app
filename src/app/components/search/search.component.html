@@ -1,10 +1,16 @@
 <div class="search-block">
-  <h4 class="search-header">Search</h4>
+    <h4 class="search-header">Search</h4>
     <div class="form">
-        <div class="form__item">
-            <input #search type="text" placeholder="what are you looking for?" class="form__input validate">
+        <div class="flex-container">
+            <div class="form__item arrow-block" (click)="openAdvancedSearch()"><img class="arrow-img" src="/assets/arrow3.png">
+            </div>
+            <div class="form__item">
+                <input #search type="text" placeholder="what are you looking for?" class="form__input validate">
+            </div>
         </div>
-        <div class="search__inner container"></div>
+        <div class="search__inner container detailed-search">
+            <div class="aaa">123</div>
+        </div>
         <button class="btn waves-effect waves-light" (click)="startSearch()">Find</button>
     </div>
 </div>

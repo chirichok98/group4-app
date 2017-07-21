@@ -44,7 +44,46 @@ export class NavbarComponent implements OnInit {
     return `${classNames} navbar-elem`;
   }
 
-  showSearchForm(): void {
+  openSearch(): void {
+    const filter = $('.filter-block');
+    const search = $('.search-block');
+    const detailed = $('.detailed-search');
+    if (!filter.height()) {
+      if (!search.height()) {
+        if (!detailed.height()) {
+          search.animate({ height: '16rem', opacity: '1' });
+        } else {
+          search.animate({ height: '24rem', opacity: '1' });
+        }
+        search.css({ visibility: 'visible' });
+
+      } else {
+        search.animate({ height: '0', opacity: '0' });
+        search.css({ visibility: 'hidden' });
+      }
+    }
+  }
+
+  openFilter(): void {
+    const filter = $('.filter-block');
+    const search = $('.search-block');
+    if (!search.height()) {
+      if (!filter.height()) {
+        filter.animate({ height: '20rem', opacity: '1' });
+        filter.css({ visibility: 'visible' });
+      } else {
+        filter.animate({ height: '0', opacity: '0' });
+        filter.css({ visibility: 'hidden' });
+      }
+    }
+  }
+  openMenu(): void {
+    
+  }
+}
+
+
+/* showSearchForm(): void {
     this.toggleMenuForm(false);
     this.toggleFilterForm(false);
     if (this.isSearchVisible) {
@@ -70,7 +109,6 @@ export class NavbarComponent implements OnInit {
     }
     this.toggleFilterForm(true);
   }
-
   toggleFilterForm(value): void {
     this.isFilterVisible = value;
   }
@@ -82,4 +120,4 @@ export class NavbarComponent implements OnInit {
   toggleMenuForm(value): void {
     this.isMenuVisible = value;
   }
-}
+} */
