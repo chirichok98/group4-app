@@ -17,6 +17,7 @@ export class PositionPreviewComponent {
   }
 
   goToDetailView() {
+    console.log('gdsgd');
     this.router.navigate([`main-page/vacancies`, this.position.id]);
   }
 }

@@ -1,130 +1,103 @@
-<div class="row">
-  <form class="col s12">
+<div class="wrapper">
+  <div class="row">
     General:
     <div class="row">
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate" name="something">
-        <label for="first_name">First Name (en)</label>
-      </div>
-  <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name (en)</label>
+        <input [(ngModel)]="canInfo.lastNameEng" id="lastEng" type="text" class="validate" name="firstName" ngDefaultControl>
+        <label for="lastEng">Last Name (en)</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameRus" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name (ru)</label>
+        <input [(ngModel)]="canInfo.lastNameRus" id="lastRus" type="text" class="validate" ngDefaultControl>
+        <label for="lastRus">Last Name (ru)</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.lastNameRus" id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name (en)</label>
+        <input [(ngModel)]="canInfo.firstNameEng" id="firstEng" type="text" class="validate" ngDefaultControl>
+        <label for="firstEng">First Name (en)</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.lastNameEng" id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name (ru)</label>
+        <input [(ngModel)]="canInfo.firstNameRus" id="firstRus" type="text" class="validate" ngDefaultControl>
+        <label for="firstRus">First Name (ru)</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.resume" id="resume" type="text" class="validate">
+        <input [(ngModel)]="canInfo.resume" id="resume" type="text" class="validate" ngDefaultControl>
         <label for="resume">Link on resume</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
+        <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate" ngDefaultControl>
         <label for="salary">Desired salary</label>
       </div>
-      <label [(ngModel)]="canInfo.pSExperience" for="work_from">Work with primary skill from: </label>
-      <input id="work_from" type="date" class="datepicker">
+      <label for="work_from">Work with primary skill from: </label>
+      <input id="work_from" [(ngModel)]="canInfo.pSExperience" type="date" class="datepicker">
     </div>
+
     Contacts:
     <div class="row">
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.email" id="email" type="email" class="validate">
+        <input [(ngModel)]="contact.email" id="email" type="email" class="validate" ngDefaultControl>
         <label for="email">Email</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.skype" id="skype" type="text" class="validate">
+        <input [(ngModel)]="contact.skype" id="skype" type="text" class="validate" ngDefaultControl>
         <label for="skype">Skype</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.phone" id="phone" type="text" class="validate">
+        <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate" ngDefaultControl>
         <label for="phone">Phone</label>
       </div>
       <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.linkedIn" id="linkedIn" type="text" class="validate">
+        <input [(ngModel)]="contact.linkedIn" id="linkedIn" type="text" class="validate" ngDefaultControl>
         <label for="linkedIn">LinkedIn</label>
       </div>
     </div>
-  </form>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.city">
-      <option value="" disabled selected>Choose city</option>
-      <option value="1">Minsk</option>
-      <option value="2">Vilnus</option>
-    </select>
-  <label>City</label>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.engLevel">
-      <option value="" disabled selected>Choose english level</option>
-      <option value="1">A1</option>
-      <option value="2">A2</option>
-      <option value="2">B1</option>
-      <option value="2">B2</option>
-      <option value="2">C1</option>
-      <option value="2">C2</option>
-    </select>
-  <label>English level</label>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.primarySkill">
-      <option value="" disabled selected>Choose primary skill</option>
-      <option value="1">Dotnet</option>
-      <option value="2">JS</option>
-      <option value="2">Node js</option>
-      <option value="2">C++</option>
-      <option value="2">Java</option>
-    </select>
-  <label>Primary skill</label>
-</div>
-<div class="input-field col s12">
-  <select multiple [(ngModel)]="canInfo.techSkillsIds">
-      <option value="" disabled selected>Choose skills</option>
-      <option value="1">Dotnet</option>
-      <option value="2">JS</option>
-      <option value="3">Ruby</option>
-      <option value="3">C#</option>
-      <option value="3">Java</option>
-      <option value="3">Swift</option>
-      <option value="3">Other</option>
-    </select>
-  <label>Other skills</label>
-</div> 
- Previous jobs:
-<div class="row">
-  <div class="input-field col s6">
-    <input id="company" type="text" class="validate">
-    <label for="company">Company Name</label>
   </div>
-  <div class="input-field col s6">
-    <input id="position" type="text" class="validate">
-    <label for="position">Position</label>
+  <div class="input-field col s12">
+    <select type="number" [(ngModel)]="canInfo.city">
+      <option [ngValue]="1">Minsk</option>
+      <option [ngValue]="2">Vilnus</option>
+    </select>
+    <label>City</label> {{city}}
+  </div>
+  <div class="input-field col s12">
+    <select [(ngModel)]="canInfo.engLevel">
+      <option [value]="" disabled selected>Choose english level</option>
+      <option [value]="1">A1</option>
+      <option [value]="2">A2</option>
+      <option [value]="3">B1</option>
+      <option [value]="4">B2</option>
+      <option [value]="5">C1</option>
+      <option [value]="6">C2</option>
+    </select>
+    <label>English level</label>
+  </div>
+  <div class="input-field col s12">
+    <select [(ngModel)]="canInfo.primarySkill">
+      <option [value]="" disabled selected>Choose primary skill</option>
+      <option [value]="1">Dotnet</option>
+      <option [value]="2">JS</option>
+      <option [value]="2">Node js</option>
+      <option [value]="2">C++</option>
+      <option [value]="2">Java</option>
+    </select>
+    <label>Primary skill</label>
+  </div>
+  <div class="input-field col s12">
+    <select multiple [(ngModel)]="canInfo.techSkillsIds">
+      <option [value]="" disabled selected>Choose skills</option>
+      <option [value]="1">Dotnet</option>
+      <option [value]="2">JS</option>
+      <option [value]="3">Ruby</option>
+      <option [value]="3">C#</option>
+      <option [value]="3">Java</option>
+      <option [value]="3">Swift</option>
+      <option [value]="3">Other</option>
+    </select>
+    <label>Other skills</label>
+  </div>
+  <div>Previous jobs:
+    <!-- <button (click)="addPrevJob()">Add job</button>
+    <div [innerHtml]="jobs">
+    </div> -->
   </div>
 
-  <div class="row">
-    Contacts:
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="phone" type="text" class="validate">
-        <label for="phone">Phone</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="linkedIn" type="text" class="validate">
-        <label for="linkedIn">LinkedIn</label>
-      </div>
-    </div>
-  </div>
-</div>  
-<button (click)="addCandidate()">Add candidate</button>
+  <button (click)="addCandidate()">Add candidate</button>
+</div>
