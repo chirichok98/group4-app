@@ -1,5 +1,5 @@
-<div class="card" (click)="goToDetailView()">
-    <div class="card-image" *ngIf="candidate?.primarySkill.picture; else default">
+<div class="card" *ngIf="candidate; else loading" (click)="goToDetailView()">
+    <div class="card-image" *ngIf="candidate.primarySkill?.picture; else default">
         <img [src]="candidate.primarySkill.picture" alt="photo">
     </div>
     <ng-template #default>
@@ -9,9 +9,12 @@
     </ng-template>
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">{{candidate?.firstNameEng}} {{candidate?.lastNameEng}}</div>
-            <div class="phone"><i class="small material-icons candidate-phone">call</i>{{candidate?.phone}}</div>
-            <div class="email"><i class="small material-icons candidate-email">email</i>{{candidate?.email}}</div>
+            <div class="name">{{candidate.firstNameEng}} {{candidate.lastNameEng}}</div>
+            <div class="phone"><i class="small material-icons candidate-phone">call</i>{{candidate.phone}}</div>
+            <div class="email"><i class="small material-icons candidate-email">email</i>{{candidate.email}}</div>
         </div>
     </div>
 </div>
+<ng-template #loading>
+    <spinner></spinner>
+</ng-template>
