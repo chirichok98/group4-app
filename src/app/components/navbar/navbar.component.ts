@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+declare const $;
+
 import { INavbarOption } from '../../interfaces/INavbarOption';
 
 @Component({

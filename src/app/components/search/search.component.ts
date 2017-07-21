@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import * as $ from 'jquery';
+
+declare const $;
+
 @Component({
   selector: 'search-panel',
   templateUrl: './search.component.html',
