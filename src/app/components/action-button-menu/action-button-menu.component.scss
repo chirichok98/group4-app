@@ -2,43 +2,45 @@
     position: relative;
     right: 0;
     bottom: 0;
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0;
 }
 .fixed-action-btn .btn-floating.btn-large {
     overflow: visible;
     width: auto;
-    height: auto;
+    height: 90px;
     background: none;
     border: none;
     box-shadow: none;
+    cursor: url('/assets/cursor/default_end.png'), default;
 }
 .fixed-action-btn.horizontal ul {
-    position: relative;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    width: auto;
+    right: 105px;
+    top: 40%;
+    width: 150px;
+    text-align: -webkit-right;
+    z-index: 1111;
 }
 .fixed-action-btn.horizontal ul li {
-    position: relative;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    margin: 0 5px;
-    line-height: 0.6em;
+    display: block;
+
+    // position: relative;
+    // right: auto;
+    // top: auto;
+    // bottom: auto;
+    margin: 5px;
+    // line-height: 0.6em;
 }
 .fixed-action-btn.horizontal ul li .btn-floating {
     width: auto;
-    height: auto;
+    height: 1rem;
     border-radius: 10px;
     padding: 0 10px;
     text-transform: uppercase;
     color: #fff;
     font-size: 0.6em;
+    line-height: 1rem;
     font-weight: 500;
+    display: block;
 }
 .fixed-action-btn.horizontal ul li .btn-floating.add {
     background-color: #6d8b9c;
@@ -67,9 +69,12 @@
   &__name {
     text-transform: uppercase;;
     color: #fff;
-    font-size: medium;
+    font-size: 0.7em;
     font-weight: 500;
     line-height: initial;
-    margin: 10px 0 0;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-width: 7rem;
+    overflow: hidden;
   }
 }
