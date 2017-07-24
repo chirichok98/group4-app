@@ -1,40 +1,40 @@
 <div class="row">
-  <button (click)="addCandidate()">Add candidate</button> General:
-  <div class="row">
-    <div class="input-field col s6">
+  <button (click)="addCandidate()" class="btn add-candidate">Add candidate</button>
+  <div class="row input-wrapper">
+    <div class="header-info">General information</div>
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate">
       <label for="first_name">First Name (en)</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.firstNameRus" id="first_name" type="text" class="validate">
       <label for="first_name">First Name (ru)</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.lastNameRus" id="last_name" type="text" class="validate">
       <label for="last_name">Last Name (en)</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.lastNameEng" id="last_name" type="text" class="validate">
       <label for="last_name">Last Name (ru)</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.resume" id="resume" type="text" class="validate">
       <label for="resume">Link on resume</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col m6 s12">
       <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
       <label for="salary">Desired salary</label>
     </div>
-    <br>
-    
   </div>
-
 </div>
 <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
 <contacts-form #contact></contacts-form>
 <select-form #city [multiple]="false" [placeholder]="'City'" [array]="cities"></select-form>
 <select-form #engLevel [multiple]="false" [placeholder]="'English level'" [array]="englishLevel"></select-form>
 <select-form #primary [multiple]="false" [placeholder]="'Primary skill'" [array]="skills"></select-form>
-<select-form #secondary [multiple]="true" [placeholder]="'Secondary level'" [array]="skills"></select-form>
-Previous jobs:
+<div class="row">
+  <select-form #secondary [multiple]="true" [placeholder]="'Secondary level'" [array]="skills"></select-form>
+</div>
+<div class="header-info jobs">Previous jobs</div>
 <prev-job-form #prevJob></prev-job-form>
