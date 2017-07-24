@@ -10,10 +10,17 @@ import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 })
 
 export class PositionsListComponent implements OnInit {
-  positions: Promise<IPositionPreview[]>;
+  positions: IPositionPreview[];
+  isSpinnerVisible: boolean = true;
 
   constructor(private plService: PositionsListService) {
-    this.positions = this.plService.getAllPositions();
+    this.plService.getAllPositions().then((positions) => {
+      this.positions = positions;
+      this.isSpinnerVisible = false;
+    }, (error) => {
+      console.log('Positions error');
+      this.isSpinnerVisible = false;
+    });
   }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import { PositionsListComponent } from './positions-list.component';
 import { PositionPreviewModule } from '../../../../components/position-preview-card/position-preview-card.module';
 import { PositionsListService } from './positions-list.service';
 import { HttpModule } from '@angular/http';
+import { SpinnerModule } from '../../../../components/spinner/spinner.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { HttpModule } from '@angular/http';
     RouterModule,
     PositionPreviewModule,
     CommonModule,
+    SpinnerModule,
   ],
   exports: [RouterModule],
   declarations: [PositionsListComponent],
