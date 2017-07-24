@@ -16,8 +16,8 @@ export interface ICandidateDetail {
   city: string;
   primarySkill: ITechSkill;
   secondarySkills: ITechSkill[];
-  experience: Date | null;
-  englishLevel: string;
+  psExperience: Date | null;
+  engLevel: string;
   desiredSalary: number | null;
   lastContactDate: Date;
   vacancies: IPositionPreview[];

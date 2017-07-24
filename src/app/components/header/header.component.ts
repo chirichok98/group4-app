@@ -9,7 +9,7 @@ import { IUserPreview } from '../../interfaces/IUserPreview';
 export class HeaderComponent { 
   loggedUser: IUserPreview = {
     id: 1,
-    name: 'Vasya Pupkin',
+    name: 'Vasiliy Tovarishev',
     role: 'admin',
     picture: null,
   };
