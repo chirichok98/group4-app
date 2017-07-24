@@ -1,7 +1,7 @@
 export interface IContacts {
-  id: number;
-  phone: string;
-  email: string;
-  skype: string;
-  linkedIn: string;
+  id: number | null;
+  phone: string | null;
+  email: string | null;
+  skype: string | null;
+  linkedIn: string | null;
 }
