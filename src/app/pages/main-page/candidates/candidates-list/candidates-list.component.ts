@@ -9,10 +9,17 @@ import { CandidatesListService } from './candidates-list.service';
   styleUrls: ['./candidates-list.component.scss'],
 })
 export class CandidatesListComponent implements OnInit {
-  candidates: Promise<ICandidatePreview[]>;
+  isSpinnerVisible: boolean = true;
+  candidates: ICandidatePreview[];
 
   constructor(private clService: CandidatesListService) {
-    this.candidates = this.clService.getAllCandidates();
+    this.clService.getAllCandidates().then((candidates) => {
+      this.candidates = candidates;
+      this.isSpinnerVisible = false;
+    }, (error) => {
+      console.log('Candidates error');
+      this.isSpinnerVisible = false;
+    });
   }
 
   ngOnInit() {
