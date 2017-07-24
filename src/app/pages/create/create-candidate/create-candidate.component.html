@@ -1,58 +1,56 @@
 <div class="row">
-  <form class="col s12">
-    General:
-    <div class="row">
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate" name="something">
-        <label for="first_name">First Name (en)</label>
-      </div>
-  <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name (en)</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.firstNameRus" id="first_name" type="text" class="validate">
-        <label for="first_name">First Name (ru)</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.lastNameRus" id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name (en)</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.lastNameEng" id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name (ru)</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.resume" id="resume" type="text" class="validate">
-        <label for="resume">Link on resume</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
-        <label for="salary">Desired salary</label>
-      </div>
-      <label [(ngModel)]="canInfo.pSExperience" for="work_from">Work with primary skill from: </label>
-      <input id="work_from" type="date" class="datepicker">
+  <button (click)="addCandidate()">Add candidate</button> General:
+  <div class="row">
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate" name="something">
+      <label for="first_name">First Name (en)</label>
     </div>
-    Contacts:
-    <div class="row">
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.email" id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.skype" id="skype" type="text" class="validate">
-        <label for="skype">Skype</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.phone" id="phone" type="text" class="validate">
-        <label for="phone">Phone</label>
-      </div>
-      <div class="input-field col s6">
-        <input [(ngModel)]="canInfo.contact.linkedIn" id="linkedIn" type="text" class="validate">
-        <label for="linkedIn">LinkedIn</label>
-      </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate">
+      <label for="first_name">First Name (en)</label>
     </div>
-  </form>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.firstNameRus" id="first_name" type="text" class="validate">
+      <label for="first_name">First Name (ru)</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.lastNameRus" id="last_name" type="text" class="validate">
+      <label for="last_name">Last Name (en)</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.lastNameEng" id="last_name" type="text" class="validate">
+      <label for="last_name">Last Name (ru)</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.resume" id="resume" type="text" class="validate">
+      <label for="resume">Link on resume</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
+      <label for="salary">Desired salary</label>
+    </div>
+    <label  for="work_from">Work with primary skill from: </label>
+    <input [(ngModel)]="canInfo.pSExperience" id="work_from" type="date" class="datepicker">
+  </div>
+  Contacts:
+  <div class="row">
+    <div class="input-field col s6">
+      <input [(ngModel)]="contact.email" id="email" type="email" class="validate">
+      <label for="email">Email</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="contact.skype" id="skype" type="text" class="validate">
+      <label for="skype">Skype</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate">
+      <label for="phone">Phone</label>
+    </div>
+    <div class="input-field col s6">
+      <input [(ngModel)]="contact.linkedIn" id="linkedIn" type="text" class="validate">
+      <label for="linkedIn">LinkedIn</label>
+    </div>
+  </div>
 </div>
 <div class="input-field col s12">
   <select [(ngModel)]="canInfo.city">
@@ -97,8 +95,8 @@
       <option value="3">Other</option>
     </select>
   <label>Other skills</label>
-</div> 
- Previous jobs:
+</div>
+Previous jobs:
 <div class="row">
   <div class="input-field col s6">
     <input id="company" type="text" class="validate">
@@ -109,7 +107,7 @@
     <label for="position">Position</label>
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
     Contacts:
     <div class="row">
       <div class="input-field col s6">
@@ -125,6 +123,5 @@
         <label for="linkedIn">LinkedIn</label>
       </div>
     </div>
-  </div>
-</div>  
-<button (click)="addCandidate()">Add candidate</button>
+  </div> -->
+</div>

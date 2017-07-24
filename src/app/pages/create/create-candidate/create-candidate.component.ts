@@ -10,10 +10,8 @@ declare const $;
   styleUrls: ['create-candidate.component.scss'],
 })
 export class CreateCandidateComponent implements OnInit {
-  canInfo: any = {
-   
-  };
-  test: string = 'fdsbvdfv';
+  canInfo: any = {};
+  contact: any = {};
 
   constructor(private ccService: CreateCandidateService) { }
 
@@ -32,6 +30,7 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   addCandidate(): void {
+    this.canInfo.contact = this.contact;
     console.log(this.canInfo);
 
     // this.ccService.addCandidate(this.canInfo)
