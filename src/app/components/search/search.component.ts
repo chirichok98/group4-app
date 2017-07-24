@@ -9,12 +9,8 @@ declare const $;
 })
 export class SearchComponent {
   constructor() {
-    this.init();
   }
-
-  init(): void {
-    console.log('q');
-  }
+  
   x: number = 0;
   openAdvancedSearch(): void {
     const detailed = $('.detailed-search');
