@@ -37,4 +37,5 @@
 <select-form #primary [multiple]="false" [placeholder]="'Primary skill'" [array]="skills"></select-form>
 <select-form #secondary [multiple]="true" [placeholder]="'Secondary level'" [array]="skills"></select-form>
 Previous jobs:
+<button (click)="addPrevJob()">add prev job</button>
 <prev-job-form #prevJob></prev-job-form>
