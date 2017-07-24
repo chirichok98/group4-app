@@ -33,8 +33,8 @@ export class CreateCandidateComponent implements OnInit {
   skills: ITechSkill[] = [];
 
   constructor(private eRef: ElementRef,
-              private ccService: CreateCandidateService,
-              private hService: HelpService) {
+    private ccService: CreateCandidateService,
+    private hService: HelpService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -104,20 +104,15 @@ export class CreateCandidateComponent implements OnInit {
       this.prevJobs.push(item.prevJob);
     });
     this.canInfo.candidatePrevJobs = this.prevJobs;
-
     console.log(this.canInfo);
 
-
-    // this.ccService.addCandidate(this.canInfo)
-    //   .then((can: any) => {
-    //     console.log(can);
-    //   });
+    this.ccService.addCandidate(this.canInfo)
+      .then((can: any) => {
+        console.log(can);
+      });
   }
 
   addPrevJob(): void {
-    console.log(this.eRef.nativeElement);
-    const tag = document.createElement('prev-job-form');
-    
-    this.eRef.nativeElement.appendChild();
+    this.prevJobs.push({});
   }
 }
