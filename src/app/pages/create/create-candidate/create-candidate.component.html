@@ -2,10 +2,6 @@
   <button (click)="addCandidate()">Add candidate</button> General:
   <div class="row">
     <div class="input-field col s6">
-      <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate" name="something">
-      <label for="first_name">First Name (en)</label>
-    </div>
-    <div class="input-field col s6">
       <input [(ngModel)]="canInfo.firstNameEng" id="first_name" type="text" class="validate">
       <label for="first_name">First Name (en)</label>
     </div>
@@ -29,99 +25,16 @@
       <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
       <label for="salary">Desired salary</label>
     </div>
-    <label  for="work_from">Work with primary skill from: </label>
-    <input [(ngModel)]="canInfo.pSExperience" id="work_from" type="date" class="datepicker">
-  </div>
-  Contacts:
-  <div class="row">
-    <div class="input-field col s6">
-      <input [(ngModel)]="contact.email" id="email" type="email" class="validate">
-      <label for="email">Email</label>
-    </div>
-    <div class="input-field col s6">
-      <input [(ngModel)]="contact.skype" id="skype" type="text" class="validate">
-      <label for="skype">Skype</label>
-    </div>
-    <div class="input-field col s6">
-      <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate">
-      <label for="phone">Phone</label>
-    </div>
-    <div class="input-field col s6">
-      <input [(ngModel)]="contact.linkedIn" id="linkedIn" type="text" class="validate">
-      <label for="linkedIn">LinkedIn</label>
-    </div>
-  </div>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.city">
-      <option value="" disabled selected>Choose city</option>
-      <option value="1">Minsk</option>
-      <option value="2">Vilnus</option>
-    </select>
-  <label>City</label>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.engLevel">
-      <option value="" disabled selected>Choose english level</option>
-      <option value="1">A1</option>
-      <option value="2">A2</option>
-      <option value="2">B1</option>
-      <option value="2">B2</option>
-      <option value="2">C1</option>
-      <option value="2">C2</option>
-    </select>
-  <label>English level</label>
-</div>
-<div class="input-field col s12">
-  <select [(ngModel)]="canInfo.primarySkill">
-      <option value="" disabled selected>Choose primary skill</option>
-      <option value="1">Dotnet</option>
-      <option value="2">JS</option>
-      <option value="2">Node js</option>
-      <option value="2">C++</option>
-      <option value="2">Java</option>
-    </select>
-  <label>Primary skill</label>
-</div>
-<div class="input-field col s12">
-  <select multiple [(ngModel)]="canInfo.techSkillsIds">
-      <option value="" disabled selected>Choose skills</option>
-      <option value="1">Dotnet</option>
-      <option value="2">JS</option>
-      <option value="3">Ruby</option>
-      <option value="3">C#</option>
-      <option value="3">Java</option>
-      <option value="3">Swift</option>
-      <option value="3">Other</option>
-    </select>
-  <label>Other skills</label>
-</div>
-Previous jobs:
-<div class="row">
-  <div class="input-field col s6">
-    <input id="company" type="text" class="validate">
-    <label for="company">Company Name</label>
-  </div>
-  <div class="input-field col s6">
-    <input id="position" type="text" class="validate">
-    <label for="position">Position</label>
+    <br>
+    
   </div>
 
-  <!-- <div class="row">
-    Contacts:
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="phone" type="text" class="validate">
-        <label for="phone">Phone</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="linkedIn" type="text" class="validate">
-        <label for="linkedIn">LinkedIn</label>
-      </div>
-    </div>
-  </div> -->
 </div>
+<datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
+<contacts-form #contact></contacts-form>
+<select-form #city [multiple]="false" [placeholder]="'City'" [array]="cities"></select-form>
+<select-form #engLevel [multiple]="false" [placeholder]="'English level'" [array]="englishLevel"></select-form>
+<select-form #primary [multiple]="false" [placeholder]="'Primary skill'" [array]="skills"></select-form>
+<select-form #secondary [multiple]="true" [placeholder]="'Secondary level'" [array]="skills"></select-form>
+Previous jobs:
+<prev-job-form #prevJob></prev-job-form>

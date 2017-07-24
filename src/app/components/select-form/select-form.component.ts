@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { IGeneral } from '../../interfaces/IGeneral';
 
 declare const $;
 
@@ -9,7 +10,7 @@ declare const $;
 })
 export class SelectFormComponent implements OnInit {
   @ViewChild('select') result: ElementRef;
-  @Input() array: any;
+  @Input() array: IGeneral[];
   @Input() placeholder: string;
   @Input() multiple: boolean;
 

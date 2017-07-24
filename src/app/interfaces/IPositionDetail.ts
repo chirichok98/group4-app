@@ -1,4 +1,3 @@
-import { IVacancyStatus } from './IVacancyStatus';
 import { ITechSkill } from './ITechSkill';
 import { ICandidatePreview } from './ICandidatePreview';
 import { IUserPreview } from './IUserPreview';
