@@ -1,0 +1,11 @@
+<div class="row prev-job">
+  <div class="input-field col s6">
+    <input [(ngModel)]="prevJob.companyName" id="company" type="text" class="validate">
+    <label for="company">Company Name</label>
+  </div>
+  <div class="input-field col s6">
+    <input [(ngModel)]="prevJob.position" id="position" type="text" class="validate">
+    <label for="position">Position</label>
+  </div>
+  <contacts-form #contacts></contacts-form>
+</div>
