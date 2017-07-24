@@ -10,7 +10,7 @@ declare const $;
 export class SearchComponent {
   constructor() {
   }
-
+  
   x: number = 0;
   openAdvancedSearch(): void {
     const detailed = $('.detailed-search');

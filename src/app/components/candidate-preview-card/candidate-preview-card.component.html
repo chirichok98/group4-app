@@ -1,6 +1,6 @@
 <div class="card" (click)="goToDetailView()">
-    <div class="card-image" *ngIf="candidate.primarySkill?.picture; else default">
-        <img [src]="candidate.primarySkill.picture" alt="photo">
+    <div class="card-image" *ngIf="candidate.picture; else default">
+        <img [src]="candidate.picture" alt="photo">
     </div>
     <ng-template #default>
         <div class="card-image">
