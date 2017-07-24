@@ -2,27 +2,27 @@
     <button (click)="addPosition()" class="btn add-position">Add position</button>
     <form class="col s12">
         <div class="row input-wrapper">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input [(ngModel)]="canInfo.projectName" id="project_name" type="text" class="validate">
                 <label for="project_name">Project Name</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input [(ngModel)]="canInfo.projectDate" id="project_date" type="text" class="datepicker">
                 <label for="project_date">Start of Project</label>
             </div>
         </div>
         <div class="row input-wrapper">     
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input [(ngModel)]="canInfo.positionDate" id="position_date_start" type="text" class="datepicker">
                 <label for="position_date_start">Date Position Received</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input [(ngModel)]="canInfo.positionDate" id="position_date_end" type="text" class="datepicker">
                 <label for="position_date_end">Date Position Closed</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select [(ngModel)]="canInfo.positionStatus">
                     <option value="" disabled selected>Choose position status</option>
                     <option value="1">On hold</option>
@@ -36,7 +36,7 @@
                 </select>
                 <label>Position Status</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select [(ngModel)]="canInfo.city">
                     <option value="" disabled selected>Choose city</option>
                     <option value="1">Minsk</option>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select [(ngModel)]="canInfo.primarySkill">
                     <option value="" disabled selected>Choose primary skill</option>
                     <option value="1">Dotnet</option>
@@ -57,7 +57,7 @@
                 </select>
                 <label>Primary skill</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select multiple [(ngModel)]="canInfo.techSkillsIds">
                     <option value="" disabled selected>Choose additional skills</option>
                     <option value="1">Dotnet</option>
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select multiple [(ngModel)]="canInfo.techSkillsIds">
                     <option value="" disabled selected>Choose experience required</option>
                     <option value="1">Junior</option>
@@ -81,7 +81,7 @@
                 </select>
                 <label>Experience Required</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <select [(ngModel)]="canInfo.engLevel">
                     <option value="" disabled selected>Choose english level</option>
                     <option value="1">A1</option>
