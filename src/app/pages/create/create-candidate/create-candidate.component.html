@@ -26,15 +26,15 @@
       <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
       <label for="salary">Desired salary</label>
     </div>
-    <select-form #city [multiple]="false" [placeholder]="'City'" [array]="cities"></select-form>
-    <select-form #engLevel [multiple]="false" [placeholder]="'English level'" [array]="englishLevel"></select-form>
+    <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
+    <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
   </div>
   <div class="header-info">Person Contacts</div>
   <contacts-form #contact></contacts-form>
   <div class="header-info">Skills</div>
-  <select-form #primary [multiple]="false" [placeholder]="'Primary skill'" [array]="skills"></select-form>
+  <select-form #primary [placeholder]="'Primary skill'" [array]="skills"></select-form>
   <div class="row">
-    <select-form #secondary [multiple]="true" [placeholder]="'Secondary level'" [array]="skills"></select-form>
+    <select-form #secondary [placeholder]="'Secondary level'" [array]="skills"></select-form>
   </div>
   <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
 </div>
@@ -43,3 +43,4 @@
   <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
 </div>
 <button class="btn add-candidate" (click)="addPrevJob()"> Add previous job</button>
+<button class="btn add-candidate" (click)="removePrevJob()"> Remove previous job</button>

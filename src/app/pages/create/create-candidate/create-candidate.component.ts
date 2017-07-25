@@ -10,8 +10,6 @@ import { IGeneral } from '../../../interfaces/IGeneral';
 import { HelpService } from '../help.service';
 import { ITechSkill } from '../../../interfaces/ITechSkill';
 
-declare const $;
-
 @Component({
   selector: 'create-candidate',
   templateUrl: 'create-candidate.component.html',
@@ -29,12 +27,12 @@ export class CreateCandidateComponent implements OnInit {
   prevJobs: any = [];
 
   cities: IGeneral[] = [];
-  englishLevel: IGeneral[];
+  englishLevel: IGeneral[] = [];
   skills: ITechSkill[] = [];
 
   constructor(private eRef: ElementRef,
-    private ccService: CreateCandidateService,
-    private hService: HelpService) {
+              private ccService: CreateCandidateService,
+              private hService: HelpService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -46,8 +44,7 @@ export class CreateCandidateComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   getSelectedIndex(field: ElementRef, multiple: boolean): number | number[] {
     const options: any = field.nativeElement.selectedOptions;
@@ -61,41 +58,21 @@ export class CreateCandidateComponent implements OnInit {
     return index;
   }
 
-  getCity(field: ElementRef): any {
-    const index: number | number[] = this.getSelectedIndex(field, false);
-    return index;
-  }
-
-  getEnglishLevel(field: ElementRef): any {
-    const index: number | number[] = this.getSelectedIndex(field, false);
-    return index;
-  }
-
-  getPrimarySkill(field: ElementRef): any {
-    const index: number | number[] = this.getSelectedIndex(field, false);
-    return index;
-  }
-
-  getSecondarySkills(field: ElementRef): any {
-    const index: number | number[] = this.getSelectedIndex(field, true);
-    return index;
-  }
-
   getDate(field: ElementRef): any {
     const dateStr: string = field.nativeElement.value;
     const date: Date = new Date(dateStr);
     return date;
   }
 
-  getContacts(): any {
+  getContacts() {
     return this.contactsForm.contact;
   }
-
+  
   addCandidate(): void {
-    this.canInfo.city = this.getCity(this.citySelect.result);
-    this.canInfo.engLevel = this.getEnglishLevel(this.englishSelect.result);
-    this.canInfo.primarySkill = this.getPrimarySkill(this.primarySelect.result);
-    this.canInfo.secondarySkill = this.getSecondarySkills(this.secondarySelect.result);
+    this.canInfo.city = this.getSelectedIndex(this.citySelect.result, false);
+    this.canInfo.engLevel = this.getSelectedIndex(this.englishSelect.result, false);
+    this.canInfo.primarySkill = this.getSelectedIndex(this.primarySelect.result, false);
+    this.canInfo.secondarySkill = this.getSelectedIndex(this.secondarySelect.result, true);
     this.canInfo.pSExperience = this.getDate(this.datepickerInput.date);
     this.canInfo.contact = this.getContacts();
 
@@ -109,10 +86,16 @@ export class CreateCandidateComponent implements OnInit {
     this.ccService.addCandidate(this.canInfo)
       .then((can: any) => {
         console.log(can);
+      }, (err: any) => {
+        console.log('Error with candidate creation');
       });
   }
 
   addPrevJob(): void {
     this.prevJobs.push({});
+  }
+
+  removePrevJob(): void {
+    this.prevJobs.pop();
   }
 }
