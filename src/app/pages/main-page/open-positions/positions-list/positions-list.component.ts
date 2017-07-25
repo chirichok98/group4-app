@@ -23,6 +23,5 @@ export class PositionsListComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }
