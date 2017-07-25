@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 
-import { CreateCandidateService, HelpService } from './create-candidate.service';
+import { CreateCandidateService } from './create-candidate.service';
 import { ContactsFormComponent } from '../../../components/contacts-form/contacts-form.component';
 import { PrevJobFormComponent } from '../../../components/prev-job-form/prev-job-form.component';
 import { SelectFormComponent } from '../../../components/select-form/select-form.component';
 // tslint:disable-next-line:max-line-length
 import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
 import { IGeneral } from '../../../interfaces/IGeneral';
+import { HelpService } from '../help.service';
+import { ITechSkill } from '../../../interfaces/ITechSkill';
 
 declare const $;
 
@@ -26,27 +28,22 @@ export class CreateCandidateComponent implements OnInit {
   canInfo: any = {};
   prevJobs: any = [];
 
-  cities: IGeneral[];
-  englishLevel: IGeneral[] = [
-    { id: 1, name: 'A1' },
-    { id: 2, name: 'A3' },
-    { id: 3, name: 'B1' },
-    { id: 4, name: 'B2' },
-    { id: 5, name: 'C1' },
-    { id: 6, name: 'C2' },
-  ];
-  skills: IGeneral[] = [
-    { id: 1, name: 'Dotnet' },
-    { id: 2, name: 'JS' },
-    { id: 3, name: 'Node js' },
-    { id: 4, name: 'C++' },
-    { id: 5, name: 'Java' },
-    { id: 6, name: 'C#' },
-  ];
-  
-  constructor(private ccService: CreateCandidateService, private hService: HelpService) {
-    this.cities = this.hService.getCities();
-    console.log(this.cities);
+  cities: IGeneral[] = [];
+  englishLevel: IGeneral[];
+  skills: ITechSkill[] = [];
+
+  constructor(private eRef: ElementRef,
+    private ccService: CreateCandidateService,
+    private hService: HelpService) {
+    this.hService.getCities().then((cities) => {
+      this.cities = cities;
+    });
+    this.hService.getEnglishLevel().then((levels) => {
+      this.englishLevel = levels;
+    });
+    this.hService.getSkills().then((skills) => {
+      this.skills = skills;
+    });
   }
 
   ngOnInit() {
@@ -90,30 +87,32 @@ export class CreateCandidateComponent implements OnInit {
     return date;
   }
 
+  getContacts(): any {
+    return this.contactsForm.contact;
+  }
+
   addCandidate(): void {
     this.canInfo.city = this.getCity(this.citySelect.result);
     this.canInfo.engLevel = this.getEnglishLevel(this.englishSelect.result);
     this.canInfo.primarySkill = this.getPrimarySkill(this.primarySelect.result);
     this.canInfo.secondarySkill = this.getSecondarySkills(this.secondarySelect.result);
-
-
     this.canInfo.pSExperience = this.getDate(this.datepickerInput.date);
-    this.canInfo.contact = this.contactsForm.contact;
+    this.canInfo.contact = this.getContacts();
 
     this.prevJobs.length = 0;
     this.prevJobsForm.forEach((item: any) => {
       this.prevJobs.push(item.prevJob);
-    });  // insert in function for addeng new prev job;
+    });
     this.canInfo.candidatePrevJobs = this.prevJobs;
-    // console.log(this.contactsForm);
-    // console.log(this.citySelect);
-    // // this.canInfo.city = this.citySelect;
     console.log(this.canInfo);
 
+    this.ccService.addCandidate(this.canInfo)
+      .then((can: any) => {
+        console.log(can);
+      });
+  }
 
-    // this.ccService.addCandidate(this.canInfo)
-    //   .then((can: any) => {
-    //     console.log(can);
-    //   });
+  addPrevJob(): void {
+    this.prevJobs.push({});
   }
 }
