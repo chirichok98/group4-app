@@ -11,6 +11,7 @@ export class HelpService {
   private cities: Promise<IGeneral[]>;
   private engLevel: Promise<IGeneral[]>;
   private skills: Promise<ITechSkill[]>;
+  private vacancyStatuses: Promise<IGeneral[]>;
 
   constructor(private http: Http) { }
 
@@ -39,6 +40,15 @@ export class HelpService {
     const skillUrl: string = `${this.url}/TechSkill`;
     this.skills = this.sendRequest(skillUrl);
     return this.skills;
+  }
+
+  getVacancyStatuses(): Promise<IGeneral[]> {
+    if (this.vacancyStatuses) {
+      return this.vacancyStatuses;
+    }
+    const statusesUrl: string = `${this.url}/vacancyStatus`;
+    this.vacancyStatuses = this.sendRequest(statusesUrl);
+    return this.vacancyStatuses;
   }
   
   sendRequest(url): Promise<any> {
