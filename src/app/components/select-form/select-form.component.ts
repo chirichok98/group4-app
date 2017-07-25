@@ -12,8 +12,6 @@ export class SelectFormComponent implements OnInit {
   @ViewChild('select') result: ElementRef;
   @Input() array: IGeneral[];
   @Input() placeholder: string;
-  @Input() multiple: boolean;
-
   constructor() { }
 
   ngOnInit() {
