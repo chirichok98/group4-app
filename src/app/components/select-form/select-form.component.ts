@@ -21,4 +21,10 @@ export class SelectFormComponent implements OnInit {
       $('select').material_select();
     });
   }
+  helpMePls(): void {
+    console.log('123');
+    if ($('ul').hasClass('active')) {
+      console.log('qq');
+    }
+  }
 }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
 import { CreateCandidateComponent } from './create-candidate.component';
 import { CreateCandidateService } from './create-candidate.service';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { SelectFormModule } from '../../../components/select-form/select-form.module';
 import { DatepickerFormModule } from '../../../components/datepicker-form/datepicker-form.module';
 import { HelpService } from '../help.service';
+import { RangeFormModule } from '../../../components/range-form/range-form.module';
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import { HelpService } from '../help.service';
     SelectFormModule,
     DatepickerFormModule,
     CommonModule,
+    RangeFormModule,
   ],
   exports: [],
   declarations: [CreateCandidateComponent],
