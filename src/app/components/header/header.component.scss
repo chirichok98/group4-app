@@ -20,7 +20,7 @@
     display: block;
     width: 100%;
     min-width: 100px;
-    cursor: url('/assets/cursor/default_end.png'), pointer;
+    
   }
 }
 
@@ -30,9 +30,4 @@ img::selection {
 
 div::selection {
   color: #56CCF2;
-}
-
-h4,
-p {
-  cursor: url('/assets/cursor/text.png'), text !important;
 }

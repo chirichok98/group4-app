@@ -18,7 +18,7 @@
 		padding: 0 15px;
 		margin-bottom: 0;		
 		min-width: 100px;
-		cursor: url('/assets/cursor/text2.png'), text;
+		
 	}
 	input:focus {
 		border-bottom: 1px solid #56CCF2;
@@ -29,7 +29,7 @@
 	background-color: #273248;
 	width: 100%;
 	height: 3.5rem;
-	cursor: url('/assets/cursor/default_end.png'), pointer;
+	
 }
 .form .btn:hover,
 .form .btn:focus {
