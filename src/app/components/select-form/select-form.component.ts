@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { IGeneral } from '../../interfaces/IGeneral';
 
 declare const $;
@@ -20,5 +20,11 @@ export class SelectFormComponent implements OnInit {
     $(document).ready(() => {
       $('select').material_select();
     });
+  }
+  helpMePls(): void {
+    console.log('123');
+    if ($('ul').hasClass('active')) {
+      console.log('qq');
+    }
   }
 }

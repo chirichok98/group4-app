@@ -1,4 +1,4 @@
-<div class="input-field col m6 s12">
+<div class="input-field col m6 s12" (click)="helpMePls()">
   <select [multiple]="multiple" [(ngModel)]="result" #select>
       <option *ngFor="let item of array" [value]="item.id">{{item.name}}</option>
   </select>
