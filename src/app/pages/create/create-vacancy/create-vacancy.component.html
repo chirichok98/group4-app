@@ -1,98 +1,41 @@
 <div class="row">
-    <button (click)="addPosition()" class="btn add-position">Add position</button>
-    <form class="col s12">
-        <div class="row input-wrapper">
-            <div class="input-field col m6 s12">
-                <input [(ngModel)]="canInfo.projectName" id="project_name" type="text" class="validate">
-                <label for="project_name">Project Name</label>
-            </div>
-            <div class="input-field col m6 s12">
-                <input [(ngModel)]="canInfo.projectDate" id="project_date" type="text" class="datepicker">
-                <label for="project_date">Start of Project</label>
-            </div>
+    <button (click)="addVacancy()" class="btn add-position">Add position</button>
+    <div class="row input-wrapper">
+        <div class="header-info">General information</div>
+        <div class="input-field col m6 s12">
+            <input [(ngModel)]="vacInfo.projectName" id="project_name" type="text" class="validate">
+            <label for="project_name">Project Name</label>
         </div>
-        <div class="row input-wrapper">     
-            <div class="input-field col m6 s12">
-                <input [(ngModel)]="canInfo.positionDate" id="position_date_start" type="text" class="datepicker">
-                <label for="position_date_start">Date Position Received</label>
-            </div>
-            <div class="input-field col m6 s12">
-                <input [(ngModel)]="canInfo.positionDate" id="position_date_end" type="text" class="datepicker">
-                <label for="position_date_end">Date Position Closed</label>
-            </div>
+        <div class="input-field col m6 s12">
+            <input [(ngModel)]="vacInfo.vacancyName" id="project_name" type="text" class="validate">
+            <label for="project_name">Vacancy Name</label>
         </div>
-        <div class="row">
-            <div class="input-field col m6 s12">
-                <select [(ngModel)]="canInfo.positionStatus">
-                    <option value="" disabled selected>Choose position status</option>
-                    <option value="1">On hold</option>
-                    <option value="2">Active</option>
-                    <option value="3">Waiting for interview with customer</option>
-                    <option value="4">Interview with customer</option>
-                    <option value="5">Candidate declined</option>
-                    <option value="6">Candidate approved</option>
-                    <option value="7">Closed</option>
-                    <option value="8">Cancelled</option>
-                </select>
-                <label>Position Status</label>
-            </div>
-            <div class="input-field col m6 s12">
-                <select [(ngModel)]="canInfo.city">
-                    <option value="" disabled selected>Choose city</option>
-                    <option value="1">Minsk</option>
-                    <option value="2">Vilnus</option>
-                </select>
-                <label>City</label>
-            </div>
+        <div class="input-field col m6 s12">
+            <input [(ngModel)]="vacInfo.link" id="project_link" type="text" class="validate">
+            <label for="project_link">Link on project</label>
         </div>
-        <div class="row">
-            <div class="input-field col m6 s12">
-                <select [(ngModel)]="canInfo.primarySkill">
-                    <option value="" disabled selected>Choose primary skill</option>
-                    <option value="1">Dotnet</option>
-                    <option value="2">JS</option>
-                    <option value="2">Node js</option>
-                    <option value="2">C++</option>
-                    <option value="2">Java</option>
-                </select>
-                <label>Primary skill</label>
-            </div>
-            <div class="input-field col m6 s12">
-                <select multiple [(ngModel)]="canInfo.techSkillsIds">
-                    <option value="" disabled selected>Choose additional skills</option>
-                    <option value="1">Dotnet</option>
-                    <option value="2">JS</option>
-                    <option value="3">Ruby</option>
-                    <option value="3">C#</option>
-                    <option value="3">Java</option>
-                    <option value="3">Swift</option>
-                    <option value="3">Other</option>
-                </select>
-                <label>Other skills</label>
-            </div>
+        <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+        <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
+        <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
+
+        <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
+        <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
+        <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
+        
+    </div>
+    <div class="header-info">Skills</div>
+    <div class="row">
+        <div class="col s6">
+            <div>Primary</div>
+            <button [hidden]="hasPrimary" (click)="addPrimary()">Add primary skill</button>
+            <skill-form *ngIf="hasPrimary" #primary [array]="skills"></skill-form>
         </div>
-        <div class="row">
-            <div class="input-field col m6 s12">
-                <select multiple [(ngModel)]="canInfo.techSkillsIds">
-                    <option value="" disabled selected>Choose experience required</option>
-                    <option value="1">Junior</option>
-                    <option value="2">Middle</option>
-                    <option value="3">Senior</option>
-                </select>
-                <label>Experience Required</label>
-            </div>
-            <div class="input-field col m6 s12">
-                <select [(ngModel)]="canInfo.engLevel">
-                    <option value="" disabled selected>Choose english level</option>
-                    <option value="1">A1</option>
-                    <option value="2">A2</option>
-                    <option value="2">B1</option>
-                    <option value="2">B2</option>
-                    <option value="2">C1</option>
-                    <option value="2">C2</option>
-                </select>
-                <label>English level</label>
-            </div>
+        <div class="col s6">
+             <div>Secondary</div>
+             <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+             <button (click)="addSecondary()">Add secondary skill</button>
         </div>
-    </form>
+        <!-- 
+        <select-form #secondary [multiple]="true" [placeholder]="'Secondary skills'" [array]="skills"></select-form> -->
+    </div>
 </div>
