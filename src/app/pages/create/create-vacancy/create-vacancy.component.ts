@@ -56,8 +56,9 @@ export class CreateVacancyComponent implements OnInit {
     return value;
   }
 
-  getSelectedIndex(field: any): number {
+  getSelectedIndex(field: any): number | null {
     const index: number = field.nativeElement.selectedIndex;
+    if (index === -1) return null;
     return index;
   }
 

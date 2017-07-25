@@ -81,7 +81,6 @@ export class CreateCandidateComponent implements OnInit {
       this.prevJobs.push(item.prevJob);
     });
     this.canInfo.candidatePrevJobs = this.prevJobs;
-    console.log(this.canInfo);
 
     this.ccService.addCandidate(this.canInfo)
       .then((can: any) => {
@@ -97,5 +96,8 @@ export class CreateCandidateComponent implements OnInit {
 
   removePrevJob(): void {
     this.prevJobs.pop();
+  }
+  toNumber() {
+    console.log('hi');
   }
 }
