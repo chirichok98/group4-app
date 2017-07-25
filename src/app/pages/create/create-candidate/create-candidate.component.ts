@@ -1,14 +1,17 @@
 import { Component, OnInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { IGeneral } from '../../../interfaces/IGeneral';
+import { ITechSkill } from '../../../interfaces/ITechSkill';
 
 import { CreateCandidateService } from './create-candidate.service';
 import { ContactsFormComponent } from '../../../components/contacts-form/contacts-form.component';
 import { PrevJobFormComponent } from '../../../components/prev-job-form/prev-job-form.component';
-import { SelectFormComponent } from '../../../components/select-form/select-form.component';
 // tslint:disable-next-line:max-line-length
 import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
-import { IGeneral } from '../../../interfaces/IGeneral';
 import { HelpService } from '../help.service';
-import { ITechSkill } from '../../../interfaces/ITechSkill';
+import { SelectFormComponent } from '../../../components/select-form/select-form.component';
+import { SkillFormComponent } from '../../../components/skill-form/skill-form.component';
 
 @Component({
   selector: 'create-candidate',
@@ -20,19 +23,22 @@ export class CreateCandidateComponent implements OnInit {
   @ViewChildren('prevJob') prevJobsForm: QueryList<PrevJobFormComponent>;
   @ViewChild('city') citySelect: SelectFormComponent;
   @ViewChild('engLevel') englishSelect: SelectFormComponent;
-  @ViewChild('primary') primarySelect: SelectFormComponent;
-  @ViewChild('secondary') secondarySelect: SelectFormComponent;
+  @ViewChild('primary') primSkill: SkillFormComponent;
+  @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
   @ViewChild('date') datepickerInput: DatepickerFormComponent;
   canInfo: any = {};
   prevJobs: any = [];
+  hasPrimary: boolean = false;
+  secondarySkills: any = [];
 
   cities: IGeneral[] = [];
   englishLevel: IGeneral[] = [];
   skills: ITechSkill[] = [];
 
-  constructor(private eRef: ElementRef,
-              private ccService: CreateCandidateService,
-              private hService: HelpService) {
+  constructor(private router: Router,
+    private eRef: ElementRef,
+    private ccService: CreateCandidateService,
+    private hService: HelpService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -46,15 +52,14 @@ export class CreateCandidateComponent implements OnInit {
 
   ngOnInit() { }
 
-  getSelectedIndex(field: ElementRef, multiple: boolean): number | number[] {
-    const options: any = field.nativeElement.selectedOptions;
-    const index: number[] = [];
-    if (!multiple) {
-      return options[0].index;
-    }
-    for (const option of options) {
-      index.push(option.index);
-    }
+  getValueFromRanger(field: ElementRef) {
+    const value: number = field.nativeElement.valueAsNumber;
+    return value;
+  }
+
+  getSelectedIndex(field: any): number | null {
+    const index: number = field.nativeElement.selectedIndex;
+    if (index === -1) return null;
     return index;
   }
 
@@ -67,24 +72,53 @@ export class CreateCandidateComponent implements OnInit {
   getContacts() {
     return this.contactsForm.contact;
   }
-  
-  addCandidate(): void {
-    this.canInfo.city = this.getSelectedIndex(this.citySelect.result, false);
-    this.canInfo.engLevel = this.getSelectedIndex(this.englishSelect.result, false);
-    this.canInfo.primarySkill = this.getSelectedIndex(this.primarySelect.result, false);
-    this.canInfo.secondarySkill = this.getSelectedIndex(this.secondarySelect.result, true);
-    this.canInfo.pSExperience = this.getDate(this.datepickerInput.date);
-    this.canInfo.contact = this.getContacts();
 
-    this.prevJobs.length = 0;
-    this.prevJobsForm.forEach((item: any) => {
-      this.prevJobs.push(item.prevJob);
+  getSkill(field: SkillFormComponent) {
+    const skill: any = {};
+    skill.techSkill = this.getSelectedIndex(field.select.result);
+    skill.level = this.getValueFromRanger(field.ranger.range);
+    return skill;
+  }
+
+  getSecondarySkills(field: QueryList<SkillFormComponent>) {
+    const skills: any = [];
+    field.forEach((item: any) => {
+      const skill: any = this.getSkill(item);
+      skills.push(skill);
     });
-    this.canInfo.candidatePrevJobs = this.prevJobs;
+    return skills;
+  }
 
-    this.ccService.addCandidate(this.canInfo)
+  getPrevJobs(field: QueryList<PrevJobFormComponent>) {
+    const jobs: any = [];
+    this.prevJobsForm.forEach((item: any) => {
+      jobs.push(item.prevJob);
+    });
+    return jobs;
+  }
+
+  addCandidate(): void {
+    this.canInfo.city = this.getSelectedIndex(this.citySelect.result);
+    this.canInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
+    this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
+    this.canInfo.contact = this.getContacts();
+    this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
+
+    if (this.hasPrimary) {
+      this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
+    }
+    if (this.secondarySkills.length) {
+      this.canInfo.candidateSecondarySkills = this.getSecondarySkills(this.secSkills);
+    }
+    
+    this.sendPostRequest(this.canInfo);
+  }
+
+  sendPostRequest(candidate: any): void {
+    this.ccService.addCandidate(candidate)
       .then((can: any) => {
-        console.log(can);
+        console.log(can.status);
+        this.router.navigate(['main-page/candidates']);
       }, (err: any) => {
         console.log('Error with candidate creation');
       });
@@ -97,7 +131,12 @@ export class CreateCandidateComponent implements OnInit {
   removePrevJob(): void {
     this.prevJobs.pop();
   }
-  toNumber() {
-    console.log('hi');
+
+  addPrimary() {
+    this.hasPrimary = true;
+  }
+
+  addSecondary() {
+    this.secondarySkills.push({});
   }
 }

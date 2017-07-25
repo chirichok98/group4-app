@@ -13,7 +13,6 @@ export class CreateCandidateService {
   addCandidate(candidate): Promise<any> {
     const body = JSON.stringify(candidate);
     return this.http.post(this.url, body, this.options)
-      .toPromise()
-      .then(res => res.json());
+      .toPromise();
   }
 }

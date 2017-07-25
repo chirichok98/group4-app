@@ -1,40 +1,23 @@
 .filter-block {
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  padding: 0.5rem 0.8rem;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    padding: 0.5rem 0.8rem;
 }
 
 .filter-header {
-  margin-top:0;
-  font-family: "Roboto Slab";
-  color: #526C7B;
-  font-size: 2.4rem;
-  text-align: center;
+    margin-top: 0;
+    font-family: "Roboto Slab";
+    color: #526C7B;
+    font-size: 2.4rem;
+    text-align: center;
 }
 
 .container {
-  background: #fff;
-  height: 10rem;
-  line-height: 10rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  width: 60%;
-  max-width: 60%;
-}
-
-.form {
-  text-align: center;
-  &__item {
     background: #fff;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    width: 60%;
+    height: 10rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     margin: 1rem auto;
-  }
 }
 
 .form .btn {

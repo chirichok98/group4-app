@@ -1,5 +1,6 @@
 // tslint:disable-next-line:max-line-length
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+
 import { RangeFormComponent } from '../range-form/range-form.component';
 import { SelectFormComponent } from '../select-form/select-form.component';
 

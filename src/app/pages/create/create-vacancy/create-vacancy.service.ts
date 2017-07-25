@@ -11,9 +11,7 @@ export class CreateVacancyService {
 
   addVacancy(vacancy): Promise<any> {
     const body = JSON.stringify(vacancy);
-    console.log(body);
     return this.http.post(this.url, body, this.options)
-      .toPromise()
-      .then(res => res.json());
+      .toPromise();
   }
 }

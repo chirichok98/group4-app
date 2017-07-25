@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { IGeneral } from '../../../interfaces/IGeneral';
 import { ITechSkill } from '../../../interfaces/ITechSkill';
+
 import { SelectFormComponent } from '../../../components/select-form/select-form.component';
 // tslint:disable-next-line:max-line-length
 import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
@@ -26,7 +29,6 @@ export class CreateVacancyComponent implements OnInit {
   vacInfo: any = {};
 
   hasPrimary: boolean = false;
-
   secondarySkills: any = [];
 
   statuses: IGeneral[] = [];
@@ -34,7 +36,9 @@ export class CreateVacancyComponent implements OnInit {
   englishLevel: IGeneral[] = [];
   skills: ITechSkill[] = [];
 
-  constructor(private hService: HelpService, private cvService: CreateVacancyService) {
+  constructor(private router: Router,
+              private hService: HelpService,
+              private cvService: CreateVacancyService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -92,17 +96,21 @@ export class CreateVacancyComponent implements OnInit {
     this.vacInfo.closeDate = this.getDate(this.datepickerClose.date);
     this.vacInfo.requestDate = this.getDate(this.datepickerRequest.date);
 
-
     if (this.hasPrimary) {
       this.vacInfo.primarySkill = this.getSkill(this.primSkill);
     }
     if (this.secondarySkills.length) {
       this.vacInfo.secondarySkills = this.getSecondarySkills(this.secSkills);
     }
-    console.log(this.vacInfo);
-    this.cvService.addVacancy(this.vacInfo)
+    
+    this.sendPostRequest(this.vacInfo);
+  }
+
+  sendPostRequest(vacancy: any): void {
+    this.cvService.addVacancy(vacancy)
       .then((vac: any) => {
-        console.log(vac);
+        console.log(vac.status);
+        this.router.navigate(['main-page/vacancies']);
       }, (err: any) => {
         console.log('Error with vacancy creation');
       });

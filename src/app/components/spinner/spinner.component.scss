@@ -1,4 +1,12 @@
 .preloader-triangles {
-    height: 4rem;
-    margin: 10% 46%;
+  height: 4rem;
+  margin: 10% 46%;
+}
+
+div::selection {
+  background: transparent;
+}
+
+svg::selection {
+  background: transparent;
 }
