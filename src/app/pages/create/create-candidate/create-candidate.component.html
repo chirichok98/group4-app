@@ -27,6 +27,7 @@
         <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
         <label for="salary">Desired salary</label>
       </div>
+      <datepicker-form #date [placeholder]="'Primary skill start date'"></datepicker-form>
       <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
       <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
     </div>
@@ -34,21 +35,21 @@
     <contacts-form #contact></contacts-form>
     <div class="header-info">Skills</div>
     <div class="row">
-        <div class="col s6">
-            <div>Primary</div>
-            <button [hidden]="hasPrimary" (click)="addPrimary()">Add primary skill</button>
-            <skill-form *ngIf="hasPrimary" #primary [array]="skills"></skill-form>
-        </div>
-        <div class="col s6">
-             <div>Secondary</div>
-             <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
-             <button (click)="addSecondary()">Add secondary skill</button>
-        </div>
+      <div class="col s6">
+        <div>Primary</div>
+        <button [hidden]="hasPrimary" (click)="addPrimary()">Add primary skill</button>
+        <skill-form *ngIf="hasPrimary" #primary [array]="skills"></skill-form>
+      </div>
+      <div class="col s6">
+        <div>Secondary</div>
+        <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+        <button (click)="addSecondary()">Add secondary skill</button>
+      </div>
     </div>
-</div>
-<div class="header-info jobs">Previous jobs</div>
-<div>
-  <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
-</div>
-<button class="btn add-candidate" (click)="addPrevJob()"> Add previous job</button>
-<button class="btn add-candidate" (click)="removePrevJob()"> Remove previous job</button>
+  </div>
+  <div class="header-info jobs">Previous jobs</div>
+  <div>
+    <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
+  </div>
+  <button class="btn add-candidate" (click)="addPrevJob()"> Add previous job</button>
+  <button class="btn add-candidate" (click)="removePrevJob()"> Remove previous job</button>

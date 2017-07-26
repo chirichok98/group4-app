@@ -58,10 +58,11 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   getSelectedIndex(field: any): number | null {
+    console.log(field);
     const str: string = field.nativeElement.value;
     const indexOfSpace: number = str.indexOf(' ');
     const index: number = +str.slice(indexOfSpace);
-    if (index === -1) return null;
+    if (!index) return null;
     return index;
   }
 
@@ -77,7 +78,7 @@ export class CreateCandidateComponent implements OnInit {
 
   getSkill(field: SkillFormComponent) {
     const skill: any = {};
-    skill.techSkill = this.getSelectedIndex(field.select.result);
+    skill.id = this.getSelectedIndex(field.select.result);
     skill.level = this.getValueFromRanger(field.ranger.range);
     return skill;
   }

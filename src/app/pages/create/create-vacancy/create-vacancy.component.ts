@@ -64,7 +64,7 @@ export class CreateVacancyComponent implements OnInit {
     const str: string = field.nativeElement.value;
     const indexOfSpace: number = str.indexOf(' ');
     const index: number = +str.slice(indexOfSpace);
-    if (index === -1) return null;
+    if (!index) return null;
     return index;
   }
 
