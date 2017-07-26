@@ -79,6 +79,7 @@ export class CreateCandidateComponent implements OnInit {
   getSkill(field: SkillFormComponent) {
     const skill: any = {};
     skill.id = this.getSelectedIndex(field.select.result);
+    if (!skill.id) return null;
     skill.level = this.getValueFromRanger(field.ranger.range);
     return skill;
   }
