@@ -40,8 +40,16 @@ export class NavbarComponent implements OnInit {
 
   getStyleByIndex(index: number): string {
     let classNames: string = '';
+    switch (index){
+      case 0: classNames = "candidates";
+        break;
+      case 1: classNames = "positions";
+        break;
+      case 2: classNames = "news";
+        break;
+    }
     if (this.currentState === this.states[index]) {
-      classNames = 'active';
+      classNames += ' active';
     }
     return `${classNames} navbar-elem`;
   }

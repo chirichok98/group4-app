@@ -36,33 +36,31 @@
             <ng-container *ngIf="statuses.length">
                 <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
             </ng-container>
-
         </div>
         <div class="header-info">Person Contacts</div>
         <contacts-form #contact></contacts-form>
         <div class="header-info">Skills</div>
-        <div class="row">
-            <div class="col s6">
-                <div>Primary</div>
+        <div class="row skills">
+            <div class="col m6 s12">
+                <div class="header-info__inner">Primary</div>
                 <ng-container *ngIf="skills.length">
                     <skill-form #primary [array]="skills"></skill-form>
                 </ng-container>
                 <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
             </div>
-            <div class="col s6">
-                <div>Secondary</div>
+            <div class="col secondary m6 s12">
+                <div class="header-info__inner">Secondary</div>
                 <ng-container *ngIf="skills.length">
                     <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
                 </ng-container>
-                <button (click)="addSecondary()">Add secondary skill</button>
-                <button (click)="removeSecondary()">Remove secondary skill</button>
+                <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+                <button *ngIf="secondarySkills.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
-<div>
-    <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
-</div>
-<button class="btn add-prev-job " (click)="addPrevJob()">Add previous job</button>
-<button *ngIf="prevJobs.length" class="btn delete-candidate" (click)="removePrevJob()">Remove previous job</button>
+    <div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
+    <div>
+        <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
+    </div>
+    <button class="btn add-prev-job" (click)="addPrevJob()">Add previous job</button>
+    <button *ngIf="prevJobs.length" class="btn remove-prev-job" (click)="removePrevJob()">Remove previous job</button>
