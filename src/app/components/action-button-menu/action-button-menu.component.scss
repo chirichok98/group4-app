@@ -4,6 +4,7 @@
     bottom: 0;
     padding: 0;
 }
+
 .fixed-action-btn .btn-floating.btn-large {
     overflow: visible;
     width: auto;
@@ -11,8 +12,8 @@
     background: none;
     border: none;
     box-shadow: none;
-    
 }
+
 .fixed-action-btn.horizontal ul {
     right: 105px;
     top: 40%;
@@ -20,16 +21,15 @@
     text-align: -webkit-right;
     z-index: 1111;
 }
-.fixed-action-btn.horizontal ul li {
-    display: block;
 
-    // position: relative;
+.fixed-action-btn.horizontal ul li {
+    display: block; // position: relative;
     // right: auto;
     // top: auto;
     // bottom: auto;
-    margin: 5px;
-    // line-height: 0.6em;
+    margin: 5px; // line-height: 0.6em;
 }
+
 .fixed-action-btn.horizontal ul li .btn-floating {
     width: auto;
     height: 1rem;
@@ -42,39 +42,44 @@
     font-weight: 500;
     display: block;
 }
+
 .fixed-action-btn.horizontal ul li .btn-floating.add {
     background-color: #6d8b9c;
 }
+
 .fixed-action-btn.horizontal ul li .btn-floating.logout {
     background-color: #52c1e6;
 }
+
 .fixed-action-btn.horizontal ul li:hover .btn-floating.add,
 .fixed-action-btn.horizontal ul li:hover .btn-floating.logout {
     background-color: #41506d;
     opacity: 0.8;
 }
+
 //user info
 .fixed-action-btn .user-info {
-  text-align: center;
-  &__photo-wrap {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto;
-  }
-  &__photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-  &__name {
-    text-transform: uppercase;;
-    color: #fff;
-    font-size: 0.7em;
-    font-weight: 500;
-    line-height: initial;
-    margin: 0;
-    text-overflow: ellipsis;
-    max-width: 7rem;
-    overflow: hidden;
-  }
+    text-align: center;
+    &__photo-wrap {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 auto;
+    }
+    &__photo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    &__name {
+        text-transform: uppercase;
+        ;
+        color: #fff;
+        font-size: 0.7em;
+        font-weight: 500;
+        line-height: initial;
+        margin: 0;
+        text-overflow: ellipsis;
+        max-width: 7rem;
+        overflow: hidden;
+    }
 }

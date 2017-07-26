@@ -1,45 +1,45 @@
 .navbar {
-  height: auto;
-  width: 100%;
-  vertical-align: center;
-  color: #424242;
-  background-color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    height: auto;
+    width: 100%;
+    vertical-align: center;
+    color: #424242;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-row {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar-states {
-  display: flex;
+    display: flex;
 }
 
 .navbar-elem {
-  height: 100%;
-  padding: 0.5rem 1.5rem;
+    height: 100%;
+    padding: 0.5rem 1.5rem;
 }
 
 .navbar-icon {
-  margin: 0;
-  padding: 0.25rem;
-  font-size: 2rem;
+    margin: 0;
+    padding: 0.25rem;
+    font-size: 2rem;
 }
 
 .active {
-  height: 2.5rem;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    height: 2.5rem;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 i::selection,
 div::selection,
 img::selection {
-  background: transparent;
+    background: transparent;
 }
 
 .nb-icon {
-  height: 2.5rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35em;
+    height: 2.5rem;
+    padding-left: 0.35rem;
+    padding-right: 0.35em;
 }
