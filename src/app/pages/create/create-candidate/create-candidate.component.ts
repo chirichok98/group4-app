@@ -22,6 +22,7 @@ export class CreateCandidateComponent implements OnInit {
   @ViewChild('contact') contactsForm: ContactsFormComponent;
   @ViewChildren('prevJob') prevJobsForm: QueryList<PrevJobFormComponent>;
   @ViewChild('city') citySelect: SelectFormComponent;
+  @ViewChild('status') statusSelect: SelectFormComponent;
   @ViewChild('engLevel') englishSelect: SelectFormComponent;
   @ViewChild('primary') primSkill: SkillFormComponent;
   @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
@@ -31,6 +32,7 @@ export class CreateCandidateComponent implements OnInit {
   hasPrimary: boolean = false;
   secondarySkills: any = [];
 
+  statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
   englishLevel: IGeneral[] = [];
   skills: ITechSkill[] = [];
@@ -47,6 +49,9 @@ export class CreateCandidateComponent implements OnInit {
     });
     this.hService.getSkills().then((skills) => {
       this.skills = skills;
+    });
+    this.hService.getCandidateStatuses().then((statuses) => {
+      this.statuses = statuses;
     });
   }
 
@@ -104,6 +109,7 @@ export class CreateCandidateComponent implements OnInit {
   addCandidate(): void {
     this.canInfo.city = this.getSelectedIndex(this.citySelect.result);
     this.canInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
+    this.canInfo.status = this.getSelectedIndex(this.statusSelect.result);
     this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
     this.canInfo.contact = this.getContacts();
     this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
