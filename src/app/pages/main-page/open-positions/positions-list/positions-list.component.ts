@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PositionsListService } from './positions-list.service';
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
+import { PositionsListService } from '../../../../services/positions-list.service';
 
 @Component({
   selector: 'positions-list',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { IPositionDetail } from '../../../../interfaces/IPositionDetail';
-import { PositionsListItemService } from './positions-list-item.service';
+import { PositionsListItemService } from '../../../../services/positions-list-item.service';
 
 @Component({
   selector: 'positions-list-item',

@@ -1,7 +1,6 @@
 html {
   font-size: 20px;
   height: 100%;
-  
 }
 
 body {
@@ -9,7 +8,7 @@ body {
   background-color: rgba(39, 50, 72, 0.06);
   width: 100%;
   margin: 0 auto;
-  
+  overflow-y: scroll;
 }
 
 body>.row,
@@ -40,17 +39,21 @@ create-vacancy {
   min-width: 100px;
   font-size: 1em;
 }
+
 .select-wrapper:hover input.select-dropdown {
-  border-bottom: 1px solid #56CCF2;  
+  border-bottom: 1px solid #56CCF2;
   box-shadow: 0 1px 0 0 #56CCF2;
 }
+
 .select-wrapper span.caret {
   color: #ccc;
   right: 0.5rem;
 }
+
 .select-wrapper:hover span.caret {
   color: #56CCF2;
-} 
+}
+
 .select-wrapper .dropdown-content {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
@@ -78,47 +81,54 @@ create-vacancy {
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
-/*End Select*/
 
 /*Datepicker*/
+
 datepicker-form label {
   text-transform: uppercase;
-  padding: 0 15px;  
+  padding: 0 15px;
   width: auto;
   top: -0.8rem;
   font-size: 0.6em;
 }
+
 datepicker-form .datepicker.picker__input {
-  border: 1px solid #ccc;    
+  border: 1px solid #ccc;
   height: 2rem;
   box-sizing: border-box;
   padding: 0 15px;
   margin-bottom: 0;
   min-width: 100px;
-  font-size: 1em;  
+  font-size: 1em;
 }
+
 datepicker-form .datepicker.picker__input:hover {
-  border-bottom: 1px solid #56CCF2;  
+  border-bottom: 1px solid #56CCF2;
   box-shadow: 0 1px 0 0 #56CCF2;
   cursor: pointer;
 }
+
 datepicker-form .picker__box {
   border: none;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-datepicker-form  .picker__date-display {
+
+datepicker-form .picker__date-display {
   background: #526c7b;
 }
+
 datepicker-form .picker__weekday-display,
 datepicker-form .picker__month-display,
 datepicker-form .picker__day-display {
   font-size: 2em;
   display: inline;
 }
+
 datepicker-form .picker__day--infocus {
   padding: 10px 0;
 }
+
 datepicker-form .picker__day.picker__day--today {
   border-radius: 50%;
   -webkit-transform: scale(0.9);
@@ -126,32 +136,39 @@ datepicker-form .picker__day.picker__day--today {
   background-color: #526c7b;
   color: #ffffff;
 }
-datepicker-form .picker__day--selected, 
-datepicker-form .picker__day--selected:hover, 
+
+datepicker-form .picker__day--selected,
+datepicker-form .picker__day--selected:hover,
 datepicker-form .picker--focused .picker__day--selected {
   background-color: #56CCF2;
   color: #ffffff;
 }
-datepicker-form .picker__close, 
-datepicker-form .picker__today, 
+
+datepicker-form .picker__close,
+datepicker-form .picker__today,
 datepicker-form .picker__clear {
   color: #526c7b;
 }
+
 datepicker-form .picker__clear {
   color: #f44336;
 }
-datepicker-form .picker__close:hover, 
-datepicker-form .picker__today:hover, 
+
+datepicker-form .picker__close:hover,
+datepicker-form .picker__today:hover,
 datepicker-form .picker__clear:hover {
   color: #56CCF2;
 }
+
+
 /*End Datepicker*/
 
 prev-job-form .input-wrapper.contacts {
-    padding: 0 50px;
+  padding: 0 50px;
 }
+
 prev-job-form .input-wrapper.contacts {
-    padding: 0 50px;
+  padding: 0 50px;
 }
 .skills .input-field.col,
 .skills .range-field {
@@ -192,6 +209,7 @@ create-vacancy {
   background: #273248;
   /*526C7B*/
   opacity: 0.6;
+  border-radius: 0.3vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -235,6 +253,7 @@ input[type=range].slider::-webkit-slider-runnable-track {
   background: #526c7b;
   /* #273248*/
   /* border-radius: 1vw;
+  
   border: 0.07vw solid rgba(1, 1, 1, 0.73); */
 }
 
@@ -243,7 +262,7 @@ input[type=range].slider::-webkit-slider-thumb {
   height: 0.6rem;
   width: 0.6rem;
   border-radius: 0.4rem;
-  background: -webkit-linear-gradient(0deg, #56CCF2 40%, #526C7B 100%);
+  background: -webkit-linear-gradient(0deg, #56CCF2 40%, #1287ad 100%);
   -webkit-appearance: none;
   margin-top: -0.15rem;
 }

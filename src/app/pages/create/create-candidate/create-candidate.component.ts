@@ -4,14 +4,14 @@ import { Router } from '@angular/router';
 import { IGeneral } from '../../../interfaces/IGeneral';
 import { ITechSkill } from '../../../interfaces/ITechSkill';
 
-import { CreateCandidateService } from './create-candidate.service';
 import { ContactsFormComponent } from '../../../components/contacts-form/contacts-form.component';
 import { PrevJobFormComponent } from '../../../components/prev-job-form/prev-job-form.component';
 // tslint:disable-next-line:max-line-length
 import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
-import { HelpService } from '../help.service';
 import { SelectFormComponent } from '../../../components/select-form/select-form.component';
 import { SkillFormComponent } from '../../../components/skill-form/skill-form.component';
+import { CreateCandidateService } from '../../../services/create-candidate.service';
+import { DictionariesService } from '../../../services/dictionaries.service';
 
 @Component({
   selector: 'create-candidate',
@@ -39,7 +39,7 @@ export class CreateCandidateComponent implements OnInit {
   constructor(private router: Router,
               private eRef: ElementRef,
               private ccService: CreateCandidateService,
-              private hService: HelpService) {
+              private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });

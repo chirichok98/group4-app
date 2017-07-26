@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IDescribeBlock } from '../../interfaces/IDescribeBlock';
-import { HomeService } from './home.service';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'home',

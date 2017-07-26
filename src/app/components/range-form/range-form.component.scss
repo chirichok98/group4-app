@@ -1,0 +1,18 @@
+$max: 4; 
+.circles-container {
+    position: absolute;
+    .circle {
+      width: 0.6rem;
+      height: 0.6rem;
+      z-index: 0;
+      background: #526c7b;
+      border-radius: 10rem;
+      position: relative;
+    }
+    @for $i from 1 through $max {
+      .circle:nth-child(#{$i}) {
+        top: (1.48rem - 0.6rem*$i);
+        left: (-3.04rem + 3.10rem*$i);
+      }
+    }
+  }

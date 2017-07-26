@@ -47,11 +47,10 @@
         <button *ngIf="secondarySkills.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
       </div>
     </div>
-  </div>
 </div>
 <div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
 <div>
-  <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
+    <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
 </div>
 <button class="btn add-prev-job" (click)="addPrevJob()">Add previous job</button>
 <button *ngIf="prevJobs.length" class="btn remove-prev-job" (click)="removePrevJob()">Remove previous job</button>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ICandidateDetail } from '../../../../interfaces/ICandidateDetail';
-import { CandidatesListItemService } from './candidates-list-item.service';
+import { CandidatesListItemService } from '../../../../services/candidates-list-item.service';
 
 @Component({
   selector: 'candidates-list-item',
