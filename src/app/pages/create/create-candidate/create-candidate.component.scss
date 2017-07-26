@@ -1,12 +1,19 @@
-button {
+button.btn {
     background-color: #526c7b;
     width: 100%;
     height: 3.5rem;
     margin-bottom: 1rem;
 }
-button:hover,
-button:active {
+button.btn:hover,
+button.btn:active,
+button.btn:focus {
     background-color:#56CCF2;
+}
+button.btn.add-prev-job:focus {
+    background-color: #526c7b;    
+}
+button.btn.add-prev-job:focus:hover {
+    background-color: #56CCF2;    
 }
 .header-info {
     text-transform: uppercase;
@@ -49,4 +56,11 @@ button:active {
 .input-wrapper input:active+label {
     color: #56CCF2;
     font-size: 0.6em;
+}
+.btn.delete-candidate,
+.btn.add-prev-job {
+    height: 2rem;
+    width: auto;
+    display: inline-block;
+    margin: 1rem 0.7rem;
 }

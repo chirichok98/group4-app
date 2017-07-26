@@ -38,8 +38,9 @@
   </div>
   <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
 </div>
-<div class="header-info jobs">Previous jobs</div>
+  <div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
 <div>
   <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
 </div>
-<button class="btn add-candidate" (click)="addPrevJob()"> Add previous job</button>
+<button class="btn add-prev-job " (click)="addPrevJob()">Add previous job</button>
+<button *ngIf="prevJobs.length" class="btn delete-candidate" (click)="deletePrevJob()">Remove previous job</button>

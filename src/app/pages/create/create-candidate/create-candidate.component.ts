@@ -115,4 +115,7 @@ export class CreateCandidateComponent implements OnInit {
   addPrevJob(): void {
     this.prevJobs.push({});
   }
+  deletePrevJob(): void {
+    this.prevJobs.pop();
+  }
 }
