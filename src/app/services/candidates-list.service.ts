@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
+import { ICandidatePreview } from '../interfaces/ICandidatePreview';
 
 @Injectable()
 export class CandidatesListService {

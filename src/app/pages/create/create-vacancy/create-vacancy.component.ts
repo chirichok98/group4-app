@@ -7,9 +7,11 @@ import { ITechSkill } from '../../../interfaces/ITechSkill';
 import { SelectFormComponent } from '../../../components/select-form/select-form.component';
 // tslint:disable-next-line:max-line-length
 import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
-import { HelpService } from '../help.service';
-import { CreateVacancyService } from './create-vacancy.service';
 import { SkillFormComponent } from '../../../components/skill-form/skill-form.component';
+import { DictionariesService } from '../../../services/dictionaries.service';
+import { CreateVacancyService } from '../../../services/create-vacancy.service';
+
+
 
 @Component({
   selector: 'create-vacancy',
@@ -25,6 +27,7 @@ export class CreateVacancyComponent implements OnInit {
   @ViewChild('closeDate') datepickerClose: DatepickerFormComponent;
   @ViewChild('requestDate') datepickerRequest: DatepickerFormComponent;
   @ViewChild('primary') primSkill: SkillFormComponent;
+  @ViewChild('date') datepickerInput: DatepickerFormComponent;
   @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
   vacInfo: any = {};
 
@@ -37,7 +40,7 @@ export class CreateVacancyComponent implements OnInit {
   skills: ITechSkill[] = [];
 
   constructor(private router: Router,
-              private hService: HelpService,
+              private hService: DictionariesService,
               private cvService: CreateVacancyService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;

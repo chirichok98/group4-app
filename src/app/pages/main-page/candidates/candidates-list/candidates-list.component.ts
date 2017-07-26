@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
-import { CandidatesListService } from './candidates-list.service';
+import { CandidatesListService } from '../../../../services/candidates-list.service';
 
 @Component({
   selector: 'candidates-list',
