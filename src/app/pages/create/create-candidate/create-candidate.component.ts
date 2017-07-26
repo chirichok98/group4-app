@@ -149,4 +149,8 @@ export class CreateCandidateComponent implements OnInit {
   addSecondary() {
     this.secondarySkills.push({});
   }
+
+  removeSecondary() {
+    this.secondarySkills.pop();
+  }
 }

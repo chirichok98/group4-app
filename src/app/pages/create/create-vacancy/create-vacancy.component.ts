@@ -126,4 +126,7 @@ export class CreateVacancyComponent implements OnInit {
     this.secondarySkills.push({});
   }
 
+  removeSecondary() {
+    this.secondarySkills.pop();
+  }
 }
