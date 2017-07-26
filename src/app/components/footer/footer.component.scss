@@ -5,7 +5,6 @@
   font-size: 0.7em;
   font-weight: 500;
   color: #fff;
-
   &__inner {
     width: 100%;
     align-items: center;
@@ -13,14 +12,17 @@
     display: flex;
   }
 }
+
 .page-footer-social {
   margin-right: 0;
 }
+
 .page-footer-social li {
   display: inline-block;
   vertical-align: middle;
   margin: 0 3px;
 }
+
 .page-footer-social a {
   margin: 0;
   padding: 5px;
@@ -29,16 +31,19 @@
   display: block;
   opacity: 0.8;
 }
+
 .page-footer-social a:hover,
 .page-footer-social a:focus {
   opacity: 1;
 }
+
 .page-footer-social a img {
   vertical-align: middle;
 }
+
 .page-footer-copyright {
-    font-weight: bold;
-    color: #FFFFFF;
+  font-weight: bold;
+  color: #FFFFFF;
 }
 
 span::selection {
@@ -54,10 +59,5 @@ ul::selection {
 }
 
 div::selection {
-  color: #56CCF2; 
-}
-
-.page-footer-social a,
-.page-footer-social img {
-  
+  color: #56CCF2;
 }
