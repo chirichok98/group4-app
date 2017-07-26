@@ -12,9 +12,11 @@ import { PositionsListService } from '../../../../services/positions-list.servic
 export class PositionsListComponent implements OnInit {
   positions: IPositionPreview[];
   isSpinnerVisible: boolean = true;
-
+  skip: number = 0;
+  amount: number = 50;
+  
   constructor(private plService: PositionsListService) {
-    this.plService.getAllPositions().then((positions) => {
+    this.plService.getPositions(this.skip, this.amount).then((positions) => {
       this.positions = positions;
       this.isSpinnerVisible = false;
     }, (error) => {

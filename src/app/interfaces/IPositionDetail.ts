@@ -8,6 +8,7 @@ export interface IPositionDetail {
   vacancyName: string;
   requestDate: Date;
   startDate: Date;
+  closeDate: Date;
   status: string;
   link: string;
   primarySkill: ITechSkill;

@@ -18,20 +18,30 @@
         </div>
         <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
 
-        <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
-        <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
-        <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+        <ng-container *ngIf="cities.length">
+            <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
+        </ng-container>
+        <ng-container *ngIf="englishLevel.length">
+            <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
+        </ng-container>
+        <ng-container *ngIf="statuses.length">
+            <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+        </ng-container>
     </div>
     <div class="header-info">Skills</div>
     <div class="row">
         <div class="col s6">
             <div>Primary</div>
-            <skill-form #primary [array]="skills"></skill-form>
+            <ng-container *ngIf="skills.length">
+                <skill-form #primary [array]="skills"></skill-form>
+            </ng-container>
             <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
         </div>
         <div class="col s6">
             <div>Secondary</div>
-            <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+            <ng-container *ngIf="skills.length">
+                <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+            </ng-container>
             <button (click)="addSecondary()">Add secondary skill</button>
             <button (click)="removeSecondary()">Remove secondary skill</button>
         </div>
