@@ -1,113 +1,59 @@
-button {
-  background-color: #526c7b;
-  width: 100%;
-  height: 3.5rem;
-  margin-bottom: 1rem;
-}
+  $blue: #56CCF2;
+  button {
+    background-color: #526c7b;
+    width: 100%;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+     :hover,
+     :active {
+      background-color: $blue;
+    }
+  }
 
-button:hover,
-button:active {
-  background-color: #56CCF2;
-}
+  .header-info {
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 10px 15px;
+    color: #273248;
+    border-bottom: 1px solid #ccc;
+    .jobs {
+      margin-top: 15px;
+    }
+  }
 
-.header-info {
-  text-transform: uppercase;
-  margin: 0 15px;
-  padding: 10px 15px;
-  color: #273248;
-  border-bottom: 1px solid #ccc;
-}
+  .input-wrapper {
+    input {
+      border: 1px solid #ccc;
+      height: 2rem;
+      box-sizing: border-box;
+      padding: 0 15px;
+      margin-bottom: 0;
+      min-width: 100px;
+      font-size: 1em;
+      cursor: url(/assets/cursor/text2.png), text;
+    }
+    input:focus,
+    input:active,
+    input[type=text]:not(.browser-default).valid {
+      border-bottom: 1px solid $blue;
+      box-shadow: 0 1px 0 0 $blue;
+    }
+    label {
+      text-transform: uppercase;
+      font-size: 1rem;
+      padding: 0 15px;
+      top: 0.2rem;
+      width: auto;
+    }
+    label.active {
+      top: 0.4rem;
+      font-size: 0.6em;
+    }
+    input:focus+label,
+    input:active+label {
+      color: $blue;
+      font-size: 0.6em;
+    }
+  }
 
-.header-info.jobs {
-  margin-top: 15px;
-}
-
-.input-wrapper input {
-  border: 1px solid #ccc;
-  height: 2rem;
-  box-sizing: border-box;
-  padding: 0 15px;
-  margin-bottom: 0;
-  min-width: 100px;
-  font-size: 1em;
-  cursor: url(/assets/cursor/text2.png), text;
-}
-
-.input-wrapper input:focus,
-.input-wrapper input:active,
-.input-wrapper input[type=text]:not(.browser-default).valid,
-.input-wrapper input[type=text]:not(.browser-default).valid {
-  border-bottom: 1px solid #56CCF2;
-  box-shadow: 0 1px 0 0 #56CCF2;
-}
-
-.input-wrapper label {
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding: 0 15px;
-  top: 0.2rem;
-  width: auto;
-}
-
-.input-wrapper label.active {
-  top: 0.4rem;
-  font-size: 0.6em;
-}
-
-.input-wrapper input:focus+label,
-.input-wrapper input:active+label {
-  color: #56CCF2;
-  font-size: 0.6em;
-}
-
-input {
-  cursor: url(/assets/cursor/text2.png), text;
-}
-
-.circles-container {
-  position: absolute;
-}
-
-.circle {
-  z-index: 10000;
-  background: #526c7b;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-}
-
-.circle:nth-child(1) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: 0.88rem;
-  left: 0.06rem;
-  z-index: 0;
-}
-
-.circle:nth-child(2) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: 0.28rem;
-  left: 3.2rem;
-  z-index: 0;
-}
-
-.circle:nth-child(3) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: -0.31rem;
-  left: 6.24rem;
-  z-index: 0;
-}
-
-.circle:nth-child(4) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: -0.92rem;
-  left: 9.34rem;
-  z-index: 0;
-}
+ 

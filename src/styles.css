@@ -168,7 +168,7 @@ input[type=range].slider::-webkit-slider-thumb {
   height: 0.6rem;
   width: 0.6rem;
   border-radius: 0.4rem;
-  background: -webkit-linear-gradient(0deg, #56CCF2 40%, #526C7B 100%);
+  background: -webkit-linear-gradient(0deg, #56CCF2 40%, #1287ad 100%);
   -webkit-appearance: none;
   margin-top: -0.15rem;
 }
