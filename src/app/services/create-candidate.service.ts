@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, RequestOptions, Http, Response } from '@angular/http';
-import { IGeneral } from '../../../interfaces/IGeneral';
+import { Headers, RequestOptions, Http } from '@angular/http';
 
 @Injectable()
 export class CreateCandidateService {
@@ -12,10 +11,8 @@ export class CreateCandidateService {
 
   addCandidate(candidate): Promise<any> {
     const body = JSON.stringify(candidate);
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(this.url, body, { headers })
-      .toPromise()
-      .then(res => res.json());
+    console.log(body);
+    return this.http.post(this.url, body, this.options)
+      .toPromise();
   }
 }

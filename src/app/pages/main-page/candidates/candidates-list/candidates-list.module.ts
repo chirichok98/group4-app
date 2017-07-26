@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 import { CandidatesListComponent } from './candidates-list.component';
 // tslint:disable-next-line:max-line-length
 import { CandidatePreviewModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
-import { CandidatesListService } from './candidates-list.service';
 import { SpinnerModule } from '../../../../components/spinner/spinner.module';
+import { CandidatesListService } from '../../../../services/candidates-list.service';
 
 @NgModule({
   imports: [

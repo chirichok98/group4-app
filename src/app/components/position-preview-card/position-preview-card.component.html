@@ -1,4 +1,4 @@
-<div class="position" (click)=goToDetailView()>
+<div class="position" (click)="goToDetailView()">
     <div class="position-container">
         <img class="position-img" *ngIf="position?.primarySkill?.picture; else defaultPic" [src]="position?.primarySkill.picture">
         <ng-template #defaultPic>
