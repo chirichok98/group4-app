@@ -2,37 +2,42 @@
     <button (click)="addVacancy()" class="btn add-position">Add position</button>
     <div class="row input-wrapper">
         <div class="header-info">General information</div>
-        <div class="input-field col m6 s12">
-            <input [(ngModel)]="vacInfo.vacancyName" id="project_name" type="text" class="validate">
-            <label for="project_name">Position Name</label>
+        <div class="input-field position-name-wrapper col m6 s12">
+            <input [(ngModel)]="vacInfo.vacancyName" id="position_name" type="text" class="validate">
+            <label for="position_name">Position Name</label>
         </div>
-        <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
-        <div class="input-field col m6 s12">
+        <div class="col m6 s12">
+            <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
+        </div>
+        <div class="input-field project-name-wrapper col m6 s12">
             <input [(ngModel)]="vacInfo.projectName" id="project_name" type="text" class="validate">
             <label for="project_name">Project Name</label>
         </div>
-        <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
-        <div class="input-field col m6 s12">
+        <div class="col m6 s12">
+            <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
+        </div>
+        <div class="input-field project-link-wrapper col m6 s12">
             <input [(ngModel)]="vacInfo.link" id="project_link" type="text" class="validate">
             <label for="project_link">Link on project</label>
         </div>
-        <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
-
+        <div class="col m6 s12">
+            <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
+        </div>
         <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
         <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
         <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
     </div>
     <div class="header-info">Skills</div>
-    <div class="row">
-        <div class="col s6">
-            <div>Primary</div>
+    <div class="row skills">
+        <div class="col m6 s12">
+            <div class="header-info__inner">Primary</div>
             <skill-form #primary [array]="skills"></skill-form>
         </div>
-        <div class="col s6">
-            <div>Secondary</div>
+        <div class="col m6 s12">
+            <div class="header-info__inner">Secondary</div>
             <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
-            <button (click)="addSecondary()">Add secondary skill</button>
-            <button (click)="removeSecondary()">Remove secondary skill</button>
+            <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+            <button class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
         </div>
     </div>
 </div>
