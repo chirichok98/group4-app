@@ -29,7 +29,6 @@ export class CreateCandidateComponent implements OnInit {
   @ViewChild('date') datepickerInput: DatepickerFormComponent;
   canInfo: any = {};
   prevJobs: any = [];
-  hasPrimary: boolean = false;
   secondarySkills: any = [];
 
   statuses: IGeneral[] = [];
@@ -114,9 +113,7 @@ export class CreateCandidateComponent implements OnInit {
     this.canInfo.contact = this.getContacts();
     this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
 
-    if (this.hasPrimary) {
-      this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
-    }
+    this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
     if (this.secondarySkills.length) {
       this.canInfo.candidateSecondarySkills = this.getSecondarySkills(this.secSkills);
     }
@@ -140,10 +137,6 @@ export class CreateCandidateComponent implements OnInit {
 
   removePrevJob(): void {
     this.prevJobs.pop();
-  }
-
-  addPrimary() {
-    this.hasPrimary = true;
   }
 
   addSecondary() {

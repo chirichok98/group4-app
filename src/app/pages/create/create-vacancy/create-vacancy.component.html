@@ -3,25 +3,24 @@
     <div class="row input-wrapper">
         <div class="header-info">General information</div>
         <div class="input-field col m6 s12">
+            <input [(ngModel)]="vacInfo.vacancyName" id="project_name" type="text" class="validate">
+            <label for="project_name">Position Name</label>
+        </div>
+        <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
+        <div class="input-field col m6 s12">
             <input [(ngModel)]="vacInfo.projectName" id="project_name" type="text" class="validate">
             <label for="project_name">Project Name</label>
         </div>
-        <div class="input-field col m6 s12">
-            <input [(ngModel)]="vacInfo.vacancyName" id="project_name" type="text" class="validate">
-            <label for="project_name">Vacancy Name</label>
-        </div>
+        <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
         <div class="input-field col m6 s12">
             <input [(ngModel)]="vacInfo.link" id="project_link" type="text" class="validate">
             <label for="project_link">Link on project</label>
         </div>
-        <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+        <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
+
         <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
         <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
-
-        <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
-        <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
-        <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
-        
+        <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
     </div>
     <div class="header-info">Skills</div>
     <div class="row">
@@ -30,10 +29,10 @@
             <skill-form #primary [array]="skills"></skill-form>
         </div>
         <div class="col s6">
-             <div>Secondary</div>
-             <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
-             <button (click)="addSecondary()">Add secondary skill</button>
-             <button (click)="removeSecondary()">Remove secondary skill</button>
+            <div>Secondary</div>
+            <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+            <button (click)="addSecondary()">Add secondary skill</button>
+            <button (click)="removeSecondary()">Remove secondary skill</button>
         </div>
     </div>
 </div>

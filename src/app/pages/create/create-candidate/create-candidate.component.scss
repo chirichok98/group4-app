@@ -1,15 +1,20 @@
-button {
-  background-color: #526c7b;
-  width: 100%;
-  height: 3.5rem;
-  margin-bottom: 1rem;
+button.btn {
+    background-color: #526c7b;
+    width: 100%;
+    height: 3.5rem;
+    margin-bottom: 1rem;
 }
-
-button:hover,
-button:active {
-  background-color: #56CCF2;
+button.btn:hover,
+button.btn:active,
+button.btn:focus {
+    background-color:#56CCF2;
 }
-
+button.btn.add-prev-job:focus {
+    background-color: #526c7b;    
+}
+button.btn.add-prev-job:focus:hover {
+    background-color: #56CCF2;    
+}
 .header-info {
   text-transform: uppercase;
   margin: 0 15px;
@@ -55,54 +60,13 @@ button:active {
 
 .input-wrapper input:focus+label,
 .input-wrapper input:active+label {
-  color: #56CCF2;
-  font-size: 0.6em;
+    color: #56CCF2;
+    font-size: 0.6em;
 }
-
-.circles-container {
-  position: absolute;
-}
-
-.circle {
-  z-index: 10000;
-  background: #526c7b;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-}
-
-.circle:nth-child(1) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: 0.88rem;
-  left: 0.06rem;
-  z-index: 0;
-}
-
-.circle:nth-child(2) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: 0.28rem;
-  left: 3.2rem;
-  z-index: 0;
-}
-
-.circle:nth-child(3) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: -0.31rem;
-  left: 6.24rem;
-  z-index: 0;
-}
-
-.circle:nth-child(4) {
-  width: 0.6rem;
-  height: 0.6rem;
-  position: relative;
-  top: -0.92rem;
-  left: 9.34rem;
-  z-index: 0;
+.btn.delete-candidate,
+.btn.add-prev-job {
+    height: 2rem;
+    width: auto;
+    display: inline-block;
+    margin: 1rem 0.7rem;
 }
