@@ -4,11 +4,11 @@ import { HttpService } from './http.service';
 
 @Injectable()
 export class CreateVacancyService {
-  private ADD_VAC_URL: string = 'vacancy/add';
+  private url = `${this.httpService.VAC_URL}/${this.httpService.ADD}`;
 
   constructor(private http: Http, private httpService: HttpService) { }
 
   addVacancy(vacancy: any): Promise<any> {
-    return this.httpService.sendPostRequest(this.ADD_VAC_URL, vacancy);
+    return this.httpService.sendPostRequest(this.url, vacancy);
   }
 }

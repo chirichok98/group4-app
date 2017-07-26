@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-
+import { HttpService } from './http.service';
 import { ICandidatePreview } from '../interfaces/ICandidatePreview';
 
 @Injectable()
 export class CandidatesListService {
-  private apiUrl: string = 'http://knowbaseserver.azurewebsites.net/api/candidate?skip=0&amount=50';
+  constructor(private httpService: HttpService) { }
 
-  constructor(private http: Http) { }
+  private makePagParms(skip: number, amount: number) {
+    const query: any = { skip, amount };
+    return query;
+  }
 
-  getAllCandidates(): Promise<ICandidatePreview[]> {
-    const candidates: Promise<ICandidatePreview[]> = this.http.get(this.apiUrl)
-      .toPromise()
-      .then(res => res.json() as ICandidatePreview[]);
+  getCandidates(skip: number, amount: number): Promise<ICandidatePreview[]> {
+    const pagParam: any = this.makePagParms(skip, amount);
+    const candidates: Promise<ICandidatePreview[]> = 
+      this.httpService.sendGetRequest(this.httpService.CAN_URL, pagParam);
     return candidates;
   }
 }

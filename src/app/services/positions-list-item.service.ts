@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpService } from './http.service';
 
-import 'rxjs/add/operator/toPromise';
 import { IPositionDetail } from '../interfaces/IPositionDetail';
-
 
 @Injectable()
 export class PositionsListItemService {
-  private apiUrl: string = 'http://knowbaseserver.azurewebsites.net/api/vacancy';
+  constructor(private httpService: HttpService) { }
 
-  constructor(private http: Http) { }
+  concatId(id: number): string {
+    return `${this.httpService.VAC_URL}/${id}`;
+  }
 
-  getPositionById(id): Promise<IPositionDetail> {
-    const url = `${this.apiUrl}/${id}`;
-    const candidates: Promise<IPositionDetail> = this.http.get(url)
-      .toPromise()
-      .then(res => res.json() as IPositionDetail);
-    return candidates;
+  getPositionById(id: number): Promise<IPositionDetail> {
+    const url: string = this.concatId(id);
+    const position: Promise<IPositionDetail> = 
+      this.httpService.sendGetRequest(url, null);
+    return position;
   }
 }
