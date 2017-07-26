@@ -43,7 +43,6 @@
     background-color: #273248;
     width: 60%;
     height: 3rem;
-    cursor: url('/assets/cursor/default_end.png'), pointer;
   }
 
   .form .btn:hover,
@@ -76,14 +75,12 @@
     content: "";
     background: url(/assets/checkbox3.png) no-repeat;
     background-size: 1.6rem;
-    cursor: url('/assets/cursor/default_end.png'), pointer;
     transform: rotate(0);
     transition-duration: 0s;
   }
 
   input[type="checkbox"]:checked+label:before {
     background-position: 0 -1.6rem;
-    cursor: url('/assets/cursor/default_end.png'), pointer;
     border: none;
     transform: rotate(0);
     transition-duration: 0s;
