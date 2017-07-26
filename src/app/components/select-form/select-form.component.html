@@ -1,6 +1,6 @@
 <div class="input-field col s6">
   <select [(ngModel)]="result" #select>
-      <option *ngFor="let item of array" [ngValue]="item">{{item.name}}</option>
+      <option *ngFor="let item of array" [ngValue]="item.id">{{item.name}}</option>
   </select>
   <label>{{placeholder}}</label>
 </div>

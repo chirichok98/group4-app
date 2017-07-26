@@ -36,9 +36,9 @@ export class CreateCandidateComponent implements OnInit {
   skills: ITechSkill[] = [];
 
   constructor(private router: Router,
-    private eRef: ElementRef,
-    private ccService: CreateCandidateService,
-    private hService: HelpService) {
+              private eRef: ElementRef,
+              private ccService: CreateCandidateService,
+              private hService: HelpService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -58,7 +58,9 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   getSelectedIndex(field: any): number | null {
-    const index: number = field.nativeElement.selectedIndex;
+    const str: string = field.nativeElement.value;
+    const indexOfSpace: number = str.indexOf(' ');
+    const index: number = +str.slice(indexOfSpace);
     if (index === -1) return null;
     return index;
   }
