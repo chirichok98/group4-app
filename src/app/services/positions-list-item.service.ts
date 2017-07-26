@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import { IPositionDetail } from '../interfaces/IPositionDetail';
 
-import { IPositionDetail } from '../../../../interfaces/IPositionDetail';
 
 @Injectable()
 export class PositionsListItemService {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IDescribeBlock } from '../../interfaces/IDescribeBlock';
+
+import { IDescribeBlock } from '../interfaces/IDescribeBlock';
 
 const DESCRIPTIONS: IDescribeBlock[] = [
   {

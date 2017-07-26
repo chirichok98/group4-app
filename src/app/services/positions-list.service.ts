@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
+import { IPositionPreview } from '../interfaces/IPositionPreview';
 
 @Injectable()
 export class PositionsListService {

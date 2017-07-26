@@ -16,4 +16,5 @@ export class PrevJobFormComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.prevJob.contact = this.contactsForm.contact;
   }
+  
 }

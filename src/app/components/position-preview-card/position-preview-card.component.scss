@@ -1,10 +1,8 @@
 .position {
-    margin-top: 1rem; 
-
-    width: 19rem;
-    height: auto;
-    
-    color: #424242;
+  margin-top: 1rem;
+  width: 19rem;
+  height: auto;
+  color: #424242;
 }
 
 .col {
@@ -12,29 +10,28 @@
 }
 
 .position-container {
-    display: flex;
-    
-    flex-direction: column;
-    justify-content: space-between;
-
-    padding: 0.5rem;
-    height: 12rem;
-
-    background-color: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+  height: 12rem;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .position-container .position-img {
-    align-content: center;
-    height: 5rem;
+  align-content: center;
+  height: 5rem;
 }
-.position-container img {  
-    margin: 0 auto;
+
+.position-container img {
+  margin: 0 auto;
 }
-.position-vacancy, .position-project{
-     text-align: center;
-     align-content: center;
+
+.position-vacancy,
+.position-project {
+  text-align: center;
+  align-content: center;
 }
 
 .add-info {
@@ -46,15 +43,15 @@
   padding: 0.2rem;
 }
 
-
 .position-vacancy {
   font-family: "Roboto Slab";
 }
 
 img::selection {
-    background: transparent;
+  background: transparent;
 }
-div::selection, 
+
+div::selection,
 span::selection {
-    color: #56ccf2;
+  color: #56ccf2;
 }
