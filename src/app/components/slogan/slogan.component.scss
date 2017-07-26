@@ -1,7 +1,8 @@
 .tagline_container {
     background-color: #526C7B;
     transform: rotate(1.2deg);
-    margin-right: 1.8rem;
+    width: 90%;
+    margin: 0 auto;
     box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 .tagline_inner {
@@ -12,8 +13,9 @@
     font-style: bold;
     font-family: "Roboto Slab";
     text-align: center;
-    padding: 2% 2%;
+    padding: 1rem;
     transform: rotate(-1.2deg);
+    margin: 0;
     margin-right: 0.5rem;
 }
 .tagline__color {
@@ -29,32 +31,4 @@ p::selection {
 }
 span::selection {
     color: #56CCF2;
-}
-/* Large devices only */
-@media (min-width: 1560px) {
-	.tagline_inner {
-		font-size: 1.6rem;
-	}
-}
-@media (min-width: 1024px) and (max-width: 1559px) {
-	.tagline_inner {
-        font-size: 1.2rem;
-    }
-}
-@media (min-width: 768px) and (max-width: 1023px) {
- 	.tagline_inner {
-         font-size: 1rem;
-     }
-}
-@media (max-width: 767px) {
-	.tagline_inner {
-        font-size: 0.8rem;
-    }
-}
-
-/* Super extra smal devices only (e.g., iPhone 4) */
-@media (max-width: 479px) {
-    .tagline_inner {
-        font-size: 0.6rem;
-    }
 }
