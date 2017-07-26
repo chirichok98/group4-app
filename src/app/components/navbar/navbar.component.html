@@ -10,7 +10,7 @@
   </div>
 </div>
 <search-panel></search-panel>
-<filter-panel></filter-panel>
+<!-- <filter-panel></filter-panel> -->
 <ul [hidden]="!isMenuVisible">
   <li *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)">{{state.name}}</li>
 </ul>
