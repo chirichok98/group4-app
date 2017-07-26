@@ -111,6 +111,7 @@ create-vacancy {
   background: #273248;
   /*526C7B*/
   opacity: 0.6;
+  border-radius: 0.3vw;
 }
 
 ::-webkit-scrollbar-track {
@@ -158,6 +159,7 @@ input[type=range].slider::-webkit-slider-runnable-track {
   background: #526c7b;
   /* #273248*/
   /* border-radius: 1vw;
+  
   border: 0.07vw solid rgba(1, 1, 1, 0.73); */
 }
 
