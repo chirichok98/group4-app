@@ -1,7 +1,4 @@
 .notifications-indicators {
-    // display: flex;
-    // align-items: center;
-    // justify-content: left;
     text-transform: uppercase;
     padding: 10px 15px;
     color: #273248;
@@ -14,6 +11,7 @@
     margin: 0;
     justify-content: left;
     padding: 0;
+    min-width: 11rem;
 }
 
  .indicator-wrapper div::selection {

@@ -41,7 +41,7 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);  
 }
 .material-icons.search {
-   color: #424242;
+   color: #526c7b;
    margin: 0.3rem 1rem 0.2rem;
    height: 40px;
 }
@@ -59,7 +59,7 @@ img::selection {
   width: 80px;
 }
 .open-menu {
-  color: #424242;
+  color: #526c7b;
 }
 .open-menu:hover {
   color: #52c1e6;
@@ -91,6 +91,13 @@ img::selection {
   float: none;
   line-height: 2.5rem;
   height: 2.5rem;
+  font-size: 2.3em;
+}
+.collapsible-header.active .open-menu {
+  color: #52c1e6; 
+}
+.collapsible-header.active .open-menu:hover {
+  color: #526c7b; 
 }
 .collapsible-body {
   padding: 0;

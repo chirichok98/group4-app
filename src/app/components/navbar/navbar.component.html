@@ -7,7 +7,7 @@
     <ul class="hidden-menu-wrapper hide-on-large-only collapsible" data-collapsible="accordion">
       <li>
         <div class="collapsible-header">
-          <i _ngcontent-c12="" class="hide-on-large-only small material-icons open-menu">menu</i>
+          <i _ngcontent-c12="" class="hide-on-large-only material-icons open-menu">menu</i>
         </div>
         <div class="collapsible-body">
           <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
