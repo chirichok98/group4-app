@@ -8,7 +8,7 @@ export class CandidatesListItemService {
   constructor(private httpService: HttpService) { }
 
   concatId(id: number): string {
-    return `${this.httpService.CAN_URL}/${id}`;
+    return `${this.httpService.CAN}/${id}`;
   }
 
   getCandidateById(id: number): Promise<ICandidateDetail> {
