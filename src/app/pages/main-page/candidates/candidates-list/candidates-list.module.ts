@@ -7,6 +7,9 @@ import { CandidatesListComponent } from './candidates-list.component';
 import { CandidatePreviewModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
 import { SpinnerModule } from '../../../../components/spinner/spinner.module';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { PagerService } from '../../../../services/pager.service';
+
+import { PagerDirective } from '../../../../services/pager.directive';
 
 @NgModule({
   imports: [
@@ -16,7 +19,7 @@ import { CandidatesListService } from '../../../../services/candidates-list.serv
     SpinnerModule,
   ],
   exports: [RouterModule],
-  declarations: [CandidatesListComponent],
-  providers: [CandidatesListService],
+  declarations: [CandidatesListComponent, PagerDirective],
+  providers: [CandidatesListService, PagerService],
 })
 export class CandidatesListModule { }

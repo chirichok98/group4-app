@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { PagerService } from '../../../../services/pager.service';
+
+// import { PagerDirective } from '../../../../services/pager.directive';
 
 @Component({
   selector: 'candidates-list',
@@ -11,18 +14,20 @@ import { CandidatesListService } from '../../../../services/candidates-list.serv
 export class CandidatesListComponent implements OnInit {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
+  @ViewChild(PagerService) can : ElementRef;
   skip: number = 0;
-  amount: number = 50;
+  amount: number = 10;
 
-  constructor(private clService: CandidatesListService) {
-    this.clService.getCandidates(this.skip, this.amount)
-      .then((candidates) => {
-        this.candidates = candidates;
-        this.isSpinnerVisible = false;
-      }, (error) => {
-        console.log('Candidates error');
-        this.isSpinnerVisible = false;
-      });
+  constructor(private pagerService: PagerService) {
+      // this.pagerService.getPager(this.skip, this.amount)
+      //   .then((candidates) => {
+      //     console.log(candidates);
+      //     this.candidates = candidates;
+      //     this.isSpinnerVisible = false;
+      //   }, (error) => {
+      //     console.log('Candidates error');
+      //     this.isSpinnerVisible = false;
+      //   });  
   }
 
   ngOnInit() {
