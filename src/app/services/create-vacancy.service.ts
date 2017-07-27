@@ -9,6 +9,6 @@ export class CreateVacancyService {
   constructor(private http: Http, private httpService: HttpService) { }
 
   addVacancy(vacancy: any): Promise<any> {
-    return this.httpService.sendPostRequest(this.url, vacancy);
+    return this.httpService.post(this.url, vacancy);
   }
 }

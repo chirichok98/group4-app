@@ -14,7 +14,7 @@ export class CandidatesListItemService {
   getCandidateById(id: number): Promise<ICandidateDetail> {
     const url: string = this.concatId(id);
     const candidate: Promise<ICandidateDetail> = 
-      this.httpService.sendGetRequest(url, null);
+      this.httpService.get(url, null);
     return candidate;
   }
 }

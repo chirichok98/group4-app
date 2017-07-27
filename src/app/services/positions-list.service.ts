@@ -15,7 +15,7 @@ export class PositionsListService {
   getPositions(skip: number, amount: number): Promise<IPositionPreview[]> {
     const pagParam: any = this.makePagParms(skip, amount);
     const positions: Promise<IPositionPreview[]> =
-      this.httpService.sendGetRequest(this.httpService.VAC_URL, pagParam);
+      this.httpService.get(this.httpService.VAC_URL, pagParam);
     return positions;
   }
 }

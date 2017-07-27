@@ -14,7 +14,7 @@ export class PositionsListItemService {
   getPositionById(id: number): Promise<IPositionDetail> {
     const url: string = this.concatId(id);
     const position: Promise<IPositionDetail> = 
-      this.httpService.sendGetRequest(url, null);
+      this.httpService.get(url, null);
     return position;
   }
 }

@@ -39,7 +39,7 @@ export class HttpService {
     return JSON.stringify(body);
   }
 
-  sendPostRequest(param: string, body: any): Promise<any> {
+  post(param: string, body: any): Promise<any> {
     const url: string = this.concatUrl(this.BASE_URL, param, false);
     const obj: string = this.stringify(body);
     console.log(obj);
@@ -47,7 +47,7 @@ export class HttpService {
       .toPromise();
   }
 
-  sendGetRequest(param: string, query: any): Promise<any> {
+  get(param: string, query: any): Promise<any> {
     let url: string = this.concatUrl(this.BASE_URL, param, false);
     if (query) {
       url = this.concatUrl(url, this.makeQuery(query), true);

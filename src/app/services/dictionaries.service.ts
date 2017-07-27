@@ -19,7 +19,7 @@ export class DictionariesService {
     if (this.cities) {
       return this.cities;
     }
-    this.cities = this.httpService.sendGetRequest(this.httpService.CITY, null);
+    this.cities = this.httpService.get(this.httpService.CITY, null);
     return this.cities;
   }
 
@@ -27,7 +27,7 @@ export class DictionariesService {
     if (this.engLevel) {
       return this.engLevel;
     }
-    this.engLevel = this.httpService.sendGetRequest(this.httpService.ENGLISH, null);
+    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null);
     return this.engLevel;
   }
 
@@ -35,7 +35,7 @@ export class DictionariesService {
     if (this.skills) {
       return this.skills;
     }
-    this.skills = this.httpService.sendGetRequest(this.httpService.SKILLS, null);
+    this.skills = this.httpService.get(this.httpService.SKILLS, null);
     return this.skills;
   }
 
@@ -43,7 +43,7 @@ export class DictionariesService {
     if (this.vacStatuses) {
       return this.vacStatuses;
     }
-    this.vacStatuses = this.httpService.sendGetRequest(this.httpService.VAC_STATUS, null);
+    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null);
     return this.vacStatuses;
   }
 
@@ -51,7 +51,7 @@ export class DictionariesService {
     if (this.canStatuses) {
       return this.canStatuses;
     }
-    this.canStatuses = this.httpService.sendGetRequest(this.httpService.CAN_STATUS, null);
+    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null);
     return this.canStatuses;
   }
 }

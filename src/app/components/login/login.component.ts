@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginFormComponent {
+  login: string;
+  password: string;
   constructor(private router: Router) { }
 
   signIn(): void {

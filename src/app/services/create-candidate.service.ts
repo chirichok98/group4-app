@@ -8,6 +8,6 @@ export class CreateCandidateService {
   constructor(private httpService: HttpService) { }
 
   addCandidate(candidate): Promise<any> {
-    return this.httpService.sendPostRequest(this.url, candidate);
+    return this.httpService.post(this.url, candidate);
   }
 }
