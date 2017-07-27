@@ -10,6 +10,7 @@
 .navbar-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-states {
@@ -19,8 +20,6 @@
 .navbar-elem {
   height: 100%;
   padding: 0.5rem 1.5rem;
-  // margin: 0 10px;
-  // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 .navbar-elem span {
   font-size: 1em;
@@ -42,7 +41,14 @@
   cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);  
 }
-
+.material-icons.search {
+   color: #424242;
+   margin: 0 1rem;
+}
+.material-icons.search:hover {
+   color: #52c1e6; 
+   cursor: pointer;
+}
 i::selection,
 div::selection,
 img::selection {
