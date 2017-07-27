@@ -7,12 +7,6 @@ import { HttpService } from './http.service';
 
 @Injectable()
 export class DictionariesService {
-  private CITY_URL: string = 'city';
-  private ENG_URL: string = 'engLevel';
-  private SKILL_URL: string = 'techSkill';
-  private VAC_STATUS_URL: string = 'vacancyStatus';
-  private CAN_STATUS_URL: string = 'candidateStatus';
-
   private cities: Promise<IGeneral[]>;
   private engLevel: Promise<IGeneral[]>;
   private skills: Promise<ITechSkill[]>;
@@ -25,7 +19,7 @@ export class DictionariesService {
     if (this.cities) {
       return this.cities;
     }
-    this.cities = this.httpService.sendGetRequest(this.CITY_URL);
+    this.cities = this.httpService.get(this.httpService.CITY, null);
     return this.cities;
   }
 
@@ -33,7 +27,7 @@ export class DictionariesService {
     if (this.engLevel) {
       return this.engLevel;
     }
-    this.engLevel = this.httpService.sendGetRequest(this.ENG_URL);
+    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null);
     return this.engLevel;
   }
 
@@ -41,7 +35,7 @@ export class DictionariesService {
     if (this.skills) {
       return this.skills;
     }
-    this.skills = this.httpService.sendGetRequest(this.SKILL_URL);
+    this.skills = this.httpService.get(this.httpService.SKILLS, null);
     return this.skills;
   }
 
@@ -49,7 +43,7 @@ export class DictionariesService {
     if (this.vacStatuses) {
       return this.vacStatuses;
     }
-    this.vacStatuses = this.httpService.sendGetRequest(this.VAC_STATUS_URL);
+    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null);
     return this.vacStatuses;
   }
 
@@ -57,7 +51,7 @@ export class DictionariesService {
     if (this.canStatuses) {
       return this.canStatuses;
     }
-    this.canStatuses = this.httpService.sendGetRequest(this.CAN_STATUS_URL);
+    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null);
     return this.canStatuses;
   }
 }

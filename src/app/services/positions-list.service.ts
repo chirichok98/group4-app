@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-
+import { HttpService } from './http.service';
 import { IPositionPreview } from '../interfaces/IPositionPreview';
 
 @Injectable()
 export class PositionsListService {
-  private apiUrl: string = 'http://knowbaseserver.azurewebsites.net/api/vacancy?skip=0&amount=500';
+  constructor(private httpService: HttpService) { }
 
-  constructor(private http: Http) { }
+  private makePagParms(skip: number, amount: number) {
+    const query: any = { skip, amount };
+    return query;
+  }
 
-
-  getAllPositions(): Promise<IPositionPreview[]> {
-    const positions: Promise<IPositionPreview[]> = this.http.get(this.apiUrl)
-      .toPromise()
-      .then(res => res.json() as IPositionPreview[]);
+  getPositions(skip: number, amount: number): Promise<IPositionPreview[]> {
+    const pagParam: any = this.makePagParms(skip, amount);
+    const positions: Promise<IPositionPreview[]> =
+      this.httpService.get(this.httpService.VAC_URL, pagParam);
     return positions;
   }
 }

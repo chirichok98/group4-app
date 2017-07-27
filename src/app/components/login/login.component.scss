@@ -1,4 +1,5 @@
 .form {
+<<<<<<< HEAD
     margin: 0.5rem 0 0;
     padding: 0;
     text-align: center;
@@ -31,4 +32,45 @@
             background-color: #56CCF2;
         }
     }
+=======
+	margin: 0.5rem 0 0;
+	padding: 0;
+	text-align: center;
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 10px 0 20px; 
+	}
+	input {
+		text-transform: uppercase;
+		background-color: #fff;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		height: 3.5rem;
+		box-sizing: border-box;
+		padding: 0 15px;
+		margin-bottom: 0;		
+		min-width: 100px;
+		
+	}
+	input:focus {
+		border-bottom: 1px solid #56CCF2;
+		box-shadow: 0 1px 0 0 #56CCF2;
+	}
+}
+.form .btn {
+	background-color: #273248;
+	width: 100%;
+	height: 3.5rem;
+	
+}
+.form .btn:hover,
+.form .btn:focus {
+	background-color: #56CCF2;
+}
+
+input::selection {
+	color: #56CCF2;
+>>>>>>> 2618e0983f37c85b3a38a205c0e82c9192be19c5
 }

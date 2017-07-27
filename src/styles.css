@@ -4,11 +4,11 @@ html {
 }
 
 body {
-    height: 100%;
-    background-color: #e8e8e8;
-    width: 100%;
-    margin: 0 auto;
-    overflow-y: scroll;
+  height: 100%;
+  background-color: rgba(39, 50, 72, 0.06);
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: scroll;
 }
 
 body>.row,
@@ -171,6 +171,13 @@ prev-job-form .input-wrapper.contacts {
 
 prev-job-form .input-wrapper.contacts {
     padding: 0 50px;
+}
+.skills .input-field.col,
+.skills .range-field {
+  padding: 0;
+}
+.skills .range-field {
+  padding: 0 20px;
 }
 
 .input-wrapper input::selection {

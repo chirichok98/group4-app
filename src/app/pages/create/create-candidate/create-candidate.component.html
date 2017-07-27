@@ -27,42 +27,40 @@
                 <input [(ngModel)]="canInfo.desiredSalary" id="salary" type="text" class="validate">
                 <label for="salary">Desired salary</label>
             </div>
-            <div *ngIf="cities.length">
+            <ng-container *ngIf="cities.length">
                 <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
-            </div>
-            <div *ngIf="englishLevel.length">
+            </ng-container>
+            <ng-container *ngIf="englishLevel.length">
                 <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
-            </div>
-            <div *ngIf="statuses.length">
+            </ng-container>
+            <ng-container *ngIf="statuses.length">
                 <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
-            </div>
-
+            </ng-container>
         </div>
         <div class="header-info">Person Contacts</div>
         <contacts-form #contact></contacts-form>
         <div class="header-info">Skills</div>
-        <div class="row">
-            <div class="col s6">
-                <div>Primary</div>
-                <div *ngIf="skills">
+        <div class="row skills">
+            <div class="col m6 s12">
+                <div class="header-info__inner">Primary</div>
+                <ng-container *ngIf="skills.length">
                     <skill-form #primary [array]="skills"></skill-form>
-                </div>
+                </ng-container>
                 <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
             </div>
-            <div class="col s6">
-                <div>Secondary</div>
-                <div *ngIf="skills">
+            <div class="col secondary m6 s12">
+                <div class="header-info__inner">Secondary</div>
+                <ng-container *ngIf="skills.length">
                     <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
-                </div>
-                <button (click)="addSecondary()">Add secondary skill</button>
-                <button (click)="removeSecondary()">Remove secondary skill</button>
+                </ng-container>
+                <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+                <button *ngIf="secondarySkills.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
-<div>
-    <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
-</div>
-<button class="btn add-prev-job " (click)="addPrevJob()">Add previous job</button>
-<button *ngIf="prevJobs.length" class="btn delete-candidate" (click)="removePrevJob()">Remove previous job</button>
+    <div *ngIf="prevJobs.length" class="header-info jobs">Previous jobs</div>
+    <div>
+        <prev-job-form #prevJob *ngFor="let job of prevJobs"></prev-job-form>
+    </div>
+    <button class="btn add-prev-job" (click)="addPrevJob()">Add previous job</button>
+    <button *ngIf="prevJobs.length" class="btn remove-prev-job" (click)="removePrevJob()">Remove previous job</button>
