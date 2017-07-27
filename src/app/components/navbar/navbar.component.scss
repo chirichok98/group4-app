@@ -10,7 +10,6 @@
 .navbar-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .navbar-states {
@@ -43,7 +42,8 @@
 }
 .material-icons.search {
    color: #424242;
-   margin: 0 1rem;
+   margin: 0.3rem 1rem 0.2rem;
+   height: 40px;
 }
 .material-icons.search:hover {
    color: #52c1e6; 
@@ -55,8 +55,50 @@ img::selection {
   background: transparent;
 }
 
-.nb-icon {
+.fake-block {
+  width: 80px;
+}
+.open-menu {
+  color: #424242;
+}
+.open-menu:hover {
+  color: #52c1e6;
+  cursor: pointer;
+}
+
+// hidden-menu-wrapper
+.hidden-menu-wrapper {
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.collapsible-header {
+  border: none;
+  padding: 0;
+  margin: 0;
   height: 2.5rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35em;
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+}
+.collapsible-header.active {
+  text-align: center;
+}
+.collapsible-header .open-menu,
+.collapsible-header.active .open-menu {
+  margin: 0 auto;
+  float: none;
+  line-height: 2.5rem;
+  height: 2.5rem;
+}
+.collapsible-body {
+  padding: 0;
+  border: 0;
+}
+.collapsible-body .navbar-elem {
+  text-align: center;
+}
+.collapsible-body .navbar-elem.active {
+  transform: scale(1);
 }
