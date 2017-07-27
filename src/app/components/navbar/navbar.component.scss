@@ -55,8 +55,13 @@ img::selection {
   background: transparent;
 }
 
-.nb-icon {
-  height: 2.5rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35em;
+.fake-block {
+  width: 80px;
+}
+.open-menu {
+  color: #424242;
+}
+.open-menu:hover {
+  color: #52c1e6;
+  cursor: pointer;
 }

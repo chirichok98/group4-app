@@ -5,9 +5,10 @@
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
     </div>
     <!--i class="navbar-icon material-icons hide-on-large-only" (click)="openMenu()">menu</i-->
-    <img class="nb-icon hide-on-large-only" src="/assets/menu12.png" (click)="openMenu()">
+    <i _ngcontent-c12="" class="hide-on-large-only small material-icons open-menu" (click)="openMenu()">menu</i>
+    <!--<img class="nb-icon hide-on-large-only" src="/assets/menu12.png" (click)="openMenu()">-->
     <!--<img class="nb-icon" src="/assets/filt7.png" (click)="openFilter()">-->
-    <i></i>
+    <i class="fake-block"></i>
   </div>
 </div>
 <search-panel></search-panel>
