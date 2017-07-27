@@ -1,0 +1,67 @@
+<div *ngIf="candidate as can; else loading">
+    <div class="candidate-info-container">
+        <div class="candidate-blocks">
+            <div class="candidate-block" *ngIf="can.picture; else defaultPic">
+                <img class="candidate-photo" [src]="can.picture">
+            </div>
+            <ng-template #defaultPic>
+                <div class="candidate-block">
+                    <img src="./assets/blank-avatar.png" alt="photo">
+                </div>
+            </ng-template>
+            <div class="candidate-block">
+                <div class="candidate-name">{{can.firstNameEng}} {{can.lastNameEng}}</div>
+                <div *ngIf="can.status" class="candidate-info-item candidate-status">{{can.status}}</div>
+                <div *ngIf="can.city" class="candidate-info-item candidate-location">({{can.city}})</div>
+                <div class="candidate-feedback" *ngIf="can.contact">
+                    <div *ngIf="can.contact.phone as phone" class="candidate-feedback-item candidate-phone"><i class="small material-icons">call</i>{{phone}}</div>
+                    <div *ngIf="can.contact.email as email" class="candidate-feedback-item candidate-email"><i class="small material-icons">email</i>{{email}}</div>
+                    <div *ngIf="can.contact.skype as skype" class="candidate-feedback-item candidate-skype"><i class="feedback-logotypes"></i>{{skype}}</div>
+                    <div *ngIf="can.contact.linkedIn as link" class="candidate-feedback-item candidate-linkedin"><i class="feedback-logotypes"></i>{{link}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="candidate-info__inner">
+            <div class="candidate-skills">
+                <div *ngIf="can.candidatePrimarySkill as skill">
+                    <span>Primary skill:</span>
+                    <img class="candidate-skill" [src]="skill.picture" [alt]="skill.name" />
+                </div>
+                <div *ngIf="can.candidateSecondarySkills as skills">
+                    <span>Secondary skills:</span>
+                    <ng-container *ngFor="let item of skills">
+                        <img class="candidate-skill" *ngIf="item.picture as pic; else text" [src]="pic">
+                        <ng-template #text>
+                            <span>{{item.name}}, </span>
+                        </ng-template>
+                    </ng-container>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="can.psExperience as exp" class="candidate-info-item candidate-experience">
+            <span>Experience with primary skill from: </span>{{exp | date:"mediumDate"}}
+        </div>
+        <div *ngIf="can.englishLevel as eng" class="candidate-info-item candidate-english-level">
+            <span>English: </span>{{eng}}
+        </div>
+        <div *ngIf="can.desiredSalary as salary" class="candidate-info-item candidate-desired-salary">
+            <span>Desired salary: </span>{{salary}}
+        </div>
+        <div *ngIf="can.lastContactDate as last" class="candidate-info-item candidate-last-contact">
+            <span>Last connection date: </span>{{last | date:"mediumDate"}}
+        </div>
+        <div *ngIf="can.hrm?.name as hrName" class="candidate-info-item candidate-hr">
+            <span>Current HR: </span>{{hrName}}
+        </div>
+        <!-- <div class="candidate-info-item candidate-hr">
+                <span>Possible vacancies: </span>
+            </div>
+            <div class="possible-vacancies">
+                <position-preview-card *ngFor="let item of can.vacancies" [position]="item"></position-preview-card>
+            </div> -->
+    </div>
+</div>
+<ng-template #loading>
+    <spinner [loading]="true"></spinner>
+</ng-template>

@@ -1,0 +1,9 @@
+<form class="form">
+  <div class="form__item">
+    <input [(ngModel)]="login" type="text" placeholder="Login" class="form__input validate">
+  </div>
+  <div class="form__item">
+    <input [(ngModel)]="password" placeholder="Password" type="password" class="form__input validate">
+  </div>
+  <button class="btn waves-effect waves-light" (click)="signIn()">Sign in</button>   
+</form>

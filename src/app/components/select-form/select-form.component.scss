@@ -1,0 +1,28 @@
+
+// .input-wrapper input:focus,
+// .input-wrapper input:active,
+// .input-wrapper input[type=text]:not(.browser-default).valid,
+// .input-wrapper input[type=text]:not(.browser-default).valid {
+//     border-bottom: 1px solid #56CCF2;
+//     box-shadow: 0 1px 0 0 #56CCF2;
+// }
+.input-field label {
+    text-transform: uppercase;
+    padding: 0 15px;
+    width: auto;
+    top: -0.8rem;
+    font-size: 0.6em;
+}
+.input-wrapper label.active {
+    top: 0.4rem;
+    font-size: 0.6em;
+}
+.input-wrapper input:focus+label,
+.input-wrapper input:active+label {
+    color: #56CCF2;
+    font-size: 0.6em;
+}
+
+option {
+    width: 25%;
+}

@@ -1,0 +1,13 @@
+<div class="row input-wrapper prev-job">
+  <div class="input-field col m6 s12">
+    <input [(ngModel)]="prevJob.companyName" id="company" type="text" class="validate">
+    <label for="company">Company Name</label>
+  </div>
+  <div class="input-field col m6 s12">
+    <input [(ngModel)]="prevJob.position" id="position" type="text" class="validate">
+    <label for="position">Position</label>
+  </div>
+</div>
+<div class="header-info job contacts">Job Contacts</div>
+<contacts-form #contacts></contacts-form>
+<div class="add-border-wrapper"></div>

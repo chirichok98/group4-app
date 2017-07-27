@@ -1,0 +1,25 @@
+<div *ngIf="position as pos; else loading" class="position-info-container">
+    <div class="position-blocks">
+        <div class="position-block" *ngIf="pos.primarySkill?.picture; else defaultPic">
+            <img class="position-photo" [src]="position.primarySkill.picture">
+        </div>
+        <ng-template #defaultPic>
+            <div class="position-block">
+                <img class="position-photo" src="./assets/def-skill.png">
+            </div>
+        </ng-template>
+        <div class="position-block">
+            <div class="position-feedback">
+                <div class="position-info-item position-status"><span>Status: </span>{{pos.status}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{pos.requestDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-skill-name"><span>Language: </span>{{pos.primarySkill.name}}</div>
+                <div class="position-info-item position-project-name"><span>Project: </span>{{pos.projectName}}</div>
+                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{pos.vacancyName}}</div>
+                <div class="position-info-item position-english-level"><span>English(min): </span>{{pos.engLevel}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <spinner [loading]="true"></spinner>
+</ng-template>

@@ -1,0 +1,21 @@
+<div *ngIf="user">
+    <div class="fixed-action-btn horizontal">
+        <ul>
+            <li><button (click)="openPage('create/candidate')" class="btn-floating add">Add candidate</button></li>
+            <li><button (click)="openPage('create/vacancy')" class="btn-floating add">Add position</button></li>
+            <li><button class="btn-floating logout">Log out</button></li>
+        </ul>
+        <a class="btn-floating btn-large">
+            <div class="user-info__photo-wrap" *ngIf="user?.picture; else default">
+                <img class="user-info__photo" [src]="user.picture" alt="photo">
+            </div>
+            <ng-template #default>
+                <div class="user-info__photo-wrap">
+                    <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
+                </div>
+            </ng-template>
+
+            <div class="user-info__name">{{user.name}}</div>
+        </a>
+    </div>
+</div>

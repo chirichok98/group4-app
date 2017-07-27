@@ -1,0 +1,34 @@
+.tagline_container {
+    background-color: #526C7B;
+    transform: rotate(1.2deg);
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.tagline_inner {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    font-style: bold;
+    font-family: "Roboto Slab";
+    text-align: center;
+    padding: 1rem;
+    transform: rotate(-1.2deg);
+    margin: 0;
+    margin-right: 0.5rem;
+}
+.tagline__color {
+    color:#56CCF2;
+}
+
+.blue {
+    color: #56CCF2;
+}
+
+p::selection {
+    color: #FFFFFF;
+}
+span::selection {
+    color: #56CCF2;
+}
