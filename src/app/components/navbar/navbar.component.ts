@@ -88,9 +88,9 @@ export class NavbarComponent implements OnInit {
     }
   }
   
-  openMenu(): void {
-
-  }
+ 
+    
+  
 }
 
 
