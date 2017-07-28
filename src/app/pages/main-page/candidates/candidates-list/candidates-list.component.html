@@ -1,6 +1,4 @@
 <spinner [loading]="isSpinnerVisible"></spinner>
-<!--scroll #infinity></scroll-->
-<!-- [scroll]="3" [q]="1" qq='candidates' #out -->
-<div class="row"> 
+<div class="row" scroll (update)='onScroll($event)'> 
     <candidate-card class="col s12 m6 l6" *ngFor="let item of candidates" [candidate]="item"></candidate-card>
 </div>
