@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
@@ -14,7 +14,7 @@ export class CandidatesListComponent {
   candidates: ICandidatePreview[];
 
   constructor(private pagerService: PagerService) {
-    this.pagerService.init()
+    this.pagerService.init('candidate')
       .then((candidates) => {
         console.log(candidates);
         this.candidates = candidates;

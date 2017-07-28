@@ -1,7 +1,7 @@
 import { Directive, HostListener, Inject, OnInit, 
          Input, EventEmitter, Output} from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { ICandidatePreview } from './../interfaces/ICandidatePreview';
+import { ICandidatePreview } from './../../interfaces/ICandidatePreview';
 @Directive({
   selector: '[scroll]',
 })
