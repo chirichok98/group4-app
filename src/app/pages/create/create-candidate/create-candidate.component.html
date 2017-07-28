@@ -28,17 +28,17 @@
                 <label for="salary">Desired salary</label>
             </div>
             <ng-container *ngIf="cities.length">
-                <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
+                <select-form #city [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
             </ng-container>
             <ng-container *ngIf="englishLevel.length">
-                <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
+                <select-form #engLevel [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
             </ng-container>
             <ng-container *ngIf="statuses.length">
-                <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+                <select-form #status [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
             </ng-container>
         </div>
         <div class="header-info">Person Contacts</div>
-        <contacts-form #contact></contacts-form>
+        <contacts-form #contact [(contact)]="canInfo.contact"></contacts-form>
         <div class="header-info">Skills</div>
         <div class="row skills">
             <div class="col m6 s12">

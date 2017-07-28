@@ -21,13 +21,10 @@ import { DictionariesService } from '../../../services/dictionaries.service';
 export class CreateCandidateComponent implements OnInit {
   @ViewChild('contact') contactsForm: ContactsFormComponent;
   @ViewChildren('prevJob') prevJobsForm: QueryList<PrevJobFormComponent>;
-  @ViewChild('city') citySelect: SelectFormComponent;
-  @ViewChild('status') statusSelect: SelectFormComponent;
-  @ViewChild('engLevel') englishSelect: SelectFormComponent;
   @ViewChild('primary') primSkill: SkillFormComponent;
   @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
   @ViewChild('date') datepickerInput: DatepickerFormComponent;
-  canInfo: any = {};
+  canInfo: any = { contact: {} };
   prevJobs: any = [];
   secondarySkills: any = [];
 
@@ -79,45 +76,43 @@ export class CreateCandidateComponent implements OnInit {
     return this.contactsForm.contact;
   }
 
-  getSkill(field: SkillFormComponent) {
-    const skill: any = {};
-    skill.id = this.getSelectedIndex(field.select.result);
-    if (!skill.id) return null;
-    skill.level = this.getValueFromRanger(field.ranger.range);
-    return skill;
-  }
+  // getSkill(field: SkillFormComponent) {
+  //   const skill: any = {};
+  //   skill.id = this.getSelectedIndex(field.select.result);
+  //   if (!skill.id) return null;
+  //   skill.level = this.getValueFromRanger(field.ranger.range);
+  //   return skill;
+  // }
 
-  getSecondarySkills(field: QueryList<SkillFormComponent>) {
-    const skills: any = [];
-    field.forEach((item: any) => {
-      const skill: any = this.getSkill(item);
-      skills.push(skill);
-    });
-    return skills;
-  }
+  // getSecondarySkills(field: QueryList<SkillFormComponent>) {
+  //   const skills: any = [];
+  //   field.forEach((item: any) => {
+  //     const skill: any = this.getSkill(item);
+  //     skills.push(skill);
+  //   });
+  //   return skills;
+  // }
 
-  getPrevJobs(field: QueryList<PrevJobFormComponent>) {
-    const jobs: any = [];
-    this.prevJobsForm.forEach((item: any) => {
-      jobs.push(item.prevJob);
-    });
-    return jobs;
-  }
+  // getPrevJobs(field: QueryList<PrevJobFormComponent>) {
+  //   const jobs: any = [];
+  //   this.prevJobsForm.forEach((item: any) => {
+  //     jobs.push(item.prevJob);
+  //   });
+  //   return jobs;
+  // }
 
   addCandidate(): void {
-    this.canInfo.city = this.getSelectedIndex(this.citySelect.result);
-    this.canInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
-    this.canInfo.status = this.getSelectedIndex(this.statusSelect.result);
-    this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
-    this.canInfo.contact = this.getContacts();
-    this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
+    // this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
+    // this.canInfo.contact = this.getContacts();
+    // this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
 
-    this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
-    if (this.secondarySkills.length) {
-      this.canInfo.candidateSecondarySkills = this.getSecondarySkills(this.secSkills);
-    }
-    
-    this.sendPostRequest(this.canInfo);
+    // this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
+    // if (this.secondarySkills.length) {
+    //   this.canInfo.candidateSecondarySkills = this.getSecondarySkills(this.secSkills);
+    // }
+
+    // this.sendPostRequest(this.canInfo);
+    console.log(this.canInfo);
   }
 
   sendPostRequest(candidate: any): void {

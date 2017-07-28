@@ -77,39 +77,39 @@ export class CreateVacancyComponent implements OnInit {
     return date;
   }
 
-  getSkill(field: SkillFormComponent) {
-    const skill: any = {};
-    skill.id = this.getSelectedIndex(field.select.result);
-    skill.level = this.getValueFromRanger(field.ranger.range);
-    return skill;
-  }
+  // getSkill(field: SkillFormComponent) {
+  //   const skill: any = {};
+  //   skill.id = this.getSelectedIndex(field.select.result);
+  //   skill.level = this.getValueFromRanger(field.ranger.range);
+  //   return skill;
+  // }
 
-  getSecondarySkills(field: QueryList<SkillFormComponent>) {
-    const skills: any = [];
-    field.forEach((item: any) => {
-      const skill: any = this.getSkill(item);
-      skills.push(skill);
-    });
-    return skills;
-  }
+  // getSecondarySkills(field: QueryList<SkillFormComponent>) {
+  //   const skills: any = [];
+  //   field.forEach((item: any) => {
+  //     const skill: any = this.getSkill(item);
+  //     skills.push(skill);
+  //   });
+  //   return skills;
+  // }
 
-  addVacancy(): void {
-    this.vacInfo.city = this.getSelectedIndex(this.citySelect.result);
-    this.vacInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
-    this.vacInfo.status = this.getSelectedIndex(this.statusSelect.result);
-    this.vacInfo.startDate = this.getDate(this.datepickerStart.date);
-    this.vacInfo.closeDate = this.getDate(this.datepickerClose.date);
-    this.vacInfo.requestDate = this.getDate(this.datepickerRequest.date);
+  // addVacancy(): void {
+  //   this.vacInfo.city = this.getSelectedIndex(this.citySelect.result);
+  //   this.vacInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
+  //   this.vacInfo.status = this.getSelectedIndex(this.statusSelect.result);
+  //   this.vacInfo.startDate = this.getDate(this.datepickerStart.date);
+  //   this.vacInfo.closeDate = this.getDate(this.datepickerClose.date);
+  //   this.vacInfo.requestDate = this.getDate(this.datepickerRequest.date);
 
-    if (this.hasPrimary) {
-      this.vacInfo.primarySkill = this.getSkill(this.primSkill);
-    }
-    if (this.secondarySkills.length) {
-      this.vacInfo.secondarySkills = this.getSecondarySkills(this.secSkills);
-    }
+  //   if (this.hasPrimary) {
+  //     this.vacInfo.primarySkill = this.getSkill(this.primSkill);
+  //   }
+  //   if (this.secondarySkills.length) {
+  //     this.vacInfo.secondarySkills = this.getSecondarySkills(this.secSkills);
+  //   }
     
-    this.sendPostRequest(this.vacInfo);
-  }
+  //   this.sendPostRequest(this.vacInfo);
+  // }
 
   sendPostRequest(vacancy: any): void {
     this.cvService.addVacancy(vacancy)
