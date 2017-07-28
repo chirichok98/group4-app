@@ -1,17 +1,8 @@
 <div class="search-block">
     <div class="form">
-        <search-option></search-option>
-        <!--<div class="flex-container">
-            <div class="form__item arrow-block" (click)="openAdvancedSearch()"><img class="arrow-img" src="/assets/arrow3.png">
-            </div>
-            <div class="form__item">
-                <input #search type="text" placeholder="what are you looking for?" class="form__input validate">
-            </div>
-        </div>
-        <div class="search__inner container detailed-search">
-            <div class="aaa">
-            </div>
-        </div>-->
+        <search-option *ngFor="let option of options"></search-option>
+        <button class="btn waves-effect waves-light" (click)="addOption()">Add option</button>
+        <button *ngIf="options.length" class="btn waves-effect waves-light" (click)="removeOption()">Remove option</button>
         <button class="btn waves-effect waves-light" (click)="startSearch()">Find</button>
     </div>
 </div>
