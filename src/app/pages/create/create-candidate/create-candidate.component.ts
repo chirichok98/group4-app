@@ -51,16 +51,7 @@ export class CreateCandidateComponent implements OnInit {
   ngOnInit() { }
 
   addCandidate(): void {
-    // this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
-    // this.canInfo.contact = this.getContacts();
-    // this.canInfo.candidatePrevJobs = this.getPrevJobs(this.prevJobsForm);
-
-    // this.canInfo.candidatePrimarySkill = this.getSkill(this.primSkill);
-    // if (this.secondarySkills.length) {
-    //   this.canInfo.candidateSecondarySkills = this.getSecondarySkills(this.secSkills);
-    // }
-
-    // this.sendPostRequest(this.canInfo);
+    this.sendPostRequest(this.canInfo);
     console.log(this.canInfo);
   }
 
