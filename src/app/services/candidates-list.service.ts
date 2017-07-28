@@ -15,7 +15,7 @@ export class CandidatesListService {
   getCandidates(skip: number, amount: number): Promise<ICandidatePreview[]> {
     const pagParam: any = this.makePagParms(skip, amount);
     const candidates: Promise<ICandidatePreview[]> = 
-      this.httpService.get(this.httpService.CAN_URL, pagParam);
+      this.httpService.get(this.httpService.CAN, pagParam);
     return candidates;
   }
 }

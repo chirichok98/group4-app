@@ -8,7 +8,7 @@ export class PositionsListItemService {
   constructor(private httpService: HttpService) { }
 
   concatId(id: number): string {
-    return `${this.httpService.VAC_URL}/${id}`;
+    return `${this.httpService.VAC}/${id}`;
   }
 
   getPositionById(id: number): Promise<IPositionDetail> {

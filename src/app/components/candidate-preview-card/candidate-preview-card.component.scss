@@ -1,44 +1,59 @@
 .card {
-    width: 100%;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0.5rem 2rem;
-    color:  #273248;;
-    margin: 0.5rem 0 0;
-    min-height: 174px;
-    font-size: 0.8em;
+  width: 100%;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0;
+  min-height: 174px;
+  height: 174px;
+  font-size: 0.8em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.8;
 }
-
+.card:hover {
+  opacity: 1;
+}
 .card .card-image {
   width: 100px;
   height: 100px;
-  margin-right: 0.7rem;
+  margin-left: 1.2rem;
 }
-
 .card-image img {
   border-radius: 50%;
   margin: auto;
   width: 100px;
   height: 100px;
 }
-
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
-  font-family: "Roboto Slab";
-  font-size: 1.5em;
-  color: #273248;
+  font-size: 1.2em;
+  font-weight: 500;
 }
-
-.card-content .material-icons {
+.content-wrapper {
+  line-height: 1.3rem;
+}
+.content-wrapper.skill {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 0 3px;
+}
+.material-icons {
+  vertical-align: bottom;
+  font-size: 1.3rem;
   color: #526c7b;
-  margin-right: 10px;
-  vertical-align: middle;
-  font-size: 1.5rem;
+  line-height: 1.4rem;
+  margin-right: 2px;
 }
-
+.material-icons.candidate-phone {
+  color: #ff5151;
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
 img::selection {
   color: transparent;
 }
@@ -50,11 +65,32 @@ div::selection {
 i::selection {
   background: transparent;
 }
-
-.candidate-phone {
-  color: #e47a7a !important;
+.feedback-logotypes {
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  vertical-align: bottom;
+  line-height: 1.4rem;
 }
-
-.candidate-email {
-  color: #718faf !important;
+.skype .feedback-logotypes {
+  background: url("/assets/skype_logo.png") no-repeat 0 0;
+  background-size: contain;
+}
+.status {
+  position: absolute;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  top: 0;
+  right: 0;
+  background-color: #ff8585;
+  color: #fff;
+  min-width: 100px;
+}
+.material-icons.edit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0.5rem;
+  color: #52c1e6;
 }

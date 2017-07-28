@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'main',
@@ -8,13 +9,44 @@ import { INavbarOption } from '../../interfaces/INavbarOption';
   styleUrls: ['main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-  navbarOptionsConfig: INavbarOption[] = [
-    { name: 'CANDIDATES', stateName: 'candidates' },
-    { name: 'OPEN POSITIONS', stateName: 'vacancies' },
-    { name: 'NOTIFICATIONS', stateName: 'notifications' },
-  ];
+  navbarConfig: any = {
+    candidates: { name: 'CANDIDATES', stateName: 'candidates' },
+    positions: { name: 'POSITIONS', stateName: 'vacancies' },
+    notifications: { name: 'NOTIFICATIONS', stateName: 'notifications' },
+    news: { name: 'NEWS', stateName: 'news' },
+  };
+  navbarOptions: INavbarOption[] = [];
 
-  constructor() { }
+  constructor(private cookie: CookieService) {
+    const obj: any = this.cookie.getObject('current');
+    let role: string;
+    if (obj) {
+      role = obj.role;
+    }
+    this.getOptionsByRole(role);
+  }
+
+  getOptionsByRole(role: string): void {
+    this.navbarOptions = [];
+    switch (role) {
+      case 'Admin': {
+        this.navbarOptions.push(this.navbarConfig.candidates);
+        this.navbarOptions.push(this.navbarConfig.positions);
+        this.navbarOptions.push(this.navbarConfig.news);
+        break;
+      }
+      case 'HRM': {
+        this.navbarOptions.push(this.navbarConfig.candidates);
+        this.navbarOptions.push(this.navbarConfig.positions);
+        this.navbarOptions.push(this.navbarConfig.notifications);
+        break;
+      }
+      case 'Tech': {
+        this.navbarOptions.push(this.navbarConfig.notifications);
+        break;
+      }
+    }
+  }
 
   ngOnInit() { }
 }
