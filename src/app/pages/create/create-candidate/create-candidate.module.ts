@@ -13,9 +13,11 @@ import { SkillFormModule } from '../../../components/skill-form/skill-form.modul
 import { DictionariesService } from '../../../services/dictionaries.service';
 import { CreateCandidateService } from '../../../services/create-candidate.service';
 import { HttpService } from '../../../services/http.service';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
+    MaterialModule,
     HttpModule,
     FormsModule,
     ContactsFormModule,

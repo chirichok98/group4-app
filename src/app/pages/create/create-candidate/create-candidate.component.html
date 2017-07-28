@@ -51,7 +51,7 @@
                     <ng-container *ngIf="skills.length">
                         <skill-form [(skill)]="canInfo.candidatePrimarySkill" [array]="skills"></skill-form>
                     </ng-container>
-                    <datepicker-form [(date)]="canInfo.psExperience" [placeholder]="'First date of work with primary skill'"></datepicker-form>
+                    <datepicker-form [placeholder]="'First date of work with primary skill'"></datepicker-form>
                 </div> 
                 <div class="col secondary m6 s12">
                     <div class="header-info__inner">Secondary</div>

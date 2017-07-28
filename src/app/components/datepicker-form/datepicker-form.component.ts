@@ -10,19 +10,16 @@ declare const $;
 export class DatepickerFormComponent implements DoCheck {
   @Input() placeholder: string;
 
-  @Input() date: any;
+  minDate = new Date(2000, 0, 1);
+  maxDate = new Date(2020, 0, 1);
+    value = new Date(2020, 0, 1);
+
+  date = new Date(2000, 0, 1);
   @Output() dateChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 30, // Creates a dropdown of 15 years to control year,
-      today: 'Today',
-      clear: 'Clear',
-      close: 'Ok',
-    });
   }
 
   // parseDate(dateString: string): Date {
@@ -36,8 +33,12 @@ export class DatepickerFormComponent implements DoCheck {
   // }
 
   ngDoCheck() {
-    // console.log(this.date);
+    // console.log(this.value);
     // this.dateChange.emit(this.date);
     // console.log('emit');
+  }
+
+  dateChanged(date) {
+    console.log(date);
   }
 }

@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCheckboxModule, MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
+import 'hammerjs';
 
 /* App Root */
 import { AppComponent } from './app.component';
@@ -17,11 +20,14 @@ import { FooterModule } from './components/footer/footer.module';
 import { CreateCandidateModule } from './pages/create/create-candidate/create-candidate.module';
 import { CreateVacancyModule } from './pages/create/create-vacancy/create-vacancy.module';
 import { CookieModule } from 'ngx-cookie';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
 
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
@@ -33,6 +39,12 @@ import { CookieModule } from 'ngx-cookie';
     ProfilesModule,
     FooterModule,
     CookieModule.forRoot(),
+    MdCheckboxModule,
+    MdButtonModule,
+    CommonModule,
+    BrowserModule, 
+    FormsModule,
+    MaterialModule,
   ],
   declarations: [AppComponent],
   providers: [],

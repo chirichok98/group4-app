@@ -22,9 +22,6 @@ export class SelectFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    $(document).ready(() => {
-      $('select').material_select();
-    });
   }
 
   getSelectedIndex(field: any): number | null {
