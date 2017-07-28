@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -13,12 +12,12 @@ import { CreateVacancyService } from '../../../services/create-vacancy.service';
 
 @NgModule({
   imports: [
-    HttpModule,
     CommonModule,
     FormsModule,
     SelectFormModule,
     DatepickerFormModule,
     SkillFormModule,
+
   ],
   exports: [],
   declarations: [CreateVacancyComponent],

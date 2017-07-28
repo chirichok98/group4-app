@@ -19,7 +19,6 @@ import { DictionariesService } from '../../../services/dictionaries.service';
   styleUrls: ['create-candidate.component.scss'],
 })
 export class CreateCandidateComponent implements OnInit {
-  @ViewChildren('prevJob') prevJobsForm: QueryList<PrevJobFormComponent>;
   canInfo: any = {
     contact: {},
     candidatePrimarySkill: {},
@@ -33,8 +32,8 @@ export class CreateCandidateComponent implements OnInit {
   skills: IGeneral[] = [];
 
   constructor(private router: Router,
-    private ccService: CreateCandidateService,
-    private hService: DictionariesService) {
+              private ccService: CreateCandidateService,
+              private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
