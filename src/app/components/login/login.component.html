@@ -1,9 +1,10 @@
-<div class="form">
-  <div class="form__item">
-    <input [(ngModel)]="login" type="text" placeholder="Login" class="form__input validate">
-  </div>
-  <div class="form__item">
-    <input [(ngModel)]="password" placeholder="Password" type="password" class="form__input validate">
-  </div>
-  <button class="btn waves-effect waves-light" (click)="signIn()">Sign in</button>   
-</div>
+<form (ngSubmit)="onSubmit()">
+    <md-input-container class="example-full-width">
+      <input [(ngModel)]="login" mdInput placeholder="Login" name="login">
+    </md-input-container>
+    <md-input-container class="example-full-width">
+      <input [(ngModel)]="password" #message type="password" mdInput placeholder="Password" name="password">
+      <md-hint align="end">Symbols: {{message.value.length}}</md-hint>
+    </md-input-container>
+    <button type="submit">Sign in</button>
+</form>

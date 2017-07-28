@@ -16,7 +16,7 @@ export class LoginFormComponent {
               private cookie: CookieService,
               private aService: AuthenticationService) { }
 
-  signIn(): void {
+  onSubmit(): void {
     if (!this.login || !this.password) {
       console.log('Empty fields');
       return;

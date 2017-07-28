@@ -4,11 +4,13 @@ import { CookieModule } from 'ngx-cookie';
 
 import { LoginFormComponent } from './login.component';
 import { AuthenticationService } from '../../services/authentication.service';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
     FormsModule,
     CookieModule.forChild(),
+    MaterialModule,
   ],
   exports: [LoginFormComponent],
   declarations: [LoginFormComponent],
