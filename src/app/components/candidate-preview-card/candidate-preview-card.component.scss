@@ -8,7 +8,9 @@
     color:  #273248;;
     margin: 0.5rem 0 0;
     min-height: 174px;
+    height: 174px;
     font-size: 0.8em;
+    position: relative;
 }
 
 .card .card-image {
@@ -57,4 +59,24 @@ i::selection {
 
 .candidate-email {
   color: #718faf !important;
+}
+.feedback-logotypes {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.skype .feedback-logotypes {
+  background: url("/assets/skype_logo.png") no-repeat 0 0;
+  background-size: contain;
+}
+.status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #56CCF2;
+  width: 20%;
+  color: #fff;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  text-align: center;
 }
