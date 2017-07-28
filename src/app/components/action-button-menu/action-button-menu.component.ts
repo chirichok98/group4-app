@@ -23,7 +23,6 @@ export class ActionButtonComponent implements OnInit {
       user.url = url;
       this.cookie.putObject('current', user);
     }
-    console.log(url);
     this.router.navigate([url]);
   }
 

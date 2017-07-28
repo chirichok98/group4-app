@@ -17,10 +17,8 @@ export class HeaderComponent implements DoCheck {
   openPage(url): void {
     if (this.loggedUser) {
       this.loggedUser.url = url;
-      console.log(this.loggedUser);
       this.cookie.putObject('current', this.loggedUser);
     }
-    console.log(url);
     this.router.navigate([url]);
   }
 
