@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, Input, ViewChild, ElementRef,
-  EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, DoCheck } from '@angular/core';
 import { IGeneral } from '../../interfaces/IGeneral';
 
 declare const $;
@@ -10,8 +8,7 @@ declare const $;
   templateUrl: 'select-form.component.html',
   styleUrls: ['select-form.component.scss'],
 })
-export class SelectFormComponent implements OnInit {
-  @ViewChild('select') value: ElementRef;
+export class SelectFormComponent {
   @Input() array: IGeneral[];
   @Input() placeholder: string;
 
@@ -21,21 +18,7 @@ export class SelectFormComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-  }
-
-  getSelectedIndex(field: any): number | null {
-    const str: string = field.nativeElement.value;
-    const indexOfSpace: number = str.indexOf(' ');
-    const index: number = +str.slice(indexOfSpace);
-    if (!index) return null;
-    return index;
-  }
-
-  ngDoCheck() {
-    const index: number = this.getSelectedIndex(this.value);
-    if (index <= 0) return;
-    // this.result = index;
-    this.resultChange.emit(index);
+  onChange(value: any) {
+    this.resultChange.emit(value);
   }
 }
