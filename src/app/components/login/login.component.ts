@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie';
+import { CookieService, CookieOptions } from 'ngx-cookie';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -25,9 +25,12 @@ export class LoginFormComponent {
       .then(res => res.json())
       .then((obj: any) => {
         this.cookie.removeAll();
-        this.cookie.putObject('current', obj);
-
-        this.router.navigate([`main-page`]);
+        obj.url = 'main-page';
+        const expires: Date = new Date();
+        expires.setSeconds(expires.getSeconds() + obj.expires_in);
+        const cookieOption: CookieOptions = { expires };
+        this.cookie.putObject('current', obj, cookieOption);
+        this.router.navigate([obj.url]);
       }, (error) => {
         const err = error.json();
         if (err) {

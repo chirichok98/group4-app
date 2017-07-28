@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private cookie: CookieService, private router: Router) {
-    const loggedUser = this.cookie.getObject('current');
+    const loggedUser: any = this.cookie.getObject('current');
     if (loggedUser) {
-      this.router.navigate(['main-page']);
+      this.router.navigate([loggedUser.url]);
     }
   }
 }
