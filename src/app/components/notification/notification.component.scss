@@ -1,10 +1,9 @@
 .notification__inner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #fff;
-    border-bottom: 1px solid #e8e8e8;
-    font-size: 0.8rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 1em;
 }
 
 .notification:last-child .notification__inner {
@@ -16,20 +15,29 @@
 }
 
 .notification__inner .type {
-    font-size: 0;
-    height: 1rem;
-    padding: 0;
-    width: 1.5rem;
-    margin: 10px;
+  font-size: 0;
+  height: 1.5rem;
+  padding: 0;
+  width: 2rem;
+  min-width: 2rem;
+  margin: 10px;
 }
 
 .notification__inner .date {
-    font-weight: 500;
-    border-right: 1px solid #e8e8e8;
-    border-left: 1px solid #e8e8e8;
-    width: 6rem;
-    text-align: right;
-    font-size: 0.7rem;
+  font-weight: 500;
+  border-right: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
+  text-align: right;
+  font-size: 0.7em;
+  min-width: 6rem;
+  margin: 0;
+}
+.notification__inner .description {
+  margin: 0;
+  min-width: 10rem;
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
 }
 
 .notification__inner.Reminders .type {

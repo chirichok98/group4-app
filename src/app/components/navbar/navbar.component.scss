@@ -19,8 +19,6 @@
 .navbar-elem {
   height: 100%;
   padding: 0.5rem 1.5rem;
-  // margin: 0 10px;
-  // box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 .navbar-elem span {
   font-size: 1em;
@@ -42,15 +40,72 @@
   cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);  
 }
-
+.material-icons.search {
+   color: #526c7b;
+   margin: 0.3rem 1rem 0.2rem;
+   height: 40px;
+}
+.material-icons.search:hover {
+   color: #52c1e6; 
+   cursor: pointer;
+}
 i::selection,
 div::selection,
 img::selection {
     background: transparent;
 }
 
-.nb-icon {
-    height: 2.5rem;
-    padding-left: 0.35rem;
-    padding-right: 0.35em;
+.fake-block {
+  width: 80px;
+}
+.open-menu {
+  color: #526c7b;
+}
+.open-menu:hover {
+  color: #52c1e6;
+  cursor: pointer;
+}
+
+// hidden-menu-wrapper
+.hidden-menu-wrapper {
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.collapsible-header {
+  border: none;
+  padding: 0;
+  margin: 0;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  min-height: 2.5rem;
+}
+.collapsible-header.active {
+  text-align: center;
+}
+.collapsible-header .open-menu,
+.collapsible-header.active .open-menu {
+  margin: 0 auto;
+  float: none;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  font-size: 2.3em;
+}
+.collapsible-header.active .open-menu {
+  color: #52c1e6; 
+}
+.collapsible-header.active .open-menu:hover {
+  color: #526c7b; 
+}
+.collapsible-body {
+  padding: 0;
+  border: 0;
+}
+.collapsible-body .navbar-elem {
+  text-align: center;
+}
+.collapsible-body .navbar-elem.active {
+  transform: scale(1);
 }
