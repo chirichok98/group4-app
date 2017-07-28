@@ -24,8 +24,8 @@ export class CreateCandidateComponent implements OnInit {
     contact: {},
     candidatePrimarySkill: {},
     candidateSecondarySkills: [],
+    candidatePrevJobs: [],
   };
-  prevJobs: any = [];
 
   statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
@@ -51,50 +51,6 @@ export class CreateCandidateComponent implements OnInit {
 
   ngOnInit() { }
 
-  getValueFromRanger(field: ElementRef) {
-    const value: number = field.nativeElement.valueAsNumber;
-    return value;
-  }
-
-  getSelectedIndex(field: any): number | null {
-    const str: string = field.nativeElement.value;
-    const indexOfSpace: number = str.indexOf(' ');
-    const index: number = +str.slice(indexOfSpace);
-    if (!index) return null;
-    return index;
-  }
-
-  getDate(field: ElementRef): any {
-    const dateStr: string = field.nativeElement.value;
-    const date: Date = new Date(dateStr);
-    return date;
-  }
-
-  // getSkill(field: SkillFormComponent) {
-  //   const skill: any = {};
-  //   skill.id = this.getSelectedIndex(field.select.result);
-  //   if (!skill.id) return null;
-  //   skill.level = this.getValueFromRanger(field.ranger.range);
-  //   return skill;
-  // }
-
-  // getSecondarySkills(field: QueryList<SkillFormComponent>) {
-  //   const skills: any = [];
-  //   field.forEach((item: any) => {
-  //     const skill: any = this.getSkill(item);
-  //     skills.push(skill);
-  //   });
-  //   return skills;
-  // }
-
-  // getPrevJobs(field: QueryList<PrevJobFormComponent>) {
-  //   const jobs: any = [];
-  //   this.prevJobsForm.forEach((item: any) => {
-  //     jobs.push(item.prevJob);
-  //   });
-  //   return jobs;
-  // }
-
   addCandidate(): void {
     // this.canInfo.psExperience = this.getDate(this.datepickerInput.date);
     // this.canInfo.contact = this.getContacts();
@@ -119,11 +75,11 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   addPrevJob(): void {
-    this.prevJobs.push({});
+    this.canInfo.candidatePrevJobs.push({ contact: {} });
   }
 
   removePrevJob(): void {
-    this.prevJobs.pop();
+    this.canInfo.candidatePrevJobs.pop();
   }
 
   addSecondary() {
