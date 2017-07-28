@@ -13,12 +13,12 @@
             <md-icon>add</md-icon>
             <span>New candidate</span>
         </button>
-        <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" md-menu-item disabled>
+        <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" md-menu-item>
             <md-icon>add</md-icon>
             <span>New position</span>
         </button>
         <button (click)="logout()" c md-menu-item>
-            <md-icon>notifications_off</md-icon>
+            <md-icon>power_settings_new</md-icon>
             <span>Log out</span>
         </button>
     </md-menu>
