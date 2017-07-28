@@ -19,24 +19,22 @@ import { DictionariesService } from '../../../services/dictionaries.service';
   styleUrls: ['create-candidate.component.scss'],
 })
 export class CreateCandidateComponent implements OnInit {
-  @ViewChild('contact') contactsForm: ContactsFormComponent;
   @ViewChildren('prevJob') prevJobsForm: QueryList<PrevJobFormComponent>;
-  @ViewChild('primary') primSkill: SkillFormComponent;
-  @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
-  @ViewChild('date') datepickerInput: DatepickerFormComponent;
-  canInfo: any = { contact: {} };
+  canInfo: any = {
+    contact: {},
+    candidatePrimarySkill: {},
+    candidateSecondarySkills: [],
+  };
   prevJobs: any = [];
-  secondarySkills: any = [];
 
   statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
   englishLevel: IGeneral[] = [];
-  skills: ITechSkill[] = [];
+  skills: IGeneral[] = [];
 
   constructor(private router: Router,
-              private eRef: ElementRef,
-              private ccService: CreateCandidateService,
-              private hService: DictionariesService) {
+    private ccService: CreateCandidateService,
+    private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -70,10 +68,6 @@ export class CreateCandidateComponent implements OnInit {
     const dateStr: string = field.nativeElement.value;
     const date: Date = new Date(dateStr);
     return date;
-  }
-
-  getContacts() {
-    return this.contactsForm.contact;
   }
 
   // getSkill(field: SkillFormComponent) {
@@ -133,10 +127,10 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   addSecondary() {
-    this.secondarySkills.push({});
+    this.canInfo.candidateSecondarySkills.push({});
   }
 
   removeSecondary() {
-    this.secondarySkills.pop();
+    this.canInfo.candidateSecondarySkills.pop();
   }
 }

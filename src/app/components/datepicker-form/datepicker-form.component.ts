@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 
 declare const $;
 
@@ -7,9 +7,11 @@ declare const $;
   templateUrl: 'datepicker-form.component.html',
   styleUrls: ['datepicker-form.component.scss'],
 })
-export class DatepickerFormComponent implements OnInit {
-  @ViewChild('date') date: ElementRef;
+export class DatepickerFormComponent implements DoCheck {
   @Input() placeholder: string;
+
+  @Input() date: any;
+  @Output() dateChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -21,5 +23,21 @@ export class DatepickerFormComponent implements OnInit {
       clear: 'Clear',
       close: 'Ok',
     });
+  }
+
+  // parseDate(dateString: string): Date {
+  //   console.log('here');
+  //   if (dateString) {
+  //     this.dateChange.emit(this.date);
+  //     return new Date(dateString);
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  ngDoCheck() {
+    // console.log(this.date);
+    // this.dateChange.emit(this.date);
+    // console.log('emit');
   }
 }

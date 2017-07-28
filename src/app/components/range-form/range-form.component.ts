@@ -1,16 +1,22 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'range-form',
   templateUrl: 'range-form.component.html',
   styleUrls: ['range-form.component.scss'],
 })
-export class RangeFormComponent implements OnInit {
-  @ViewChild('range') range: ElementRef;
+export class RangeFormComponent {
   @Input() min: number;
   @Input() max: number;
   @Input() placeholder: string;
+
+  @Input() range: any;
+  @Output() rangeChange: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
-  ngOnInit() { }
+  changeRange(value: number) {
+    this.range = value;
+    this.rangeChange.emit(this.range);
+  }
 }

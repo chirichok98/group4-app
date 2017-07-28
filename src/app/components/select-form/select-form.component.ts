@@ -38,7 +38,7 @@ export class SelectFormComponent implements OnInit {
   ngDoCheck() {
     const index: number = this.getSelectedIndex(this.value);
     if (index <= 0) return;
-    this.result = index;
-    this.resultChange.emit(this.result);
+    // this.result = index;
+    this.resultChange.emit(index);
   }
 }
