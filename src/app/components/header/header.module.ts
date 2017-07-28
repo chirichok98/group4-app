@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { CookieModule } from 'ngx-cookie';
+import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header.component';
 import { ActionButtonModule } from '../action-button-menu/action-button-menu.module';
-import { CookieModule } from 'ngx-cookie';
-import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [HeaderComponent],

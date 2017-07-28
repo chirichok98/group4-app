@@ -1,21 +1,25 @@
 <div *ngIf="user">
-    <div class="fixed-action-btn horizontal">
-        <ul>
-            <li><button *ngIf="user.role !== 'Tech'" (click)="openPage('create/candidate')" class="btn-floating add">Add candidate</button></li>
-            <li><button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" class="btn-floating add">Add position</button></li>
-            <li><button (click)="logout()" class="btn-floating logout">Log out</button></li>
-        </ul>
-        <a class="btn-floating btn-large">
-            <div class="user-info__photo-wrap" *ngIf="user?.picture; else default">
-                <img class="user-info__photo" [src]="user.picture" alt="photo">
-            </div>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+        <div class="user-info__photo-wrap">
+            <img  *ngIf="user.picture; else default" class="user-info__photo" [src]="user.picture" alt="photo">
             <ng-template #default>
-                <div class="user-info__photo-wrap">
-                    <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
-                </div>
+                <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
             </ng-template>
-
-            <div class="user-info__name">{{user.name}}</div>
-        </a>
-    </div>
+        </div>
+        <div class="user-info__name">{{user.name}}</div>
+    </button>
+    <md-menu #menu="mdMenu">
+        <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/candidate')" md-menu-item>
+            <md-icon>add</md-icon>
+            <span>New candidate</span>
+        </button>
+        <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" md-menu-item disabled>
+            <md-icon>add</md-icon>
+            <span>New position</span>
+        </button>
+        <button (click)="logout()" c md-menu-item>
+            <md-icon>notifications_off</md-icon>
+            <span>Log out</span>
+        </button>
+    </md-menu>
 </div>
