@@ -20,19 +20,10 @@ import { CreateVacancyService } from '../../../services/create-vacancy.service';
 })
 
 export class CreateVacancyComponent implements OnInit {
-  @ViewChild('status') statusSelect: SelectFormComponent;
-  @ViewChild('city') citySelect: SelectFormComponent;
-  @ViewChild('engLevel') englishSelect: SelectFormComponent;
-  @ViewChild('startDate') datepickerStart: DatepickerFormComponent;
-  @ViewChild('closeDate') datepickerClose: DatepickerFormComponent;
-  @ViewChild('requestDate') datepickerRequest: DatepickerFormComponent;
-  @ViewChild('primary') primSkill: SkillFormComponent;
-  @ViewChild('date') datepickerInput: DatepickerFormComponent;
-  @ViewChildren('secondary') secSkills: QueryList<SkillFormComponent>;
-  vacInfo: any = {};
-
-  hasPrimary: boolean = false;
-  secondarySkills: any = [];
+  vacInfo: any = {
+    secondarySkills: [],
+    primarySkill: {},
+  };
 
   statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
@@ -58,58 +49,10 @@ export class CreateVacancyComponent implements OnInit {
 
   ngOnInit() { }
 
-  getValueFromRanger(field: ElementRef) {
-    const value: number = field.nativeElement.valueAsNumber;
-    return value;
+  addVacancy(): void {
+    this.sendPostRequest(this.vacInfo);
+    console.log(this.vacInfo);
   }
-
-  getSelectedIndex(field: any): number | null {
-    const str: string = field.nativeElement.value;
-    const indexOfSpace: number = str.indexOf(' ');
-    const index: number = +str.slice(indexOfSpace);
-    if (!index) return null;
-    return index;
-  }
-
-  getDate(field: ElementRef): any {
-    const dateStr: string = field.nativeElement.value;
-    const date: Date = new Date(dateStr);
-    return date;
-  }
-
-  // getSkill(field: SkillFormComponent) {
-  //   const skill: any = {};
-  //   skill.id = this.getSelectedIndex(field.select.result);
-  //   skill.level = this.getValueFromRanger(field.ranger.range);
-  //   return skill;
-  // }
-
-  // getSecondarySkills(field: QueryList<SkillFormComponent>) {
-  //   const skills: any = [];
-  //   field.forEach((item: any) => {
-  //     const skill: any = this.getSkill(item);
-  //     skills.push(skill);
-  //   });
-  //   return skills;
-  // }
-
-  // addVacancy(): void {
-  //   this.vacInfo.city = this.getSelectedIndex(this.citySelect.result);
-  //   this.vacInfo.engLevel = this.getSelectedIndex(this.englishSelect.result);
-  //   this.vacInfo.status = this.getSelectedIndex(this.statusSelect.result);
-  //   this.vacInfo.startDate = this.getDate(this.datepickerStart.date);
-  //   this.vacInfo.closeDate = this.getDate(this.datepickerClose.date);
-  //   this.vacInfo.requestDate = this.getDate(this.datepickerRequest.date);
-
-  //   if (this.hasPrimary) {
-  //     this.vacInfo.primarySkill = this.getSkill(this.primSkill);
-  //   }
-  //   if (this.secondarySkills.length) {
-  //     this.vacInfo.secondarySkills = this.getSecondarySkills(this.secSkills);
-  //   }
-    
-  //   this.sendPostRequest(this.vacInfo);
-  // }
 
   sendPostRequest(vacancy: any): void {
     this.cvService.addVacancy(vacancy)
@@ -120,15 +63,11 @@ export class CreateVacancyComponent implements OnInit {
       });
   }
 
-  addPrimary() {
-    this.hasPrimary = true;
-  }
-
   addSecondary() {
-    this.secondarySkills.push({});
+    this.vacInfo.secondarySkills.push({});
   }
 
   removeSecondary() {
-    this.secondarySkills.pop();
+    this.vacInfo.secondarySkills.pop();
   }
 }

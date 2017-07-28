@@ -9,6 +9,7 @@ import { RangeFormModule } from '../../../components/range-form/range-form.modul
 import { SkillFormModule } from '../../../components/skill-form/skill-form.module';
 import { DictionariesService } from '../../../services/dictionaries.service';
 import { CreateVacancyService } from '../../../services/create-vacancy.service';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { CreateVacancyService } from '../../../services/create-vacancy.service';
     SelectFormModule,
     DatepickerFormModule,
     SkillFormModule,
-
+    MaterialModule,
   ],
   exports: [],
   declarations: [CreateVacancyComponent],

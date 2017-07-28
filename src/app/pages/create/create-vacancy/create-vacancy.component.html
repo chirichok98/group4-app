@@ -2,35 +2,27 @@
     <button (click)="addVacancy()" class="btn add-position">Add position</button>
     <div class="row input-wrapper">
         <div class="header-info">General information</div>
-        <div class="input-field position-name-wrapper col m6 s12">
-            <input [(ngModel)]="vacInfo.vacancyName" id="position_name" type="text" class="validate">
-            <label for="position_name">Position Name</label>
-        </div>
-        <div class="col m6 s12">
-            <datepicker-form #requestDate [placeholder]="'Date Position Received'"></datepicker-form>
-        </div>
-        <div class="input-field project-name-wrapper col m6 s12">
-            <input [(ngModel)]="vacInfo.projectName" id="project_name" type="text" class="validate">
-            <label for="project_name">Project Name</label>
-        </div>
-        <div class="col m6 s12">
-            <datepicker-form #startDate [placeholder]="'Start of project'"></datepicker-form>
-        </div>
-        <div class="input-field project-link-wrapper col m6 s12">
-            <input [(ngModel)]="vacInfo.link" id="project_link" type="text" class="validate">
-            <label for="project_link">Link on project</label>
-        </div>
-        <div class="col m6 s12">
-            <datepicker-form #closeDate [placeholder]="'End of project'"></datepicker-form>
-        </div>
+        <md-input-container class="">
+            <input [(ngModel)]="vacInfo.vacancyName" mdInput placeholder="Position Name">
+        </md-input-container>
+        <datepicker-form [(date)]="vacInfo.requestDate" [placeholder]="'Date Position Received'"></datepicker-form>
+        <md-input-container class="">
+            <input [(ngModel)]="vacInfo.projectName" mdInput placeholder="Project Name">
+        </md-input-container>
+        <datepicker-form [(date)]="vacInfo.startDate" [placeholder]="'Start of project'"></datepicker-form>
+        <md-input-container class="">
+            <input [(ngModel)]="vacInfo.link" mdInput placeholder="Link on project">
+        </md-input-container>
+        <datepicker-form [(date)]="vacInfo.closeDate" [placeholder]="'End of project'"></datepicker-form>
+
         <ng-container *ngIf="cities.length">
-            <select-form #city [placeholder]="'City'" [array]="cities"></select-form>
+            <select-form [(result)]="vacInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
         </ng-container>
         <ng-container *ngIf="englishLevel.length">
-            <select-form #engLevel [placeholder]="'English level'" [array]="englishLevel"></select-form>
+            <select-form [(result)]="vacInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
         </ng-container>
         <ng-container *ngIf="statuses.length">
-            <select-form #status [placeholder]="'Status'" [array]="statuses"></select-form>
+            <select-form [(result)]="vacInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
         </ng-container>
     </div>
     <div class="header-info">Skills</div>
@@ -38,17 +30,18 @@
         <div class="col m6 s12">
             <div class="header-info__inner">Primary</div>
             <ng-container *ngIf="skills.length">
-                <skill-form #primary [array]="skills"></skill-form>
+                <skill-form [(skill)]="vacInfo.primarySkill" [array]="skills"></skill-form>
             </ng-container>
-            <datepicker-form #date [placeholder]="'First date of work with primary skill'"></datepicker-form>
+            <datepicker-form [(date)]="vacInfo.date" [placeholder]="'First date of work with primary skill'"></datepicker-form>
         </div>
         <div class="col m6 s12">
             <div class="header-info__inner">Secondary</div>
             <ng-container *ngIf="skills.length">
-                <skill-form #secondary *ngFor="let item of secondarySkills" [array]="skills"></skill-form>
+                <skill-form *ngFor="let item of vacInfo.secondarySkills; let i = index" [(skill)]="vacInfo.secondarySkills[i]"
+                    [array]="skills"></skill-form>
             </ng-container>
             <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
-            <button class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+            <button *ngIf="vacInfo.secondarySkills.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
         </div>
     </div>
 </div>
