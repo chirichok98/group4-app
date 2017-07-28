@@ -1,3 +1,1 @@
-<p class="range-field col m6 s12">
-  <input type="range" [min]="min" [max]="max" value="range" #range (change)="changeRange(range.value)"/>
-</p>
+<md-slider [max]="max" [min]="min" thumb-label="true" [value]="range" (change)="changeRange($event.value)"> </md-slider>

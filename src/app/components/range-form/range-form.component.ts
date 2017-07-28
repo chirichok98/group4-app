@@ -8,7 +8,6 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class RangeFormComponent {
   @Input() min: number;
   @Input() max: number;
-  @Input() placeholder: string;
 
   @Input() range: any;
   @Output() rangeChange: EventEmitter<any> = new EventEmitter<any>();
@@ -16,7 +15,6 @@ export class RangeFormComponent {
   constructor() { }
 
   changeRange(value: number) {
-    this.range = value;
-    this.rangeChange.emit(this.range);
+    this.rangeChange.emit(value);
   }
 }
