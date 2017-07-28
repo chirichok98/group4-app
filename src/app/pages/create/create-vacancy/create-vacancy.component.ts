@@ -1,17 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { IGeneral } from '../../../interfaces/IGeneral';
-import { ITechSkill } from '../../../interfaces/ITechSkill';
-
-import { SelectFormComponent } from '../../../components/select-form/select-form.component';
-// tslint:disable-next-line:max-line-length
-import { DatepickerFormComponent } from '../../../components/datepicker-form/datepicker-form.component';
-import { SkillFormComponent } from '../../../components/skill-form/skill-form.component';
-import { DictionariesService } from '../../../services/dictionaries.service';
 import { CreateVacancyService } from '../../../services/create-vacancy.service';
-
-
 
 @Component({
   selector: 'create-vacancy',
@@ -20,38 +9,18 @@ import { CreateVacancyService } from '../../../services/create-vacancy.service';
 })
 
 export class CreateVacancyComponent implements OnInit {
-  vacInfo: any = {
+  vacancy: any = {
     secondarySkills: [],
     primarySkill: {},
   };
 
-  statuses: IGeneral[] = [];
-  cities: IGeneral[] = [];
-  englishLevel: IGeneral[] = [];
-  skills: ITechSkill[] = [];
-
-  constructor(private router: Router,
-              private hService: DictionariesService,
-              private cvService: CreateVacancyService) {
-    this.hService.getCities().then((cities) => {
-      this.cities = cities;
-    });
-    this.hService.getEnglishLevel().then((levels) => {
-      this.englishLevel = levels;
-    });
-    this.hService.getSkills().then((skills) => {
-      this.skills = skills;
-    });
-    this.hService.getVacancyStatuses().then((statuses) => {
-      this.statuses = statuses;
-    });
-  }
+  constructor(private router: Router, private cvService: CreateVacancyService) { }
 
   ngOnInit() { }
 
   addVacancy(): void {
-    this.sendPostRequest(this.vacInfo);
-    console.log(this.vacInfo);
+    this.sendPostRequest(this.vacancy);
+    console.log(this.vacancy);
   }
 
   sendPostRequest(vacancy: any): void {
@@ -61,13 +30,5 @@ export class CreateVacancyComponent implements OnInit {
       }, (err: any) => {
         console.log('Error with vacancy creation');
       });
-  }
-
-  addSecondary() {
-    this.vacInfo.secondarySkills.push({});
-  }
-
-  removeSecondary() {
-    this.vacInfo.secondarySkills.pop();
   }
 }

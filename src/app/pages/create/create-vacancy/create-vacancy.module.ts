@@ -10,21 +10,15 @@ import { SkillFormModule } from '../../../components/skill-form/skill-form.modul
 import { DictionariesService } from '../../../services/dictionaries.service';
 import { CreateVacancyService } from '../../../services/create-vacancy.service';
 import { MaterialModule } from '@angular/material';
+import { InputVacancyModule } from '../../../components/input-vacancy/input-vacancy.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    SelectFormModule,
-    DatepickerFormModule,
-    SkillFormModule,
-    MaterialModule,
+    InputVacancyModule,
   ],
   exports: [],
   declarations: [CreateVacancyComponent],
-  providers: [
-    DictionariesService,
-    CreateVacancyService,
-  ],
+  providers: [CreateVacancyService],
 })
 export class CreateVacancyModule { }

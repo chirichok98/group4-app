@@ -1,0 +1,64 @@
+<div class="create-wrapper">
+    <div class="row">
+        <div class="header-info">General information</div>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.firstNameEng" mdInput placeholder="First Name (en)">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.firstNameRus" mdInput placeholder="First Name (ru)">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.lastNameEng" mdInput placeholder="Last Name (en)">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.lastNameRus" mdInput placeholder="Last Name (ru)">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.resume" mdInput placeholder="Link on resume">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.desiredSalary" mdInput placeholder="Desired salary">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.picture" mdInput placeholder="Link on picture">
+        </md-input-container>
+        <ng-container *ngIf="cities.length">
+            <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
+        </ng-container>
+        <ng-container *ngIf="englishLevel.length">
+            <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
+        </ng-container>
+        <ng-container *ngIf="statuses.length">
+            <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
+        </ng-container>
+        <div class="header-info">Person Contacts</div>
+        <contacts-form [(contact)]="canInfo.contact"></contacts-form>
+        <ng-container *ngIf="skills?.length">
+            <div class="header-info">Skills</div>
+            <div class="row skills">
+                <div class="col m6 s12">
+                    <div class="header-info__inner">Primary</div>
+                    <ng-container *ngIf="skills.length">
+                        <skill-form [(skill)]="canInfo.candidatePrimarySkill" [array]="skills"></skill-form>
+                    </ng-container>
+                    <datepicker-form [(date)]="canInfo.psExperience" [placeholder]="'First date of work with primary skill'"></datepicker-form>
+                </div>
+                <div class="col secondary m6 s12">
+                    <div class="header-info__inner">Secondary</div>
+                    <ng-container *ngIf="skills.length">
+                        <skill-form *ngFor="let item of canInfo.candidateSecondarySkills; let i = index" [(skill)]="canInfo.candidateSecondarySkills[i]"
+                            [array]="skills"></skill-form>
+                    </ng-container>
+                    <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+                    <button *ngIf="canInfo.candidateSecondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="canInfo.candidatePrevJobs.length" class="header-info jobs">Previous jobs</div>
+    <div>
+        <prev-job-form [(prevJob)]="canInfo.candidatePrevJobs[i]" *ngFor="let job of canInfo.candidatePrevJobs; let i = index"></prev-job-form>
+    </div>
+    <button class="btn add-prev-job" (click)="addPrevJob()">Add previous job</button>
+    <button *ngIf="canInfo.candidatePrevJobs?.length" class="btn remove-prev-job" (click)="removePrevJob()">Remove previous job</button>
+</div>
