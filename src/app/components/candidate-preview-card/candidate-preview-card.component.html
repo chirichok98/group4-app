@@ -1,17 +1,40 @@
 <div class="card" (click)="goToDetailView()">
-    <div class="card-image" *ngIf="candidate.picture; else default">
+    <div class="card-image hide-on-med-and-down" *ngIf="candidate.picture; else default">
         <img [src]="candidate.picture" alt="photo">
     </div>
     <ng-template #default>
-        <div class="card-image">
+        <div class="card-image hide-on-med-and-down">
             <img src="./assets/blank-avatar.png" alt="photo">
         </div>
     </ng-template>
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">{{candidate.firstNameEng}} {{candidate.lastNameEng}}</div>
-            <div class="phone"><i class="small material-icons candidate-phone">call</i>{{candidate.phone}}</div>
-            <div class="email"><i class="small material-icons candidate-email">email</i>{{candidate.email}}</div>
+            <div class="name">
+                <ng-container *ngIf="candidate.firstNameEng; else firstNameEng">{{candidate.firstNameEng}}</ng-container>
+                <ng-template #firstNameEng>Anonymous</ng-template>
+                <ng-container *ngIf="candidate.lastNameEng; else lastNameEng">{{candidate.lastNameEng}}</ng-container>
+                <ng-template #lastNameEng>Anonymous</ng-template>
+            </div>
+            <div class="phone content-wrapper">
+                <i class="small material-icons candidate-phone">call</i>
+                <ng-container *ngIf="candidate.phone; else phone">{{candidate.phone}}</ng-container>
+                <ng-template #phone>Phone</ng-template>
+            </div>
+            <div class="email content-wrapper">
+                <i class="small material-icons candidate-email">email</i>
+                <ng-container *ngIf="candidate.mail; else email">{{candidate.email}}</ng-container>
+                <ng-template #email>Mail</ng-template>
+            </div>
+            <div class="skype content-wrapper">
+                <i class="feedback-logotypes"></i>
+                <ng-container *ngIf="candidate.skype; else skype">{{candidate.skype}}</ng-container>
+                <ng-template #skype>Skype</ng-template>
+            </div>
+            <div class="skill content-wrapper">
+                <ng-container *ngIf="candidate.skill; else skill">{{candidate.skill}}</ng-container>
+                <ng-template #skill>Primary skill</ng-template>
+            </div>
+            <div class="status">{{candidate.status}}</div>
         </div>
     </div>
 </div>
