@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar.component';
 import { SearchModule } from '../search/search.module';
 import { FilterModule } from '../filter/filter.module';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     SearchModule,
     FilterModule,
+    MaterialModule,
   ],
   declarations: [NavbarComponent],
   exports: [NavbarComponent],
