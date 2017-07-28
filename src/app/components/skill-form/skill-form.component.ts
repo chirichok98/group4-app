@@ -13,9 +13,8 @@ export class SkillFormComponent implements DoCheck {
 
   @Input() skill: any;
   @Output() skillChange: EventEmitter<any> = new EventEmitter<any>();
-  constructor() { 
-    
-  }
+  
+  constructor() { }
 
   ngDoCheck() { 
     this.skillChange.emit(this.skill);
