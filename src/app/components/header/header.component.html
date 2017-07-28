@@ -1,7 +1,9 @@
 <header class="page-header">
   <div class="page-header__inner">
     <div class="brand-logo">
-      <button (click)="openPage('main-page')" title="Main Page"><img class="brand-logo__img" src="/assets/logo.svg" alt="logo"></button>
+      <a (click)="openPage('main-page')" title="Main Page">
+        <img class="brand-logo__img" src="/assets/logo.svg" alt="logo">
+      </a>
     </div>
     <div class="user-info">
       <action-button-menu *ngIf="loggedUser" [user]="loggedUser"></action-button-menu> 

@@ -1,6 +1,6 @@
 <div class="navbar z-depth-2">
   <div class="navbar-row">
-    <md-icon (click)="openSearch()">search</md-icon>
+    <md-icon class="navbar-icon" (click)="openSearch()">search</md-icon>
     <div class="navbar-states">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
     </div>
@@ -14,7 +14,7 @@
         </div>
       </li>
     </ul> -->
-    <md-icon>sort</md-icon>
+    <md-icon class="navbar-icon">sort</md-icon>
   </div>
 </div>
 <search-panel></search-panel>
