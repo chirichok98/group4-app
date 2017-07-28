@@ -17,11 +17,18 @@ export class ActionButtonComponent implements OnInit {
   ngOnInit() { }
 
   openPage(url): void {
+    let user: any = this.cookie.get('current');
+    if (user) {
+      user = JSON.parse(user);
+      user.url = url;
+      this.cookie.putObject('current', user);
+    }
+    console.log(url);
     this.router.navigate([url]);
   }
 
   logout(): void {
-    this.cookie.remove('current');
+    this.cookie.removeAll();
     this.router.navigate(['home']);
   }
 }

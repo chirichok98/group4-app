@@ -1,5 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,18 @@ import { CookieService } from 'ngx-cookie';
 export class HeaderComponent implements DoCheck {
   loggedUser: any;
 
-  constructor(private cookie: CookieService) {
+  constructor(private router: Router, private cookie: CookieService) {
     this.loggedUser = this.cookie.getObject('current');
+  }
+
+  openPage(url): void {
+    if (this.loggedUser) {
+      this.loggedUser.url = url;
+      console.log(this.loggedUser);
+      this.cookie.putObject('current', this.loggedUser);
+    }
+    console.log(url);
+    this.router.navigate([url]);
   }
 
   ngDoCheck() {
