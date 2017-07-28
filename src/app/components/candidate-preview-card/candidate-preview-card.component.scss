@@ -1,20 +1,25 @@
 .card {
-    width: 100%;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0.5rem 0 0;
-    min-height: 174px;
-    height: 174px;
-    font-size: 0.8em;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0;
+  min-height: 174px;
+  height: 174px;
+  font-size: 0.8em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.card:hover {
+  opacity: 1;
 }
 .card .card-image {
   width: 100px;
   height: 100px;
-  margin-left: 2rem;
+  margin-left: 1.2rem;
 }
 .card-image img {
   border-radius: 50%;
@@ -37,14 +42,14 @@
   font-weight: 500;
   padding: 0 3px;
 }
-.card-content .material-icons {
+.material-icons {
   vertical-align: bottom;
   font-size: 1.3rem;
   color: #526c7b;
   line-height: 1.4rem;
   margin-right: 2px;
 }
-.card-content .material-icons.candidate-phone {
+.material-icons.candidate-phone {
   color: #ff5151;
   font-size: 1.2rem;
   margin-right: 4px;
@@ -81,4 +86,11 @@ i::selection {
   background-color: #ff8585;
   color: #fff;
   min-width: 100px;
+}
+.material-icons.edit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0.5rem;
+  color: #52c1e6;
 }
