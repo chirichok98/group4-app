@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 
 @Component({
@@ -6,11 +6,10 @@ import { CookieService } from 'ngx-cookie';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements DoCheck {
   loggedUser: any;
 
   constructor(private cookie: CookieService) {
-    console.log('get user');
     this.loggedUser = this.cookie.getObject('current');
   }
 

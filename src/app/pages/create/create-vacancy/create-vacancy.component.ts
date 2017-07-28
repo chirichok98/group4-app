@@ -114,7 +114,6 @@ export class CreateVacancyComponent implements OnInit {
   sendPostRequest(vacancy: any): void {
     this.cvService.addVacancy(vacancy)
       .then((vac: any) => {
-        console.log(vac.status);
         this.router.navigate(['main-page/vacancies']);
       }, (err: any) => {
         console.log('Error with vacancy creation');

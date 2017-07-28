@@ -13,8 +13,8 @@ export class LoginFormComponent {
   password: string;
 
   constructor(private router: Router,
-    private cookie: CookieService,
-    private aService: AuthenticationService) { }
+              private cookie: CookieService,
+              private aService: AuthenticationService) { }
 
   signIn(): void {
     if (!this.login || !this.password) {
@@ -24,7 +24,6 @@ export class LoginFormComponent {
     this.aService.authenticate(this.login, this.password)
       .then(res => res.json())
       .then((obj: any) => {
-        console.log(obj);
         this.cookie.removeAll();
         this.cookie.putObject('current', obj);
 

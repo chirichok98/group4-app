@@ -23,10 +23,7 @@ export class HttpService {
   CAN_STATUS: string = 'api/candidateStatus';
 
   constructor(private http: Http, private cookie: CookieService) {
-    console.log('new httpService');
-    console.log(this.DEF_HEADERS);
     this.DEF_HEADERS = new Headers({ 'Content-Type': 'application/json' });
-    console.log(this.DEF_HEADERS);
   }
 
   private concatUrl(base: string, param: string, isQuery: boolean): string {
@@ -54,14 +51,12 @@ export class HttpService {
       let token: string;
       if (cookObj) {
         token = `Bearer ${cookObj.access_token}`;
-        console.log(token);
         this.DEF_HEADERS.append('Authorization', token);
       }
     }
     const url: string = this.concatUrl(this.BASE_URL, param, false);
     const obj: string = cb(body);
     const options = new RequestOptions({ headers });
-    console.log(obj);
     return this.http.post(url, obj, options)
       .toPromise();
   }
@@ -73,7 +68,6 @@ export class HttpService {
       let token: string;
       if (cookObj) {
         token = `Bearer ${cookObj.access_token}`;
-        console.log(token);
         this.DEF_HEADERS.append('Authorization', token);
       }
     }
