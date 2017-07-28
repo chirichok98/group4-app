@@ -62,7 +62,6 @@ export class CreateCandidateComponent implements OnInit {
   }
 
   getSelectedIndex(field: any): number | null {
-    console.log(field);
     const str: string = field.nativeElement.value;
     const indexOfSpace: number = str.indexOf(' ');
     const index: number = +str.slice(indexOfSpace);
@@ -124,7 +123,6 @@ export class CreateCandidateComponent implements OnInit {
   sendPostRequest(candidate: any): void {
     this.ccService.addCandidate(candidate)
       .then((can: any) => {
-        console.log(can.status);
         this.router.navigate(['main-page/candidates']);
       }, (err: any) => {
         console.log('Error with candidate creation');

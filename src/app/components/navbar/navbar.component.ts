@@ -20,17 +20,22 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const url: string = this.router.url.substring(1);
-    const start: number = url.indexOf('/');
-    const end: number = url.lastIndexOf('/');
-    let stateName: string;
-    if (start === end) {
-      stateName = url.substring(start + 1);
+    if (!this.currentState) {
+      this.currentState = this.states[0];
+      this.router.navigate([`main-page/${this.currentState.stateName}`]);
     } else {
-      stateName = url.substring(start + 1, end);
+      const url: string = this.router.url.substring(1);
+      const start: number = url.indexOf('/');
+      const end: number = url.lastIndexOf('/');
+      let stateName: string;
+      if (start === end) {
+        stateName = url.substring(start + 1);
+      } else {
+        stateName = url.substring(start + 1, end);
+      }
+      const state = this.states.find(item => item.stateName === stateName);
+      this.currentState = state;
     }
-    const state = this.states.find(item => item.stateName === stateName);
-    this.currentState = state;
   }
 
   goTo(newState: INavbarOption): void {
@@ -40,12 +45,12 @@ export class NavbarComponent implements OnInit {
 
   getStyleByIndex(index: number): string {
     let classNames: string = '';
-    switch (index){
-      case 0: classNames = "candidates";
+    switch (index) {
+      case 0: classNames = 'candidates';
         break;
-      case 1: classNames = "positions";
+      case 1: classNames = 'positions';
         break;
-      case 2: classNames = "news";
+      case 2: classNames = 'news';
         break;
     }
     if (this.currentState === this.states[index]) {
@@ -87,9 +92,10 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  openMenu(): void {
-
-  }
+  
+ 
+    
+  
 }
 
 

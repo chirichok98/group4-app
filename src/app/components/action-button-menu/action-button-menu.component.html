@@ -1,9 +1,9 @@
 <div *ngIf="user">
     <div class="fixed-action-btn horizontal">
         <ul>
-            <li><button (click)="openPage('create/candidate')" class="btn-floating add">Add candidate</button></li>
-            <li><button (click)="openPage('create/vacancy')" class="btn-floating add">Add position</button></li>
-            <li><button class="btn-floating logout">Log out</button></li>
+            <li><button *ngIf="user.role !== 'Tech'" (click)="openPage('create/candidate')" class="btn-floating add">Add candidate</button></li>
+            <li><button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" class="btn-floating add">Add position</button></li>
+            <li><button (click)="logout()" class="btn-floating logout">Log out</button></li>
         </ul>
         <a class="btn-floating btn-large">
             <div class="user-info__photo-wrap" *ngIf="user?.picture; else default">

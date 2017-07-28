@@ -10,9 +10,11 @@ import { PositionsListModule } from './open-positions/positions-list/positions-l
 // tslint:disable-next-line:max-line-length
 import { PositionsListItemModule } from './open-positions/positions-list-item/positions-list-item.module';
 import { OpenPositionsModule } from './open-positions/open-positions.module';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   imports: [
+    CookieModule.forChild(),
     RouterModule,
     MainPageRoutingModule,
     NavbarModule,
