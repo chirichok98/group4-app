@@ -25,17 +25,17 @@
                 <input [(ngModel)]="canInfo.picture" mdInput placeholder="Link on picture">
             </md-input-container>
             <ng-container *ngIf="cities.length">
-                <select-form #city [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
+                <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
             </ng-container>
             <ng-container *ngIf="englishLevel.length">
-                <select-form #engLevel [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
+                <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
             </ng-container>
             <ng-container *ngIf="statuses.length">
-                <select-form #status [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
+                <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
             </ng-container>
         </div>
         <div class="header-info">Person Contacts</div>
-        <contacts-form #contact [(contact)]="canInfo.contact"></contacts-form>
+        <contacts-form [(contact)]="canInfo.contact"></contacts-form>
         <ng-container *ngIf="skills?.length">
             <div class="header-info">Skills</div>
             <div class="row skills">
