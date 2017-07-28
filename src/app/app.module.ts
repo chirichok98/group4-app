@@ -16,12 +16,11 @@ import { ProfilesModule } from './pages/profiles/profiles.module';
 import { FooterModule } from './components/footer/footer.module';
 import { CreateCandidateModule } from './pages/create/create-candidate/create-candidate.module';
 import { CreateVacancyModule } from './pages/create/create-vacancy/create-vacancy.module';
+import { CookieModule } from 'ngx-cookie';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,7 +32,9 @@ import { CreateVacancyModule } from './pages/create/create-vacancy/create-vacanc
     ReportModule,
     ProfilesModule,
     FooterModule,
+    CookieModule.forRoot(),
   ],
+  declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,9 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { routes } from './app-routing.module';
+import { CookieService } from 'ngx-cookie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent { }
+export class AppComponent {
+  constructor(private cookie: CookieService, private router: Router) {
+    const loggedUser = this.cookie.getObject('current');
+    if (loggedUser) {
+      this.router.navigate(['main-page']);
+    }
+  }
+}
