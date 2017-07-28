@@ -1,18 +1,14 @@
-<div class="row input-wrapper contacts">
-  <div class="input-field col m6 s12">
-    <input [(ngModel)]="contact.email" id="email" type="email" class="validate">
-    <label for="email">Email</label>
-  </div>
-  <div class="input-field col m6 s12">
-    <input [(ngModel)]="contact.skype" id="skype" type="text" class="validate">
-    <label for="skype">Skype</label>
-  </div>
-  <div class="input-field col m6 s12">
-    <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate">
-    <label for="phone">Phone</label>
-  </div>
-  <div class="input-field col m6 s12">
-    <input [(ngModel)]="contact.linkedIn" id="linkedIn" type="text" class="validate">
-    <label for="linkedIn">LinkedIn</label>
-  </div>
+<div class="input-wrapper">
+  <md-input-container class="">
+      <input [(ngModel)]="contact.email" type="email" mdInput placeholder="Email">
+    </md-input-container>
+   <md-input-container class="">
+      <input [(ngModel)]="contact.skype" mdInput placeholder="Skype">
+    </md-input-container>
+    <md-input-container class="">
+      <input [(ngModel)]="contact.phone"mdInput placeholder="Phone">
+    </md-input-container>
+    <md-input-container class="">
+      <input [(ngModel)]="contact.linkedIn" mdInput placeholder="LinkedIn">
+    </md-input-container>
 </div>
