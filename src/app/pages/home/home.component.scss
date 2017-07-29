@@ -1,9 +1,19 @@
 .slogan-login-wrapper {
-    padding: 1rem 0;
+    padding: 0.5rem 0 0;
     flex-wrap: wrap;
     display: flex;
     align-items: center;
 }
-.slogan-login-wrapper .col {
-    padding:  10px 0;
+.slogan-wrapper,
+.login-wrapper {
+    width: 50%;
+}
+.slogan-wrapper {
+    padding: 1rem 0;
+}
+@media (max-width: 992px) {
+  .slogan-wrapper,
+  .login-wrapper {
+    width: 100%;
+  }
 }

@@ -10,25 +10,15 @@
     text-transform: uppercase;
     font-size: 1.6rem;
     color: #FFFFFF;
-    font-style: bold;
     font-family: "Roboto Slab";
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     transform: rotate(-1.2deg);
     margin: 0;
-    margin-right: 0.5rem;
 }
 .tagline__color {
     color:#56CCF2;
 }
-
 .blue {
-    color: #56CCF2;
-}
-
-p::selection {
-    color: #FFFFFF;
-}
-span::selection {
     color: #56CCF2;
 }

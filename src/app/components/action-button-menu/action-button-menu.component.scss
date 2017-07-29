@@ -1,13 +1,51 @@
-.user-info__photo-wrap {
-    width: 50px;
-    height: 50px;
-}
-
-.user-info__photo {
-    width: 50px;
+.mat-icon-button {
+    width: auto;
     height: auto;
 }
-
-.user-info__name {
+.user-info {
+  text-align: center;
+  &__photo-wrap {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+  }
+  &__photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  &__name {
+    text-transform: uppercase;;
+    color: #fff;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    margin-top: 10px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    max-width: 7rem;
+    overflow: hidden;
+  }
+}
+.mat-icon-button:hover .user-info__name,
+.mat-icon-button.cdk-mouse-focused .user-info__name {
+    color: #56CCF2;
+}
+.mat-icon-button:hover .user-info__photo-wrap {
+    opacity: 0.8;
+}
+.mat-menu-item {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    margin-bottom: 1px;
+    color: rgb(39, 50, 72);
+}
+.mat-menu-item .mat-icon {
+    color: rgb(39, 50, 72);
+}
+.mat-menu-item:hover {
+    background: #56CCF2;
+    color: #fff;
+}
+.mat-menu-item:hover .mat-icon {
     color: #fff;
 }

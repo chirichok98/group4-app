@@ -293,3 +293,12 @@ input[type=range]+.thumb {
   height: 0.5rem;
   /* background-color: transparent; */
 }
+
+
+/*Login form*/
+.mat-focused .mat-input-placeholder {
+	color: #56CCF2;
+}
+.mat-focused .mat-input-ripple {
+	background-color: #56CCF2;	
+}
