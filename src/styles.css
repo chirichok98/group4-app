@@ -191,15 +191,6 @@ prev-job-form .input-wrapper.contacts {
 .input-wrapper input::selection {
   color: #56CCF2;
 }
-
-.row {
-  margin: 0;
-}
-
-.col {
-  width: 100%;
-  padding: 0;
-}
 main,
 home,
 create-candidate,
