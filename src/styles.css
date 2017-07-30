@@ -293,3 +293,6 @@ input[type=range]+.thumb {
 .mat-focused .mat-input-ripple {
 	background-color: #56CCF2;	
 }
+.mat-input-placeholder {
+  color: #273248;
+}
