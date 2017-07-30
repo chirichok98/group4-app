@@ -26,12 +26,9 @@
     overflow: hidden;
   }
 }
-.mat-icon-button:hover .user-info__name,
-.mat-icon-button.cdk-mouse-focused .user-info__name {
-    color: #56CCF2;
-}
-.mat-icon-button:hover .user-info__photo-wrap {
-    opacity: 0.8;
+.mat-icon-button:hover,
+.mat-icon-button.cdk-mouse-focused {
+    transform: scale(1.05)
 }
 .mat-menu-item {
     text-transform: uppercase;

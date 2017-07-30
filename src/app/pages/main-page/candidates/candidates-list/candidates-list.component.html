@@ -1,4 +1,4 @@
 <spinner [loading]="isSpinnerVisible"></spinner>
-<div class="row">
-    <candidate-card class="col s12 m6 l6" *ngFor="let item of candidates" [candidate]="item"></candidate-card>
+<div class="candidate-items-wrapper">
+    <candidate-card class="candidate-item-wrapper" *ngFor="let item of candidates" [candidate]="item"></candidate-card>
 </div>

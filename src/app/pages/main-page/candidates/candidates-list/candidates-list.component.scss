@@ -1,0 +1,14 @@
+.candidate-items-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -0.25rem;
+}
+.candidate-item-wrapper {
+    width: 50%;
+}
+@media (max-width: 830px) {
+    .candidate-item-wrapper {
+        width: 100%;
+    }
+}

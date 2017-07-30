@@ -1,20 +1,24 @@
 .card {
-    width: 100%;
     border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 0.5rem 0 0;
-    min-height: 174px;
-    height: 174px;
+    margin: 0.5rem 0.25rem 0;
     font-size: 0.8em;
     position: relative;
     overflow: hidden;
+    padding: 1.5rem;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.015);
+  transition-duration: (0.5s);
 }
 .card .card-image {
   width: 100px;
   height: 100px;
-  margin-left: 2rem;
+  width: 24%;
+  min-width: 120px;
 }
 .card-image img {
   border-radius: 50%;
@@ -22,11 +26,18 @@
   width: 100px;
   height: 100px;
 }
+.card-stacked {
+  width: 66%;
+}
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
   font-size: 1.2em;
   font-weight: 500;
+  width: 75%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .content-wrapper {
   line-height: 1.3rem;
@@ -49,17 +60,6 @@
   font-size: 1.2rem;
   margin-right: 4px;
 }
-img::selection {
-  color: transparent;
-}
-
-div::selection {
-  color: #56CCF2;
-}
-
-i::selection {
-  background: transparent;
-}
 .feedback-logotypes {
   display: inline-block;
   width: 1.4rem;
@@ -73,12 +73,14 @@ i::selection {
 }
 .status {
   position: absolute;
-  padding: 0.5rem;
+  padding: 0.5rem 2.5rem;
+  transform: rotate(45deg);
   text-transform: uppercase;
   text-align: center;
-  top: 0;
-  right: 0;
-  background-color: #ff8585;
+  top: 23px;
+  right: -58px;
+  background-color: #52c1e6;
   color: #fff;
-  min-width: 100px;
+  width: 100px;
+  font-size: 0.9em;
 }

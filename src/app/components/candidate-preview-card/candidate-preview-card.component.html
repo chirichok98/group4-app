@@ -1,9 +1,9 @@
-<div class="card" (click)="goToDetailView()">
+<md-card class="card" (click)="goToDetailView()">
     <div class="card-image hide-on-med-and-down" *ngIf="candidate.picture; else default">
         <img [src]="candidate.picture" alt="photo">
     </div>
     <ng-template #default>
-        <div class="card-image hide-on-med-and-down">
+        <div class="card-image">
             <img src="./assets/blank-avatar.png" alt="photo">
         </div>
     </ng-template>
@@ -37,4 +37,4 @@
             <div class="status">{{candidate.status}}</div>
         </div>
     </div>
-</div>
+</md-card>
