@@ -1,4 +1,4 @@
 <spinner [loading]="isSpinnerVisible"></spinner>
-<div class="positions">
+<div class="positions" scroll (update)='onScroll($event)'>
     <position-preview-card *ngFor="let item of positions" [position]="item"></position-preview-card>
 </div>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 import { PositionsListService } from '../../../../services/positions-list.service';
+import { PagerService } from '../../../../services/pager.service';
 
 @Component({
   selector: 'positions-list',
@@ -9,21 +10,31 @@ import { PositionsListService } from '../../../../services/positions-list.servic
   styleUrls: ['positions-list.component.scss'],
 })
 
-export class PositionsListComponent implements OnInit {
-  positions: IPositionPreview[];
-  isSpinnerVisible: boolean = true;
-  skip: number = 0;
-  amount: number = 50;
-  
-  constructor(private plService: PositionsListService) {
-    this.plService.getPositions(this.skip, this.amount).then((positions) => {
-      this.positions = positions;
-      this.isSpinnerVisible = false;
-    }, (error) => {
-      console.log('Positions error');
-      this.isSpinnerVisible = false;
-    });
-  }
+export class PositionsListComponent {
 
-  ngOnInit() { }
+  isSpinnerVisible: boolean = true;
+  positions: IPositionPreview[];
+  constructor(private pagerService: PagerService) {
+    this.pagerService.init('vacancy')
+      .then((positions) => {
+        console.log(positions);
+        this.positions = positions;
+        this.isSpinnerVisible = false;
+      }, (error) => {
+        console.log('Positions error');
+        this.isSpinnerVisible = false;
+      });
+  }
+  onScroll(pager: PagerService) {
+    console.log(pager.skip);
+    this.pagerService.more(pager.skip)
+      .then((positions) => {
+        console.log(positions);
+        this.positions.push(positions);
+        this.isSpinnerVisible = false;
+      }, (error) => {
+        console.log('Positions error');
+        this.isSpinnerVisible = false;
+      });
+  }
 }

@@ -1,4 +1,4 @@
 <spinner [loading]="isSpinnerVisible"></spinner>
-<div class="candidate-items-wrapper">
+<div class="candidate-items-wrapper" scroll (update)='onScroll($event)'> 
     <candidate-card class="candidate-item-wrapper" *ngFor="let item of candidates" [candidate]="item"></candidate-card>
 </div>
