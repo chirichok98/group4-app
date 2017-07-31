@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { routes } from './app-routing.module';
-import { CookieService } from 'ngx-cookie';
 import { Router } from '@angular/router';
+import { MyCookieService } from './services/cookie.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private cookie: CookieService, private router: Router) {
-    const loggedUser: any = this.cookie.getObject('current');
+  constructor(private cookie: MyCookieService, private router: Router) {
+    const loggedUser: any = this.cookie.getCookie();
     if (loggedUser) {
       this.router.navigate([loggedUser.url]);
     }

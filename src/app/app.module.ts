@@ -22,6 +22,7 @@ import { CreateVacancyModule } from './pages/create/create-vacancy/create-vacanc
 import { CookieModule } from 'ngx-cookie';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MyCookieService } from './services/cookie.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [MyCookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
