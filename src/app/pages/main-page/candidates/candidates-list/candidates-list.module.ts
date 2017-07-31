@@ -7,6 +7,7 @@ import { CandidatesListComponent } from './candidates-list.component';
 import { CandidatePreviewModule } from '../../../../components/candidate-preview-card/candidate-preview-card.module';
 import { SpinnerModule } from '../../../../components/spinner/spinner.module';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { CandidatesListService } from '../../../../services/candidates-list.serv
     CandidatePreviewModule,
     CommonModule,
     SpinnerModule,
+    MaterialModule,
   ],
   exports: [RouterModule],
   declarations: [CandidatesListComponent],

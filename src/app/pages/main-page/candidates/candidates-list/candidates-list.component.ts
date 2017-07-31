@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { MyCookieService } from '../../../../services/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'candidates-list',
@@ -14,7 +16,9 @@ export class CandidatesListComponent implements OnInit {
   skip: number = 0;
   amount: number = 50;
 
-  constructor(private clService: CandidatesListService) {
+  constructor(private clService: CandidatesListService,
+              private cookie: MyCookieService,
+              private router: Router) {
     this.clService.getCandidates(this.skip, this.amount)
       .then((candidates) => {
         this.candidates = candidates;
@@ -26,5 +30,11 @@ export class CandidatesListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  addCandidate(): void {
+    const url: string = 'create/candidate';
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 }
