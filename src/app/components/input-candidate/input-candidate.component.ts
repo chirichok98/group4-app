@@ -10,7 +10,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
   styleUrls: ['input-candidate.component.scss'],
 })
 export class InputCandidateComponent implements DoCheck {
-  @Input() canInfo: any;
+  @Input() canInfo: any = {};
   @Output() canInfoChange: EventEmitter<any> = new EventEmitter<any>();
 
   statuses: IGeneral[] = [];

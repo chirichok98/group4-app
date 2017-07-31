@@ -38,11 +38,24 @@ export class EditCandidateComponent implements OnInit {
   ngOnInit() {
   }
 
+  configureSkill(skill): any {
+    const res: any = {
+      id: skill.id,
+      level: skill.level,
+    };
+    return res;
+  }
+
   editCandidate() {
+    this.candidate.candidatePrimarySkill = 
+      this.configureSkill(this.candidate.candidatePrimarySkill);
+    this.candidate.candidateSecondarySkills = this.candidate.candidateSecondarySkills
+      .map((i: any) => this.configureSkill(i));
+    delete this.candidate.hrm;
+    delete this.candidate.lastModifier;
     console.log(this.candidate);
     this.ecService.updateCandidate(this.candidate)
       .then((res: any) => {
-        console.log(res);
         const url: string = `main-page/candidate/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
