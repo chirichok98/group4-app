@@ -5,6 +5,7 @@ import { ReportComponent } from './pages/report/report.component';
 // tslint:disable-next-line:max-line-length
 import { CreateCandidateComponent } from './pages/create/create-candidate/create-candidate.component';
 import { CreateVacancyComponent } from './pages/create/create-vacancy/create-vacancy.component';
+import { EditCandidateComponent } from './pages/edit/edit-candidate/edit-candidate.component';
 
 const mainRoute: Route = {
   path: '',
@@ -24,13 +25,36 @@ const creatingRoute: Route = {
       pathMatch: 'full',
     },
     {
-      path:'candidate',
+      path: 'candidate',
       component: CreateCandidateComponent,
     },
     {
-      path:'vacancy',
+      path: 'vacancy',
       component: CreateVacancyComponent,
     },
+  ],
+};
+const editingRoute: Route = {
+  path: 'edit',
+  children: [
+    {
+      path: '',
+      redirectTo: 'candidate',
+      pathMatch: 'full',
+    },
+    {
+      path: 'candidate',
+      children: [
+        {
+          path: ':id',
+          component: EditCandidateComponent,
+        },
+      ],
+    },
+    // {
+    //   path:'vacancy/:id',
+    //   component: EditVacancyComponent,
+    // },
   ],
 };
 
@@ -38,6 +62,7 @@ export const routes: Routes = [
   mainRoute,
   reportRoute,
   creatingRoute,
+  editingRoute,
 ];
 
 @NgModule({

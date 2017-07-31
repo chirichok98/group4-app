@@ -23,6 +23,7 @@ import { CookieModule } from 'ngx-cookie';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MyCookieService } from './services/cookie.service';
+import { EditCandidateModule } from './pages/edit/edit-candidate/edit-candidate.module';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { MyCookieService } from './services/cookie.service';
     MainPageModule,
     CreateCandidateModule,
     CreateVacancyModule,
+    EditCandidateModule,
     ReportModule,
     ProfilesModule,
     FooterModule,
@@ -43,7 +45,7 @@ import { MyCookieService } from './services/cookie.service';
     MdCheckboxModule,
     MdButtonModule,
     CommonModule,
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
     MaterialModule,
   ],
