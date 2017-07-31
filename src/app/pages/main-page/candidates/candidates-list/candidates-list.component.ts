@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
-import { CandidatesListService } from '../../../../services/candidates-list.service';
 import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
