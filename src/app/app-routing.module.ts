@@ -6,6 +6,7 @@ import { ReportComponent } from './pages/report/report.component';
 import { CreateCandidateComponent } from './pages/create/create-candidate/create-candidate.component';
 import { CreateVacancyComponent } from './pages/create/create-vacancy/create-vacancy.component';
 import { EditCandidateComponent } from './pages/edit/edit-candidate/edit-candidate.component';
+import { EditVacancyComponent } from './pages/edit/edit-vacancy/edit-vacancy.component';
 
 const mainRoute: Route = {
   path: '',
@@ -51,10 +52,15 @@ const editingRoute: Route = {
         },
       ],
     },
-    // {
-    //   path:'vacancy/:id',
-    //   component: EditVacancyComponent,
-    // },
+    {
+      path:'vacancy',
+      children: [
+        {
+          path: ':id',
+          component: EditVacancyComponent,
+        },
+      ],
+    },
   ],
 };
 
