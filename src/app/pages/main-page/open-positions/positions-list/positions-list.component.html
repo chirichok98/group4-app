@@ -1,4 +1,5 @@
 <spinner [loading]="isSpinnerVisible"></spinner>
 <div class="positions">
+    <button *ngIf="positions" class="add-button" md-fab (click)="addVacancy()"><md-icon>add</md-icon></button>
     <position-preview-card *ngFor="let item of positions" [position]="item"></position-preview-card>
 </div>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MyCookieService } from '../../../services/cookie.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'open-positions',
@@ -9,13 +7,8 @@ import { Router } from '@angular/router';
 })
 export class OpenPositionsComponent implements OnInit {
   
-  constructor(private cookie: MyCookieService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() { }
 
-  addCandidate(): void {
-    const url: string = 'create/vacancy';
-    this.cookie.updateUrl(url);
-    this.router.navigate([url]);
-  }
 }

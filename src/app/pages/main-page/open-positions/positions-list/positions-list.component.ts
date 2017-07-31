@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 import { PositionsListService } from '../../../../services/positions-list.service';
+import { MyCookieService } from '../../../../services/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'positions-list',
@@ -15,7 +17,9 @@ export class PositionsListComponent implements OnInit {
   skip: number = 0;
   amount: number = 50;
   
-  constructor(private plService: PositionsListService) {
+  constructor(private plService: PositionsListService,
+              private cookie: MyCookieService, 
+              private router: Router) {
     this.plService.getPositions(this.skip, this.amount).then((positions) => {
       this.positions = positions;
       this.isSpinnerVisible = false;
@@ -26,4 +30,10 @@ export class PositionsListComponent implements OnInit {
   }
 
   ngOnInit() { }
+  
+  addVacancy(): void {
+    const url: string = 'create/vacancy';
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
+  }
 }
