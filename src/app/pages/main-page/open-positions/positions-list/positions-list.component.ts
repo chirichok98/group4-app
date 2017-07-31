@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
-import { PositionsListService } from '../../../../services/positions-list.service';
 import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
