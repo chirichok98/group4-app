@@ -6,7 +6,7 @@ import { MyCookieService } from './cookie.service';
 
 @Injectable()
 export class HttpService {
-  BASE_URL = 'http://knowbaseserver.azurewebsites.net';
+  BASE_URL = 'http://knowbase.azurewebsites.net';
   DEF_HEADERS: Headers;
   AUTH_HEADERS = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   token: string;
@@ -74,8 +74,12 @@ export class HttpService {
     this.appendAuth(this.DEF_HEADERS);
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
+    console.log('body');
+    console.log(body);
+    console.log('serialized');
+    console.log(obj);
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
-    return this.http.post(urls, obj, options)
+    return this.http.put(urls, obj, options)
       .toPromise();
   }
 
