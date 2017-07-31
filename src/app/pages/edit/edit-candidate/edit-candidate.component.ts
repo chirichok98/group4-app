@@ -56,7 +56,7 @@ export class EditCandidateComponent implements OnInit {
     console.log(this.candidate);
     this.ecService.updateCandidate(this.candidate)
       .then((res: any) => {
-        const url: string = `main-page/candidate/${this.candidateId}`;
+        const url: string = `main-page/candidates/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
       }, (error: any) => {
