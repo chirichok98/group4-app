@@ -1,0 +1,5 @@
+<spinner [loading]="!isLoaded"> </spinner>
+<button (click)="editVacancy()" class="btn add-candidate">Edit position</button>
+<ng-container *ngIf="vacancy">
+    <input-vacancy [(vacInfo)]="vacancy"></input-vacancy>
+</ng-container>
