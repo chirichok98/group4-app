@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
-import { CookieService } from 'ngx-cookie';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'main',
@@ -17,12 +17,8 @@ export class MainPageComponent implements OnInit {
   };
   navbarOptions: INavbarOption[] = [];
 
-  constructor(private cookie: CookieService) {
-    const obj: any = this.cookie.getObject('current');
-    let role: string;
-    if (obj) {
-      role = obj.role;
-    }
+  constructor(private cookie: MyCookieService) {
+    const role: string = this.cookie.getRole();
     this.getOptionsByRole(role);
   }
 
