@@ -23,15 +23,24 @@ export class InputCandidateComponent implements DoCheck {
               private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
+      if (this.canInfo.city) {
+        this.canInfo.city = this.cities.find(i => i.name === this.canInfo.city).id;
+      }
     });
     this.hService.getEnglishLevel().then((levels) => {
       this.englishLevel = levels;
+      if (this.canInfo.engLevel) {
+        this.canInfo.engLevel = this.englishLevel.find(i => i.name === this.canInfo.engLevel).id;
+      }
     });
     this.hService.getSkills().then((skills) => {
       this.skills = skills;
     });
     this.hService.getCandidateStatuses().then((statuses) => {
       this.statuses = statuses;
+      if (this.canInfo.status) {
+        this.canInfo.status = this.statuses.find(i => i.name === this.canInfo.status).id;
+      }
     });
   }
 
