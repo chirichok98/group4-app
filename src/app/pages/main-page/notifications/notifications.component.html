@@ -1,14 +1,14 @@
 <div class="notifications-indicators row">
     <div class="indicator-wrapper reminders col m4 s12">
-        <div class="indicator-color" (click)="showItems"></div>
+        <div class="indicator-color dark-blue" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Reminders</div>
     </div>
     <div class="indicator-wrapper news col m4 s12">
-        <div class="indicator-color"></div>
+        <div class="indicator-color light-blue" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- News</div>
     </div>
     <div class="indicator-wrapper assignments col m4 s12">
-        <div class="indicator-color"></div>
+        <div class="indicator-color light-gray" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Assignments</div>
     </div>
 </div>

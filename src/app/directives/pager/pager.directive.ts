@@ -10,12 +10,14 @@ export class PagerDirective {
   scrollValue: number = 0;
   scrollBorder: number = 400;
   skip: number = 0;
+  multyCoef: number = 4;
   @Output() update = new EventEmitter<any>();
   @HostListener('window:scroll') onScroll() {
     this.scrollValue  = this.document.body.scrollTop;
     if (this.scrollValue > this.scrollBorder) {
       console.log(this.scrollValue, this.scrollBorder);
-      this.scrollBorder += 200;
+      this.scrollBorder += 100 * this.multyCoef;
+      this.multyCoef += 1; 
       this.skip += 10;
       this.update.emit({ skip: this.skip });
     } 

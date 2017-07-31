@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
 import { PagerService } from '../../../../services/pager.service';
+import { HttpService } from '../../../../services/http.service';
 
 @Component({
   selector: 'candidates-list',
@@ -12,9 +13,9 @@ import { PagerService } from '../../../../services/pager.service';
 export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
-
-  constructor(private pagerService: PagerService) {
-    this.pagerService.init('candidate')
+  paramsQueue: any = [];
+  constructor(private pagerService: PagerService, private httpService: HttpService) {
+    this.pagerService.init(httpService.CAN)
       .then((candidates) => {
         console.log(candidates);
         this.candidates = candidates;
@@ -24,13 +25,21 @@ export class CandidatesListComponent {
         this.isSpinnerVisible = false;
       });
   }
-  onScroll(pager: PagerService) {
+  onScroll(pager?: PagerService) {
+    if (pager) {
+      this.paramsQueue.push(pager.skip);
+    }
+    const params = this.paramsQueue.reverse().pop();
+    this.paramsQueue.reverse();
     console.log(pager.skip);
-    this.pagerService.more(pager.skip)
+    this.pagerService.more(params)
       .then((candidates) => {
         console.log(candidates);
-        this.candidates.push(candidates);
+        this.candidates = this.candidates.concat(candidates);
         this.isSpinnerVisible = false;
+        if (this.paramsQueue.length) {
+          this.onScroll();
+        }
       }, (error) => {
         console.log('Candidates error');
         this.isSpinnerVisible = false;
