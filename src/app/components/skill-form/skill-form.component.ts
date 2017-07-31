@@ -11,12 +11,12 @@ import { SelectFormComponent } from '../select-form/select-form.component';
 export class SkillFormComponent implements DoCheck {
   @Input() array: any;
 
-  @Input() skill: any;
+  @Input() skill: any = {};
   @Output() skillChange: EventEmitter<any> = new EventEmitter<any>();
-  
+
   constructor() { }
 
-  ngDoCheck() { 
+  ngDoCheck() {
     this.skillChange.emit(this.skill);
   }
 }
