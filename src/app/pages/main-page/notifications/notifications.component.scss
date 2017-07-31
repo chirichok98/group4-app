@@ -1,4 +1,5 @@
 .notifications-indicators {
+    display: flex;
     text-transform: uppercase;
     padding: 10px 15px;
     color: #273248;
@@ -6,6 +7,7 @@
     margin: 0 -15px;
 }
 .notifications-indicators .indicator-wrapper {
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     margin: 0;
@@ -24,10 +26,10 @@
     width: 2rem;
     margin: 10px;
 }
-.notifications-indicators .indicator-color:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
+ .notifications-indicators .indicator-color:hover {
+     cursor: pointer;
+//     opacity: 0.5;
+ }
 .notifications-indicators .reminders .indicator-color {
     background-color: #374767;
 }

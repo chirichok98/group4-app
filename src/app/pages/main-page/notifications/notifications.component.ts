@@ -64,9 +64,10 @@ export class NotificationsComponent {
   private showChanges(item, state): void {
     if (state) {
       $(this.defineNotificationItem(item)).css({ display: 'flex' });
+      $('.' + item).css({ 'background-color': '', opacity: 1 });
     } else {
       $(this.defineNotificationItem(item)).css({ display: 'none' });
-      // $('.' + item).style.opacity('0.5');
+      $('.' + item).css({ 'background-color': 'black', opacity: 0.7 });
     }
   }
   private defineNotificationItem (item) {
