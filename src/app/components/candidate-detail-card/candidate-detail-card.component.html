@@ -1,4 +1,5 @@
 <div *ngIf="candidate as can; else loading">
+    <button (click)="goToEditForm()">Edit candidate</button>
     <div class="candidate-info-container">
         <div class="candidate-blocks">
             <div class="candidate-block" *ngIf="can.picture; else defaultPic">
