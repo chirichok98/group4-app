@@ -39,11 +39,15 @@ export class NotificationsComponent {
   ];
   constructor() { }
 
-  visibilityArray: boolean[] = [true, true, true];
-  colorsArray: string[] = ['dark-blue', 'light-blue', 'light-gray'];
   // Logic: We get list of classes of element that we clicked on. Then we check 
   // if one of needed classes is included in this classlist. If we found it, 
-  // then we reverse boolean value of this item in visibility array.
+  // then we reverse boolean value of this item in visibility array. Next step:
+  // we are showing changes by using jquery and by linking definition's classes with list's
+  // of notifications classes. 
+
+  visibilityArray: boolean[] = [true, true, true];
+  colorsArray: string[] = ['dark-blue', 'light-blue', 'light-gray'];
+
   checkVisibility() {
     const classlist = event.srcElement.classList;
     this.colorsArray.forEach((item, index) => {
@@ -60,9 +64,9 @@ export class NotificationsComponent {
   private showChanges(item, state): void {
     if (state) {
       $(this.defineNotificationItem(item)).css({ display: 'flex' });
-      $('.' + item).style.opacity('0.5');
     } else {
       $(this.defineNotificationItem(item)).css({ display: 'none' });
+      // $('.' + item).style.opacity('0.5');
     }
   }
   private defineNotificationItem (item) {
