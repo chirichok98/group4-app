@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import { CookieService } from 'ngx-cookie';
+import { MyCookieService } from './cookie.service';
 
 @Injectable()
 export class HttpService {
@@ -22,7 +22,7 @@ export class HttpService {
   VAC_STATUS: string = 'api/vacancyStatus';
   CAN_STATUS: string = 'api/candidateStatus';
 
-  constructor(private http: Http, private cookie: CookieService) {
+  constructor(private http: Http, private cookie: MyCookieService) {
     this.DEF_HEADERS = new Headers({ 'Content-Type': 'application/json' });
   }
 
@@ -44,39 +44,35 @@ export class HttpService {
     return JSON.stringify(body);
   }
 
-  post(param: string, body: any, headers: Headers, cb: any): Promise<any> {
+  post(url: string, body: any, headers: Headers, cb: any): Promise<any> {
     this.DEF_HEADERS.delete('Authorization');
     if (headers !== this.AUTH_HEADERS && !this.DEF_HEADERS.has('Authorization')) {
-      const cookObj: any = this.cookie.getObject('current');
-      let token: string;
-      if (cookObj) {
-        token = `Bearer ${cookObj.access_token}`;
-        this.DEF_HEADERS.append('Authorization', token);
+      const token: string | null = this.cookie.getToken();
+      if (token) {
+        this.DEF_HEADERS.append('Authorization', `Bearer ${token}`);
       }
     }
-    const url: string = this.concatUrl(this.BASE_URL, param, false);
+    const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
     const options = new RequestOptions({ headers });
-    return this.http.post(url, obj, options)
+    return this.http.post(urls, obj, options)
       .toPromise();
   }
 
-  get(param: string, query: any): Promise<any> {
+  get(url: string, query: any): Promise<any> {
     this.DEF_HEADERS.delete('Authorization');
     if (!this.DEF_HEADERS.has('Authorization')) {
-      const cookObj: any = this.cookie.getObject('current');
-      let token: string;
-      if (cookObj) {
-        token = `Bearer ${cookObj.access_token}`;
-        this.DEF_HEADERS.append('Authorization', token);
+      const token: string | null = this.cookie.getToken();
+      if (token) {
+        this.DEF_HEADERS.append('Authorization', `Bearer ${token}`);
       }
     }
-    let url: string = this.concatUrl(this.BASE_URL, param, false);
+    let urls: string = this.concatUrl(this.BASE_URL, url, false);
     if (query) {
-      url = this.concatUrl(url, this.makeQuery(query), true);
+      urls = this.concatUrl(url, this.makeQuery(query), true);
     }
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
-    return this.http.get(url, options)
+    return this.http.get(urls, options)
       .toPromise()
       .then(res => res.json());
   }
