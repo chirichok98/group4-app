@@ -21,7 +21,6 @@ export class LoginFormComponent {
     this.aService.authenticate(this.login, this.password)
       .then(res => res.json())
       .then((obj: any) => {
-        console.log(obj);
         this.prepareCookie(obj);
         this.router.navigate([obj.url]);
       }, (error) => {

@@ -20,6 +20,5 @@ export class DatepickerFormComponent {
 
   onChange(date: any) {
     this.dateChange.emit(date);
-    console.log(date);
   }
 }
