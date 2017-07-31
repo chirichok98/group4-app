@@ -11,7 +11,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
   styleUrls: ['input-vacancy.component.scss'],
 })
 export class InputVacancyComponent implements DoCheck {
-  @Input() vacInfo: any;
+  @Input() vacInfo: any = {};
   @Output() vacInfoChange: EventEmitter<any> = new EventEmitter<any>();
 
   statuses: IGeneral[] = [];
