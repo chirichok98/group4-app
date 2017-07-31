@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 import { PositionsListService } from '../../../../services/positions-list.service';
 import { PagerService } from '../../../../services/pager.service';
+import { HttpService } from '../../../../services/http.service';
 
 @Component({
   selector: 'positions-list',
   templateUrl: 'positions-list.component.html',
   styleUrls: ['positions-list.component.scss'],
 })
-
 export class PositionsListComponent {
-
   isSpinnerVisible: boolean = true;
   positions: IPositionPreview[];
-  constructor(private pagerService: PagerService) {
-    this.pagerService.init('vacancy')
+  paramsQueue: any = [];
+  constructor(private pagerService: PagerService, private httpService: HttpService) {
+    this.pagerService.init(httpService.VAC)
       .then((positions) => {
         console.log(positions);
         this.positions = positions;
@@ -25,13 +25,21 @@ export class PositionsListComponent {
         this.isSpinnerVisible = false;
       });
   }
-  onScroll(pager: PagerService) {
+  onScroll(pager?: PagerService) {
+    if (pager) {
+      this.paramsQueue.push(pager.skip);
+    }
+    const params = this.paramsQueue.reverse().pop();
+    this.paramsQueue.reverse();
     console.log(pager.skip);
-    this.pagerService.more(pager.skip)
+    this.pagerService.more(params)
       .then((positions) => {
         console.log(positions);
-        this.positions.push(positions);
+        this.positions = this.positions.concat(positions);
         this.isSpinnerVisible = false;
+        if (this.paramsQueue.length) {
+          this.onScroll();
+        }
       }, (error) => {
         console.log('Positions error');
         this.isSpinnerVisible = false;
