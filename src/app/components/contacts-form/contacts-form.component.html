@@ -1,14 +1,12 @@
-<div class="input-wrapper">
+<md-input-container class="">
+    <input [(ngModel)]="contact.email" type="email" mdInput placeholder="Email">
+  </md-input-container>
   <md-input-container class="">
-      <input [(ngModel)]="contact.email" type="email" mdInput placeholder="Email">
-    </md-input-container>
-   <md-input-container class="">
-      <input [(ngModel)]="contact.skype" mdInput placeholder="Skype">
-    </md-input-container>
-    <md-input-container class="">
-      <input [(ngModel)]="contact.phone"mdInput placeholder="Phone">
-    </md-input-container>
-    <md-input-container class="">
-      <input [(ngModel)]="contact.linkedIn" mdInput placeholder="LinkedIn">
-    </md-input-container>
-</div>
+    <input [(ngModel)]="contact.skype" mdInput placeholder="Skype">
+  </md-input-container>
+  <md-input-container class="">
+    <input [(ngModel)]="contact.phone"mdInput placeholder="Phone">
+  </md-input-container>
+  <md-input-container class="">
+    <input [(ngModel)]="contact.linkedIn" mdInput placeholder="LinkedIn">
+  </md-input-container>
