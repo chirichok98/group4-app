@@ -8,7 +8,7 @@ import { ICandidatePreview } from './../../interfaces/ICandidatePreview';
 export class PagerDirective {
   constructor(@Inject(DOCUMENT) private document: Document) { }
   scrollValue: number = 0;
-  scrollBorder: number = 400;
+  scrollBorder: number = 200;
   skip: number = 0;
   @Output() update = new EventEmitter<any>();
   @HostListener('window:scroll') onScroll() {
