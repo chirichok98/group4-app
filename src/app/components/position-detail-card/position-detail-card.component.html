@@ -1,4 +1,5 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
+    <button (click)="goToEditForm()">Edit vacancy</button>
     <div class="position-blocks">
         <div class="position-block" *ngIf="pos.primarySkill?.picture; else defaultPic">
             <img class="position-photo" [src]="position.primarySkill.picture">

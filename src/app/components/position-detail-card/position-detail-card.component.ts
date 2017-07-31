@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IPositionDetail } from '../../interfaces/IPositionDetail';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'position-detail-card',
@@ -9,10 +11,16 @@ import { IPositionDetail } from '../../interfaces/IPositionDetail';
 })
 
 export class PositionDetailComponent implements OnInit {
-  @Input() position: Promise<IPositionDetail>;
+  @Input() position: IPositionDetail;
 
-  constructor() { }
+  constructor(private router: Router, private cookie: MyCookieService) { }
 
   ngOnInit() {
+  }
+
+  goToEditForm() {
+    const url: string = `edit/vacancy/${this.position.id}`;
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 }
