@@ -1,9 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 html {
   font-size: 20px;
   height: 100%;
 }
+
 body {
   height: 100%;
   background-color: rgba(39, 50, 72, 0.06);
@@ -12,17 +12,20 @@ body {
   justify-content: center;
   font-family: sans-serif;
 }
+
 app-root {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 80%;
 }
+
 @media (max-width: 992px) {
   app-root {
     width: 90%;
   }
 }
+
 @media (max-width: 552px) {
   app-root {
     width: 100%;
@@ -37,12 +40,15 @@ notifications {
   margin-top: 0.5rem;
   padding: 2rem;
 }
+
 prev-job-form .input-wrapper.contacts {
   padding: 0 50px;
 }
+
 prev-job-form .input-wrapper.contacts {
   padding: 0 50px;
 }
+
 main,
 home,
 create-candidate,
@@ -51,10 +57,12 @@ notifications {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }
+
 main {
   display: flex;
   flex-direction: column;
 }
+
 notifications {
   display: flex;
   flex-direction: column;
@@ -139,26 +147,39 @@ input[type=range]+.thumb {
 
 
 /*Login form*/
+
 .mat-focused .mat-input-placeholder {
-	color: #56CCF2;
+  color: #56CCF2;
 }
+
 .mat-focused .mat-input-ripple {
-	background-color: #56CCF2;	
+  background-color: #56CCF2;
 }
+
 .mat-input-placeholder {
   color: #526C7B;
 }
 
+
 /*Select*/
+
 select-form .mat-select-trigger {
   font-size: 20px;
   color: #273248;
   min-width: 237px;
   height: 39px;
 }
+
 select-form .mat-select-placeholder {
   padding: 0;
 }
+
 select-form .mat-select-placeholder.mat-floating-placeholder {
   color: #273248;
+}
+
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent,
+.mat-raised-button.mat-accent {
+  background-color: #56CCF2;
 }
