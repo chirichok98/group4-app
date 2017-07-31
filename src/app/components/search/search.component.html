@@ -1,6 +1,6 @@
 <div class="search-block">
     <div class="form">
-        <search-option *ngFor="let option of options"></search-option>
+        <search-option *ngFor="let option of options" [array]="fields"></search-option>
         <button class="btn waves-effect waves-light" (click)="addOption()">Add option</button>
         <button *ngIf="options.length" class="btn waves-effect waves-light" (click)="removeOption()">Remove option</button>
         <button class="btn waves-effect waves-light" (click)="startSearch()">Find</button>

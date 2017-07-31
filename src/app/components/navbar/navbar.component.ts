@@ -26,7 +26,9 @@ export class NavbarComponent implements OnInit, DoCheck {
     const url: any = this.cookie.getUrl();
     if (url === 'main-page') {
       this.currentState = this.states[0];
-      this.cookie.updateUrl(`main-page/${this.currentState.stateName}`);
+      const url: string = `main-page/${this.currentState.stateName}`;
+      this.cookie.updateUrl(url);
+      this.router.navigate([url]);
       return;
     }
     this.currentState = this.getStateFromUrl(url);

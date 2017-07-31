@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 import { PositionsListService } from '../../../../services/positions-list.service';
+import { MyCookieService } from '../../../../services/cookie.service';
+import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
 import { HttpService } from '../../../../services/http.service';
 
@@ -14,7 +16,10 @@ export class PositionsListComponent {
   isSpinnerVisible: boolean = true;
   positions: IPositionPreview[];
   paramsQueue: any = [];
-  constructor(private pagerService: PagerService, private httpService: HttpService) {
+  constructor(private pagerService: PagerService, 
+              private httpService: HttpService,
+              private cookie: MyCookieService, 
+              private router: Router) {
     this.pagerService.init(httpService.VAC)
       .then((positions) => {
         console.log(positions);
@@ -44,5 +49,10 @@ export class PositionsListComponent {
         console.log('Positions error');
         this.isSpinnerVisible = false;
       });
+  }
+  addVacancy(): void {
+    const url: string = 'create/vacancy';
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 }

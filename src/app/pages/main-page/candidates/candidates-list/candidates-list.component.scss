@@ -7,6 +7,12 @@
 .candidate-item-wrapper {
     width: 50%;
 }
+.add-button {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
 @media (max-width: 830px) {
     .candidate-item-wrapper {
         width: 100%;
