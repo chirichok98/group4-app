@@ -15,6 +15,7 @@ export class HttpService {
   CAN: string = `api/candidate`;
   VAC: string = `api/vacancy`;
   ADD: string = `add`;
+  UPDATE: string = `update`;
   SEARCH: string = `search`;
   CITY: string = 'api/city';
   ENGLISH: string = 'api/engLevel';
@@ -44,6 +45,16 @@ export class HttpService {
     return JSON.stringify(body);
   }
 
+  appendAuth(header: any): void {
+    header.delete('Authorization');
+    if (!header.has('Authorization')) {
+      const token: string | null = this.cookie.getToken();
+      if (token) {
+        header.append('Authorization', `Bearer ${token}`);
+      }
+    }
+  }
+
   post(url: string, body: any, headers: Headers, cb: any): Promise<any> {
     this.DEF_HEADERS.delete('Authorization');
     if (headers !== this.AUTH_HEADERS && !this.DEF_HEADERS.has('Authorization')) {
@@ -59,14 +70,17 @@ export class HttpService {
       .toPromise();
   }
 
+  put(url: string, body: any, cb): Promise<any> {
+    this.appendAuth(this.DEF_HEADERS);
+    const urls: string = this.concatUrl(this.BASE_URL, url, false);
+    const obj: string = cb(body);
+    const options = new RequestOptions({ headers: this.DEF_HEADERS });
+    return this.http.post(urls, obj, options)
+      .toPromise();
+  }
+
   get(url: string, query: any): Promise<any> {
-    this.DEF_HEADERS.delete('Authorization');
-    if (!this.DEF_HEADERS.has('Authorization')) {
-      const token: string | null = this.cookie.getToken();
-      if (token) {
-        this.DEF_HEADERS.append('Authorization', `Bearer ${token}`);
-      }
-    }
+    this.appendAuth(this.DEF_HEADERS);
     let urls: string = this.concatUrl(this.BASE_URL, url, false);
     if (query) {
       urls = this.concatUrl(urls, this.makeQuery(query), true);
@@ -76,4 +90,5 @@ export class HttpService {
       .toPromise()
       .then(res => res.json());
   }
+
 }
