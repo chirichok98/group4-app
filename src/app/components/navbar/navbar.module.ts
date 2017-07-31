@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar.component';
 import { SearchModule } from '../search/search.module';
 import { FilterModule } from '../filter/filter.module';
 import { MaterialModule } from '@angular/material';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { MaterialModule } from '@angular/material';
     SearchModule,
     FilterModule,
     MaterialModule,
+    CookieModule,
   ],
   declarations: [NavbarComponent],
   exports: [NavbarComponent],

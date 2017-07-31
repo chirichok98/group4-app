@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 declare const $;
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'navbar-menu',
@@ -17,30 +18,35 @@ export class NavbarComponent implements OnInit {
   isFilterVisible: boolean = false;
   isMenuVisible: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private cookie: MyCookieService) { }
 
   ngOnInit(): void {
-    if (!this.currentState) {
+    const url: any = this.cookie.getUrl();
+    if (url === 'main-page') {
       this.currentState = this.states[0];
-      this.router.navigate([`main-page/${this.currentState.stateName}`]);
-    } else {
-      const url: string = this.router.url.substring(1);
-      const start: number = url.indexOf('/');
-      const end: number = url.lastIndexOf('/');
-      let stateName: string;
-      if (start === end) {
-        stateName = url.substring(start + 1);
-      } else {
-        stateName = url.substring(start + 1, end);
-      }
-      const state = this.states.find(item => item.stateName === stateName);
-      this.currentState = state;
+      this.cookie.updateUrl(`main-page/${this.currentState.stateName}`);
+      return;
     }
+    const start: number = url.indexOf('/');
+    const end: number = url.lastIndexOf('/');
+    let stateName: string;
+    if (start === end) {
+      stateName = url.slice(start + 1);
+    } else {
+      stateName = url.slice(start + 1, end);
+    }
+    const state = this.states.find(item => item.stateName === stateName);
+    this.currentState = state;
+    this.router.navigate([url]);
   }
 
   goTo(newState: INavbarOption): void {
     this.currentState = newState;
-    this.router.navigate([`./main-page/${this.currentState.stateName}`]);
+    const url: string = `main-page/${this.currentState.stateName}`;
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 
   getStyleByIndex(index: number): string {
@@ -92,10 +98,10 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
-  
- 
-    
-  
+
+
+
+
 }
 
 
