@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 declare const $;
@@ -11,7 +11,7 @@ import { MyCookieService } from '../../services/cookie.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
   @Input() states: INavbarOption[];
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit {
   isMenuVisible: boolean = false;
 
   constructor(private router: Router,
-    private route: ActivatedRoute,
-    private cookie: MyCookieService) { }
+              private route: ActivatedRoute,
+              private cookie: MyCookieService) { }
 
   ngOnInit(): void {
     const url: any = this.cookie.getUrl();
@@ -29,6 +29,18 @@ export class NavbarComponent implements OnInit {
       this.cookie.updateUrl(`main-page/${this.currentState.stateName}`);
       return;
     }
+    this.currentState = this.getStateFromUrl(url);
+    this.router.navigate([url]);
+  }
+
+  ngDoCheck() {
+    const url: string = this.router.url.slice(1);
+    const state: INavbarOption = this.getStateFromUrl(url);
+    this.cookie.updateUrl(url);
+    this.currentState = state;
+  }
+
+  getStateFromUrl(url: string): INavbarOption {
     const start: number = url.indexOf('/');
     const end: number = url.lastIndexOf('/');
     let stateName: string;
@@ -37,9 +49,8 @@ export class NavbarComponent implements OnInit {
     } else {
       stateName = url.slice(start + 1, end);
     }
-    const state = this.states.find(item => item.stateName === stateName);
-    this.currentState = state;
-    this.router.navigate([url]);
+    const state: INavbarOption = this.states.find(item => item.stateName === stateName);
+    return state;
   }
 
   goTo(newState: INavbarOption): void {
