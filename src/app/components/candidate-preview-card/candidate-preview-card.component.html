@@ -34,7 +34,9 @@
                 <ng-container *ngIf="candidate.skill; else skill">{{candidate.skill}}</ng-container>
                 <ng-template #skill>Primary skill</ng-template>
             </div>
-            <div class="status">{{candidate.status}}</div>
+            <div class="status-wrapper">
+                <div class="status">{{candidate.status}}</div>
+            </div>
         </div>
     </div>
 </md-card>

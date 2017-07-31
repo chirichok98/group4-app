@@ -1,34 +1,41 @@
 .card {
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0.5rem 0.25rem 0;
-    font-size: 0.8em;
-    position: relative;
-    overflow: hidden;
-    padding: 1.5rem;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0.25rem 0;
+  font-size: 0.8em;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
 }
+
 .card:hover {
   cursor: pointer;
   transform: scale(1.015);
   transition-duration: (0.5s);
 }
+
 .card .card-image {
   width: 100px;
   height: 100px;
   width: 24%;
   min-width: 120px;
+  img {
+    border-radius: 50%;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    &::selection {
+      background: transparent;
+    }
+  }
 }
-.card-image img {
-  border-radius: 50%;
-  margin: auto;
-  width: 100px;
-  height: 100px;
-}
+
 .card-stacked {
   width: 66%;
 }
+
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -39,15 +46,33 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 .content-wrapper {
   line-height: 1.3rem;
 }
+
 .content-wrapper.skill {
   text-transform: uppercase;
   font-size: 0.9em;
   font-weight: 500;
   padding: 0 3px;
 }
+
+.card-content {
+  div::selection {
+    color: #56CCF2;
+  }
+  i::selection {
+    background: transparent;
+  }
+  .status-wrapper {
+    div::selection {
+      color: white;
+      background: transparent;
+    }
+  }
+}
+
 .card-content .material-icons {
   vertical-align: bottom;
   font-size: 1.3rem;
@@ -55,11 +80,13 @@
   line-height: 1.4rem;
   margin-right: 2px;
 }
+
 .card-content .material-icons.candidate-phone {
   color: #ff5151;
   font-size: 1.2rem;
   margin-right: 4px;
 }
+
 .feedback-logotypes {
   display: inline-block;
   width: 1.4rem;
@@ -67,10 +94,12 @@
   vertical-align: bottom;
   line-height: 1.4rem;
 }
+
 .skype .feedback-logotypes {
   background: url("/assets/skype_logo.png") no-repeat 0 0;
   background-size: contain;
 }
+
 .status {
   position: absolute;
   padding: 0.5rem 2.5rem;
