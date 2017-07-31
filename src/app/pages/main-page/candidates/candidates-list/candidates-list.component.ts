@@ -1,26 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
 import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
+import { PagerService } from '../../../../services/pager.service';
+import { HttpService } from '../../../../services/http.service';
 
 @Component({
   selector: 'candidates-list',
   templateUrl: 'candidates-list.component.html',
   styleUrls: ['./candidates-list.component.scss'],
 })
-export class CandidatesListComponent implements OnInit {
+export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
-  skip: number = 0;
-  amount: number = 50;
-
-  constructor(private clService: CandidatesListService,
+  paramsQueue: any = [];
+  constructor(private pagerService: PagerService, 
+              private httpService: HttpService,
               private cookie: MyCookieService,
               private router: Router) {
-    this.clService.getCandidates(this.skip, this.amount)
+    this.pagerService.init(httpService.CAN)
       .then((candidates) => {
+        console.log(candidates);
         this.candidates = candidates;
         this.isSpinnerVisible = false;
       }, (error) => {
@@ -28,8 +30,25 @@ export class CandidatesListComponent implements OnInit {
         this.isSpinnerVisible = false;
       });
   }
-
-  ngOnInit() {
+  onScroll(pager?: PagerService) {
+    if (pager) {
+      this.paramsQueue.push(pager.skip);
+    }
+    const params = this.paramsQueue.reverse().pop();
+    this.paramsQueue.reverse();
+    console.log(pager.skip);
+    this.pagerService.more(params)
+      .then((candidates) => {
+        console.log(candidates);
+        this.candidates = this.candidates.concat(candidates);
+        this.isSpinnerVisible = false;
+        if (this.paramsQueue.length) {
+          this.onScroll();
+        }
+      }, (error) => {
+        console.log('Candidates error');
+        this.isSpinnerVisible = false;
+      });
   }
 
   addCandidate(): void {

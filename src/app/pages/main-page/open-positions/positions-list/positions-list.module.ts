@@ -7,8 +7,12 @@ import { PositionsListComponent } from './positions-list.component';
 // tslint:disable-next-line:max-line-length
 import { PositionPreviewModule } from '../../../../components/position-preview-card/position-preview-card.module';
 import { SpinnerModule } from '../../../../components/spinner/spinner.module';
+import { PagerModule } from '../../../../directives/pager/pager.module';
 import { PositionsListService } from '../../../../services/positions-list.service';
 import { MaterialModule } from '@angular/material';
+import { PagerService } from '../../../../services/pager.service';
+
+import { PagerDirective } from '../../../../directives/pager/pager.directive';
 
 @NgModule({
   imports: [
@@ -18,9 +22,16 @@ import { MaterialModule } from '@angular/material';
     CommonModule,
     SpinnerModule,
     MaterialModule,
+    PagerModule,
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule, 
+    PagerModule,
+  ],
   declarations: [PositionsListComponent],
-  providers: [PositionsListService],
+  providers: [
+    PositionsListService, 
+    PagerService,
+  ],
 })
 export class PositionsListModule { }

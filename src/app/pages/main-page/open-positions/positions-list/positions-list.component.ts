@@ -1,36 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { IPositionPreview } from '../../../../interfaces/IPositionPreview';
 import { PositionsListService } from '../../../../services/positions-list.service';
 import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
+import { PagerService } from '../../../../services/pager.service';
+import { HttpService } from '../../../../services/http.service';
 
 @Component({
   selector: 'positions-list',
   templateUrl: 'positions-list.component.html',
   styleUrls: ['positions-list.component.scss'],
 })
-
-export class PositionsListComponent implements OnInit {
-  positions: IPositionPreview[];
+export class PositionsListComponent {
   isSpinnerVisible: boolean = true;
-  skip: number = 0;
-  amount: number = 50;
-  
-  constructor(private plService: PositionsListService,
+  positions: IPositionPreview[];
+  paramsQueue: any = [];
+  constructor(private pagerService: PagerService, 
+              private httpService: HttpService,
               private cookie: MyCookieService, 
               private router: Router) {
-    this.plService.getPositions(this.skip, this.amount).then((positions) => {
-      this.positions = positions;
-      this.isSpinnerVisible = false;
-    }, (error) => {
-      console.log('Positions error');
-      this.isSpinnerVisible = false;
-    });
+    this.pagerService.init(httpService.VAC)
+      .then((positions) => {
+        console.log(positions);
+        this.positions = positions;
+        this.isSpinnerVisible = false;
+      }, (error) => {
+        console.log('Positions error');
+        this.isSpinnerVisible = false;
+      });
   }
-
-  ngOnInit() { }
-  
+  onScroll(pager?: PagerService) {
+    if (pager) {
+      this.paramsQueue.push(pager.skip);
+    }
+    const params = this.paramsQueue.reverse().pop();
+    this.paramsQueue.reverse();
+    console.log(pager.skip);
+    this.pagerService.more(params)
+      .then((positions) => {
+        console.log(positions);
+        this.positions = this.positions.concat(positions);
+        this.isSpinnerVisible = false;
+        if (this.paramsQueue.length) {
+          this.onScroll();
+        }
+      }, (error) => {
+        console.log('Positions error');
+        this.isSpinnerVisible = false;
+      });
+  }
   addVacancy(): void {
     const url: string = 'create/vacancy';
     this.cookie.updateUrl(url);
