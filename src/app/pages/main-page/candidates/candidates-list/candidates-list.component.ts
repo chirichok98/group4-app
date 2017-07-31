@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 import { ICandidatePreview } from '../../../../interfaces/ICandidatePreview';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { MyCookieService } from '../../../../services/cookie.service';
+import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
 import { HttpService } from '../../../../services/http.service';
 
@@ -14,7 +16,10 @@ export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
   paramsQueue: any = [];
-  constructor(private pagerService: PagerService, private httpService: HttpService) {
+  constructor(private pagerService: PagerService, 
+              private httpService: HttpService,
+              private cookie: MyCookieService,
+              private router: Router) {
     this.pagerService.init(httpService.CAN)
       .then((candidates) => {
         console.log(candidates);
@@ -44,5 +49,11 @@ export class CandidatesListComponent {
         console.log('Candidates error');
         this.isSpinnerVisible = false;
       });
+  }
+
+  addCandidate(): void {
+    const url: string = 'create/candidate';
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 }

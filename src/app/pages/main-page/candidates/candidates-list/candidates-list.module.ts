@@ -9,8 +9,8 @@ import { CandidatePreviewModule } from '../../../../components/candidate-preview
 import { SpinnerModule } from '../../../../components/spinner/spinner.module';
 import { PagerModule } from '../../../../directives/pager/pager.module';
 import { CandidatesListService } from '../../../../services/candidates-list.service';
+import { MaterialModule } from '@angular/material';
 import { PagerService } from '../../../../services/pager.service';
-
 import { PagerDirective } from '../../../../directives/pager/pager.directive';
 
 @NgModule({
@@ -20,6 +20,7 @@ import { PagerDirective } from '../../../../directives/pager/pager.directive';
     CandidatePreviewModule,
     CommonModule,
     SpinnerModule,
+    MaterialModule,
     PagerModule,
   ],
   exports: [RouterModule],

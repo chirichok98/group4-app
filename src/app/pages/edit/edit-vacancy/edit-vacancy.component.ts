@@ -16,7 +16,7 @@ export class EditVacancyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private cookie: MyCookieService, 
+              private cookie: MyCookieService,
               private evService: EditVacancyService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.vacancyId = +params['id'];
@@ -38,11 +38,22 @@ export class EditVacancyComponent implements OnInit {
   ngOnInit() {
   }
 
+  configureSkill(skill): any {
+    const res: any = {
+      id: skill.id,
+      level: skill.level,
+    };
+    return res;
+  }
+
   editVacancy() {
-    console.log(this.vacancy);
+    this.vacancy.candidates = this.vacancy.candidates.map(i => i.id);
+    this.vacancy.primarySkill = this.configureSkill(this.vacancy.primarySkill);
+    this.vacancy.secondarySkills = this.vacancy.secondarySkills
+      .map((i: any) => this.configureSkill(i));
+    delete this.vacancy.hrm;
     this.evService.updateVacancy(this.vacancy)
       .then((res: any) => {
-        console.log(res);
         const url: string = `main-page/vacancies/${this.vacancyId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
