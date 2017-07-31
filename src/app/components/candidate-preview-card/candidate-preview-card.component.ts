@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'candidate-card',
@@ -11,12 +12,14 @@ import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 export class CandidatePreviewComponent implements OnInit {
   @Input() candidate: ICandidatePreview;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cookie: MyCookieService) { }
 
   ngOnInit() {
   }
 
   goToDetailView() {
-    this.router.navigate(['main-page/candidates', this.candidate.id]);
+    const url: string = `main-page/candidates/${this.candidate.id}`;
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 }
