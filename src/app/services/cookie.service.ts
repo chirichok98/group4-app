@@ -27,6 +27,7 @@ export class MyCookieService {
   updateUrl(url: string): void {
     const cookie: any = this.cookie.getObject('current');
     cookie.url = url;
+    this.removeCookie();
     this.setCookie(cookie);
   }
 
