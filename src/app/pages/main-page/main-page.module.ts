@@ -15,6 +15,7 @@ import { MaterialModule } from '@angular/material';
 import { BasketModule } from '../../components/basket/basket.module';
 import { BasketComponent } from '../../components/basket/basket.component';
 import { CandidateService } from '../../services/candidate.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { CandidateService } from '../../services/candidate.service';
     NotificationsModule,
     MaterialModule,
     BasketModule,
+    CommonModule,
   ],
   exports: [],
   declarations: [MainPageComponent],

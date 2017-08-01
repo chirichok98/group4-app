@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
+  role: string;
   navbarConfig: any = {
     candidates: { name: 'CANDIDATES', stateName: 'candidates' },
     positions: { name: 'POSITIONS', stateName: 'vacancies' },
@@ -22,8 +23,8 @@ export class MainPageComponent implements OnInit {
   constructor(private router: Router,
               private cookie: MyCookieService,
               private cService: CandidateService) {
-    const role: string = this.cookie.getRole();
-    this.getOptionsByRole(role);
+    this.role = this.cookie.getRole();
+    this.getOptionsByRole(this.role);
   }
 
   getOptionsByRole(role: string): void {
