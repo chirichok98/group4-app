@@ -63,9 +63,13 @@ export class MyCookieService {
     });
   }
 
+  removeBasket(): void {
+    this.cookie.remove('basket');
+    this.initBasket();
+  }
+
   addCandidate(obj: number): boolean {
     const store: any = this.cookie.getObject('basket');
-    // const elem = JSON.stringify(obj);
     if (!store.candidates.includes(obj)) {
       store.candidates.push(obj);
       this.cookie.putObject('basket', {
@@ -74,16 +78,12 @@ export class MyCookieService {
       });
       return true;
     }
-    console.log('current basket');
-    console.log(store.candidates);
     return false;
   }
 
   removeIdFromCandidate(index: any): void {
     const store: any = this.cookie.getObject('basket');
-    console.log(store.candidates);
     store.candidates.splice(index, 1);
-    console.log(store.candidates);
     this.cookie.putObject('basket', {
       candidates: store.candidates || [],
       positions: store.positions || [],
@@ -100,8 +100,6 @@ export class MyCookieService {
       });
       return true;
     }
-    console.log('current basket');
-    console.log(store.positions);
     return false;
   }
 

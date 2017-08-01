@@ -4,6 +4,7 @@ import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
 import { PositionService } from '../../services/position.service';
 import { MyCookieService } from '../../services/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'basket',
@@ -18,15 +19,13 @@ export class BasketComponent implements OnInit {
 
   constructor(private cService: CandidateService,
               private pService: PositionService,
-              private cookie: MyCookieService) {
+              private cookie: MyCookieService,
+              private router: Router) {
     this.canIds = this.cookie.getCandidates();
     this.vacIds = this.cookie.getVacancies();
-    console.log(this.canIds);
-    console.log(this.vacIds);
     this.cService.getCandidatesByIds(this.canIds)
       .then((res: any) => {
         this.candidates = res;
-        console.log(res);
       });
     this.pService.getPositionsByIds(this.vacIds)
       .then((res: any) => {
@@ -49,9 +48,27 @@ export class BasketComponent implements OnInit {
   }
 
   assign(): void {
+    if (!this.isChecked(this.canIds, this.vacIds)) return;
     this.cService.assignVacancies(this.canIds, this.vacIds)
       .then((res: any) => {
-        console.log(res);
+        if (res.status === 200) {
+          this.positions = [];
+          this.candidates = [];
+          this.cookie.removeBasket();
+          const url: string = 'main-page';
+          this.cookie.updateUrl(url);
+          this.router.navigate([url]);
+        }
+      }, (error: any) => {
+        console.log(error);
       });
+  }
+
+  isChecked(can: number[], vac: number[]): boolean {
+    if (!can.length || !vac.length) {
+      console.log('Nothing to assign');
+      return false;
+    }
+    return true;
   }
 }
