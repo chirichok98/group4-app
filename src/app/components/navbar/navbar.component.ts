@@ -84,7 +84,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     const detailed = $('.detailed-search');
     if (!filter.height()) {
       if (!search.height()) {
-        search.animate({ height: '10rem', opacity: '1' });
+        search.animate({ height: '20rem', opacity: '1' });
         search.css({ visibility: 'visible' });
 
       } else {
