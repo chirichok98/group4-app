@@ -79,6 +79,17 @@ export class MyCookieService {
     return false;
   }
 
+  removeIdFromCandidate(index: any): void {
+    const store: any = this.cookie.getObject('basket');
+    console.log(store.candidates);
+    store.candidates.splice(index, 1);
+    console.log(store.candidates);
+    this.cookie.putObject('basket', {
+      candidates: store.candidates || [],
+      positions: store.positions || [],
+    });
+  }
+
   addVacancy(obj: number): boolean {
     const store: any = this.cookie.getObject('basket');
     if (!store.positions.includes(obj)) {
@@ -92,6 +103,15 @@ export class MyCookieService {
     console.log('current basket');
     console.log(store.positions);
     return false;
+  }
+
+  removeIdFromVacancies(index: any): void {
+    const store: any = this.cookie.getObject('basket');
+    store.positions.splice(index, 1);
+    this.cookie.putObject('basket', {
+      candidates: store.candidates || [],
+      positions: store.positions || [],
+    });
   }
 
   getCandidates(): any {
