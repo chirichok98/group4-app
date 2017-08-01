@@ -1,22 +1,47 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
     <button (click)="goToEditForm()">Edit vacancy</button>
     <div class="position-blocks">
-        <div class="position-block" *ngIf="pos.primarySkill?.picture; else defaultPic">
-            <img class="position-photo" [src]="position.primarySkill.picture">
+        <div class="position-block">
+            <img class="position-photo" *ngIf="pos.primarySkill?.picture as pic; else defaultPic" [src]="pic">
+            <ng-template #defaultPic>
+                <div class="position-block">
+                    <img class="position-photo" src="./assets/def-skill.png">
+                </div>
+            </ng-template>
         </div>
-        <ng-template #defaultPic>
-            <div class="position-block">
-                <img class="position-photo" src="./assets/def-skill.png">
-            </div>
-        </ng-template>
         <div class="position-block">
             <div class="position-feedback">
                 <div class="position-info-item position-status"><span>Status: </span>{{pos.status}}</div>
+                <div class="position-info-item position-status"><span>Link on project: </span>{{pos.link}}</div>
                 <div class="position-info-item position-date"><span>Date: </span>{{pos.requestDate | date : 'mediumDate'}}</div>
-                <div class="position-info-item position-skill-name"><span>Language: </span>{{pos.primarySkill.name}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{pos.startDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-date"><span>Date: </span>{{pos.closeDate | date : 'mediumDate'}}</div>
+                <div class="position-info-item position-skill-name"><span>Primary skill: </span>
+                    <md-chip-list>
+                        <md-chip>{{pos.primarySkill?.name}}</md-chip>
+                    </md-chip-list>
+                </div>
+                <span>Secondary skills</span>
+                <ng-container *ngFor="let item of pos.secondarySkills">
+                    <img class="candidate-skill" *ngIf="item.picture as pic; else text" [src]="pic">
+                    <ng-template #text>
+                        <md-chip-list>
+                            <md-chip>{{item.name}}</md-chip>
+                        </md-chip-list>
+                    </ng-template>
+                </ng-container>
                 <div class="position-info-item position-project-name"><span>Project: </span>{{pos.projectName}}</div>
                 <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{pos.vacancyName}}</div>
                 <div class="position-info-item position-english-level"><span>English(min): </span>{{pos.engLevel}}</div>
+                <div class="position-info-item position-english-level"><span>Experience(years): </span>{{pos.experience}}</div>
+                <div class="position-info-item position-english-level"><span>City: </span>{{pos.city}}</div>
+                <div class="position-info-item position-english-level"><span>HR manager: </span>{{pos.hrm?.name}}</div>
+            </div>
+        </div>
+        <div class="candidates">
+            Current candidates:
+            <div>
+                <candidate-card *ngFor="let can of pos.candidates" [candidate]="can"></candidate-card>
             </div>
         </div>
     </div>
