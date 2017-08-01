@@ -9,7 +9,7 @@ declare const $;
   styleUrls: ['select-form.component.scss'],
 })
 export class SelectFormComponent {
-  @Input() array: IGeneral[];
+  @Input() array: any;
   @Input() placeholder: string;
 
   @Input() result: number;
@@ -20,5 +20,8 @@ export class SelectFormComponent {
 
   onChange(value: any) {
     this.resultChange.emit(value);
+  }
+
+  ngDoCheck() {
   }
 }
