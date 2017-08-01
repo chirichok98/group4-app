@@ -1,11 +1,41 @@
-.notifications-indicators {
-    display: flex;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    color: #273248;
-    background: rgba(82, 108, 123, 0.07);
-    margin: 0 -15px;
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
 }
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 20px;
+}
+.mat-table {
+  overflow: auto;
+}
+.mat-column-color span {
+  font-size: 0;
+  display: block;
+  width: 1.5rem;
+  height: 1rem;
+}
+.Reminders .mat-column-color span {
+  background: #374767;
+}
+.News .mat-column-color span {
+  background: #52c1e6;
+}
+.Assignments .mat-column-color span {
+  background: #6d8b9c;
+}
+.mat-header-cell .mat-sort-header-sorted {
+  color: black;
+}
+
+
+
 .notifications-indicators .indicator-wrapper {
     font-size: 0.8rem;
     display: flex;
@@ -16,9 +46,7 @@
     min-width: 11rem;
 }
 
- .indicator-wrapper div::selection {
-    color: #52c1e6;
- }
+
 .notifications-indicators .indicator-color {
     font-size: 0;
     height: 1.5rem;
