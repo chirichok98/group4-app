@@ -5,6 +5,7 @@ export interface IPositionPreview {
   projectName: string;
   vacancyName: string;
   city: string;
-  creationDate: Date;
+  startDate: Date;
+  closeDate: Date;
   primarySkill: ITechSkill;
 }

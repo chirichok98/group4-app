@@ -21,7 +21,6 @@ export class PositionsListComponent {
               private router: Router) {
     this.pagerService.init(httpService.VAC)
       .then((positions) => {
-        console.log(positions);
         this.positions = positions;
         this.isSpinnerVisible = false;
       }, (error) => {
@@ -35,7 +34,6 @@ export class PositionsListComponent {
     }
     const params = this.paramsQueue.reverse().pop();
     this.paramsQueue.reverse();
-    console.log(pager.skip);
     this.pagerService.more(params)
       .then((positions) => {
         console.log(positions);
