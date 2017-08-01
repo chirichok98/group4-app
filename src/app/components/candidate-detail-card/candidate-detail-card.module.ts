@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { PositionPreviewModule } from '../position-preview-card/position-preview-card.module';
 import { SpinnerModule } from '../spinner/spinner.module';
 import { MaterialModule } from '@angular/material';
+import { DownloadService } from '../../services/download.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { MaterialModule } from '@angular/material';
   ],
   exports: [CandidateDetailComponent],
   declarations: [CandidateDetailComponent],
-  providers: [],
+  providers: [DownloadService],
 })
 export class CandidateDetailModule { }
