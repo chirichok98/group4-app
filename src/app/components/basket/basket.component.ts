@@ -4,6 +4,7 @@ import { CandidateService } from '../../services/candidate.service';
 import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
 import { PositionService } from '../../services/position.service';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'basket',
@@ -15,7 +16,8 @@ export class BasketComponent implements OnInit {
   positions: IPositionPreview[] = [];
   constructor(@Inject(MD_DIALOG_DATA) public data: any,
               private cService: CandidateService,
-              private pService: PositionService) {
+              private pService: PositionService,
+              private cookie: MyCookieService) {
     this.cService.getCandidatesByIds(data.canIds)
       .then((res: any) => {
         this.candidates = res;
@@ -27,4 +29,9 @@ export class BasketComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  deleteCandidate(index: any): void {
+    this.candidates.splice(index, 1);
+    this.cookie.removeIdFromCandidate(index);
+  }
 }

@@ -2,10 +2,11 @@ import 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestMethod, 
     ResponseContentType } from '@angular/http';
+    
+import { fileSaver } from 'file-saver';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import { HttpService } from './http.service';
-import { fileSaver } from 'file-saver';
 @Injectable()
 export class DownloadService {
   DEF_HEADERS: Headers;
