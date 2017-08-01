@@ -1,0 +1,21 @@
+.candidates {
+  width: 45%;
+}
+
+.positions {
+  width: 45%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket {
+  background: #808080;
+}
+
+.can-remove {
+  position: absolute;
+  
+}

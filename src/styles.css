@@ -195,6 +195,7 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
 .mat-mini-fab.mat-accent,
 .mat-raised-button.mat-accent {
   background-color: #56CCF2;
+  z-index: 1000;
 }
 
 .mat-accent .mat-slider-thumb,
@@ -202,4 +203,3 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
 .mat-accent .mat-slider-track-fill {
   background-color: #52c1e6;
 }
-

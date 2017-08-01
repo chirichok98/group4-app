@@ -43,5 +43,6 @@ export class LoginFormComponent {
     this.cookie.removeCookie();
     obj.url = 'main-page';
     this.cookie.setCookie(obj);
+    this.cookie.initBasket();
   }
 }

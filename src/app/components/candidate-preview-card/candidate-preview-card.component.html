@@ -22,7 +22,7 @@
             </div>
             <div class="email content-wrapper">
                 <i class="small material-icons candidate-email">email</i>
-                <ng-container *ngIf="candidate.mail; else email">{{candidate.email}}</ng-container>
+                <ng-container *ngIf="candidate.email; else email">{{candidate.email}}</ng-container>
                 <ng-template #email>Mail</ng-template>
             </div>
             <div class="skype content-wrapper">
@@ -39,4 +39,5 @@
             </div>
         </div>
     </div>
+    <button *ngIf="showBasket" class="can-basket" (click)="addToBasket($event)" md-raised-button>Add to <md-icon>assignment</md-icon></button>
 </md-card>

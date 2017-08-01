@@ -2,7 +2,7 @@
     <div class="candidate-info-container">
         <div class="candidate-blocks">
             <div class="candidate-block img" *ngIf="can.picture; else defaultPic">
-                <img class="candidate-photo" [src]="can.picture">
+                <img class="candidate-photo" [src]="can.picture" (click)="download()">
             </div>
             <ng-template #defaultPic>
                 <div class="candidate-block img">
