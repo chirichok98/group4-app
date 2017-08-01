@@ -1,0 +1,24 @@
+<div class="basket">
+    <h2>STORE</h2>
+    <div class="container">
+        <div class="candidates" *ngIf="candidates">
+            <h4>Candidates</h4>
+            <div *ngFor="let item of candidates; let i = index">
+                <button class="can-remove" data-id="i" (click)="deleteCandidate(i)" md-mini-fab><md-icon>remove</md-icon></button>
+                <candidate-card [showBasket]="false" [candidate]="item"></candidate-card>
+            </div>
+        </div>
+        <div class="positions" *ngIf="positions">
+            <h4>Positions</h4>
+            <div *ngFor="let item of positions; let i = index">
+                <button class="vac-remove" data-id="i" (click)="deletePosition(i)" md-mini-fab><md-icon>remove</md-icon></button>
+                <position-preview-card [showBasket]="false" [position]="item"></position-preview-card>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <button *ngIf="canIds.length && vacIds.length" (click)="assign()" md-button class="btn submit">Submit</button>
+    </div>
+</div>

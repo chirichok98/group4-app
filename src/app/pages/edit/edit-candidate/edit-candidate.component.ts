@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ICandidateDetail } from '../../../interfaces/ICandidateDetail';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { EditCandidateService } from '../../../services/edit-candidate.service';
 import { MyCookieService } from '../../../services/cookie.service';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { CandidateService } from '../../../services/candidate.service';
 
 @Component({
   selector: 'edit-candidate',
@@ -17,7 +18,8 @@ export class EditCandidateComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private cookie: MyCookieService, 
-              private ecService: EditCandidateService) {
+              private cService: CandidateService,
+              private snackService: SnackbarService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.candidateId = +params['id'];
     });
@@ -25,12 +27,12 @@ export class EditCandidateComponent implements OnInit {
   }
 
   getCandidateById(id) {
-    this.ecService.getCandidateById(id)
+    this.cService.getCandidateById(id)
       .then((res: any) => {
         this.candidate = res;
         this.isLoaded = true;
       }, (error: any) => {
-        console.log('error with getting candidate');
+        this.snackService.showSnack('Candidate wasn`t loaded!','ERROR');
         this.isLoaded = true;
       });
   }
@@ -53,14 +55,14 @@ export class EditCandidateComponent implements OnInit {
       .map((i: any) => this.configureSkill(i));
     delete this.candidate.hrm;
     delete this.candidate.lastModifier;
-    console.log(this.candidate);
-    this.ecService.updateCandidate(this.candidate)
+    this.cService.updateCandidate(this.candidate)
       .then((res: any) => {
         const url: string = `main-page/candidates/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
+        this.snackService.showSnack('Candidate successfully edited!','SUCCESS');
       }, (error: any) => {
-        console.log(error);
+        this.snackService.showSnack('Candidate wasn`t edited!','ERROR');
       });
   }
 }

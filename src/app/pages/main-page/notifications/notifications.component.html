@@ -1,18 +1,41 @@
-<div class="notifications-indicators row">
-    <div class="indicator-wrapper reminders col m4 s12">
+<div class="notifications-indicators">
+    <div class="indicator-wrapper reminders">
         <div class="indicator-color dark-blue" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Reminders</div>
     </div>
-    <div class="indicator-wrapper news col m4 s12">
+    <div class="indicator-wrapper news">
         <div class="indicator-color light-blue" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- News</div>
     </div>
-    <div class="indicator-wrapper assignments col m4 s12">
+    <div class="indicator-wrapper assignments">
         <div class="indicator-color light-gray" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Assignments</div>
     </div>
 </div>
-<div class="notifications-wrapper">
-    <notification class="notification" *ngFor="let item of notifications" [notification]="item"></notification>
-    <!--<table-sorting-example></table-sorting-example>-->
+<div class="example-container mat-elevation-z8">
+    <md-table #table [dataSource]="dataSource">
+
+        <ng-container cdkColumnDef="color">
+            <md-header-cell *cdkHeaderCellDef> Color </md-header-cell>
+            <md-cell *cdkCellDef="let row" [style.color]="row.color"><span>{{row.color}}</span></md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="type">
+            <md-header-cell *cdkHeaderCellDef> Type </md-header-cell>
+            <md-cell *cdkCellDef="let row">{{row.type}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="date">
+            <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
+            <md-cell *cdkCellDef="let row">{{row.date | date:"mediumDate"}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="description">
+            <md-header-cell *cdkHeaderCellDef> Description </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.description}} </md-cell>
+        </ng-container>
+
+        <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row [ngClass]=[row.type] *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
 </div>

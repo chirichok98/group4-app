@@ -5,6 +5,7 @@ import { CookieModule } from 'ngx-cookie';
 import { LoginFormComponent } from './login.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { MaterialModule } from '@angular/material';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { MaterialModule } from '@angular/material';
   ],
   exports: [LoginFormComponent],
   declarations: [LoginFormComponent],
-  providers: [AuthenticationService],
+  providers: [
+    AuthenticationService,
+    SnackbarService,
+  ],
 })
 export class LoginFormModule { }

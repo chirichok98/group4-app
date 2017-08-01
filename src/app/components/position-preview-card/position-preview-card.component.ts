@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
+import { MyCookieService } from '../../services/cookie.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'position-preview-card',
@@ -10,13 +12,27 @@ import { IPositionPreview } from '../../interfaces/IPositionPreview';
 })
 export class PositionPreviewComponent {
   @Input() position: IPositionPreview;
-
-  constructor(private router: Router) { }
+  @Input() showBasket: boolean = true;
+  constructor(private router: Router, 
+              private cookie: MyCookieService,
+              private snackService: SnackbarService) { }
 
   ngOnInit() {
   }
 
   goToDetailView() {
     this.router.navigate([`main-page/vacancies`, this.position.id]);
+  }
+
+  addToBasket(event: any): void {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    }
+
+    if (this.cookie.addVacancy(this.position.id)) {
+      this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
+    } else {
+      this.snackService.showSnack('This position was added earlier!','WARNING');
+    }
   }
 }

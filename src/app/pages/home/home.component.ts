@@ -15,8 +15,4 @@ export class HomeComponent {
   constructor(private router: Router, private hService: HomeService) {
     this.descriptions = this.hService.getAllDescriptions();
   }
-
-  onLogin(): void {
-    this.router.navigate(['/profiles']);
-  }
 }

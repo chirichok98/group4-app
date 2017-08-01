@@ -1,7 +1,6 @@
 import { Component, DoCheck, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { DictionariesService } from '../../services/dictionaries.service';
-import { CreateVacancyService } from '../../services/create-vacancy.service';
 import { ITechSkill } from '../../interfaces/ITechSkill';
 import { IGeneral } from '../../interfaces/IGeneral';
 
@@ -20,8 +19,7 @@ export class InputVacancyComponent implements DoCheck {
   skills: ITechSkill[] = [];
 
   constructor(private router: Router,
-              private hService: DictionariesService,
-              private cvService: CreateVacancyService) {
+              private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;
       if (this.vacInfo.city) {

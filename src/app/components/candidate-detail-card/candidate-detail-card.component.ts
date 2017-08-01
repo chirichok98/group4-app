@@ -19,6 +19,7 @@ export class CandidateDetailComponent{
     this.cookie.updateUrl(url);
     this.router.navigate([url]);
   }
+  
   download() {
     alert('qq');
     // this.downloadService.downloadFile();

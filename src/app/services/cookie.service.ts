@@ -5,6 +5,7 @@ import { CookieService, CookieOptions } from 'ngx-cookie';
 export class MyCookieService {
   constructor(private cookie: CookieService) { }
 
+
   setLifeTime(seconds: number): CookieOptions {
     const expires: Date = new Date();
     expires.setSeconds(expires.getSeconds() + seconds);
@@ -24,10 +25,10 @@ export class MyCookieService {
     this.cookie.removeAll();
   }
 
+
   updateUrl(url: string): void {
     const cookie: any = this.cookie.getObject('current');
     cookie.url = url;
-    this.removeCookie();
     this.setCookie(cookie);
   }
 
@@ -38,7 +39,6 @@ export class MyCookieService {
     }
     return null;
   }
-
 
   getRole(): string | null {
     const cookie: any = this.getCookie();
@@ -54,5 +54,71 @@ export class MyCookieService {
       return cookie.access_token;
     }
     return null;
+  }
+
+  initBasket(): void {
+    this.cookie.putObject('basket', {
+      candidates: [],
+      positions: [],
+    });
+  }
+
+  removeBasket(): void {
+    this.cookie.remove('basket');
+    this.initBasket();
+  }
+
+  addCandidate(obj: number): boolean {
+    const store: any = this.cookie.getObject('basket');
+    if (!store.candidates.includes(obj)) {
+      store.candidates.push(obj);
+      this.cookie.putObject('basket', {
+        candidates: store.candidates || [],
+        positions: store.positions || [],
+      });
+      return true;
+    }
+    return false;
+  }
+
+  removeIdFromCandidate(index: any): void {
+    const store: any = this.cookie.getObject('basket');
+    store.candidates.splice(index, 1);
+    this.cookie.putObject('basket', {
+      candidates: store.candidates || [],
+      positions: store.positions || [],
+    });
+  }
+
+  addVacancy(obj: number): boolean {
+    const store: any = this.cookie.getObject('basket');
+    if (!store.positions.includes(obj)) {
+      store.positions.push(obj);
+      this.cookie.putObject('basket', {
+        candidates: store.candidates || [],
+        positions: store.positions || [],
+      });
+      return true;
+    }
+    return false;
+  }
+
+  removeIdFromVacancies(index: any): void {
+    const store: any = this.cookie.getObject('basket');
+    store.positions.splice(index, 1);
+    this.cookie.putObject('basket', {
+      candidates: store.candidates || [],
+      positions: store.positions || [],
+    });
+  }
+
+  getCandidates(): any {
+    const basket: any = this.cookie.getObject('basket');
+    return basket.candidates;
+  }
+
+  getVacancies(): any {
+    const basket: any = this.cookie.getObject('basket');
+    return basket.positions;
   }
 }

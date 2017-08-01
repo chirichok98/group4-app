@@ -3,7 +3,6 @@ import { RouterModule, Routes, Route } from '@angular/router';
 
 import { MainPageComponent } from './main-page.component';
 import { CandidatesComponent } from './candidates/candidates.component';
-import { NotificationsComponent } from './notifications/notifications.component';
 import { PositionsListComponent } from './open-positions/positions-list/positions-list.component';
 // tslint:disable-next-line:max-line-length
 import { PositionsListItemComponent } from './open-positions/positions-list-item/positions-list-item.component';
@@ -11,6 +10,7 @@ import { OpenPositionsComponent } from './open-positions/open-positions.componen
 import { CandidatesListComponent } from './candidates/candidates-list/candidates-list.component';
 // tslint:disable-next-line:max-line-length
 import { CandidatesListItemComponent } from './candidates/candidates-list-item/candidates-list-item.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const candidateRoute: Route = {
   path: 'candidates',

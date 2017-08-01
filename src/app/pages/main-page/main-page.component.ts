@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
 import { MyCookieService } from '../../services/cookie.service';
+import { CandidateService } from '../../services/candidate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'main',
@@ -9,6 +11,7 @@ import { MyCookieService } from '../../services/cookie.service';
   styleUrls: ['main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
+  role: string;
   navbarConfig: any = {
     candidates: { name: 'CANDIDATES', stateName: 'candidates' },
     positions: { name: 'POSITIONS', stateName: 'vacancies' },
@@ -17,9 +20,11 @@ export class MainPageComponent implements OnInit {
   };
   navbarOptions: INavbarOption[] = [];
 
-  constructor(private cookie: MyCookieService) {
-    const role: string = this.cookie.getRole();
-    this.getOptionsByRole(role);
+  constructor(private router: Router,
+              private cookie: MyCookieService,
+              private cService: CandidateService) {
+    this.role = this.cookie.getRole();
+    this.getOptionsByRole(this.role);
   }
 
   getOptionsByRole(role: string): void {
@@ -45,4 +50,10 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  showBasket() {
+    const path: string = 'store';
+    this.cookie.updateUrl(path);
+    this.router.navigate([path]);
+  }
 }

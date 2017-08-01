@@ -7,6 +7,7 @@ import { CreateCandidateComponent } from './pages/create/create-candidate/create
 import { CreateVacancyComponent } from './pages/create/create-vacancy/create-vacancy.component';
 import { EditCandidateComponent } from './pages/edit/edit-candidate/edit-candidate.component';
 import { EditVacancyComponent } from './pages/edit/edit-vacancy/edit-vacancy.component';
+import { StoreComponent } from './pages/store/store.component';
 
 const mainRoute: Route = {
   path: '',
@@ -16,6 +17,10 @@ const mainRoute: Route = {
 const reportRoute: Route = {
   path: 'report',
   component: ReportComponent,
+};
+const storetRoute: Route = {
+  path: 'store',
+  component: StoreComponent,
 };
 const creatingRoute: Route = {
   path: 'create',
@@ -67,6 +72,7 @@ const editingRoute: Route = {
 export const routes: Routes = [
   mainRoute,
   reportRoute,
+  storetRoute,
   creatingRoute,
   editingRoute,
 ];
