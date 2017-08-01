@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit, DoCheck {
   isMenuVisible: boolean = false;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private cookie: MyCookieService) { }
+    private route: ActivatedRoute,
+    private cookie: MyCookieService) { }
 
   ngOnInit(): void {
     const url: any = this.cookie.getUrl();
@@ -84,11 +84,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     const detailed = $('.detailed-search');
     if (!filter.height()) {
       if (!search.height()) {
-        if (!detailed.height()) {
-          search.animate({ height: '16rem', opacity: '1' });
-        } else {
-          search.animate({ height: '24rem', opacity: '1' });
-        }
+        search.animate({ height: '10rem', opacity: '1' });
         search.css({ visibility: 'visible' });
 
       } else {

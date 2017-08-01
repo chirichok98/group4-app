@@ -14,7 +14,6 @@ export class PagerDirective {
   @HostListener('window:scroll') onScroll() {
     this.scrollValue  = this.document.body.scrollTop;
     if (this.scrollValue > this.scrollBorder) {
-      console.log(this.scrollValue, this.scrollBorder);
       this.scrollBorder += 200;
       this.skip += 10;
       this.update.emit({ skip: this.skip });
