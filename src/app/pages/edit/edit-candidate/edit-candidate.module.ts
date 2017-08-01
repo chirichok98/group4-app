@@ -5,7 +5,8 @@ import { InputCandidateModule } from '../../../components/input-candidate/input-
 import { SpinnerModule } from '../../../components/spinner/spinner.module';
 import { CandidatesListItemService } from '../../../services/candidates-list-item.service';
 import { CommonModule } from '@angular/common';
-import { EditCandidateService } from '../../../services/edit-candidate.service';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { CandidateService } from '../../../services/candidate.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { EditCandidateService } from '../../../services/edit-candidate.service';
   ],
   exports: [],
   declarations: [EditCandidateComponent],
-  providers: [EditCandidateService],
+  providers: [
+    CandidateService,
+    SnackbarService,
+  ],
 })
 export class EditCandidateModule { }

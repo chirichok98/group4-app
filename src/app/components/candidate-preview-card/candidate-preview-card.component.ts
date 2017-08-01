@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 import { MyCookieService } from '../../services/cookie.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'candidate-card',
@@ -13,7 +14,9 @@ export class CandidatePreviewComponent implements OnInit {
   @Input() candidate: ICandidatePreview;
   @Input() showBasket: boolean = true;
 
-  constructor(private router: Router, private cookie: MyCookieService) { }
+  constructor(private router: Router,
+              private cookie: MyCookieService,
+              private snackService: SnackbarService) { }
 
   ngOnInit() {
   }
@@ -30,9 +33,9 @@ export class CandidatePreviewComponent implements OnInit {
     }
 
     if (this.cookie.addCandidate(this.candidate.id)) {
-      console.log('added to basket');
+      this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
     } else {
-      console.log('error with adding');
+      this.snackService.showSnack('This candidate was added earlier!','WARNING');
     }
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ICandidateDetail } from '../../../../interfaces/ICandidateDetail';
-import { CandidatesListItemService } from '../../../../services/candidates-list-item.service';
+import { CandidateService } from '../../../../services/candidate.service';
 
 @Component({
   selector: 'candidates-list-item',
@@ -14,14 +14,14 @@ export class CandidatesListItemComponent implements OnInit {
   currentCandidate: Promise<ICandidateDetail>;
   currentCandidateId: number;
 
-  constructor(private route: ActivatedRoute, private cliService: CandidatesListItemService) {
+  constructor(private route: ActivatedRoute, private cService: CandidateService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.currentCandidateId = +params['id'];
     });
   }
 
   getCandidateById(id) {
-    this.currentCandidate = this.cliService.getCandidateById(id);
+    this.currentCandidate = this.cService.getCandidateById(id);
   }
 
   ngOnInit() {

@@ -19,6 +19,6 @@
     </div>
 
     <div>
-        <button (click)="assign()" md-button class="btn submit">Submit</button>
+        <button *ngIf="canIds.length && vacIds.length" (click)="assign()" md-button class="btn submit">Submit</button>
     </div>
 </div>

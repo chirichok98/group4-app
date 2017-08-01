@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CreateCandidateService } from '../../../services/create-candidate.service';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { CandidateService } from '../../../services/candidate.service';
 
 @Component({
   selector: 'create-candidate',
@@ -16,19 +17,21 @@ export class CreateCandidateComponent {
     candidatePrevJobs: [],
   };
 
-  constructor(private ccService: CreateCandidateService, private router: Router) { }
+  constructor(private cService: CandidateService, 
+              private router: Router,
+              private snackService: SnackbarService) { }
 
   addCandidate(): void {
     this.sendPostRequest(this.candidate);
-    console.log(this.candidate);
   }
 
   sendPostRequest(candidate: any): void {
-    this.ccService.addCandidate(candidate)
+    this.cService.addCandidate(candidate)
       .then((can: any) => {
         this.router.navigate(['main-page/candidates']);
+        this.snackService.showSnack('Candidate successfully added!','SUCCESS');
       }, (err: any) => {
-        console.log('Error with candidate creation');
+        this.snackService.showSnack('Candidate wasn`t created','ERROR');
       });
   }
 }

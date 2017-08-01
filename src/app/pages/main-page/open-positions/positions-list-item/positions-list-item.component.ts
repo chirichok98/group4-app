@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { IPositionDetail } from '../../../../interfaces/IPositionDetail';
-import { PositionsListItemService } from '../../../../services/positions-list-item.service';
+import { PositionService } from '../../../../services/position.service';
 
 @Component({
   selector: 'positions-list-item',
@@ -13,14 +13,14 @@ export class PositionsListItemComponent implements OnInit {
   currentPositionId: number;
   currentPosition: Promise<IPositionDetail>;
 
-  constructor(private route: ActivatedRoute, private pliService: PositionsListItemService) {
+  constructor(private route: ActivatedRoute, private pService: PositionService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.currentPositionId = +params['id'];
     });
   }
 
   getPositionById(id): void {
-    this.currentPosition = this.pliService.getPositionById(id);
+    this.currentPosition = this.pService.getPositionById(id);
   }
 
   ngOnInit() {

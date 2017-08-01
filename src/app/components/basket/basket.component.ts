@@ -5,6 +5,7 @@ import { IPositionPreview } from '../../interfaces/IPositionPreview';
 import { PositionService } from '../../services/position.service';
 import { MyCookieService } from '../../services/cookie.service';
 import { Router } from '@angular/router';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'basket',
@@ -20,17 +21,18 @@ export class BasketComponent implements OnInit {
   constructor(private cService: CandidateService,
               private pService: PositionService,
               private cookie: MyCookieService,
-              private router: Router) {
+              private router: Router,
+              public snackService: SnackbarService) {
     this.canIds = this.cookie.getCandidates();
     this.vacIds = this.cookie.getVacancies();
     this.cService.getCandidatesByIds(this.canIds)
       .then((res: any) => {
         this.candidates = res;
-      });
+      }, () => this.snackService.showSnack('Candidates weren`t loaded!', 'ERROR'));
     this.pService.getPositionsByIds(this.vacIds)
       .then((res: any) => {
         this.positions = res;
-      });
+      }, () => this.snackService.showSnack('Positions weren`t loaded!', 'ERROR'));
   }
 
   ngOnInit() { }
@@ -39,12 +41,14 @@ export class BasketComponent implements OnInit {
     this.candidates.splice(index, 1);
     this.canIds.splice(index, 1);
     this.cookie.removeIdFromCandidate(index);
+    this.snackService.showSnack('Candidate was successfully removed!', 'SUCCESS');
   }
 
   deletePosition(index: any): void {
     this.positions.splice(index, 1);
     this.vacIds.splice(index, 1);
     this.cookie.removeIdFromVacancies(index);
+    this.snackService.showSnack('Position was successfully removed!', 'SUCCESS');
   }
 
   assign(): void {
@@ -58,15 +62,16 @@ export class BasketComponent implements OnInit {
           const url: string = 'main-page';
           this.cookie.updateUrl(url);
           this.router.navigate([url]);
+          this.snackService.showSnack('Assignments were successfully ended!', 'SUCCESS');
         }
       }, (error: any) => {
-        console.log(error);
+        this.snackService.showSnack('Error with assigning!', 'ERROR');
       });
   }
 
   isChecked(can: number[], vac: number[]): boolean {
     if (!can.length || !vac.length) {
-      console.log('Nothing to assign');
+      this.snackService.showSnack('Nothing to assign', 'WARNING');
       return false;
     }
     return true;

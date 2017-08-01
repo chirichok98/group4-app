@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { MyCookieService } from '../../../services/cookie.service';
-import { EditCandidateService } from '../../../services/edit-candidate.service';
-import { EditVacancyService } from '../../../services/edit-vacancy.service';
+import { PositionService } from '../../../services/position.service';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'edit-vacancy',
@@ -17,20 +17,21 @@ export class EditVacancyComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private cookie: MyCookieService,
-              private evService: EditVacancyService) {
+              private pService: PositionService,
+              private snackService: SnackbarService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.vacancyId = +params['id'];
     });
-    this.getVacancyById(this.vacancyId);
+    this.getPositionById(this.vacancyId);
   }
 
-  getVacancyById(id) {
-    this.evService.getVacancyById(id)
+  getPositionById(id) {
+    this.pService.getPositionById(id)
       .then((res: any) => {
         this.vacancy = res;
         this.isLoaded = true;
       }, (error: any) => {
-        console.log('error with getting candidate');
+        this.snackService.showSnack('Position wasn`t loaded!', 'ERROR');
         this.isLoaded = true;
       });
   }
@@ -52,13 +53,14 @@ export class EditVacancyComponent implements OnInit {
     this.vacancy.secondarySkills = this.vacancy.secondarySkills
       .map((i: any) => this.configureSkill(i));
     delete this.vacancy.hrm;
-    this.evService.updateVacancy(this.vacancy)
+    this.pService.updatePosition(this.vacancy)
       .then((res: any) => {
         const url: string = `main-page/vacancies/${this.vacancyId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
+        this.snackService.showSnack('Position was successfully edited!', 'SUCCESS');
       }, (error: any) => {
-        console.log(error);
+        this.snackService.showSnack('Position wasn`t edited!', 'ERROR');
       });
   }
 }

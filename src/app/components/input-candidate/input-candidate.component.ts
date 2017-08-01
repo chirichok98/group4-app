@@ -1,6 +1,5 @@
 import { Component, Input, EventEmitter, Output, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateCandidateService } from '../../services/create-candidate.service';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { IGeneral } from '../../interfaces/IGeneral';
 
@@ -19,7 +18,6 @@ export class InputCandidateComponent implements DoCheck {
   skills: IGeneral[] = [];
 
   constructor(private router: Router,
-              private ccService: CreateCandidateService,
               private hService: DictionariesService) {
     this.hService.getCities().then((cities) => {
       this.cities = cities;

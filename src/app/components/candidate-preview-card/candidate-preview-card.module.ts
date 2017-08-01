@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CandidatePreviewComponent } from './candidate-preview-card.component';
 import { SpinnerModule } from '../spinner/spinner.module';
 import { MdCardModule, MaterialModule } from '@angular/material';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { MdCardModule, MaterialModule } from '@angular/material';
   ],
   declarations: [CandidatePreviewComponent],
   exports: [CandidatePreviewComponent],
-  providers: [],
+  providers: [SnackbarService],
 })
 export class CandidatePreviewModule { }

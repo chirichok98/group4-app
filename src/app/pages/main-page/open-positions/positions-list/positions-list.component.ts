@@ -5,6 +5,7 @@ import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
 import { HttpService } from '../../../../services/http.service';
+import { SnackbarService } from '../../../../services/snackbar.service';
 
 @Component({
   selector: 'positions-list',
@@ -16,34 +17,33 @@ export class PositionsListComponent {
   positions: IPositionPreview[];
   paramsQueue: any = [];
   constructor(private pagerService: PagerService, 
-              private httpService: HttpService,
               private cookie: MyCookieService, 
-              private router: Router) {
-    this.pagerService.init(httpService.VAC)
+              private router: Router,
+              private snackService: SnackbarService) {
+    this.pagerService.init('vacancy')
       .then((positions) => {
         this.positions = positions;
         this.isSpinnerVisible = false;
       }, (error) => {
-        console.log('Positions error');
+        this.snackService.showSnack('Positions wasn`t loaded!', 'ERROR');
         this.isSpinnerVisible = false;
       });
   }
+    
   onScroll(pager?: PagerService) {
     if (pager) {
       this.paramsQueue.push(pager.skip);
     }
     const params = this.paramsQueue.shift();
-    console.log(pager.skip);
     this.pagerService.more(params)
       .then((positions) => {
-        console.log(positions);
         this.positions = this.positions.concat(positions);
         this.isSpinnerVisible = false;
         if (this.paramsQueue.length) {
           this.onScroll();
         }
       }, (error) => {
-        console.log('Positions error');
+        this.snackService.showSnack('Positions wasn`t loaded!', 'ERROR');
         this.isSpinnerVisible = false;
       });
   }

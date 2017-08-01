@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateVacancyService } from '../../../services/create-vacancy.service';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { PositionService } from '../../../services/position.service';
 
 @Component({
   selector: 'create-vacancy',
@@ -14,21 +15,23 @@ export class CreateVacancyComponent implements OnInit {
     primarySkill: {},
   };
 
-  constructor(private router: Router, private cvService: CreateVacancyService) { }
+  constructor(private router: Router, 
+              private pService: PositionService,
+              private snackService: SnackbarService) { }
 
   ngOnInit() { }
 
   addVacancy(): void {
     this.sendPostRequest(this.vacancy);
-    console.log(this.vacancy);
   }
 
   sendPostRequest(vacancy: any): void {
-    this.cvService.addVacancy(vacancy)
+    this.pService.addVacancy(vacancy)
       .then((vac: any) => {
         this.router.navigate(['main-page/vacancies']);
+        this.snackService.showSnack('Position successfully added!','SUCCESS');
       }, (err: any) => {
-        console.log('Error with vacancy creation');
+        this.snackService.showSnack('Positions wasn`t created','ERROR');
       });
   }
 }
