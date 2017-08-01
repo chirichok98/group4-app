@@ -1,42 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { DataSource } from '@angular/cdk';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/map';
 import { INotificationOption } from '../../../interfaces/INotificationOption';
-import { NotificationType } from '../../../components/notification/notification.component';
+
 declare const $;
+
+export enum NotificationType { Reminders, News, Assignments };
+
 @Component({
   selector: 'notifications',
   templateUrl: 'notifications.component.html',
   styleUrls: ['notifications.component.scss'],
 })
 
-export class NotificationsComponent {
-  notifications: INotificationOption[] = [
-    {
-      type: NotificationType[NotificationType.Reminders],
-      date: new Date(2017, 7, 16),
-      description: 'You have the Interview with Artem Krotov',
-    },
-    {
-      type: NotificationType[NotificationType.News],
-      date: new Date(2017, 6, 14),
-      description: 'You created the new candidate card for Artem Krotov',
-    },
-    {
-      type: NotificationType[NotificationType.Assignments],
-      date: new Date(2017, 7, 10),
-      description: 'Natasha assigned the Vladislav Popov candidate to you',
-    },
-    {
-      type: NotificationType[NotificationType.Assignments],
-      date: new Date(2017, 7, 10),
-      description: 'Natasha assigned the Vladislav Popov candidate to you',
-    },
-    {
-      type: NotificationType[NotificationType.News],
-      date: new Date(2017, 6, 14),
-      description: 'You created the new candidate card for Artem Krotov',
-    },
-  ];
+export class NotificationsComponent implements OnInit {
+  displayedColumns = ['color', 'type', 'date', 'description'];
+  exampleDatabase = new ExampleDatabase();
+  dataSource: ExampleDataSource | null;
+
+
+  ngOnInit() {
+    // this.dataSource = new INotificationOption[](this.notifications);
+    this.dataSource = new ExampleDataSource(this.exampleDatabase);
+  }
+
   constructor() { }
 
   // Logic: We get list of classes of element that we clicked on. Then we check 
@@ -69,7 +60,7 @@ export class NotificationsComponent {
       $('.' + item).css({ 'background-color': 'black', opacity: 0.7 });
     }
   }
-  private defineNotificationItem (item) {
+  private defineNotificationItem(item) {
     switch (item) {
       case this.colorsArray[0]: return '.Reminders';
       case this.colorsArray[1]: return '.News';
@@ -77,4 +68,78 @@ export class NotificationsComponent {
       default: return '';
     }
   }
+}
+
+
+export class ExampleDatabase {
+  notifications: INotificationOption[] = [
+    {
+      type: NotificationType[NotificationType.Reminders],
+      date: new Date(2017, 7, 16),
+      description: 'You have the Interview with Artem Krotov',
+    },
+    {
+      type: NotificationType[NotificationType.News],
+      date: new Date(2017, 6, 14),
+      description: 'You created the new candidate card for Artem Krotov',
+    },
+    {
+      type: NotificationType[NotificationType.Assignments],
+      date: new Date(2017, 7, 10),
+      description: 'Natasha assigned the Vladislav Popov candidate to you',
+    },
+    {
+      type: NotificationType[NotificationType.Assignments],
+      date: new Date(2017, 7, 10),
+      description: 'Natasha assigned the Vladislav Popov candidate to you',
+    },
+    {
+      type: NotificationType[NotificationType.News],
+      date: new Date(2017, 6, 14),
+      description: 'You created the new candidate card for Artem Krotov',
+    },
+  ];
+
+  /** Stream that emits whenever the data has been modified. */
+  dataChange: BehaviorSubject<INotificationOption[]> = new BehaviorSubject<INotificationOption[]>([]);
+  get data(): INotificationOption[] { return this.dataChange.value; }
+
+  constructor() {
+    // Fill up the database with 100 users.
+    for (let i = 0; i < this.notifications.length; i++) { this.addUser(i); }
+  }
+
+  /** Adds a new user to the database. */
+  addUser(index: number) {
+    const copiedData = this.data.slice();
+    const obj = {
+      type: this.notifications[index].type,
+      date: this.notifications[index].date,
+      description: this.notifications[index].description,
+      color: this.defineColor(this.notifications[index].type)
+    }
+    copiedData.push(obj);
+    this.dataChange.next(copiedData);
+  }
+
+  defineColor(type: string) {
+    switch(type) {
+      case NotificationType[NotificationType.News] : return 'light-blue';
+      case NotificationType[NotificationType.Assignments] : return 'light-grey';
+      case NotificationType[NotificationType.Reminders] : return 'dark-blue';
+    }
+  }
+}
+
+export class ExampleDataSource extends DataSource<any> {
+  constructor(private _exampleDatabase: ExampleDatabase) {
+    super();
+  }
+
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<INotificationOption[]> {
+    return this._exampleDatabase.dataChange;
+  }
+
+  disconnect() { }
 }
