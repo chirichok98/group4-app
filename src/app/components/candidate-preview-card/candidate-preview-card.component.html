@@ -31,7 +31,11 @@
                 <ng-template #skype>Skype</ng-template>
             </div>
             <div class="skill content-wrapper">
-                <ng-container *ngIf="candidate.skill; else skill">{{candidate.skill}}</ng-container>
+                <ng-container *ngIf="candidate.primarySkill as skill; else skill">
+                    <md-chip-list>
+                        <md-chip>{{skill}}</md-chip>
+                    </md-chip-list>
+                </ng-container>
                 <ng-template #skill>Primary skill</ng-template>
             </div>
             <div class="status-wrapper">

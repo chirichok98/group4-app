@@ -1,21 +1,24 @@
 <div class="basket">
-    <h2 md-dialog-title>STORE</h2>
-    <div class="container" *ngIf="data">
-        <md-dialog-content class="candidates" *ngIf="candidates">
-            <h4 md-dialog-title>Candidates</h4>
+    <h2>STORE</h2>
+    <div class="container">
+        <div class="candidates" *ngIf="candidates">
+            <h4>Candidates</h4>
             <div *ngFor="let item of candidates; let i = index">
                 <button class="can-remove" data-id="i" (click)="deleteCandidate(i)" md-mini-fab><md-icon>remove</md-icon></button>
                 <candidate-card [showBasket]="false" [candidate]="item"></candidate-card>
             </div>
-        </md-dialog-content>
-        <md-dialog-content class="positions" *ngIf="positions">
-            <h4 md-dialog-title>Positions</h4>
-            <position-preview-card *ngFor="let item of positions" [showBasket]="false" [position]="item"></position-preview-card>
-        </md-dialog-content>
+        </div>
+        <div class="positions" *ngIf="positions">
+            <h4>Positions</h4>
+            <div *ngFor="let item of positions; let i = index">
+                <button class="vac-remove" data-id="i" (click)="deletePosition(i)" md-mini-fab><md-icon>remove</md-icon></button>
+                <position-preview-card [showBasket]="false" [position]="item"></position-preview-card>
+            </div>
+        </div>
 
     </div>
 
-    <md-dialog-actions>
-        <button md-button md-dialog-close>Submit</button>
-    </md-dialog-actions>
+    <div>
+        <button (click)="assign()" md-button class="btn submit">Submit</button>
+    </div>
 </div>

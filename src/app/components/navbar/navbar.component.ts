@@ -79,38 +79,16 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   openSearch(): void {
-    const filter = $('.filter-block');
-    const search = $('.search-block');
-    const detailed = $('.detailed-search');
-    if (!filter.height()) {
-      if (!search.height()) {
-        search.animate({ height: '10rem', opacity: '1' });
-        search.css({ visibility: 'visible' });
-
-      } else {
-        search.animate({ height: '0', opacity: '0' });
-        search.css({ visibility: 'hidden' });
-      }
-    }
+    this.isSearchVisible = !this.isSearchVisible;
+    // const search = $('.search-block');
+    // if (!search.height()) {
+    //   search.animate({ height: '5rem', opacity: '1' });
+    //   search.css({ visibility: 'visible' });
+    // } else {
+    //   search.animate({ height: '0', opacity: '0' });
+    //   search.css({ visibility: 'hidden' });
+    // }
   }
-
-  openFilter(): void {
-    const filter = $('.filter-block');
-    const search = $('.search-block');
-    if (!search.height()) {
-      if (!filter.height()) {
-        filter.animate({ height: '20rem', opacity: '1' });
-        filter.css({ visibility: 'visible' });
-      } else {
-        filter.animate({ height: '0', opacity: '0' });
-        filter.css({ visibility: 'hidden' });
-      }
-    }
-  }
-
-
-
-
 }
 
 

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
 import { MyCookieService } from '../../services/cookie.service';
-import { MdDialog } from '@angular/material';
-import { BasketComponent } from '../../components/basket/basket.component';
 import { CandidateService } from '../../services/candidate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'main',
@@ -20,9 +19,9 @@ export class MainPageComponent implements OnInit {
   };
   navbarOptions: INavbarOption[] = [];
 
-  constructor(public dialog: MdDialog,
-    private cookie: MyCookieService,
-    private cService: CandidateService) {
+  constructor(private router: Router,
+              private cookie: MyCookieService,
+              private cService: CandidateService) {
     const role: string = this.cookie.getRole();
     this.getOptionsByRole(role);
   }
@@ -52,12 +51,8 @@ export class MainPageComponent implements OnInit {
   ngOnInit() { }
 
   showBasket() {
-    const canIds: number[] = this.cookie.getCandidates();
-    const posIds: number[] = this.cookie.getVacancies();
-    this.dialog.open(BasketComponent, {
-      data: { canIds, posIds },
-      width: '80%',
-      height: 'auto',
-    });
+    const path: string = 'store';
+    this.cookie.updateUrl(path);
+    this.router.navigate([path]);
   }
 }

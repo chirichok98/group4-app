@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MD_DIALOG_DATA } from '@angular/material';
 import { CandidateService } from '../../services/candidate.service';
 import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
@@ -14,15 +13,22 @@ import { MyCookieService } from '../../services/cookie.service';
 export class BasketComponent implements OnInit {
   candidates: ICandidatePreview[] = [];
   positions: IPositionPreview[] = [];
-  constructor(@Inject(MD_DIALOG_DATA) public data: any,
-              private cService: CandidateService,
+  canIds: number[];
+  vacIds: number[];
+
+  constructor(private cService: CandidateService,
               private pService: PositionService,
               private cookie: MyCookieService) {
-    this.cService.getCandidatesByIds(data.canIds)
+    this.canIds = this.cookie.getCandidates();
+    this.vacIds = this.cookie.getVacancies();
+    console.log(this.canIds);
+    console.log(this.vacIds);
+    this.cService.getCandidatesByIds(this.canIds)
       .then((res: any) => {
         this.candidates = res;
+        console.log(res);
       });
-    this.pService.getPositionsByIds(data.posIds)
+    this.pService.getPositionsByIds(this.vacIds)
       .then((res: any) => {
         this.positions = res;
       });
@@ -32,6 +38,20 @@ export class BasketComponent implements OnInit {
 
   deleteCandidate(index: any): void {
     this.candidates.splice(index, 1);
+    this.canIds.splice(index, 1);
     this.cookie.removeIdFromCandidate(index);
+  }
+
+  deletePosition(index: any): void {
+    this.positions.splice(index, 1);
+    this.vacIds.splice(index, 1);
+    this.cookie.removeIdFromVacancies(index);
+  }
+
+  assign(): void {
+    this.cService.assignVacancies(this.canIds, this.vacIds)
+      .then((res: any) => {
+        console.log(res);
+      });
   }
 }

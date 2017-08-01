@@ -31,6 +31,5 @@ import { CandidateService } from '../../services/candidate.service';
   exports: [],
   declarations: [MainPageComponent],
   providers: [CandidateService],
-  entryComponents: [BasketComponent],
 })
 export class MainPageModule { }
