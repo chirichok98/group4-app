@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit, DoCheck {
   isMenuVisible: boolean = false;
 
   constructor(private router: Router,
-    private route: ActivatedRoute,
-    private cookie: MyCookieService) { }
+              private route: ActivatedRoute,
+              private cookie: MyCookieService) { }
 
   ngOnInit(): void {
     const url: any = this.cookie.getUrl();
@@ -88,7 +88,33 @@ export class NavbarComponent implements OnInit, DoCheck {
     //   search.animate({ height: '0', opacity: '0' });
     //   search.css({ visibility: 'hidden' });
     // }
+    // const filter = $('.filter-block');
+    // const search = $('.search-block');
+    // const detailed = $('.detailed-search');
+    // if (!filter.height()) {
+    //   if (!search.height()) {
+    //     search.animate({ height: '20rem', opacity: '1' });
+    //     search.css({ visibility: 'visible' });
+
+    //   } else {
+    //     search.animate({ height: '0', opacity: '0' });
+    //     search.css({ visibility: 'hidden' });
+    //   }
   }
+
+  // openFilter(): void {
+  //   const filter = $('.filter-block');
+  //   const search = $('.search-block');
+  //   if (!search.height()) {
+  //     if (!filter.height()) {
+  //       filter.animate({ height: '20rem', opacity: '1' });
+  //       filter.css({ visibility: 'visible' });
+  //     } else {
+  //       filter.animate({ height: '0', opacity: '0' });
+  //       filter.css({ visibility: 'hidden' });
+  //     }
+  //   }
+  // }
 }
 
 
