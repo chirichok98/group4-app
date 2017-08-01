@@ -5,28 +5,132 @@
   height: auto;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
+
+// .candidate-blocks {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
+.position-block.img {
+  max-width: 230px;
+  margin-right: 2rem;
+}
+
+.position-block img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
 .position-info-item {
-  font-family: "Roboto";
+  font-family: sans-serif;
   font-size: 1rem;
+  border-bottom: 1px solid lightgray;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  flex-direction: row;
+  display: flex;
 }
-.position-info-item span {
+
+.position-info-item .atribute {
   display: inline-block;
-  width: 7rem;
+  width: 10rem;
   font-weight: 500;
-  font-family: "Roboto Slab";
+  font-size: 1rem;
+  font-family: sans-serif;
   color: #273248;
+  // border-right: 1px solid lightgray;
+}
+
+.position-info-item span {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  padding-left: 10px;
+  color: #526c7b;
+}
+
+.position-skills {
+  padding-left: 10px;
+  display: flex;
+}
+
+.candidates {
+  border: none;
+  display: flex;
 }
 
 img::selection {
-    background: transparent;
+  background: transparent;
 }
 
-div::selection, 
+div::selection,
 span::selection {
-    color: #56ccf2;
+  color: #56ccf2;
 }
 
 .position-photo {
   height: 10rem;
+}
+
+.position-status {
+  position: absolute;
+  padding: 0.5rem 2.5rem;
+  transform: rotate(45deg);
+  text-transform: uppercase;
+  text-align: center;
+  top: 23px;
+  right: -58px;
+  background-color: #52c1e6;
+  color: #fff;
+  width: 100px;
+  font-size: 0.8em;
+}
+
+.candidates-list {
+  min-width: 60%;
+}
+
+button {
+  background-color: #273248;
+  width: 50%;
+  height: 3.5rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  letter-spacing: .5px;
+  color: #fff;
+  transition: .3s ease-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1em;
+  margin-top: 1rem;
+}
+
+button:hover,
+button:focus,
+button:active {
+  background-color: #56CCF2;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+.position-skill-name {
+  display: flex;
+}
+
+.position-skill-name .atribute-skills {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+
+.large-container {
+  display: flex;
+}
+
+.small-container {
+  width: 100%;
 }
