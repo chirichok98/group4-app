@@ -20,7 +20,7 @@ export class PositionsListComponent {
               private cookie: MyCookieService, 
               private router: Router,
               private snackService: SnackbarService) {
-    this.pagerService.init('vacancy')
+    this.pagerService.init('api/vacancy')
       .then((positions) => {
         this.positions = positions;
         this.isSpinnerVisible = false;
