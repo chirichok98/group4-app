@@ -21,6 +21,7 @@ export class HttpService {
   SKILLS: string = 'api/techSkill';
   VAC_STATUS: string = 'api/vacancyStatus';
   CAN_STATUS: string = 'api/candidateStatus';
+  HRS: string = 'api/users/hrms';
 
   constructor(private http: Http, private cookie: MyCookieService) {
     this.DEF_HEADERS = new Headers({ 'Content-Type': 'application/json' });

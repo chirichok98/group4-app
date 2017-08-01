@@ -1,8 +1,40 @@
 <div class="search-block">
     <div class="form">
-        <search-option *ngFor="let option of options" [array]="fields"></search-option>
-        <button class="btn waves-effect waves-light" (click)="addOption()">Add option</button>
-        <button *ngIf="options.length" class="btn waves-effect waves-light" (click)="removeOption()">Remove option</button>
         <button class="btn waves-effect waves-light" (click)="startSearch()">Find</button>
+        <select-form class="select" [(result)]="search.city" [placeholder]="'City'" [array]="cities"></select-form>
+        <select-form *ngIf="isCandidate" [(result)]="search.status" [placeholder]="'Status'" [array]="canSt"></select-form>
+        <select-form *ngIf="isVacancy" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
+        <skill-form [(skill)]="search.primarySkill" [array]="skills"></skill-form>
+        <button (click)="toggleAdvanced()">Show advanced search</button>
+        <ng-container *ngIf="isAdvancedShown">
+            <div *ngIf="isCandidate">
+                <md-input-container class="">
+                    <input [(ngModel)]="search.skype" mdInput placeholder="Skype">
+                </md-input-container>
+                <md-input-container class="">
+                    <input [(ngModel)]="search.email" mdInput pattern="\S+@\S+\.\S+" placeholder="Email">
+                </md-input-container>
+                <md-input-container class="">
+                    <input [(ngModel)]="search.lastNameEng" mdInput placeholder="Surname(EN)">
+                </md-input-container>
+                <md-input-container class="">
+                    <input [(ngModel)]="search.lastNameRus" mdInput placeholder="Surname(RU)">
+                </md-input-container>
+                <md-input-container class="">
+                    <input [(ngModel)]="search.phone" mdInput pattern="^[0-9\-\+]{9,15}$" placeholder="Phone">
+                </md-input-container>
+                <select-form [(result)]="search.hrm" [placeholder]="'HR name'" [array]="hr"></select-form>
+            </div>
+            <div *ngIf="isVacancy">
+                <md-input-container class="">
+                    <input [(ngModel)]="search.vacancyName" mdInput placeholder="Vacancy name">
+                </md-input-container>
+                <md-input-container class="">
+                    <input [(ngModel)]="search.projectName" mdInput placeholder="Project name">
+                </md-input-container>
+                <datepicker-form [(date)]="search.requestDate" [placeholder]="'Request date'"></datepicker-form>
+                <datepicker-form [(date)]="search.startDate" [placeholder]="'Start date'"></datepicker-form>
+            </div>
+        </ng-container>
     </div>
 </div>

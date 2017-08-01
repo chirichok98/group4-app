@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 
 import { PositionPreviewComponent } from './position-preview-card.component';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [PositionPreviewComponent],
   exports: [PositionPreviewComponent],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+  ],
   providers: [],
 })
 export class PositionPreviewModule { }

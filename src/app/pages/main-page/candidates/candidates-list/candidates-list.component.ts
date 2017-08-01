@@ -33,10 +33,14 @@ export class CandidatesListComponent {
     if (pager) {
       this.paramsQueue.push(pager.skip);
     }
+<<<<<<< HEAD
     const params = this.paramsQueue.shift();
+=======
+    const params = this.paramsQueue.reverse().pop();
+    this.paramsQueue.reverse();
+>>>>>>> d988d54ccb68e7deccb5b929b8b4321796e1fbf3
     this.pagerService.more(params)
       .then((candidates) => {
-        console.log(candidates);
         this.candidates = this.candidates.concat(candidates);
         this.isSpinnerVisible = false;
         if (this.paramsQueue.length) {

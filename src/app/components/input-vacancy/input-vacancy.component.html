@@ -22,14 +22,16 @@
     <div class="row skills">
         <div class="col m6 s12">
             <div class="header-info__inner">Primary</div>
-                <skill-form [(skill)]="vacInfo.primarySkill" [array]="skills"></skill-form>
+            <skill-form [(skill)]="vacInfo.primarySkill" [array]="skills"></skill-form>
             <datepicker-form [(date)]="vacInfo.date" [placeholder]="'First date of work with primary skill'"></datepicker-form>
         </div>
         <div class="col m6 s12">
             <div class="header-info__inner">Secondary</div>
-                <skill-form *ngFor="let item of vacInfo.secondarySkills; let i = index" [(skill)]="vacInfo.secondarySkills[i]" [array]="skills"></skill-form>
-            <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
-            <button *ngIf="vacInfo.secondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+            <skill-form *ngFor="let item of vacInfo.secondarySkills; let i = index" [(skill)]="vacInfo.secondarySkills[i]" [array]="skills"></skill-form>
+            <div>
+                <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+                <button *ngIf="vacInfo.secondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+            </div>
         </div>
     </div>
 </div>

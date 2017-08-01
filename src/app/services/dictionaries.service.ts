@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { IGeneral } from '../interfaces/IGeneral';
 import { ITechSkill } from '../interfaces/ITechSkill';
 import { HttpService } from './http.service';
+import { IUserPreview } from '../interfaces/IUserPreview';
 
 @Injectable()
 export class DictionariesService {
@@ -12,6 +13,7 @@ export class DictionariesService {
   private skills: Promise<ITechSkill[]>;
   private vacStatuses: Promise<IGeneral[]>;
   private canStatuses: Promise<IGeneral[]>;
+  private hrs: Promise<IUserPreview[]>;
 
   constructor(private http: Http, private httpService: HttpService) { }
 
@@ -53,5 +55,13 @@ export class DictionariesService {
     }
     this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null);
     return this.canStatuses;
+  }
+
+  getHRs(): Promise<IUserPreview[]> {
+    if (this.hrs) {
+      return this.hrs;
+    }
+    this.hrs = this.httpService.get(this.httpService.HRS, null);
+    return this.hrs;
   }
 }

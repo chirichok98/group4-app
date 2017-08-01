@@ -34,8 +34,11 @@
     <div class="header-info__inner">Secondary</div>
     <skill-form *ngFor="let item of canInfo.candidateSecondarySkills; let i = index" [(skill)]="canInfo.candidateSecondarySkills[i]"
         [array]="skills"></skill-form>
-    <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
-    <button *ngIf="canInfo.candidateSecondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+    <div>
+        <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+        <button *ngIf="canInfo.candidateSecondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+    </div>
+
     <div *ngIf="canInfo.candidatePrevJobs?.length" class="header-info jobs">Previous jobs</div>
     <div>
         <prev-job-form [(prevJob)]="canInfo.candidatePrevJobs[i]" *ngFor="let job of canInfo.candidatePrevJobs; let i = index"></prev-job-form>

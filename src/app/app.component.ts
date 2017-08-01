@@ -13,6 +13,8 @@ export class AppComponent {
     const loggedUser: any = this.cookie.getCookie();
     if (loggedUser) {
       this.router.navigate([loggedUser.url]);
+    } else {
+      this.router.navigate(['home']);
     }
   }
 }

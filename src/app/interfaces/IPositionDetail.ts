@@ -14,10 +14,8 @@ export interface IPositionDetail {
   primarySkill: ITechSkill;
   engLevel: string;
   experience: number | null;
-  primarySkillLevel: number | null;
   city: string;
   secondarySkills: ITechSkill[];
   candidates: ICandidatePreview[];
   hrm: IUserPreview;
-  // events
 }

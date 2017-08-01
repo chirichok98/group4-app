@@ -51,7 +51,6 @@ export class NotificationsComponent {
   checkVisibility() {
     const classlist = event.srcElement.classList;
     this.colorsArray.forEach((item, index) => {
-      console.log(classlist);
       if (classlist.contains(item)) {
         this.changeVisibility(item, index);
       }

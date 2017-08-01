@@ -1,14 +1,22 @@
-<div class="position" (click)="goToDetailView()">
-    <div class="position-container">
-        <img class="position-img" *ngIf="position?.primarySkill?.picture; else defaultPic" [src]="position?.primarySkill.picture">
-        <ng-template #defaultPic>
-                    <img class="position-img" src="./assets/def-skill.png" alt="photo">
-            </ng-template>
-        <div class="position-vacancy">{{position?.vacancyName}}</div>
-        <div class="position-project">{{position?.projectName}}</div>
-        <div class="add-info">
-            <div class="position-city">{{position?.city}}</div>
-            <div class="position-date">{{position?.creationDate | date:"mediumDate"}}</div>
+<ng-container *ngIf="position as pos">
+    <div class="position" (click)="goToDetailView()">
+        <div class="position-container">
+            <div class="skill">
+                <img class="position-img" *ngIf="pos.primarySkill?.picture as pic; else chip" [src]="pic">
+                <ng-template #chip>
+                    <md-chip-list>
+                        <md-chip>{{pos.primarySkill?.name}}</md-chip>
+                    </md-chip-list>
+                </ng-template>
+            </div>
+
+            <div class="position-vacancy">{{pos.vacancyName}}</div>
+            <div class="position-project">{{pos.projectName}}</div>
+            <div class="add-info">
+                <div class="position-date">{{pos.startDate | date:"mediumDate"}}</div>
+                <div class="position-city">{{pos.city}}</div>
+                <div class="position-date">{{pos.closeDate | date:"mediumDate"}}</div>
+            </div>
         </div>
     </div>
-</div>
+</ng-container>
