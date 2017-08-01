@@ -9,6 +9,11 @@
   padding: 0;
 }
 
+.skill {
+  display: flex;
+  justify-content: space-between;
+}
+
 .position-container {
   display: flex;
   flex-direction: column;

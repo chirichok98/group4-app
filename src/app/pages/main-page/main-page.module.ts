@@ -11,6 +11,10 @@ import { PositionsListModule } from './open-positions/positions-list/positions-l
 import { PositionsListItemModule } from './open-positions/positions-list-item/positions-list-item.module';
 import { OpenPositionsModule } from './open-positions/open-positions.module';
 import { CookieModule } from 'ngx-cookie';
+import { MaterialModule } from '@angular/material';
+import { BasketModule } from '../../components/basket/basket.module';
+import { BasketComponent } from '../../components/basket/basket.component';
+import { CandidateService } from '../../services/candidate.service';
 
 @NgModule({
   imports: [
@@ -21,9 +25,12 @@ import { CookieModule } from 'ngx-cookie';
     CandidatesModule,
     OpenPositionsModule,
     NotificationsModule,
+    MaterialModule,
+    BasketModule,
   ],
   exports: [],
   declarations: [MainPageComponent],
-  providers: [],
+  providers: [CandidateService],
+  entryComponents: [BasketComponent],
 })
 export class MainPageModule { }

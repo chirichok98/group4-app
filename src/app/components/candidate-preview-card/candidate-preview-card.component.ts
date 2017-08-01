@@ -11,6 +11,7 @@ import { MyCookieService } from '../../services/cookie.service';
 })
 export class CandidatePreviewComponent implements OnInit {
   @Input() candidate: ICandidatePreview;
+  @Input() showBasket: boolean = true;
 
   constructor(private router: Router, private cookie: MyCookieService) { }
 
@@ -21,5 +22,17 @@ export class CandidatePreviewComponent implements OnInit {
     const url: string = `main-page/candidates/${this.candidate.id}`;
     this.cookie.updateUrl(url);
     this.router.navigate([url]);
+  }
+
+  addToBasket(event: any): void {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    }
+
+    if (this.cookie.addCandidate(this.candidate.id)) {
+      console.log('added to basket');
+    } else {
+      console.log('error with adding');
+    }
   }
 }
