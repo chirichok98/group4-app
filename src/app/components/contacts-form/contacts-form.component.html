@@ -1,11 +1,11 @@
 <md-input-container class="">
-    <input [(ngModel)]="contact.email" type="email" mdInput placeholder="Email">
+    <input [(ngModel)]="contact.email" type="email" pattern="\S+@\S+\.\S+" mdInput placeholder="Email">
   </md-input-container>
   <md-input-container class="">
     <input [(ngModel)]="contact.skype" mdInput placeholder="Skype">
   </md-input-container>
   <md-input-container class="">
-    <input [(ngModel)]="contact.phone"mdInput placeholder="Phone">
+    <input [(ngModel)]="contact.phone"mdInput pattern="^[0-9\-\+]{9,15}$" placeholder="Phone">
   </md-input-container>
   <md-input-container class="">
     <input [(ngModel)]="contact.linkedIn" mdInput placeholder="LinkedIn">
