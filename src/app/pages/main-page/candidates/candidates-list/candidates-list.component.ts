@@ -33,9 +33,7 @@ export class CandidatesListComponent {
     if (pager) {
       this.paramsQueue.push(pager.skip);
     }
-    const params = this.paramsQueue.reverse().pop();
-    this.paramsQueue.reverse();
-    console.log(pager.skip);
+    const params = this.paramsQueue.shift();
     this.pagerService.more(params)
       .then((candidates) => {
         console.log(candidates);

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
-
 import 'rxjs/add/operator/toPromise';
 import { MyCookieService } from './cookie.service';
 
@@ -95,4 +94,9 @@ export class HttpService {
       .then(res => res.json());
   }
 
+  // downloadFile(data: Response) {
+  //   const blob = new Blob([data], { type: 'text/csv' });
+  //   const url = window.URL.createObjectURL(blob);
+  //   window.open(url);
+  // }
 }
