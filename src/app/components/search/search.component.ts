@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { TransferService } from '../../services/transfer.service';
-import { Router } from '@angular/router';
 
 declare const $;
 // export class SearchObject {
@@ -28,8 +27,8 @@ declare const $;
 })
 
 export class SearchComponent {
-  isCandidate: boolean;
-  isVacancy: boolean;
+  @Input() isCandidate: boolean;
+  @Input() isVacancy: boolean;
   isAdvancedShown: boolean = false;
   search: any = {
     primarySkill: {},
@@ -41,8 +40,7 @@ export class SearchComponent {
   vacSt: any;
   hr: any;
 
-  constructor(private ds: DictionariesService, private router: Router, 
-              private nfs: TransferService) {
+  constructor(private ds: DictionariesService, private nfs: TransferService) {
     this.ds.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -58,32 +56,6 @@ export class SearchComponent {
     this.ds.getHRs().then((hr) => {
       this.hr = hr;
     });
-  }
-
-  getStateFromUrl(url: string): void {
-    const start: number = url.indexOf('/');
-    const end: number = url.lastIndexOf('/');
-    let stateName: string;
-    if (start === end) {
-      stateName = url.slice(start + 1);
-    } else {
-      stateName = url.slice(start + 1, end);
-    }
-
-    if (stateName === 'candidates')
-      this.setWindowOwner(true, false);
-    if (stateName === 'vacancies')
-      this.setWindowOwner(false, true);
-  }
-
-  setWindowOwner(can: boolean, vac: boolean) {
-    this.isCandidate = can;
-    this.isVacancy = vac;
-  }
-
-  ngDoCheck() {
-    const url = this.router.url.slice(1);
-    this.getStateFromUrl(url);
   }
 
   toggleAdvanced(): void {

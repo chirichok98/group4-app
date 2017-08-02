@@ -1,19 +1,26 @@
 <div class="basket">
-    <h2>STORE</h2>
+    <md-icon class="close-basket" (click)="openPage('main-page')">clear</md-icon>
+    <h2>store</h2>
     <div class="container">
-        <div class="candidates" *ngIf="candidates">
+        <div class="candidates">
             <h4>Candidates</h4>
-            <div *ngFor="let item of candidates; let i = index">
-                <button class="can-remove" data-id="i" (click)="deleteCandidate(i)" md-mini-fab><md-icon>remove</md-icon></button>
-                <candidate-card [showBasket]="false" [candidate]="item"></candidate-card>
-            </div>
+            <ng-container *ngIf="candidates.length; else emptyCan">
+                <div class="container-inner" *ngFor="let item of candidates; let i = index">
+                    <button class="can-remove" data-id="i" (click)="deleteCandidate(i)"><md-icon>clear</md-icon></button>
+                    <candidate-card [showBasket]="false" [candidate]="item"></candidate-card>
+                </div>
+            </ng-container>
+            <ng-template #emptyCan><span class="empty-wrapper">No candidate</span></ng-template>
         </div>
-        <div class="positions" *ngIf="positions">
+        <div class="positions">
             <h4>Positions</h4>
-            <div *ngFor="let item of positions; let i = index">
-                <button class="vac-remove" data-id="i" (click)="deletePosition(i)" md-mini-fab><md-icon>remove</md-icon></button>
-                <position-preview-card [showBasket]="false" [position]="item"></position-preview-card>
-            </div>
+            <ng-container *ngIf="positions.length; else emptyPos">
+                <div class="container-inner" *ngFor="let item of positions; let i = index">
+                    <button class="vac-remove" data-id="i" (click)="deletePosition(i)"><md-icon>clear</md-icon></button>
+                    <position-preview-card [showBasket]="false" [position]="item"></position-preview-card>
+                </div>
+            </ng-container>
+            <ng-template #emptyPos><span class="empty-wrapper">No position</span></ng-template>
         </div>
 
     </div>

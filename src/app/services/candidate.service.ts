@@ -54,4 +54,13 @@ export class CandidateService {
       this.httpService.DEF_HEADERS,
       this.httpService.stringify);
   }
+
+  addInterview(type: string, interview: any) {
+    const url: string = `${this.httpService.INTERVIEW}/${type}/${this.httpService.ADD}`;
+    console.log(this.httpService.stringify(interview));
+    return this.httpService.post(url,
+      interview,
+      this.httpService.DEF_HEADERS,
+      this.httpService.stringify);
+  }
 }

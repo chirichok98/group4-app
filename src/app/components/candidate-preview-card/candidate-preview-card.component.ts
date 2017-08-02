@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ICandidatePreview } from '../../interfaces/ICandidatePreview';
@@ -10,17 +10,21 @@ import { SnackbarService } from '../../services/snackbar.service';
   templateUrl: 'candidate-preview-card.component.html',
   styleUrls: ['candidate-preview-card.component.scss'],
 })
-export class CandidatePreviewComponent implements OnInit {
+export class CandidatePreviewComponent implements DoCheck {
   @Input() candidate: ICandidatePreview;
   @Input() showBasket: boolean = true;
 
-  constructor(private router: Router,
-    private cookie: MyCookieService,
-    private snackService: SnackbarService) { }
-
   isAdded: boolean = false;
 
-  ngOnInit() {
+  constructor(private router: Router,
+              private cookie: MyCookieService,
+              private snackService: SnackbarService) { }
+
+  ngDoCheck() {
+    const id: number[] = this.cookie.getCandidates();
+    if (this.candidate && id.length && id.includes(this.candidate.id)) {
+      this.isAdded = true;
+    }
   }
 
   goToDetailView() {
@@ -33,13 +37,14 @@ export class CandidatePreviewComponent implements OnInit {
     if (event.stopPropagation) {
       event.stopPropagation();
     }
-
     if (this.cookie.addCandidate(this.candidate.id)) {
       this.isAdded = true;
       this.snackService.showSnack('Succesfully added to basket!', 'SUCCESS');
     } else {
-      this.isAdded = true;
-      this.snackService.showSnack('This candidate was added earlier!', 'WARNING');
+      const index: number = this.cookie.getCandidates().findIndex(i => i === this.candidate.id);
+      this.cookie.removeIdFromCandidate(index);
+      this.isAdded = false;
+      this.snackService.showSnack('This candidate was successfully deleted!', 'DELETE');
     }
   }
 }

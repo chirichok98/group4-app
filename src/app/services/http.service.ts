@@ -22,6 +22,8 @@ export class HttpService {
   VAC_STATUS: string = 'api/vacancyStatus';
   CAN_STATUS: string = 'api/candidateStatus';
   HRS: string = 'api/users/hrms';
+  TECH: string = 'api/users/tech';
+  INTERVIEW: string = 'api/interview';
 
   constructor(private http: Http, private cookie: MyCookieService) {
     this.DEF_HEADERS = new Headers({ 'Content-Type': 'application/json' });

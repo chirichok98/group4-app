@@ -14,6 +14,7 @@ export class DictionariesService {
   private vacStatuses: Promise<IGeneral[]>;
   private canStatuses: Promise<IGeneral[]>;
   private hrs: Promise<IUserPreview[]>;
+  private techs: Promise<IUserPreview[]>;
 
   constructor(private http: Http, private httpService: HttpService) { }
 
@@ -63,5 +64,13 @@ export class DictionariesService {
     }
     this.hrs = this.httpService.get(this.httpService.HRS, null);
     return this.hrs;
+  }
+
+  getTechs(): Promise<IUserPreview[]> {
+    if (this.techs) {
+      return this.techs;
+    }
+    this.techs = this.httpService.get(this.httpService.TECH, null);
+    return this.techs;
   }
 }
