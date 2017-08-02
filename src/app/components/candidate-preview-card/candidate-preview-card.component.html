@@ -43,5 +43,5 @@
             </div>
         </div>
     </div>
-    <button [ngClass]="{'active': isAdded}" *ngIf="showBasket" class="can-basket" (click)="addToBasket($event)"><i class="material-icons">bookmark</i></button>
+    <i [ngClass]="{'active': isAdded}" *ngIf="showBasket" (click)="addToBasket($event)" class="material-icons can-basket">bookmark</i>
 </md-card>
