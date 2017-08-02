@@ -19,7 +19,11 @@ export class PositionPreviewComponent {
 
   isAdded: boolean = false;
 
-  ngOnInit() {
+  ngDoCheck() {
+    const id: number[] = this.cookie.getVacancies();
+    if (this.position && id.length && id.includes(this.position.id)) {
+      this.isAdded = true;
+    }
   }
 
   goToDetailView() {
@@ -35,8 +39,11 @@ export class PositionPreviewComponent {
       this.isAdded = true;
       this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
     } else {
+      const index: number = this.cookie.getVacancies()
+        .findIndex(i => i === this.position.id);
+      this.cookie.removeIdFromVacancies(index);
       this.isAdded = true;
-      this.snackService.showSnack('This position was added earlier!','WARNING');
+      this.snackService.showSnack('Position removed successfully!','DELETE');
     }
   }
 }
