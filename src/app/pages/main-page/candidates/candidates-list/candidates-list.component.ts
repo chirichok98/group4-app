@@ -15,7 +15,7 @@ export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
   paramsQueue: any = [];
-
+  
   constructor(private pagerService: PagerService, 
               private cookie: MyCookieService,
               private router: Router,

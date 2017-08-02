@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DictionariesService } from '../../services/dictionaries.service';
+import { NavbarFunctionsService } from '../../services/navbar-functions.service';
 import { Router } from '@angular/router';
 
 declare const $;
@@ -9,6 +10,24 @@ declare const $;
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
+
+export class SearchObject {
+  constructor(public _statuses?: any, public _cities?: any, public _canSt?: any,
+              public _skills?: any, public _vacSt?: any, public _hr?: any) {
+    this.statuses = _statuses;
+    this.cities = _cities;
+    this.skills = _skills;
+    this.canSt = _canSt;
+    this.vacSt = _vacSt;
+    this.hr = _hr;
+  }
+  statuses: any = [];
+  cities: any;
+  skills: any;
+  canSt: any;
+  vacSt: any;
+  hr: any;
+}
 export class SearchComponent {
   isCandidate: boolean;
   isVacancy: boolean;
@@ -16,28 +35,24 @@ export class SearchComponent {
   search: any = {
     primarySkill: {},
   };
-  statuses: any = [];
-  cities: any;
-  skills: any;
-  canSt: any;
-  vacSt: any;
-  hr: any;
+  searchObject: SearchObject = new SearchObject;
 
-  constructor(private hService: DictionariesService, private router: Router) {
-    this.hService.getCities().then((cities) => {
-      this.cities = cities;
+  constructor(private ds: DictionariesService, private router: Router,
+              private nfs: NavbarFunctionsService) {
+    this.ds.getCities().then((cities) => {
+      this.searchObject.cities = cities;
     });
-    this.hService.getSkills().then((skills) => {
-      this.skills = skills;
+    this.ds.getSkills().then((skills) => {
+      this.searchObject.skills = skills;
     });
-    this.hService.getCandidateStatuses().then((statuses) => {
-      this.canSt = statuses;
+    this.ds.getCandidateStatuses().then((statuses) => {
+      this.searchObject.canSt = statuses;
     });
-    this.hService.getVacancyStatuses().then((statuses) => {
-      this.vacSt = statuses;
+    this.ds.getVacancyStatuses().then((statuses) => {
+      this.searchObject.vacSt = statuses;
     });
-    this.hService.getHRs().then((hr) => {
-      this.hr = hr;
+    this.ds.getHRs().then((hr) => {
+      this.searchObject.hr = hr;
     });
   }
 
@@ -73,5 +88,6 @@ export class SearchComponent {
 
   startSearch() {
     console.log(this.search);
+    this.nfs.gg(this.searchObject);
   }
 }

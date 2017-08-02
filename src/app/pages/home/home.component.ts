@@ -11,8 +11,9 @@ import { HomeService } from '../../services/home.service';
 })
 export class HomeComponent {
   descriptions: Promise<IDescribeBlock[]>;
-
+  isSpinnerVisible: boolean = true;
   constructor(private router: Router, private hService: HomeService) {
     this.descriptions = this.hService.getAllDescriptions();
+    this.isSpinnerVisible = false;
   }
 }
