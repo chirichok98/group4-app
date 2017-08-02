@@ -7,7 +7,7 @@ import { ICandidateDetail } from '../interfaces/ICandidateDetail';
 export class CandidateService {
 
   constructor(private httpService: HttpService) { }
-  
+
   concatParam(param: any): string {
     return `${this.httpService.CAN}/${param}`;
   }
@@ -24,21 +24,20 @@ export class CandidateService {
   }
 
   assignVacancies(can: number[], vac: number[]): Promise<any> {
-    const url: string = this.concatParam(`assignVacancies`);
-    const res: Promise<any> = this.httpService.post(
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies`);
+    const res: Promise<any> = this.httpService.put(
       url,
       {
         candidates: can,
         vacancies: vac,
       },
-      this.httpService.DEF_HEADERS,
       this.httpService.stringify);
     return res;
   }
 
   getCandidateById(id: number): Promise<ICandidateDetail> {
     const url: string = this.concatParam(id);
-    const candidate: Promise<ICandidateDetail> = 
+    const candidate: Promise<ICandidateDetail> =
       this.httpService.get(url, null);
     return candidate;
   }
@@ -50,9 +49,9 @@ export class CandidateService {
 
   addCandidate(candidate): Promise<any> {
     const url: string = this.concatParam(this.httpService.ADD);
-    return this.httpService.post(url, 
+    return this.httpService.post(url,
       candidate,
-      this.httpService.DEF_HEADERS, 
+      this.httpService.DEF_HEADERS,
       this.httpService.stringify);
   }
 }
