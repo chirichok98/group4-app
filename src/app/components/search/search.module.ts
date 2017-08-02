@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SearchComponent} from './search.component';
+import { SearchComponent } from './search.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { SelectFormModule } from '../select-form/select-form.module';
