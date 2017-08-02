@@ -76,4 +76,9 @@ export class BasketComponent implements OnInit {
     }
     return true;
   }
+
+  openPage(url): void {
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
+  }
 }
