@@ -100,21 +100,19 @@ export class ExampleDatabase {
   ];
 
   /** Stream that emits whenever the data has been modified. */
-  dataChange: BehaviorSubject<INotificationOption[]> = new BehaviorSubject<INotificationOption[]>([]);
+  dataChange: BehaviorSubject<INotificationOption[]> = 
+    new BehaviorSubject<INotificationOption[]>([]);
   get data(): INotificationOption[] {
     return this.dataChange.value;
   }
 
   constructor() {
-    const copiedData = this.data.slice();
+    const copiedData = [];
     for (let i = 0; i < this.notifications.length; i++) {
-      // this.addUser(this.notifications[i]); 
       copiedData.push(this.notifications[i]);
       this.dataChange.next(copiedData);
     }
-    console.log(copiedData);
     this.dataChange.subscribe((value) => {
-      console.log('Subscription got ', value); 
     });
   }
 }

@@ -6,6 +6,8 @@ import { PositionPreviewModule } from '../position-preview-card/position-preview
 import { SpinnerModule } from '../spinner/spinner.module';
 import { MaterialModule } from '@angular/material';
 import { DownloadService } from '../../services/download.service';
+import { ModalComponent } from '../modal/modal.component';
+import { ModalModule } from '../modal/modal.module';
 
 @NgModule({
   imports: [
@@ -13,9 +15,11 @@ import { DownloadService } from '../../services/download.service';
     SpinnerModule,
     PositionPreviewModule,
     MaterialModule,
+    ModalModule,
   ],
   exports: [CandidateDetailComponent],
   declarations: [CandidateDetailComponent],
   providers: [DownloadService],
+  entryComponents: [ModalComponent],
 })
 export class CandidateDetailModule { }
