@@ -8,11 +8,16 @@
     width: 50%;
 }
 .add-button {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
+  position: fixed;
+  background: #273248;
+  bottom: 30px;
+  right: 30px;
+  opacity: 0.8;
 }
-
+.add-button:hover,
+.add-button:active {
+  opacity: 1;
+}
 @media (max-width: 830px) {
     .candidate-item-wrapper {
         width: 100%;
