@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SearchComponent } from './search.component';
+import { SearchComponent} from './search.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { SelectFormModule } from '../select-form/select-form.module';
@@ -8,7 +8,6 @@ import { SkillFormModule } from '../skill-form/skill-form.module';
 import { FormsModule } from '@angular/forms';
 import { DatepickerFormModule } from '../datepicker-form/datepicker-form.module';
 import { NavbarFunctionsService } from '../../services/navbar-functions.service';
-// add SearchService
 
 @NgModule({
   imports: [
@@ -18,11 +17,9 @@ import { NavbarFunctionsService } from '../../services/navbar-functions.service'
     SelectFormModule,
     SkillFormModule,
     DatepickerFormModule,
-    NavbarFunctionsService,
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
-  providers: [/*SearchService*/],
+  providers: [NavbarFunctionsService],
 })
-
 export class SearchModule { }

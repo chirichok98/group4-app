@@ -4,13 +4,6 @@ import { NavbarFunctionsService } from '../../services/navbar-functions.service'
 import { Router } from '@angular/router';
 
 declare const $;
-
-@Component({
-  selector: 'search-panel',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
-})
-
 export class SearchObject {
   constructor(public _statuses?: any, public _cities?: any, public _canSt?: any,
               public _skills?: any, public _vacSt?: any, public _hr?: any) {
@@ -28,6 +21,12 @@ export class SearchObject {
   vacSt: any;
   hr: any;
 }
+@Component({
+  selector: 'search-panel',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss'],
+})
+
 export class SearchComponent {
   isCandidate: boolean;
   isVacancy: boolean;
