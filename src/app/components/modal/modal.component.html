@@ -6,7 +6,13 @@
     <ng-container *ngIf="type">
         <select-form [(result)]="interview.city" [placeholder]="'City'" [array]="cities"></select-form>
         <select-form [(result)]="interview.techSkill" [placeholder]="'Skill'" [array]="skills"></select-form>
-        <datepicker-form [(date)]="interview.date" [placeholder]="'Start date'"></datepicker-form>
+        <datepicker-form [(date)]="date" [placeholder]="'Date'"></datepicker-form>
+        <md-input-container class="">
+            <input type="time" [(ngModel)]="time.from" mdInput placeholder="From">
+        </md-input-container>
+        <md-input-container class="">
+            <input type="time" [(ngModel)]="time.to" mdInput placeholder="To">
+        </md-input-container>
         <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
         <ng-container *ngIf="type==='general'">
             <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager'" [array]="hrs"></select-form>

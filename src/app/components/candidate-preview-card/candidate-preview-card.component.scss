@@ -32,6 +32,9 @@
 .card-stacked {
   width: 66%;
 }
+.card-content {
+  text-align: left;
+}
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -112,20 +115,16 @@
   position: absolute;
   bottom: 1.3rem;
   right: 1rem;
-  background: none;
   border: 1px solid #52c1e6;
   border-radius: 3px;
-  color: #273248;
+  color: #52c1e6;
 }
 .can-basket:hover {
-  color: #52c1e6;
   cursor: pointer;
 }
 .can-basket:active,
 .can-basket:focus {
-  border: none;
   border: 1px solid #52c1e6;
-  outline: none;
   color: #fff;
 }
 .can-basket.active {

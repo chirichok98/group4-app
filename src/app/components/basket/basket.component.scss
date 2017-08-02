@@ -50,12 +50,9 @@ h2, h4 {
 .vac-remove,
 .can-remove {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 4px;
+  right: 7px;
   z-index: 9999;
-  background: none;
-  border: none;
-  box-shadow: none;
   color: #273248;
 }
 .vac-remove:hover,
