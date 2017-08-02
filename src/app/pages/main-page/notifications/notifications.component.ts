@@ -27,7 +27,12 @@ export class NotificationsComponent implements OnInit {
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
   }
 
-  constructor() { }
+  constructor(
+  ) { 
+    setTimeout(()=> {
+      this.changeVisibility('dark-blue', 0);
+    });
+   }
 
   // Logic: We get list of classes of element that we clicked on. Then we check 
   // if one of needed classes is included in this classlist. If we found it, 
@@ -40,6 +45,7 @@ export class NotificationsComponent implements OnInit {
 
   checkVisibility() {
     const classlist = event.srcElement.classList;
+    console.log(event);
     this.colorsArray.forEach((item, index) => {
       if (classlist.contains(item)) {
         this.changeVisibility(item, index);
@@ -66,6 +72,10 @@ export class NotificationsComponent implements OnInit {
       case this.colorsArray[2]: return '.Assignments';
       default: return '';
     }
+  }
+
+  ngOnDestroy() {
+    console.log('destr');
   }
 }
 

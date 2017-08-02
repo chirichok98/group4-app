@@ -15,8 +15,10 @@ export class CandidatePreviewComponent implements OnInit {
   @Input() showBasket: boolean = true;
 
   constructor(private router: Router,
-              private cookie: MyCookieService,
-              private snackService: SnackbarService) { }
+    private cookie: MyCookieService,
+    private snackService: SnackbarService) { }
+
+  isAdded: boolean = false;
 
   ngOnInit() {
   }
@@ -33,9 +35,11 @@ export class CandidatePreviewComponent implements OnInit {
     }
 
     if (this.cookie.addCandidate(this.candidate.id)) {
-      this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
+      this.isAdded = true;
+      this.snackService.showSnack('Succesfully added to basket!', 'SUCCESS');
     } else {
-      this.snackService.showSnack('This candidate was added earlier!','WARNING');
+      this.isAdded = true;
+      this.snackService.showSnack('This candidate was added earlier!', 'WARNING');
     }
   }
 }
