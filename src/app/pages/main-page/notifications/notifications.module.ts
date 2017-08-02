@@ -6,11 +6,11 @@ import { MaterialModule, MdNativeDateModule, MdTableModule } from '@angular/mate
 import { CdkTableModule } from '@angular/cdk';
 
 @NgModule({
-  imports: [ CommonModule,
+  imports: [CommonModule,
     MaterialModule,
     MdNativeDateModule,
     MdTableModule,
-    CdkTableModule,],
+    CdkTableModule],
   exports: [],
   declarations: [NotificationsComponent],
   providers: [],
