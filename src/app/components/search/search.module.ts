@@ -7,7 +7,7 @@ import { SelectFormModule } from '../select-form/select-form.module';
 import { SkillFormModule } from '../skill-form/skill-form.module';
 import { FormsModule } from '@angular/forms';
 import { DatepickerFormModule } from '../datepicker-form/datepicker-form.module';
-import { NavbarFunctionsService } from '../../services/navbar-functions.service';
+import { TransferService } from '../../services/transfer.service';
 
 @NgModule({
   imports: [
@@ -20,6 +20,6 @@ import { NavbarFunctionsService } from '../../services/navbar-functions.service'
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
-  providers: [NavbarFunctionsService],
+  providers: [TransferService],
 })
 export class SearchModule { }

@@ -5,7 +5,7 @@ import { MyCookieService } from '../../../../services/cookie.service';
 import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
 import { SnackbarService } from '../../../../services/snackbar.service';
-
+import { TransferService } from '../../../../services/transfer.service';
 @Component({
   selector: 'candidates-list',
   templateUrl: 'candidates-list.component.html',
@@ -15,11 +15,15 @@ export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
   candidates: ICandidatePreview[];
   paramsQueue: any = [];
-  
+  public dataSubscription: any;
   constructor(private pagerService: PagerService, 
               private cookie: MyCookieService,
               private router: Router,
-              private snackService: SnackbarService) {
+              private snackService: SnackbarService,
+              private transferService: TransferService) {
+    this.dataSubscription = transferService.getData().subscribe((data) => {
+      console.log(data);
+    });
     this.pagerService.init('api/candidate')
       .then((candidates) => {
         this.candidates = candidates;
@@ -29,13 +33,13 @@ export class CandidatesListComponent {
         this.isSpinnerVisible = false;
       });
   }
-
-  onScroll(pager?: PagerService) {
-    if (pager) {
-      this.paramsQueue.push(pager.skip);
+  
+  onScroll(emmitedObject?: PagerService) {
+    if (emmitedObject) {
+      this.paramsQueue.push(emmitedObject.skip);
     }
     const params = this.paramsQueue.shift();
-    this.pagerService.more(params)
+    this.pagerService.showMore(params)
       .then((candidates) => {
         this.candidates = this.candidates.concat(candidates);
         this.isSpinnerVisible = false;

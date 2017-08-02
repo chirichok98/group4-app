@@ -12,7 +12,7 @@ import { SearchModule } from '../../../../components/search/search.module';
 import { PagerModule } from '../../../../directives/pager/pager.module';
 import { PagerService } from '../../../../services/pager.service';
 import { PagerDirective } from '../../../../directives/pager/pager.directive';
-
+import { TransferService } from '../../../../services/transfer.service';
 @NgModule({
   imports: [
     HttpModule,
