@@ -1,13 +1,31 @@
 import { Component, Input } from '@angular/core';
 import { DictionariesService } from '../../services/dictionaries.service';
+import { TransferService } from '../../services/transfer.service';
 
 declare const $;
-
+// export class SearchObject {
+//   constructor(public _statuses?: any, public _cities?: any, public _canSt?: any,
+//     public _skills?: any, public _vacSt?: any, public _hr?: any) {
+//     this.statuses = _statuses;
+//     this.cities = _cities;
+//     this.skills = _skills;
+//     this.canSt = _canSt;
+//     this.vacSt = _vacSt;
+//     this.hr = _hr;
+//   }
+//   statuses: any = [];
+//   cities: any;
+//   skills: any;
+//   canSt: any;
+//   vacSt: any;
+//   hr: any;
+// }
 @Component({
   selector: 'search-panel',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
+
 export class SearchComponent {
   @Input() isCandidate: boolean;
   @Input() isVacancy: boolean;
@@ -22,20 +40,20 @@ export class SearchComponent {
   vacSt: any;
   hr: any;
 
-  constructor(private hService: DictionariesService) {
-    this.hService.getCities().then((cities) => {
+  constructor(private ds: DictionariesService, private nfs: TransferService) {
+    this.ds.getCities().then((cities) => {
       this.cities = cities;
     });
-    this.hService.getSkills().then((skills) => {
+    this.ds.getSkills().then((skills) => {
       this.skills = skills;
     });
-    this.hService.getCandidateStatuses().then((statuses) => {
+    this.ds.getCandidateStatuses().then((statuses) => {
       this.canSt = statuses;
     });
-    this.hService.getVacancyStatuses().then((statuses) => {
+    this.ds.getVacancyStatuses().then((statuses) => {
       this.vacSt = statuses;
     });
-    this.hService.getHRs().then((hr) => {
+    this.ds.getHRs().then((hr) => {
       this.hr = hr;
     });
   }
@@ -46,5 +64,7 @@ export class SearchComponent {
 
   startSearch() {
     console.log(this.search);
+    this.nfs.putData(this.search);
   }
+
 }

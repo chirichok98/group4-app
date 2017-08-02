@@ -18,7 +18,7 @@ export class PagerService {
     this.dataFormat = dataFormat;
     return this.getPager(0, amount || this.amount);
   }
-  more(skip?: number, amount?: number) {
+  showMore(skip?: number, amount?: number) {
     return this.getPager(0 + (skip || this.skip), amount || this.amount);
   }
 }

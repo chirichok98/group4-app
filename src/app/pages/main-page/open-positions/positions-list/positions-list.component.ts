@@ -35,7 +35,7 @@ export class PositionsListComponent {
       this.paramsQueue.push(pager.skip);
     }
     const params = this.paramsQueue.shift();
-    this.pagerService.more(params)
+    this.pagerService.showMore(params)
       .then((positions) => {
         this.positions = this.positions.concat(positions);
         this.isSpinnerVisible = false;
