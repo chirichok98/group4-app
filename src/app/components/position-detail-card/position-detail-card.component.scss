@@ -35,7 +35,7 @@
   display: flex;
 }
 
-.position-info-item .atribute {
+.position-info-item .attribute {
   display: inline-block;
   width: 10rem;
   font-weight: 500;
@@ -117,11 +117,11 @@ button:active {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
-.position-skill-name {
+.position-skill-container {
   display: flex;
 }
 
-.position-skill-name .atribute-skills {
+.position-skill-container .attribute-skills {
   flex-direction: column;
   display: flex;
   justify-content: center;
@@ -133,4 +133,8 @@ button:active {
 
 .small-container {
   width: 100%;
+}
+
+.position-skill-name {
+  font-weight: bold;
 }

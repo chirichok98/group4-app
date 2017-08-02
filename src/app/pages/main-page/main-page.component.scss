@@ -1,5 +1,11 @@
 .basket {
   position: fixed;
+  background: #273248;
   bottom: 30px;
   left: 30px;
+  opacity: 0.8;
+}
+.basket:hover,
+.basket:active {
+  opacity: 1;
 }

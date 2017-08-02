@@ -9,7 +9,7 @@ import { INotificationOption } from '../../../interfaces/INotificationOption';
 
 declare const $;
 
-export enum NotificationType { Reminders, News, Assignments };
+export enum NotificationType { Reminders, News, Assignments }
 
 @Component({
   selector: 'notifications',
@@ -24,7 +24,6 @@ export class NotificationsComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.dataSource = new INotificationOption[](this.notifications);
     this.dataSource = new ExampleDataSource(this.exampleDatabase);
   }
 
@@ -102,32 +101,21 @@ export class ExampleDatabase {
 
   /** Stream that emits whenever the data has been modified. */
   dataChange: BehaviorSubject<INotificationOption[]> = new BehaviorSubject<INotificationOption[]>([]);
-  get data(): INotificationOption[] { return this.dataChange.value; }
+  get data(): INotificationOption[] {
+    return this.dataChange.value;
+  }
 
   constructor() {
-    // Fill up the database with 100 users.
-    for (let i = 0; i < this.notifications.length; i++) { this.addUser(i); }
-  }
-
-  /** Adds a new user to the database. */
-  addUser(index: number) {
     const copiedData = this.data.slice();
-    const obj = {
-      type: this.notifications[index].type,
-      date: this.notifications[index].date,
-      description: this.notifications[index].description,
-      color: this.defineColor(this.notifications[index].type)
+    for (let i = 0; i < this.notifications.length; i++) {
+      // this.addUser(this.notifications[i]); 
+      copiedData.push(this.notifications[i]);
+      this.dataChange.next(copiedData);
     }
-    copiedData.push(obj);
-    this.dataChange.next(copiedData);
-  }
-
-  defineColor(type: string) {
-    switch(type) {
-      case NotificationType[NotificationType.News] : return 'light-blue';
-      case NotificationType[NotificationType.Assignments] : return 'light-grey';
-      case NotificationType[NotificationType.Reminders] : return 'dark-blue';
-    }
+    console.log(copiedData);
+    this.dataChange.subscribe((value) => {
+      console.log('Subscription got ', value); 
+    });
   }
 }
 

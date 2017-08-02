@@ -9,13 +9,11 @@
   overflow: hidden;
   padding: 1.5rem;
 }
-
 .card:hover {
   cursor: pointer;
-  transform: scale(1.015);
-  transition-duration: (0.5s);
+  // transform: scale(1.015);
+  // transition-duration: (0.3s);
 }
-
 .card .card-image {
   width: 100px;
   height: 100px;
@@ -31,33 +29,35 @@
     }
   }
 }
-
 .card-stacked {
   width: 66%;
 }
-
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
   font-size: 1.2em;
   font-weight: 500;
-  width: 75%;
+  width: 73%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-
+.card-content .phone,
+.card-content .email,
+.card-content .skype {
+  width: 85%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .content-wrapper {
   line-height: 1.3rem;
 }
-
 .content-wrapper.skill {
   text-transform: uppercase;
-  font-size: 0.9em;
-  font-weight: 500;
+  font-size: 0.8em;
   padding: 0 3px;
 }
-
 .card-content {
   div::selection {
     color: #56CCF2;
@@ -72,7 +72,6 @@
     }
   }
 }
-
 .card-content .material-icons {
   vertical-align: bottom;
   font-size: 1.3rem;
@@ -80,13 +79,11 @@
   line-height: 1.4rem;
   margin-right: 2px;
 }
-
 .card-content .material-icons.candidate-phone {
   color: #ff5151;
   font-size: 1.2rem;
   margin-right: 4px;
 }
-
 .feedback-logotypes {
   display: inline-block;
   width: 1.4rem;
@@ -94,12 +91,10 @@
   vertical-align: bottom;
   line-height: 1.4rem;
 }
-
 .skype .feedback-logotypes {
   background: url("/assets/skype_logo.png") no-repeat 0 0;
   background-size: contain;
 }
-
 .status {
   position: absolute;
   padding: 0.5rem 2.5rem;
@@ -113,11 +108,25 @@
   width: 100px;
   font-size: 0.9em;
 }
-
 .can-basket {
   position: absolute;
-  background: #273248;
+  bottom: 7px;
+  right: 5px;
+  text-transform: uppercase;
   color: #fff;
-  bottom: 0px;
-  right: 0px;
+  background: #a5a3a3;
+  opacity: 0.6;
+  line-height: 1.5rem;
+  padding: 0;
+  font-size: 0.7em;
+}
+.can-basket:hover {
+  opacity: 1;
+}
+.mat-chip.mat-primary {
+  padding: 3px 10px;
+  margin-top: 4px;
+  font-size: 0.9em;
+  background: rgba(243, 103, 103, 0.8);
+  color: #fff;
 }
