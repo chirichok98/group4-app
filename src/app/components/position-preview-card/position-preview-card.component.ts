@@ -17,6 +17,8 @@ export class PositionPreviewComponent {
               private cookie: MyCookieService,
               private snackService: SnackbarService) { }
 
+  isAdded: boolean = false;
+
   ngOnInit() {
   }
 
@@ -30,8 +32,10 @@ export class PositionPreviewComponent {
     }
 
     if (this.cookie.addVacancy(this.position.id)) {
+      this.isAdded = true;
       this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
     } else {
+      this.isAdded = true;
       this.snackService.showSnack('This position was added earlier!','WARNING');
     }
   }

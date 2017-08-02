@@ -110,18 +110,27 @@
 }
 .can-basket {
   position: absolute;
-  bottom: 7px;
-  right: 5px;
-  text-transform: uppercase;
-  color: #fff;
-  background: #a5a3a3;
-  opacity: 0.6;
-  line-height: 1.5rem;
-  padding: 0;
-  font-size: 0.7em;
+  bottom: 1.3rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid #52c1e6;
+  border-radius: 3px;
+  color: #273248;
 }
 .can-basket:hover {
-  opacity: 1;
+  color: #52c1e6;
+  cursor: pointer;
+}
+.can-basket:active,
+.can-basket:focus {
+  border: none;
+  border: 1px solid #52c1e6;
+  outline: none;
+  color: #fff;
+}
+.can-basket.active {
+  background: #52c1e6;
+  color: #fff;  
 }
 .mat-chip.mat-primary {
   padding: 3px 10px;
