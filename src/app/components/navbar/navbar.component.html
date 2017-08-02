@@ -14,12 +14,8 @@
         </div>
       </li>
     </ul> -->
-    <md-icon class="navbar-icon">sort</md-icon>
+    <md-icon class="navbar-icon" (click)="openSort()">sort</md-icon>
   </div>
 </div>
-<search-panel [hidden]="!isSearchVisible"></search-panel>
-<!--<filter-panel></filter-panel>   
-
-  Sort panel should be added
-
--->
+<search-panel [hidden]="!isSearchVisible" [isCandidate]="isCandidate" [isVacancy]="isVacancy"></search-panel>
+<sort-panel [hidden]="!isSortVisible" [isCandidate]="isCandidate" [isVacancy]="isVacancy"></sort-panel>

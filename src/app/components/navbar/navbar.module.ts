@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './navbar.component';
 import { SearchModule } from '../search/search.module';
-import { FilterModule } from '../filter/filter.module';
 import { MaterialModule } from '@angular/material';
 import { CookieModule } from 'ngx-cookie';
+import { SortModule } from '../sort/sort.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SearchModule,
-    FilterModule,
+    SortModule,
     MaterialModule,
     CookieModule,
   ],

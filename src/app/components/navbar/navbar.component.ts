@@ -15,8 +15,11 @@ export class NavbarComponent implements OnInit, DoCheck {
   @Input() states: INavbarOption[];
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
-  isFilterVisible: boolean = false;
+  isSortVisible: boolean = false;
   isMenuVisible: boolean = false;
+  
+  isCandidate: boolean;
+  isVacancy: boolean;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -44,15 +47,24 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   getStateFromUrl(url: string): INavbarOption {
     const start: number = url.indexOf('/');
-    const end: number = url.lastIndexOf('/');
+    const end: number = url.lastIndexOf('/'); 
     let stateName: string;
     if (start === end) {
       stateName = url.slice(start + 1);
     } else {
       stateName = url.slice(start + 1, end);
     }
+    if (stateName === 'candidates')
+      this.setWindowOwner(true, false);
+    if (stateName === 'vacancies')
+      this.setWindowOwner(false, true);
     const state: INavbarOption = this.states.find(item => item.stateName === stateName);
     return state;
+  }
+
+  setWindowOwner(can: boolean, vac: boolean) {
+    this.isCandidate = can;
+    this.isVacancy = vac;
   }
 
   goTo(newState: INavbarOption): void {
@@ -79,80 +91,41 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   openSearch(): void {
-    this.isSearchVisible = !this.isSearchVisible;
-    // const search = $('.search-block');
-    // if (!search.height()) {
-    //   search.animate({ height: '5rem', opacity: '1' });
-    //   search.css({ visibility: 'visible' });
-    // } else {
-    //   search.animate({ height: '0', opacity: '0' });
-    //   search.css({ visibility: 'hidden' });
-    // }
-    // const filter = $('.filter-block');
-    // const search = $('.search-block');
-    // const detailed = $('.detailed-search');
-    // if (!filter.height()) {
-    //   if (!search.height()) {
-    //     search.animate({ height: '20rem', opacity: '1' });
-    //     search.css({ visibility: 'visible' });
-
-    //   } else {
-    //     search.animate({ height: '0', opacity: '0' });
-    //     search.css({ visibility: 'hidden' });
-    //   }
-  }
-
-  // openFilter(): void {
-  //   const filter = $('.filter-block');
-  //   const search = $('.search-block');
-  //   if (!search.height()) {
-  //     if (!filter.height()) {
-  //       filter.animate({ height: '20rem', opacity: '1' });
-  //       filter.css({ visibility: 'visible' });
-  //     } else {
-  //       filter.animate({ height: '0', opacity: '0' });
-  //       filter.css({ visibility: 'hidden' });
-  //     }
-  //   }
-  // }
-}
-
-
-/* showSearchForm(): void {
-    this.toggleMenuForm(false);
-    this.toggleFilterForm(false);
+    // this.toggleMenuForm(false);
+    this.toggleSortForm(false);
     if (this.isSearchVisible) {
       return this.toggleSearchForm(false);
     }
     this.toggleSearchForm(true);
   }
 
-  showMenuForm(): void {
-    this.toggleFilterForm(false);
-    this.toggleSearchForm(false);
-    if (this.isMenuVisible) {
-      return this.toggleMenuForm(false);
-    }
-    this.toggleMenuForm(true);
-  }
+  // showMenuForm(): void {
+  //   this.toggleSortForm(false);
+  //   this.toggleSearchForm(false);
+  //   if (this.isMenuVisible) {
+  //     return this.toggleMenuForm(false);
+  //   }
+  //   this.toggleMenuForm(true);
+  // }
 
-  showFilterForm(): void {
+  openSort(): void {
     this.toggleSearchForm(false);
-    this.toggleMenuForm(false);
-    if (this.isFilterVisible) {
-      return this.toggleFilterForm(false);
+    // this.toggleMenuForm(false);
+    if (this.isSortVisible) {
+      return this.toggleSortForm(false);
     }
-    this.toggleFilterForm(true);
+    this.toggleSortForm(true);
   }
-  toggleFilterForm(value): void {
-    this.isFilterVisible = value;
+  
+  toggleSortForm(value): void {
+    this.isSortVisible = value;
   }
 
   toggleSearchForm(value): void {
     this.isSearchVisible = value;
   }
 
-  toggleMenuForm(value): void {
-    this.isMenuVisible = value;
-  }
-} */
+  // toggleMenuForm(value): void {
+  //   this.isMenuVisible = value;
+  // }
+} 
