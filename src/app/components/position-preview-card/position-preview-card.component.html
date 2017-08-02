@@ -8,7 +8,7 @@
                         <md-chip>{{pos.primarySkill?.name}}</md-chip>
                     </md-chip-list>
                 </ng-template>
-                <button *ngIf="showBasket" class="vac-basket" (click)="addToBasket($event)" md-mini-fab><md-icon>add</md-icon></button>
+                <button [ngClass]="{'active': isAdded}" *ngIf="showBasket" class="can-basket" (click)="addToBasket($event)"><i class="material-icons">bookmark</i></button>
             </div>
 
             <div class="position-vacancy">{{pos.vacancyName}}</div>

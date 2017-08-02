@@ -2,11 +2,29 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  justify-content: space-around;
+  justify-content: space-between;
+}
+position-preview-card {
+  width: 33%;
+}
+@media (max-width: 950px) {
+  position-preview-card {
+    width: 49%;
+  }
+}
+@media (max-width: 530px) {
+  position-preview-card {
+    width: 100%;
+  }
 }
 .add-button {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
+  position: fixed;
+  background: #273248;
+  bottom: 30px;
+  right: 30px;
+  opacity: 0.8;
+}
+.add-button:hover,
+.add-button:active {
+  opacity: 1;
 }
