@@ -29,10 +29,11 @@ export class NotificationsComponent implements OnInit {
 
   constructor(
   ) { 
-    setTimeout(()=> {
+    setTimeout(() => {
+      this.changeVisibility('dark-blue', 0);
       this.changeVisibility('dark-blue', 0);
     });
-   }
+  }
 
   // Logic: We get list of classes of element that we clicked on. Then we check 
   // if one of needed classes is included in this classlist. If we found it, 
