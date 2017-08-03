@@ -211,3 +211,7 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
 .container-inner .position {
   margin: 0.5rem 0.25rem 0;
 }
+
+.mat-button-ripple.mat-ripple.mat-button-ripple-round {
+    border-radius: 10%;
+}

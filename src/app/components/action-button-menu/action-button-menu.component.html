@@ -1,14 +1,28 @@
-<div *ngIf="user">
-    <button md-icon-button [mdMenuTriggerFor]="menu">
+<div class="user-info-wrapper" *ngIf="user">
+    <button class="add-wrap" md-icon-button [mdMenuTriggerFor]="add">
+        <div (click)="func()" class="open-pages-wrap">
+            <md-icon class="add-icon">add</md-icon>
+            <md-icon class="arrow-icon">keyboard_arrow_down</md-icon>
+        </div>
+    </button>   
+    <button class="log-wrap" md-icon-button [mdMenuTriggerFor]="log">
         <div class="user-info__photo-wrap">
             <img  *ngIf="user.picture; else default" class="user-info__photo" [src]="user.picture" alt="photo">
+            <md-icon class="arrow-icon">keyboard_arrow_down</md-icon>
             <ng-template #default>
                 <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo" (click)="func()">
+                <md-icon class="arrow-icon">keyboard_arrow_down</md-icon>
             </ng-template>
         </div>
+    </button>    
+    <md-menu #log="mdMenu" [overlapTrigger]="false">
         <div class="user-info__name">{{user.name}}</div>
-    </button>
-    <md-menu #menu="mdMenu" yPosition="below" xPosition="after" [overlapTrigger]="false">
+        <button (click)="logout()" c md-menu-item>
+            <md-icon>power_settings_new</md-icon>
+            <span>Log out</span>
+        </button>
+    </md-menu>
+    <md-menu #add="mdMenu" yPosition="below" xPosition="after" [overlapTrigger]="false">
         <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/candidate')" md-menu-item>
             <md-icon>add</md-icon>
             <span>New candidate</span>
@@ -16,10 +30,6 @@
         <button *ngIf="user.role !== 'Tech'" (click)="openPage('create/vacancy')" md-menu-item>
             <md-icon>add</md-icon>
             <span>New position</span>
-        </button>
-        <button (click)="logout()" c md-menu-item>
-            <md-icon>power_settings_new</md-icon>
-            <span>Log out</span>
         </button>
     </md-menu>
 </div>
