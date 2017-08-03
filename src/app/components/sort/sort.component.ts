@@ -10,39 +10,53 @@ export class SortComponent {
   @Input() isCandidate: boolean;
   @Input() isVacancy: boolean;
   sort: any = { };
-  stateArray: number[] = [0, 0, 0];
-  optionsArray: string[] = ['start-date', 'close-date', 'request-date'];
-  constructor() { 
-    $('.start-date-icon').css({ 
-      opacity: '1', 
-      transform: 'rotate(90deg)',
-      'transition-duration': '500ms', 
-    }); 
-  }
-  checkSortState() {
+  candidateStates: number[] = [0, 0, 0];
+  vacancyStates: number[] = [0, 0, 0];
+  currentStates: number[] = [];
+
+  candidateOptions: string[] = ['creation-date', 'last-contact-date', 'remind-date'];
+  vacancyOptions: string[] = ['start-date', 'close-date', 'request-date'];
+  currentOptions: string[] = [];
+  
+  constructor() { }
+  checkSortState(state: string) {
+    switch (state) {
+      case 'candidate': { 
+        this.currentOptions = this.candidateOptions; 
+        this.currentStates = this.candidateStates; 
+        this.vacancyStates = [0, 0, 0];
+        break; 
+      }
+      case 'vacancy': { 
+        this.currentOptions = this.vacancyOptions; 
+        this.currentStates = this.vacancyStates;
+        this.candidateStates = [0, 0, 0]; 
+        break; 
+      }
+    }
     const classlist = event.srcElement.classList;
-    this.optionsArray.forEach((item, index) => {
-      console.log(classlist);
+    console.log(classlist);
+    this.currentOptions.forEach((item, index) => {
       if (classlist.contains(item)) {
         this.changeSortState(item, index);
       }
     });
   }
   private changeSortState(item, index): void {
-    this.stateArray[index] += 1;
-    this.stateArray[index] %= 3;
-    this.optionsArray.forEach((it, i) => {
+    this.currentStates[index] += 1;
+    this.currentStates[index] %= 3;
+    this.currentOptions.forEach((it, i) => {
       if (i !== index) {
-        this.stateArray[i] = 0;
+        this.currentStates[i] = 0;
       }
     });
-    console.log(this.stateArray);
-    this.showChanges(item, this.stateArray[index]);
+    console.log(this.currentStates);
+    this.showChanges(item, this.currentStates[index]);
   }
   private showChanges(item, state): void {
     console.log('.' + item + '-icon');
-    console.log(state);
-    this.optionsArray.forEach((it) => {
+    // console.log(state);
+    this.currentOptions.forEach((it) => {
       $('.' + it + '-icon').css({ 
         opacity: '0',
         transform: 'rotate(270deg)',
