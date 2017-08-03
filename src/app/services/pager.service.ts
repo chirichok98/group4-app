@@ -13,12 +13,13 @@ export class PagerService {
     let items: Promise<any>;
     if (model && this.url === this.httpService.CAN_SEARCH) {
       console.log('candidate', model);
-      pagerParams.candidateSearchOptions = model;
+      pagerParams.searchModel = model;
     }
     if (model && this.url === this.httpService.VAC_SEARCH) {
       console.log('vacancy', model);
       pagerParams.searchModel = model;
     }
+    pagerParams.searchModel = model;
     console.log(pagerParams);
     items = this.httpService.post(this.url, pagerParams,
       this.httpService.DEF_HEADERS,
