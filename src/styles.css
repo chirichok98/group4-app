@@ -61,7 +61,9 @@ store {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }
-
+candidates {
+  margin: 0;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -206,6 +208,6 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
   background-color: #52c1e6;
 }
 
-.container-inner .position-container {
+.container-inner .position {
   margin: 0.5rem 0.25rem 0;
 }

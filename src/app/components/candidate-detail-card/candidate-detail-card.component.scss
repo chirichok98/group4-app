@@ -50,12 +50,12 @@
 .material-icons {
   vertical-align: bottom;
   font-size: 1.4rem;
-  color: #526c7b;
+  color: #82a0b1;
   line-height: 1.4rem;
 }
 
 .material-icons.candidate-phone {
-  color: #ff5151;
+  color: #f77171;
 }
 
 .material-icons.candidate-location {
@@ -69,14 +69,14 @@
   vertical-align: bottom;
   line-height: 1.4rem;
 }
-.candidate-feedback-item {
-  display: flex;
-  align-items: center;
-  span {
-    display: flex;
-    padding-left: 10px;
-  }
-}
+// .candidate-feedback-item {
+//   display: flex;
+//   align-items: center;
+//   span {
+//     display: flex;
+//     padding-left: 10px;
+//   }
+// }
 .candidate-skype,
 .candidate-linkedin {
   .feedback-logotypes {

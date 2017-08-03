@@ -42,7 +42,7 @@ export class PositionPreviewComponent {
       const index: number = this.cookie.getVacancies()
         .findIndex(i => i === this.position.id);
       this.cookie.removeIdFromVacancies(index);
-      this.isAdded = true;
+      this.isAdded = false;
       this.snackService.showSnack('Position removed successfully!','DELETE');
     }
   }
