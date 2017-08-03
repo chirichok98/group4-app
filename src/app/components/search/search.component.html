@@ -4,7 +4,8 @@
             <select-form class="select" [(result)]="search.city" [placeholder]="'City'" [array]="cities"></select-form>
             <select-form *ngIf="isCandidate" [(result)]="search.status" [placeholder]="'Status'" [array]="canSt"></select-form>
             <select-form *ngIf="isVacancy" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
-            <skill-form [(skill)]="search.primarySkill" [array]="skills"></skill-form>
+            <select-form [(result)]="search.primarySkill" [placeholder]="'Skill'" [array]="skills"></select-form>
+            <range-form [(range)]="search.level" [min]="1" [max]="4"></range-form>
             <button class="show-more-btn" (click)="toggleAdvanced()">More options</button>
             <ng-container class="more-options-wrapper" *ngIf="isAdvancedShown">
                 <div class="more-options-wrapper" *ngIf="isCandidate">

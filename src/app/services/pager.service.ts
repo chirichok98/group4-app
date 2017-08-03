@@ -11,18 +11,18 @@ export class PagerService {
   private getPager(skip: number = 0, amount: number, model?: any): Promise<any> {
     const pagerParams: any = { skip, amount };
     let items: Promise<any>;
-    console.log(model);
-    if (model) {
+    if (model && this.url === this.httpService.CAN_SEARCH) {
+      console.log('candidate', model);
       pagerParams.candidateSearchOptions = model;
-      delete pagerParams.candidateSearchOptions.primarySkill;
     }
-    console.log(pagerParams); 
-    items = this.httpService.post(this.url, pagerParams, 
-                                                      this.httpService.DEF_HEADERS, 
-                                                      this.httpService.stringify);
-    if (model) {                                           
-      pagerParams.candidateSearchOptions.primarySkill = {};   
-    }                             
+    if (model && this.url === this.httpService.VAC_SEARCH) {
+      console.log('vacancy', model);
+      pagerParams.searchModel = model;
+    }
+    console.log(pagerParams);
+    items = this.httpService.post(this.url, pagerParams,
+      this.httpService.DEF_HEADERS,
+      this.httpService.stringify);
     return items;
   }
   init(url: string, amount?: number, model?: any): Promise<any> {

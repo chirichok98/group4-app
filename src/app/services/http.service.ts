@@ -12,7 +12,9 @@ export class HttpService {
 
   TOKEN_URL: string = `token`;
   CAN: string = `api/candidate`;
+  CAN_SEARCH: string = `api/candidate/search`;
   VAC: string = `api/vacancy`;
+  VAC_SEARCH: string = `api/vacancy/search`;
   ADD: string = `add`;
   UPDATE: string = `update`;
   SEARCH: string = `search`;
