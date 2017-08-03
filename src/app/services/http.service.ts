@@ -67,6 +67,7 @@ export class HttpService {
     }
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
+    console.log(cb(body));
     const options = new RequestOptions({ headers });
     return this.http.post(urls, obj, options)
       .toPromise();
@@ -92,5 +93,4 @@ export class HttpService {
       .toPromise()
       .then(res => res.json());
   }
-
 }

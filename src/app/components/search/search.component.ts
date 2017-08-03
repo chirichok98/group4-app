@@ -63,8 +63,12 @@ export class SearchComponent {
   }
 
   startSearch() {
-    console.log(this.search);
+    console.log(Object.keys(this.search.primarySkill).length);
+    if (Object.keys(this.search.primarySkill).length === 0) {
+      delete this.search.primarySkill;
+    }
     this.nfs.putData(this.search);
+    this.search.primarySkill = {};
   }
 
 }

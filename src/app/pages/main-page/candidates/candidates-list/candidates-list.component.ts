@@ -23,7 +23,8 @@ export class CandidatesListComponent {
               private snackService: SnackbarService,
               private transferService: TransferService,
               @Inject(DOCUMENT) private document: Document) {
-    this.pagerService.init('api/candidate', 10)
+    this.pagerService.init('api/candidate/search', 10)
+     .then(res => res.json())
       .then((candidates) => {
         this.candidates = candidates;
         this.isSpinnerVisible = false;
@@ -38,8 +39,10 @@ export class CandidatesListComponent {
       this.candidates = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
-      this.pagerService.init('api/candidate', 10, this.dataSubscription)
+      this.pagerService.init('api/candidate/search', 10, this.dataSubscription)
+      .then(res => res.json())
       .then((candidates) => {
+        console.log(candidates);
         this.candidates = candidates;
         this.isSpinnerVisible = false;
       }, (error) => {
@@ -55,6 +58,7 @@ export class CandidatesListComponent {
       }
       const params = this.paramsQueue.shift();
       this.pagerService.showMore(params, 10)
+       .then(res => res.json())
         .then((candidates) => {
           this.candidates = this.candidates.concat(candidates);
           this.isSpinnerVisible = false;
@@ -72,7 +76,9 @@ export class CandidatesListComponent {
       }
       const params = this.paramsQueue.shift();
       this.pagerService.showMore(params, 10, this.dataSubscription)
+      .then(res => res.json())
         .then((candidates) => {
+          console.log(candidates);
           this.candidates = this.candidates.concat(candidates);
           this.isSpinnerVisible = false;
           if (this.paramsQueue.length) {
