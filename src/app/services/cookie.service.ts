@@ -3,7 +3,7 @@ import { CookieService, CookieOptions } from 'ngx-cookie';
 
 @Injectable()
 export class MyCookieService {
-  constructor(private cookie: CookieService) { }
+  constructor(public cookie: CookieService) { }
 
 
   setLifeTime(seconds: number): CookieOptions {
@@ -27,7 +27,7 @@ export class MyCookieService {
 
 
   updateUrl(url: string): void {
-    const cookie: any = this.cookie.getObject('current');
+    const cookie: any = this.getCookie();
     cookie.url = url;
     this.setCookie(cookie);
   }

@@ -5,6 +5,7 @@ import { PositionDetailComponent } from './position-detail-card.component';
 import { SpinnerModule } from '../spinner/spinner.module';
 import { CandidatePreviewModule } from '../candidate-preview-card/candidate-preview-card.module';
 import { MaterialModule } from '@angular/material';
+import { RangeFormModule } from '../range-form/range-form.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { MaterialModule } from '@angular/material';
     SpinnerModule,
     CandidatePreviewModule,
     MaterialModule,
+    RangeFormModule,
   ],
   exports: [PositionDetailComponent],
   declarations: [PositionDetailComponent],

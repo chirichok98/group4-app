@@ -1,4 +1,4 @@
-<div class="notifications-indicators">
+<!-- <div class="notifications-indicators">
     <div class="indicator-wrapper reminders">
         <div class="indicator-color dark-blue" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Reminders</div>
@@ -11,7 +11,7 @@
         <div class="indicator-color light-gray" (click)="checkVisibility()"></div>
         <div class="indicator-meaning">- Assignments</div>
     </div>
-</div>
-<div class="notifications-wrapper">
+</div> -->
+<div *ngIf="notifications" class="notifications-wrapper">
     <notification class="notification" *ngFor="let item of notifications" [notification]="item"></notification>
 </div>

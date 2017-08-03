@@ -1,0 +1,10 @@
+<div>
+    Primary skill: {{data.primarySkill}}
+    <br>
+    Mark: <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+    <textarea [(ngModel)]="result.feedback"></textarea>
+    <md-dialog-actions>
+        <button md-button (click)="sendResult()">Submit</button>
+        <button md-button [md-dialog-close]="true">Cancel</button>
+    </md-dialog-actions>
+</div>

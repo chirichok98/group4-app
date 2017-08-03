@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { IPositionPreview } from '../interfaces/IPositionPreview';
 import { IPositionDetail } from '../interfaces/IPositionDetail';
+import { ICandidatePreview } from '../interfaces/ICandidatePreview';
 
 @Injectable()
 export class PositionService {
@@ -41,5 +42,15 @@ export class PositionService {
       vacancy,
       this.httpService.DEF_HEADERS, 
       this.httpService.stringify);
+  }
+
+  autoSearch(obj: any): Promise<ICandidatePreview[]> {
+    const url: string = `api/candidate/autosearch`;
+    console.log(obj);
+    return this.httpService.post(url,
+      obj,
+      this.httpService.DEF_HEADERS, 
+      this.httpService.stringify)
+      .then(res => res.json());
   }
 }

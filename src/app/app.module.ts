@@ -26,6 +26,7 @@ import { MyCookieService } from './services/cookie.service';
 import { EditCandidateModule } from './pages/edit/edit-candidate/edit-candidate.module';
 import { EditVacancyModule } from './pages/edit/edit-vacancy/edit-vacancy.module';
 import { StoreModule } from './pages/store/store.module';
+import { SnackbarService } from './services/snackbar.service';
 
 
 @NgModule({
@@ -54,7 +55,10 @@ import { StoreModule } from './pages/store/store.module';
     MaterialModule,
   ],
   declarations: [AppComponent],
-  providers: [MyCookieService],
+  providers: [
+    MyCookieService,
+    SnackbarService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
