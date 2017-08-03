@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   isSearchVisible: boolean = false;
   isSortVisible: boolean = false;
   isMenuVisible: boolean = false;
-  
+
   isCandidate: boolean;
   isVacancy: boolean;
 
@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit, DoCheck {
               private cookie: MyCookieService) { }
 
   ngOnInit(): void {
+    console.log('init');
     const url: any = this.cookie.getUrl();
     if (url === 'main-page') {
       this.currentState = this.states[0];
@@ -39,6 +40,13 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    if (this.cookie.getUrl() === 'main-page') {
+      this.currentState = this.states[0];
+      const url: string = `main-page/${this.currentState.stateName}`;
+      this.cookie.updateUrl(url);
+      this.router.navigate([url]);
+      return;
+    }
     const url: string = this.router.url.slice(1);
     const state: INavbarOption = this.getStateFromUrl(url);
     this.cookie.updateUrl(url);
@@ -47,7 +55,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   getStateFromUrl(url: string): INavbarOption {
     const start: number = url.indexOf('/');
-    const end: number = url.lastIndexOf('/'); 
+    const end: number = url.lastIndexOf('/');
     let stateName: string;
     if (start === end) {
       stateName = url.slice(start + 1);
@@ -132,7 +140,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     }
     this.sortIsClosed = !this.sortIsClosed;
   }
-  
+
   toggleSortForm(value): void {
     this.isSortVisible = value;
   }

@@ -148,6 +148,21 @@
         </div>
         <button (click)="addInterview()">Add interview</button>
         <button (click)="goToEditForm()">Edit candidate</button>
+        <button (click)="this.isSearchShown = !this.isSearchShown">
+            <ng-container *ngIf="!isSearchShown; else hide">Show auto-search</ng-container>
+            <ng-template #hide>Hide auto-search</ng-template>
+        </button>
+        <div [hidden]="!isSearchShown">
+            <div>
+                Primary skill
+                <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+                Secondary skills
+            </div>
+            <button (click)="autoSearch()">autosearch</button>
+            <position-preview-card *ngFor="let vac of possibleVacancies" [position]="vac" [showBasket]="true"></position-preview-card>
+            <button *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+        </div>
+
     </div>
 </div>
 <ng-template #loading>

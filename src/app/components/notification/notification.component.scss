@@ -44,7 +44,9 @@
 .notification__inner.Assignments .type {
   background-color: #6d8b9c;
 }
-
+.notification__inner.Interview .type {
+  background-color: red;
+}
 div::selection {
   color: #52c1e6;
 }

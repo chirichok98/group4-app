@@ -83,6 +83,21 @@
                 <candidate-card *ngFor="let can of pos.candidates" [candidate]="can"></candidate-card>
             </div>
         </div>
+
+        <button (click)="this.isSearchShown = !this.isSearchShown">
+            <ng-container *ngIf="!isSearchShown; else hide">Show auto-search</ng-container>
+            <ng-template #hide>Hide auto-search</ng-template>
+        </button>
+        <div [hidden]="!isSearchShown">
+            <div>
+                Primary skill
+                <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+                Secondary skills
+            </div>
+            <button (click)="autoSearch()">autosearch</button>
+            <candidate-card *ngFor="let vac of possibleCandidates" [candidate]="vac" [showBasket]="true"></candidate-card>
+            <button *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
+        </div>
     </div>
 </div>
 <ng-template #loading>

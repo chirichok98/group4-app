@@ -8,6 +8,8 @@ import { MaterialModule } from '@angular/material';
 import { DownloadService } from '../../services/download.service';
 import { ModalComponent } from '../modal/modal.component';
 import { ModalModule } from '../modal/modal.module';
+import { CandidateService } from '../../services/candidate.service';
+import { RangeFormModule } from '../range-form/range-form.module';
 
 @NgModule({
   imports: [
@@ -16,10 +18,14 @@ import { ModalModule } from '../modal/modal.module';
     PositionPreviewModule,
     MaterialModule,
     ModalModule,
+    RangeFormModule,
   ],
   exports: [CandidateDetailComponent],
   declarations: [CandidateDetailComponent],
-  providers: [DownloadService],
+  providers: [
+    DownloadService,
+    CandidateService,
+  ],
   entryComponents: [ModalComponent],
 })
 export class CandidateDetailModule { }
