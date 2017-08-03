@@ -11,10 +11,18 @@
             </ng-template>
             <div class="candidate-block">
                 <div class="candidate-feedback-item candidate-name">
-                    <ng-container *ngIf="can.firstNameEng; else firstNameEng">{{can.firstNameEng}}</ng-container>
-                    <ng-template #firstNameEng>Anonymous</ng-template>
-                    <ng-container *ngIf="can.lastNameEng; else lastNameEng">{{can.lastNameEng}}</ng-container>
-                    <ng-template #lastNameEng>Anonymous</ng-template>
+                    <div class="candidate-eng">
+                        <ng-container *ngIf="can.firstNameEng; else firstNameEng">{{can.firstNameEng}}</ng-container>
+                        <ng-template #firstNameEng>Anonymous</ng-template>
+                        <ng-container *ngIf="can.lastNameEng; else lastNameEng">{{can.lastNameEng}}</ng-container>
+                        <ng-template #lastNameEng>Anonymous</ng-template>
+                    </div>
+                    <div class="candidate-rus">
+                        <ng-container *ngIf="can.firstNameRus; else firstNameRus">{{can.firstNameRus}}</ng-container>
+                        <ng-template #firstNameRus>Anonymous</ng-template>
+                        <ng-container *ngIf="can.lastNameRus; else lastNameRus">{{can.lastNameRus}}</ng-container>
+                        <ng-template #lastNameRus>Anonymous</ng-template>
+                    </div>
                 </div>
                 <div class="candidate-feedback-item">
                     <i class="small material-icons candidate-location">location_city</i>
@@ -80,7 +88,7 @@
             </div>
         </div>
         <div class="candidate-info-item" *ngIf="can.candidateSecondarySkills as skills">
-            <span class="attribute attribute-skills">Secondary skills</span>
+            <span class="attribute attribute-skills">Secondary skill(s)</span>
             <div class="candidate-skills">
                 <ng-container *ngFor="let item of skills">
                     <img class="candidate-skill" *ngIf="item.picture as pic; else text" [src]="pic">
@@ -93,7 +101,7 @@
             </div>
         </div>
         <div class="candidate-info-item candidate-english-level">
-            <span class="attribute">English(min)</span>
+            <span class="attribute">English</span>
             <ng-container *ngIf="can.englishLevel as eng; else eng">
                 <span>{{eng}}</span>
             </ng-container>
@@ -102,7 +110,7 @@
             </ng-template>
         </div>
         <div class="candidate-info-item candidate-experience">
-            <span class="attribute">Experience(years)</span>
+            <span class="attribute">Experience</span>
             <ng-container *ngIf="can.psExperience as exp; else exp">
                 <span>{{exp | date:"mediumDate"}}</span>
             </ng-container>

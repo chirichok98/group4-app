@@ -23,9 +23,11 @@ export interface ICandidateDetail {
   hrm: IUserPreview | null;
   status: string | null;
   reminder: Date | null;
-  generalInterviewStatus: null;
-  customerInterviewStatus: null;
-  techInterviewStatus: null;
-  customerInterviewDate: null;
-  lastModifier: IUserPreview;
+  generalInterviewStatus: boolean | null;
+  customerInterviewStatus: boolean | null;
+  techInterviewStatus: boolean | null;
+  customerInterviewDate: Date | null;
+  lastModifier: IUserPreview | null;
+  candidatePrevJobsContacts: ICandidatePrevJob[] | null;
+  vacancies: IPositionPreview[] | null;
 }
