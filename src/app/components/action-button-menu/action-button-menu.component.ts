@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IUserPreview } from '../../interfaces/IUserPreview';
 import { Router } from '@angular/router';
 import { MyCookieService } from '../../services/cookie.service';
+declare const $;
 
 @Component({
   selector: 'action-button-menu',
@@ -14,8 +15,12 @@ export class ActionButtonComponent implements OnInit {
 
   constructor(private router: Router, private cookie: MyCookieService) { }
 
-  ngOnInit() { }
-
+  ngOnInit() {
+    $('.cdk-overlay-pane').css({ top:'100px !important', left: '100px !important' });
+  }
+  func() {
+    $('.cdk-overlay-pane').css({ top:'100px !important', left: '100px !important' });
+  }
   openPage(url): void {
     this.cookie.updateUrl(url);
     this.router.navigate([url]);

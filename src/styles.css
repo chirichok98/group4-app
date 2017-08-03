@@ -61,7 +61,9 @@ store {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }
-
+candidates {
+  margin: 0;
+}
 main {
   display: flex;
   flex-direction: column;

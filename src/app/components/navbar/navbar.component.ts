@@ -115,14 +115,30 @@ export class NavbarComponent implements OnInit, DoCheck {
   //   }
   //   this.toggleMenuForm(true);
   // }
-
-  openSort(): void {
-    this.toggleSearchForm(false);
+  sortIsClosed: boolean = true;
+  changeSortVisibility(): void {
+    // this.toggleSearchForm(false);
     // this.toggleMenuForm(false);
-    if (this.isSortVisible) {
-      return this.toggleSortForm(false);
+    // if (this.isSortVisible) {
+    //   return this.toggleSortForm(false);
+    // }
+    // this.toggleSortForm(true);
+    if (this.sortIsClosed) {
+      $('.filter-block').css({ 
+        visibility: 'visible',
+        opacity: '1',
+        height: '8rem',
+        'transition-duration': '500ms',
+      });
+    } else {
+      $('.filter-block').css({ 
+        visibility: 'hidden',
+        opacity: '0',
+        height: '0',
+        'transition-duration': '500ms',
+      });
     }
-    this.toggleSortForm(true);
+    this.sortIsClosed = !this.sortIsClosed;
   }
 
   toggleSortForm(value): void {

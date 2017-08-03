@@ -12,7 +12,9 @@ export class HttpService {
 
   TOKEN_URL: string = `token`;
   CAN: string = `api/candidate`;
+  CAN_SEARCH: string = `api/candidate/search`;
   VAC: string = `api/vacancy`;
+  VAC_SEARCH: string = `api/vacancy/search`;
   ADD: string = `add`;
   UPDATE: string = `update`;
   SEARCH: string = `search`;
@@ -67,6 +69,7 @@ export class HttpService {
     }
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
+    console.log(cb(body));
     const options = new RequestOptions({ headers });
     return this.http.post(urls, obj, options)
       .toPromise();
@@ -92,5 +95,4 @@ export class HttpService {
       .toPromise()
       .then(res => res.json());
   }
-
 }

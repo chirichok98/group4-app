@@ -3,7 +3,7 @@
         <div class="user-info__photo-wrap">
             <img  *ngIf="user.picture; else default" class="user-info__photo" [src]="user.picture" alt="photo">
             <ng-template #default>
-                <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
+                <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo" (click)="func()">
             </ng-template>
         </div>
         <div class="user-info__name">{{user.name}}</div>

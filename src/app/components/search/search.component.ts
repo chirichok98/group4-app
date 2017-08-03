@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { TransferService } from '../../services/transfer.service';
-
+import { RangeFormComponent } from '../range-form/range-form.component';
 declare const $;
 // export class SearchObject {
 //   constructor(public _statuses?: any, public _cities?: any, public _canSt?: any,
@@ -30,9 +30,7 @@ export class SearchComponent {
   @Input() isCandidate: boolean;
   @Input() isVacancy: boolean;
   isAdvancedShown: boolean = false;
-  search: any = {
-    primarySkill: {},
-  };
+  search: any = { };
   statuses: any = [];
   cities: any;
   skills: any;
@@ -63,8 +61,12 @@ export class SearchComponent {
   }
 
   startSearch() {
-    console.log(this.search);
+    // console.log(Object.keys(this.search.primarySkill).length);
+    // if (Object.keys(this.search.primarySkill).length === 0) {
+    //   delete this.search.primarySkill;
+    // }
     this.nfs.putData(this.search);
+    // this.search.primarySkill = {};
   }
 
 }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { PagerService } from '../../../../services/pager.service';
 import { SnackbarService } from '../../../../services/snackbar.service';
 import { TransferService } from '../../../../services/transfer.service';
+import { HttpService } from '../../../../services/http.service';
 @Component({
   selector: 'candidates-list',
   templateUrl: 'candidates-list.component.html',
@@ -22,8 +23,10 @@ export class CandidatesListComponent {
               private router: Router,
               private snackService: SnackbarService,
               private transferService: TransferService,
+              private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
-    this.pagerService.init('api/candidate', 10)
+    this.pagerService.init(httpService.CAN_SEARCH, 10)
+     .then(res => res.json())
       .then((candidates) => {
         this.candidates = candidates;
         this.isSpinnerVisible = false;
@@ -38,8 +41,10 @@ export class CandidatesListComponent {
       this.candidates = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
-      this.pagerService.init('api/candidate', 10, this.dataSubscription)
+      this.pagerService.init(httpService.CAN_SEARCH, 10, this.dataSubscription)
+      .then(res => res.json())
       .then((candidates) => {
+        console.log(candidates);
         this.candidates = candidates;
         this.isSpinnerVisible = false;
       }, (error) => {
@@ -55,6 +60,7 @@ export class CandidatesListComponent {
       }
       const params = this.paramsQueue.shift();
       this.pagerService.showMore(params, 10)
+       .then(res => res.json())
         .then((candidates) => {
           this.candidates = this.candidates.concat(candidates);
           this.isSpinnerVisible = false;
@@ -66,13 +72,14 @@ export class CandidatesListComponent {
           this.isSpinnerVisible = false;
         });
     } else {
-      console.log(this.dataSubscription);
       if (emmitedObject) {
         this.paramsQueue.push(emmitedObject.skip);
       }
       const params = this.paramsQueue.shift();
       this.pagerService.showMore(params, 10, this.dataSubscription)
+      .then(res => res.json())
         .then((candidates) => {
+          console.log(candidates);
           this.candidates = this.candidates.concat(candidates);
           this.isSpinnerVisible = false;
           if (this.paramsQueue.length) {

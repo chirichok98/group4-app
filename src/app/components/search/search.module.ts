@@ -8,6 +8,7 @@ import { SkillFormModule } from '../skill-form/skill-form.module';
 import { FormsModule } from '@angular/forms';
 import { DatepickerFormModule } from '../datepicker-form/datepicker-form.module';
 import { TransferService } from '../../services/transfer.service';
+import { RangeFormModule } from '../range-form/range-form.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { TransferService } from '../../services/transfer.service';
     SelectFormModule,
     SkillFormModule,
     DatepickerFormModule,
+    RangeFormModule,
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
