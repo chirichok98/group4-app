@@ -8,8 +8,11 @@
                         <md-chip>{{pos.primarySkill?.name}}</md-chip>
                     </md-chip-list>
                 </ng-template>
-                <span [ngClass]="{'active': isAdded}" *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket" title="Add to Store"
-                    alt="Add to Store">Add to store <md-icon>library_add</md-icon></span>
+                <span *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket">
+                    <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+                    <ng-template #remove>Remove from</ng-template>
+                    store <md-icon>library_add</md-icon>
+                </span>
             </div>
 
             <div class="position-vacancy">{{pos.vacancyName}}</div>

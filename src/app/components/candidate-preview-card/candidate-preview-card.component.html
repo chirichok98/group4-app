@@ -32,9 +32,11 @@
             </div>
             <div class="skill content-wrapper">
                 <md-chip-list>
-                    <md-chip><ng-container *ngIf="candidate.primarySkill as skill; else skill">{{skill}}</ng-container></md-chip>
+                    <md-chip>
+                        <ng-container *ngIf="candidate.primarySkill as skill; else skill">{{skill}}</ng-container>
+                    </md-chip>
                 </md-chip-list>
-                        <!--<ng-container *ngIf="candidate.primarySkill as skill; else skill"></ng-container>
+                <!--<ng-container *ngIf="candidate.primarySkill as skill; else skill"></ng-container>
                         <ng-template #skill>Primary skill</ng-template>-->
             </div>
             <div class="status-wrapper">
@@ -42,6 +44,8 @@
             </div>
         </div>
     </div>
-    <span [ngClass]="{'active': isAdded}" *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket" title="Add to Store"
-        alt="Add to Store">Add to store <md-icon>library_add</md-icon></span>
+    <span *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store <md-icon>library_add</md-icon></span>
 </md-card>
