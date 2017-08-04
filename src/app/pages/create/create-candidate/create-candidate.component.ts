@@ -29,10 +29,11 @@ export class CreateCandidateComponent {
   }
 
   sendRequest(candidate: any): void {
+    const resume: File = this.candidate.resume;
+    delete this.candidate.resume;
     this.cService.addCandidate(candidate)
       .then((can: any) => {
         if (this.candidate.resume) {
-          const resume: File = this.candidate.resume;
           this.cService.attachInterview(this.candidate.id, resume)
             .then(res => console.log(res),
             err => console.log(err));
