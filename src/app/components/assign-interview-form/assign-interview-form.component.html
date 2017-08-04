@@ -2,18 +2,27 @@
     <md-radio-group class="example-radio-group" [(ngModel)]="type">
         <md-radio-button value="general">HR manager</md-radio-button>
         <md-radio-button value="tech">Tech specialist</md-radio-button>
+        <md-radio-button value="customer">Customer</md-radio-button>
     </md-radio-group>
     <ng-container *ngIf="type">
-        <select-form [(result)]="interview.city" [placeholder]="'City'" [array]="cities"></select-form>
-        <select-form [(result)]="interview.techSkill" [placeholder]="'Skill'" [array]="skills"></select-form>
+        <select-form *ngIf="type !== 'customer'" [(result)]="interview.city" [placeholder]="'City'" [array]="cities"></select-form>
+        <select-form *ngIf="type !== 'customer' && type !=='general'" [(result)]="interview.techSkill" [placeholder]="'Skill'" [array]="skills"></select-form>
         <datepicker-form [(date)]="date" [placeholder]="'Date'"></datepicker-form>
-        <md-input-container class="">
-            <input type="time" [(ngModel)]="time.from" mdInput placeholder="From">
-        </md-input-container>
-        <md-input-container class="">
-            <input type="time" [(ngModel)]="time.to" mdInput placeholder="To">
-        </md-input-container>
-        <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
+        <div>
+            <md-input-container class="">
+                From
+                <input type="time" [(ngModel)]="time.from" mdInput placeholder="From">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="">
+                To
+                <input type="time" [(ngModel)]="time.to" mdInput placeholder="To">
+            </md-input-container>
+        </div>
+        <div>
+            <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
+        </div>
         <ng-container *ngIf="type==='general'">
             <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager'" [array]="hrs"></select-form>
         </ng-container>

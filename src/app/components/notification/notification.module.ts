@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 
 import { NotificationComponent } from './notification.component';
 import { CommonModule } from '@angular/common';
-import { TechInterviewComponent } from '../tech-interview/tech-interview.component';
+import { InterviewFeedbackComponent } from '../interview-feedback/interview-feedback.component';
 import { FormsModule } from '@angular/forms';
-import { TechInterviewModule } from '../tech-interview/tech-interview.module';
+import { InterviewFeedbackModule } from '../interview-feedback/interview-feedback.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    TechInterviewModule,
+    InterviewFeedbackModule,
   ],
   exports: [NotificationComponent],
   declarations: [NotificationComponent],
   providers: [],
-  entryComponents: [TechInterviewComponent],
+  entryComponents: [InterviewFeedbackComponent],
 })
 export class NotificationModule { }

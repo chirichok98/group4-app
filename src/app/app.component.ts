@@ -15,7 +15,19 @@ declare const $;
 export class AppComponent {
   signalR: any = (() => {
 
+    const notifications = $.connection.notifications;
 
+    notifications.client.getNotifications = function (newNotifications) {
+      console.log(`Message: ${newNotifications}`);
+    };
+
+    const test: any = (() => { console.log('new app'); })();
+
+    $.connection.hub.url = 'http://knowbase.azurewebsites.net';
+
+    // $.connection.hub.qs = { bearer: this.cookie.getToken() };
+
+    $.connection.hub.start().done(() => { console.log('here'); });
   })();
 
   constructor(private cookie: MyCookieService,
@@ -31,19 +43,7 @@ export class AppComponent {
         return;
       }
       (() => {
-        const notifications = $.connection.notifications;
 
-        notifications.client.getNotifications = function (newNotifications) {
-          console.log(`Message: ${newNotifications}`);
-        };
-
-        const test: any = (() => { console.log('new app'); })();
-
-        $.connection.hub.url = 'http://knowbase.azurewebsites.net';
-
-        $.connection.hub.qs = { bearer: this.cookie.getToken() };
-
-        $.connection.hub.start().done(() => { console.log('here'); });
       })();
       this.router.navigate([loggedUser.url]);
     } else {

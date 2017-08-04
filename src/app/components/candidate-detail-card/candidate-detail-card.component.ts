@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { ICandidateDetail } from '../../interfaces/ICandidateDetail';
 import { MyCookieService } from '../../services/cookie.service';
 import { DownloadService } from '../../services/download.service';
-import { ModalComponent } from '../modal/modal.component';
+// tslint:disable-next-line:max-line-length
+import { AssignInterviewFormComponent } from '../assign-interview-form/assign-interview-form.component';
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
 import { CandidateService } from '../../services/candidate.service';
 
@@ -39,7 +40,7 @@ export class CandidateDetailComponent {
   }
 
   addInterview(): void {
-    this.dialog.open(ModalComponent, {
+    this.dialog.open(AssignInterviewFormComponent, {
       data: { id: this.candidate.id },
     });
   }

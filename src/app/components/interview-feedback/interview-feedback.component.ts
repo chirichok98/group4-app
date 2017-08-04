@@ -4,15 +4,15 @@ import { SnackbarService } from '../../services/snackbar.service';
 import { InterviewService } from '../../services/interview.service';
 
 @Component({
-  selector: 'tech-interview',
-  templateUrl: 'tech-interview.component.html',
-  styleUrls: ['tech-interview.component.scss'],
+  selector: 'interview-feedback',
+  templateUrl: 'interview-feedback.component.html',
+  styleUrls: ['interview-feedback.component.scss'],
 })
-export class TechInterviewComponent implements OnInit {
+export class InterviewFeedbackComponent implements OnInit {
   result: any = {};
 
   constructor(@Inject(MD_DIALOG_DATA) public data: any,
-              public dialogRef: MdDialogRef<TechInterviewComponent>,
+              public dialogRef: MdDialogRef<InterviewFeedbackComponent>,
               private snackService: SnackbarService,
               private iService: InterviewService) { }
 

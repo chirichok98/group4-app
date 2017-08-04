@@ -6,8 +6,9 @@ import { PositionPreviewModule } from '../position-preview-card/position-preview
 import { SpinnerModule } from '../spinner/spinner.module';
 import { MaterialModule } from '@angular/material';
 import { DownloadService } from '../../services/download.service';
-import { ModalComponent } from '../modal/modal.component';
-import { ModalModule } from '../modal/modal.module';
+// tslint:disable-next-line:max-line-length
+import { AssignInterviewFormComponent } from '../assign-interview-form/assign-interview-form.component';
+import { AssignInterviewFormModule } from '../assign-interview-form/assign-interview-form.module';
 import { CandidateService } from '../../services/candidate.service';
 import { RangeFormModule } from '../range-form/range-form.module';
 
@@ -17,7 +18,7 @@ import { RangeFormModule } from '../range-form/range-form.module';
     SpinnerModule,
     PositionPreviewModule,
     MaterialModule,
-    ModalModule,
+    AssignInterviewFormModule,
     RangeFormModule,
   ],
   exports: [CandidateDetailComponent],
@@ -26,6 +27,6 @@ import { RangeFormModule } from '../range-form/range-form.module';
     DownloadService,
     CandidateService,
   ],
-  entryComponents: [ModalComponent],
+  entryComponents: [AssignInterviewFormComponent],
 })
 export class CandidateDetailModule { }

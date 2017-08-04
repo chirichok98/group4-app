@@ -9,11 +9,11 @@ import { MyCookieService } from '../../services/cookie.service';
 import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
-  selector: 'modal',
-  templateUrl: 'modal.component.html',
-  styleUrls: ['modal.component.scss'],
+  selector: 'assign-interview-form',
+  templateUrl: 'assign-interview-form.component.html',
+  styleUrls: ['assign-interview-form.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class AssignInterviewFormComponent implements OnInit {
   cities: IGeneral[] = [];
   hrs: IGeneral[] = [];
   techs: IGeneral[] = [];
@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit {
                private dService: DictionariesService,
                private snackService: SnackbarService,
                private router: Router,
-               public dialogRef: MdDialogRef<ModalComponent>) {
+               public dialogRef: MdDialogRef<AssignInterviewFormComponent>) {
     this.dService.getCities().then((cities) => {
       this.cities = cities;
     });

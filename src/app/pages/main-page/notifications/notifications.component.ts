@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { INotificationOption } from '../../../interfaces/INotificationOption';
-import { NotificationType } from '../../../components/notification/notification.component';
 import { NotificationService } from '../../../services/notifications.service';
+
 declare const $;
+
 @Component({
   selector: 'notifications',
   templateUrl: 'notifications.component.html',

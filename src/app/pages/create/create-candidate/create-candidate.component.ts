@@ -24,10 +24,14 @@ export class CreateCandidateComponent {
               private snackService: SnackbarService) { }
 
   addCandidate(): void {
-    this.sendPostRequest(this.candidate);
+    if (this.candidate.resume) {
+      const resume: File = this.candidate.resume;
+      delete this.candidate.resume;
+    }
+    this.sendRequest(this.candidate);
   }
 
-  sendPostRequest(candidate: any): void {
+  sendRequest(candidate: any): void {
     this.cService.addCandidate(candidate)
       .then((can: any) => {
         this.cookie.updateUrl('main-page/candidates');

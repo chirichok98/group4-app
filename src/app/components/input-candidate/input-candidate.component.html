@@ -13,9 +13,6 @@
         <input [(ngModel)]="canInfo.lastNameRus" mdInput placeholder="Last Name (ru)">
     </md-input-container>
     <md-input-container class="">
-        <input [(ngModel)]="canInfo.resume" mdInput placeholder="Link on resume">
-    </md-input-container>
-    <md-input-container class="">
         <input [(ngModel)]="canInfo.desiredSalary" mdInput placeholder="Desired salary">
     </md-input-container>
     <md-input-container class="">
@@ -24,6 +21,8 @@
     <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
     <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
     <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
+
+    <input type="file" class="form-control" (change)="onChange($event)">
 
     <div class="header-info">Person Contacts</div>
     <contacts-form [(contact)]="canInfo.contact"></contacts-form>

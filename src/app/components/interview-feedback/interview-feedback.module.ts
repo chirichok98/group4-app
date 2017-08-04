@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { TechInterviewComponent } from './tech-interview.component';
+import { InterviewFeedbackComponent } from './interview-feedback.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
@@ -14,8 +14,8 @@ import { InterviewService } from '../../services/interview.service';
     MaterialModule,
     RangeFormModule,
   ],
-  exports: [TechInterviewComponent],
-  declarations: [TechInterviewComponent],
+  exports: [InterviewFeedbackComponent],
+  declarations: [InterviewFeedbackComponent],
   providers: [InterviewService],
 })
-export class TechInterviewModule { }
+export class InterviewFeedbackModule { }

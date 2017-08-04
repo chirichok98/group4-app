@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { ModalComponent } from './modal.component';
+import { AssignInterviewFormComponent } from './assign-interview-form.component';
 import { MaterialModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,12 +18,12 @@ import { SnackbarService } from '../../services/snackbar.service';
     SelectFormModule,
     DatepickerFormModule,
   ],
-  exports: [ModalComponent],
-  declarations: [ModalComponent],
+  exports: [AssignInterviewFormComponent],
+  declarations: [AssignInterviewFormComponent],
   providers: [
     CandidateService,
     DictionariesService,
     SnackbarService,
   ],
 })
-export class ModalModule { }
+export class AssignInterviewFormModule { }

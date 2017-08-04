@@ -11,6 +11,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
 export class InputCandidateComponent implements DoCheck {
   @Input() canInfo: any = {};
   @Output() canInfoChange: EventEmitter<any> = new EventEmitter<any>();
+  resume: File;
 
   statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
@@ -40,6 +41,10 @@ export class InputCandidateComponent implements DoCheck {
         this.canInfo.status = this.statuses.find(i => i.name === this.canInfo.status).id;
       }
     });
+  }
+
+  onChange(event) {
+    this.canInfo.resume = event.srcElement.files[0];
   }
 
   ngDoCheck(): void {

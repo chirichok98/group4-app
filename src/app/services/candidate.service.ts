@@ -69,8 +69,25 @@ export class CandidateService {
     console.log(obj);
     return this.httpService.post(url,
       obj,
-      this.httpService.DEF_HEADERS, 
+      this.httpService.DEF_HEADERS,
       this.httpService.stringify)
       .then(res => res.json());
   }
+
+  // attachInterview(id: number, file: File): Promise<any> {
+  //   // const formData: FormData = new FormData();
+  //   // formData.append('uploadFile', file, file.name);
+  //   // let headers = new Headers()
+  //   // //headers.append('Content-Type', 'json');  
+  //   // //headers.append('Accept', 'application/json');  
+  //   // let options = new RequestOptions({ headers: headers });
+  //   // let apiUrl1 = `api/file/candidate/resume/add/${id}`;
+  //   // this.http.post(apiUrl1, formData, options)
+  //   //   .map(res => res.json())
+  //   //   .catch(error => Observable.throw(error))
+  //   //   .subscribe(
+  //   //   data => console.log('success'),
+  //   //   error => console.log(error)
+  //   //   )
+  // }
 }

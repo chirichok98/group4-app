@@ -4,7 +4,7 @@
         <div class="date">{{notification.date | date:"mediumDate"}}</div>
         <div class="description">{{notification.description}}</div>
 
-        <ng-container *ngIf="notification.type === 'Interview'">
+        <ng-container *ngIf="notification.notificationType === 'Interview'">
             <button (click)="openInterview()">open interview blank</button>
         </ng-container>
     </div>
