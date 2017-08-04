@@ -1,7 +1,9 @@
 <ng-container *ngIf="position as pos">
     <div class="position" (click)="goToDetailView()">
         <div class="position-container">
-            <div>Status: {{pos.status}}</div>
+            <div class="status-wrapper">
+                <div class="status">{{pos.status}}</div>
+            </div>
             <div class="skill">
                 <img class="position-img" *ngIf="pos.primarySkill?.picture as pic; else chip" [src]="pic">
                 <ng-template #chip>
