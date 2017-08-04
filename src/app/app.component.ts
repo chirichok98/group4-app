@@ -21,7 +21,7 @@ export class AppComponent {
       console.log(`Message: ${newNotifications}`);
     };
 
-    const test: any = (() => { console.log('new app'); })();
+    // const test: any = (() => { console.log('new app'); })();
 
     $.connection.hub.url = 'http://knowbase.azurewebsites.net';
 
