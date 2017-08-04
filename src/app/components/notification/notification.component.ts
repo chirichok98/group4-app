@@ -13,16 +13,20 @@ import { InterviewFeedbackComponent } from '../interview-feedback/interview-feed
 export class NotificationComponent implements DoCheck {
   @Input() notification: INotificationOption;
   type: string;
-
+  id: number;
+  skill: string;
   constructor(public dialog: MdDialog) { }
 
   ngDoCheck() {
     if (this.notification) {
       if (this.notification.techInterview) {
         this.type = 'tech';
+        this.id = this.notification.techInterview.id;
+        this.skill = this.notification.techInterview.techSkill;
       }
       if (this.notification.generalInterview) {
         this.type = 'general';
+        this.id = this.notification.generalInterview.id;
       }
     }
   }
@@ -30,9 +34,9 @@ export class NotificationComponent implements DoCheck {
   openInterview() {
     this.dialog.open(InterviewFeedbackComponent, {
       data: {
-        id: this.notification.techInterview.id,
+        id: this.id,
         type: this.type,
-        primarySkill: this.notification.techInterview.techSkill,
+        primarySkill: this.skill,
       },
     });
   }

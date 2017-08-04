@@ -1,7 +1,12 @@
 <div>
-    Primary skill: {{data.primarySkill}}
-    <br>
-    Mark: <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+    <div *ngIf="data.type==='tech'">
+        Primary skill: {{data.primarySkill}}
+        <br> Mark:
+        <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+    </div>
+    <div *ngIf="data.type==='general'">
+        <select-form [(result)]="result.engLevel" [placeholder]="'English level'" [array]="engLevel"></select-form>
+    </div>
     <textarea [(ngModel)]="result.feedback"></textarea>
     <md-dialog-actions>
         <button md-button (click)="sendResult()">Submit</button>
