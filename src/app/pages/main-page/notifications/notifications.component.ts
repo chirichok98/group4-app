@@ -22,6 +22,6 @@ export class NotificationsComponent {
 
     this.nService.getNot().then((res: any) => {
       console.log(res);
-    });
+    }); 
   }
 }

@@ -5,8 +5,8 @@
         <img class="brand-logo__img" src="/assets/logo.svg" alt="logo">
       </a>
     </div>
-    <div class="user-info">
-      <action-button-menu *ngIf="loggedUser" [user]="loggedUser"></action-button-menu> 
+    <div *ngIf="loggedUser" class="user-info">
+      <action-button-menu [user]="loggedUser"></action-button-menu> 
     </div>
   </div>
 </header>

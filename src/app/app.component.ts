@@ -14,19 +14,7 @@ declare const $;
 })
 export class AppComponent {
   signalR: any = (() => {
-    const notifications = $.connection.notifications;
 
-    notifications.client.getNotifications = function (newNotifications) {
-      console.log(`Message: ${newNotifications}`);
-    };
-
-    const test: any = (() => { console.log('new app'); })();
-
-    $.connection.hub.url = 'http://knowbase.azurewebsites.net';
-
-    $.connection.hub.qs = { bearer: this.cookie.getToken };
-
-    $.connection.hub.start().done(() => { console.log('here'); });
 
   })();
 
@@ -42,9 +30,25 @@ export class AppComponent {
         this.router.navigate([url]);
         return;
       }
+      (() => {
+        const notifications = $.connection.notifications;
+
+        notifications.client.getNotifications = function (newNotifications) {
+          console.log(`Message: ${newNotifications}`);
+        };
+
+        const test: any = (() => { console.log('new app'); })();
+
+        $.connection.hub.url = 'http://knowbase.azurewebsites.net';
+
+        $.connection.hub.qs = { bearer: this.cookie.getToken() };
+
+        $.connection.hub.start().done(() => { console.log('here'); });
+      })();
       this.router.navigate([loggedUser.url]);
     } else {
       this.router.navigate(['home']);
     }
+
   }
 }
