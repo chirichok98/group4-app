@@ -1,5 +1,4 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
-     <button (click)="goToEditForm()">Edit vacancy</button> 
     <div class="position-blocks">
         <div class="position-block">
         </div>
@@ -77,6 +76,7 @@
 
             </div>
         </div>
+        <button (click)="goToEditForm()">Edit</button> 
         <div class="position-info-item candidates">
             <span class="attribute">Current candidates</span>
             <div class="candidates-list">
