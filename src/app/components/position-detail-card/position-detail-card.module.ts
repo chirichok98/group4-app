@@ -7,6 +7,8 @@ import { MaterialModule } from '@angular/material';
 import { RangeFormModule } from '../range-form/range-form.module';
 // tslint:disable-next-line:max-line-length
 import { CandidatePreviewCardMiniModule } from '../candidate-preview-mini/candidate-preview-mini.module';
+import { PositionService } from '../../services/position.service';
+import { CandidateService } from '../../services/candidate.service';
 
 @NgModule({
   imports: [
@@ -18,6 +20,9 @@ import { CandidatePreviewCardMiniModule } from '../candidate-preview-mini/candid
   ],
   exports: [PositionDetailComponent],
   declarations: [PositionDetailComponent],
-  providers: [],
+  providers: [
+    PositionService,
+    CandidateService,
+  ],
 })
 export class PositionDetailModule { }

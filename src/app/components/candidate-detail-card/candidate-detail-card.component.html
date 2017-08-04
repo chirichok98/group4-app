@@ -157,7 +157,10 @@
             Secondary skills
         </div>
         <button (click)="autoSearch()">search</button>
-        <position-preview-mini *ngFor="let vac of possibleVacancies" [position]="vac"></position-preview-mini>
+        <div *ngFor="let vac of possibleVacancies">
+            <button (click)="assignVacancy(vac.id)"><md-icon>add</md-icon></button>
+            <position-preview-mini [position]="vac"></position-preview-mini>
+        </div>
         <button *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
 
 

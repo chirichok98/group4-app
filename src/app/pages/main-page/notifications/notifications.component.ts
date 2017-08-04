@@ -20,9 +20,5 @@ export class NotificationsComponent {
         console.log(notif);
         this.notifications = notif;
       });
-
-    this.nService.getNot().then((res: any) => {
-      console.log(res);
-    }); 
   }
 }

@@ -16,10 +16,10 @@ export class EditCandidateComponent implements OnInit {
   candidate: any;
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private cookie: MyCookieService, 
-              private cService: CandidateService,
-              private snackService: SnackbarService) {
+    private router: Router,
+    private cookie: MyCookieService,
+    private cService: CandidateService,
+    private snackService: SnackbarService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.candidateId = +params['id'];
     });
@@ -32,7 +32,7 @@ export class EditCandidateComponent implements OnInit {
         this.candidate = res;
         this.isLoaded = true;
       }, (error: any) => {
-        this.snackService.showSnack('Candidate wasn`t loaded!','ERROR');
+        this.snackService.showSnack('Candidate wasn`t loaded!', 'ERROR');
         this.isLoaded = true;
       });
   }
@@ -49,14 +49,9 @@ export class EditCandidateComponent implements OnInit {
   }
 
   editCandidate() {
-    if (this.candidate.resume) {
-      const resume: File = this.candidate.resume;
-      delete this.candidate.resume;
-      this.cService.attachInterview(this.candidate.id, resume)
-        .then(res => console.log(res),
-          err => console.log(err));
-    }
-    this.candidate.candidatePrimarySkill = 
+    const resume: File = this.candidate.resume;
+    delete this.candidate.resume;
+    this.candidate.candidatePrimarySkill =
       this.configureSkill(this.candidate.candidatePrimarySkill);
     this.candidate.candidateSecondarySkills = this.candidate.candidateSecondarySkills
       .map((i: any) => this.configureSkill(i));
@@ -64,12 +59,17 @@ export class EditCandidateComponent implements OnInit {
     delete this.candidate.lastModifier;
     this.cService.updateCandidate(this.candidate)
       .then((res: any) => {
+        if (resume) {
+          this.cService.attachInterview(this.candidate.id, resume)
+            .then(res => console.log(res),
+            err => console.log(err));
+        }
         const url: string = `main-page/candidates/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
-        this.snackService.showSnack('Candidate successfully edited!','SUCCESS');
+        this.snackService.showSnack('Candidate successfully edited!', 'SUCCESS');
       }, (error: any) => {
-        this.snackService.showSnack('Candidate wasn`t edited!','ERROR');
+        this.snackService.showSnack('Candidate wasn`t edited!', 'ERROR');
       });
   }
 }

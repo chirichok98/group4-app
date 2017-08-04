@@ -8,6 +8,7 @@ import { DownloadService } from '../../services/download.service';
 import { AssignInterviewFormComponent } from '../assign-interview-form/assign-interview-form.component';
 import { IPositionPreview } from '../../interfaces/IPositionPreview';
 import { CandidateService } from '../../services/candidate.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'candidate-detail-card',
@@ -23,10 +24,11 @@ export class CandidateDetailComponent {
   hasNoVac: boolean = false;
 
   constructor(private router: Router,
-              private cookie: MyCookieService,
-              private downloadService: DownloadService,
-              private cService: CandidateService,
-              public dialog: MdDialog) {
+    private cookie: MyCookieService,
+    private downloadService: DownloadService,
+    private cService: CandidateService,
+    private snackService: SnackbarService,
+    public dialog: MdDialog) {
     this.skip = 0;
     this.amount = 5;
     this.coefficient = 50;
@@ -59,11 +61,25 @@ export class CandidateDetailComponent {
     };
     this.cService.autoSearch(obj)
       // .then(res => res.json())
-      .then(vac => {
-        console.log(vac);
+      .then((vac: any) => {
         if (vac.length < this.amount) this.hasNoVac = true;
         this.possibleVacancies = this.possibleVacancies.concat(vac);
-        console.log(this.possibleVacancies);
+      });
+  }
+
+  assignVacancy(value: number): void {
+    this.cService.assignVacancies([this.candidate.id], [value])
+      .then((res: any) => {
+        const ids: number[] = this.candidate.vacancies.map(i => i.id);
+        console.log(ids);
+        if (!ids.includes(value)) {
+          this.candidate.vacancies.push(this.possibleVacancies.find(i => i.id === value));
+          this.snackService.showSnack('Successfully assigned', 'SUCCESS');
+          return;
+        }
+        this.snackService.showSnack('Vacancy is already assigned', 'WARNING');
+      }, (err: any) => {
+        this.snackService.showSnack('Error with assigning', 'ERROR');
       });
   }
 

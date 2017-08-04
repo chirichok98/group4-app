@@ -76,7 +76,7 @@
 
             </div>
         </div>
-        <button (click)="goToEditForm()">Edit</button> 
+        <button (click)="goToEditForm()">Edit</button>
         <div class="position-info-item candidates">
             <span class="attribute">Current candidates</span>
             <div class="candidates-list">
@@ -95,7 +95,10 @@
                 Secondary skills
             </div>
             <button (click)="autoSearch()">autosearch</button>
-            <candidate-preview-mini *ngFor="let can of possibleCandidates" [candidate]="can"></candidate-preview-mini>
+            <div *ngFor="let can of possibleCandidates">
+                <button (click)="assignCandidate(can.id)"><md-icon>add</md-icon></button>
+                <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+            </div>
             <button *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
         </div>
     </div>
