@@ -22,7 +22,7 @@
             </div>
             <div class="email content-wrapper">
                 <i class="small material-icons candidate-email">email</i>
-                <ng-container *ngIf="candidate.mail; else email">{{candidate.email}}</ng-container>
+                <ng-container *ngIf="candidate.email; else email">{{candidate.email}}</ng-container>
                 <ng-template #email>E-mail</ng-template>
             </div>
             <div class="skype content-wrapper">

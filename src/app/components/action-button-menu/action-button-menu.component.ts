@@ -16,11 +16,8 @@ export class ActionButtonComponent implements OnInit {
   constructor(private router: Router, private cookie: MyCookieService) { }
 
   ngOnInit() {
-    $('.cdk-overlay-pane').css({ top:'100px !important', left: '100px !important' });
   }
-  func() {
-    $('.cdk-overlay-pane').css({ top:'100px !important', left: '100px !important' });
-  }
+
   openPage(url): void {
     this.cookie.updateUrl(url);
     this.router.navigate([url]);

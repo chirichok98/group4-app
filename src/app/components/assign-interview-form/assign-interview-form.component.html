@@ -7,7 +7,8 @@
     <ng-container *ngIf="type">
         <select-form *ngIf="type !== 'customer'" [(result)]="interview.city" [placeholder]="'City'" [array]="cities"></select-form>
         <select-form *ngIf="type !== 'customer' && type !=='general'" [(result)]="interview.techSkill" [placeholder]="'Skill'" [array]="skills"></select-form>
-        <datepicker-form [(date)]="date" [placeholder]="'Date'"></datepicker-form>
+        <input type="datetime-local">
+        <!--<datepicker-form [(date)]="date" [placeholder]="'Date'"></datepicker-form>-->
         <div>
             <md-input-container class="">
                 From

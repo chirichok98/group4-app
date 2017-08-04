@@ -8,30 +8,36 @@ export class PagerService {
   amount: number = 10;
   initAmount: number = 10;
   skip: number = 10;
-  private getPager(skip: number = 0, amount: number, model?: any): Promise<any> {
+  private getPager(skip: number = 0, amount: number, searchModel?: any, 
+                   sortModel?: any): Promise<any> {
     const pagerParams: any = { skip, amount };
     let items: Promise<any>;
-    if (model && this.url === this.httpService.CAN_SEARCH) {
-      console.log('candidate', model);
-      pagerParams.searchModel = model;
+    if (searchModel && this.url === this.httpService.CAN_SEARCH) {
+      console.log('candidate', searchModel);
+      pagerParams.searchModel = searchModel;
+    } else if (searchModel && this.url === this.httpService.VAC_SEARCH) {
+      console.log('vacancy', searchModel);
+      pagerParams.searchModel = searchModel;
     }
-    if (model && this.url === this.httpService.VAC_SEARCH) {
-      console.log('vacancy', model);
-      pagerParams.searchModel = model;
+    if (sortModel && this.url === this.httpService.CAN_SEARCH) {
+      console.log('candidate', sortModel);
+      pagerParams.sortModel = sortModel;
+    } else if (sortModel && this.url === this.httpService.VAC_SEARCH) {
+      console.log('vacancy', sortModel);
+      pagerParams.sortModel = sortModel;
     }
-    pagerParams.searchModel = model;
     console.log(pagerParams);
     items = this.httpService.post(this.url, pagerParams,
       this.httpService.DEF_HEADERS,
       this.httpService.stringify);
     return items;
   }
-  init(url: string, amount?: number, model?: any): Promise<any> {
+  init(url: string, amount?: number, searchModel?: any, sortModel?: any): Promise<any> {
     this.url = url;
     this.initAmount = amount;
-    return this.getPager(0, amount || this.amount, model);
+    return this.getPager(0, amount || this.amount, searchModel, sortModel);
   }
-  showMore(skip?: number, amount?: number, model?: any) {
-    return this.getPager(0 + (skip || this.skip), amount || this.amount, model);
+  showMore(skip?: number, amount?: number, searchModel?: any, sortModel?: any) {
+    return this.getPager(0 + (skip || this.skip), amount || this.amount, searchModel, sortModel);
   }
 }

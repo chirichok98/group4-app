@@ -14,34 +14,47 @@ import { HttpService } from '../../../../services/http.service';
 })
 export class CandidatesListComponent {
   isSpinnerVisible: boolean = true;
-  candidates: ICandidatePreview[];
-  paramsQueue: any = [];
-  searchState: boolean = false;
-  public dataSubscription: any;
-  constructor(private pagerService: PagerService, 
+  private candidates: ICandidatePreview[];
+  private paramsQueue: any = [];
+  public searchSubscription: any;
+  public sortSubscription: any;
+  constructor(private pagerService: PagerService,
               private cookie: MyCookieService,
               private router: Router,
               private snackService: SnackbarService,
               private transferService: TransferService,
               private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
-    this.pagerService.init(httpService.CAN_SEARCH, 10)
-     .then(res => res.json())
-      .then((candidates) => {
-        this.candidates = candidates;
-        this.isSpinnerVisible = false;
-      }, (error) => {
-        this.snackService.showSnack('Candidates wasn`t loaded!', 'ERROR');
-        this.isSpinnerVisible = false;
-      });
+    this.init(httpService.CAN_SEARCH);
     transferService.getData().subscribe((data) => {
       console.log(data);
-      this.dataSubscription = data;
-      this.searchState = true;
       this.candidates = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
-      this.pagerService.init(httpService.CAN_SEARCH, 10, this.dataSubscription)
+      switch (data.type) {
+        case 'search': {
+          this.searchSubscription = data.options;
+          break;
+        }
+        case 'sort': {
+          this.sortSubscription = data.options;
+          break;
+        }
+      }
+      this.init(httpService.CAN_SEARCH, 10, this.searchSubscription, this.sortSubscription);
+    });
+  }
+  
+  private onScroll(emmitedObject?: PagerService) {
+    if (emmitedObject) {
+      this.paramsQueue.push(emmitedObject.skip);
+    }
+    const params = this.paramsQueue.shift();
+    this.showMore(params, 10, this.searchSubscription, this.sortSubscription);
+  }
+
+  private init(url: string, amount?: number, searchData?: any, sortData?: any) {
+    this.pagerService.init(url, amount, searchData, sortData)
       .then(res => res.json())
       .then((candidates) => {
         console.log(candidates);
@@ -51,45 +64,22 @@ export class CandidatesListComponent {
         this.snackService.showSnack('Candidates wasn`t loaded!', 'ERROR');
         this.isSpinnerVisible = false;
       });
-    });
   }
-  onScroll(emmitedObject?: PagerService) {
-    if (!this.searchState) {
-      if (emmitedObject) {
-        this.paramsQueue.push(emmitedObject.skip);
-      }
-      const params = this.paramsQueue.shift();
-      this.pagerService.showMore(params, 10)
-       .then(res => res.json())
-        .then((candidates) => {
-          this.candidates = this.candidates.concat(candidates);
-          this.isSpinnerVisible = false;
-          if (this.paramsQueue.length) {
-            this.onScroll();
-          }
-        }, (error) => {
-          this.snackService.showSnack('Candidates wasn`t loaded!', 'ERROR');
-          this.isSpinnerVisible = false;
-        });
-    } else {
-      if (emmitedObject) {
-        this.paramsQueue.push(emmitedObject.skip);
-      }
-      const params = this.paramsQueue.shift();
-      this.pagerService.showMore(params, 10, this.dataSubscription)
+
+  private showMore(params: any, amount: number, searchData?: any, sortData?: any): void {
+    this.pagerService.showMore(params, amount, searchData, sortData)
       .then(res => res.json())
-        .then((candidates) => {
-          console.log(candidates);
-          this.candidates = this.candidates.concat(candidates);
-          this.isSpinnerVisible = false;
-          if (this.paramsQueue.length) {
-            this.onScroll();
-          }
-        }, (error) => {
-          this.snackService.showSnack('Candidates wasn`t loaded!', 'ERROR');
-          this.isSpinnerVisible = false;
-        });
-    }
+      .then((candidates) => {
+        console.log(candidates);
+        this.candidates = this.candidates.concat(candidates);
+        this.isSpinnerVisible = false;
+        if (this.paramsQueue.length) {
+          this.onScroll();
+        }
+      }, (error) => {
+        this.snackService.showSnack('Candidates wasn`t loaded!', 'ERROR');
+        this.isSpinnerVisible = false;
+      });
   }
 
   addCandidate(): void {
