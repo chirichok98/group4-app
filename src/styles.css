@@ -215,5 +215,8 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
 }
 
 .mat-button-ripple.mat-ripple.mat-button-ripple-round {
-    border-radius: 10%;
+  border-radius: 10%;
+}
+.cdk-overlay-pane .mat-dialog-container {
+  padding: 0.5rem 0;
 }
