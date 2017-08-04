@@ -149,7 +149,7 @@
         <button (click)="addInterview()">Assign interview</button>
         <button (click)="goToEditForm()">Edit</button>
 
-        <position-preview-card *ngFor="let item of candidate.vacancies" [position]="item"></position-preview-card>
+        <position-preview-mini *ngFor="let item of candidate.vacancies" [position]="item"></position-preview-mini>
 
         <div>
             Primary skill
@@ -157,7 +157,7 @@
             Secondary skills
         </div>
         <button (click)="autoSearch()">search</button>
-        <position-preview-card *ngFor="let vac of possibleVacancies" [position]="vac" [showBasket]="true"></position-preview-card>
+        <position-preview-mini *ngFor="let vac of possibleVacancies" [position]="vac"></position-preview-mini>
         <button *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
 
 
