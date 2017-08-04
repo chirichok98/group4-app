@@ -1,6 +1,6 @@
 .page-footer {
   background-color: #273248;
-  padding: 1rem 1.5rem;
+  padding: 0 1rem;;
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 500;
@@ -10,11 +10,15 @@
     align-items: center;
     justify-content: space-between;
     display: flex;
+    height: 3.5rem;
   }
 }
 .page-footer-social {
   margin-right: 0;
   min-width: 275px;
+}
+.page-footer-social ul {
+  text-align: right;
 }
 .page-footer-social li {
   display: inline-block;

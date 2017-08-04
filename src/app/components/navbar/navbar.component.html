@@ -4,16 +4,12 @@
     <div class="navbar-states">
       <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
     </div>
-    <!-- <ul class="hidden-menu-wrapper collapsible" data-collapsible="accordion">
-      <li>
-        <div  class="collapsible-header">
-          <i class="hide-on-large-only small material-icons open-menu">menu</i>
-        </div>
-        <div class="collapsible-body">
-          <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
-        </div>
-      </li>
-    </ul> -->
+    <div class="navbar-states-hidden">
+      <md-icon [mdMenuTriggerFor]="menu">menu</md-icon>
+    </div>
+    <md-menu  class="navbar-menu-hidden" #menu="mdMenu" [overlapTrigger]="false">
+        <div class="navbar-hidden" md-menu-item *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
+    </md-menu>
     <md-icon class="navbar-icon" (click)="changeSortVisibility()">sort</md-icon>
   </div>
 </div>
