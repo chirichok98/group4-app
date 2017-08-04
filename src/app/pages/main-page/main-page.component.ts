@@ -5,6 +5,8 @@ import { MyCookieService } from '../../services/cookie.service';
 import { CandidateService } from '../../services/candidate.service';
 import { Router } from '@angular/router';
 
+declare const $;
+
 @Component({
   selector: 'main',
   templateUrl: 'main-page.component.html',
@@ -25,6 +27,22 @@ export class MainPageComponent implements OnInit {
               private cService: CandidateService) {
     this.role = this.cookie.getRole();
     this.getOptionsByRole(this.role);
+    $(document).ready(() => {
+
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('.scrollToTop').fadeIn();
+        } else {
+          $('.scrollToTop').fadeOut();
+        }
+      });
+
+      $('.scrollToTop').click(() => {
+        $('html, body').animate({ scrollTop: 0 }, 800);
+        return false;
+      });
+
+    });
   }
 
   getOptionsByRole(role: string): void {

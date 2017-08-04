@@ -20,12 +20,12 @@ export class PositionsListComponent {
   searchState: boolean = false;
   public searchSubscription: any;
   public sortSubscription: any;
-  constructor(private pagerService: PagerService, 
-              private cookie: MyCookieService, 
-              private router: Router,
-              private snackService: SnackbarService,
-              private httpService: HttpService,
-              private transferService: TransferService) {
+  constructor(private pagerService: PagerService,
+    private cookie: MyCookieService,
+    private router: Router,
+    private snackService: SnackbarService,
+    private httpService: HttpService,
+    private transferService: TransferService) {
     this.init(this.httpService.VAC_SEARCH);
     transferService.getData().subscribe((data) => {
       console.log(data);
@@ -45,20 +45,20 @@ export class PositionsListComponent {
       this.init(httpService.VAC_SEARCH, 10, this.searchSubscription, this.sortSubscription);
     });
   }
-    
+
   onScroll(emmitedObject?: PagerService) {
     if (emmitedObject) {
       this.paramsQueue.push(emmitedObject.skip);
     }
     const params = this.paramsQueue.shift();
+    console.log('scroll event');
     this.pagerService.showMore(params, 10, this.searchSubscription, this.sortSubscription);
   }
-  
+
   private init(url: string, amount?: number, searchData?: any, sortData?: any) {
     this.pagerService.init(url, amount, searchData, sortData)
       .then(res => res.json())
       .then((positions) => {
-        console.log(positions);
         this.positions = positions;
         this.isSpinnerVisible = false;
       }, (error) => {

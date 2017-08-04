@@ -20,13 +20,13 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   isCandidate: boolean;
   isVacancy: boolean;
+  isNotifications: boolean;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
               private cookie: MyCookieService) { }
 
   ngOnInit(): void {
-    console.log('init');
     const url: any = this.cookie.getUrl();
     if (url === 'main-page') {
       this.currentState = this.states[0];
@@ -66,6 +66,8 @@ export class NavbarComponent implements OnInit, DoCheck {
       this.setWindowOwner(true, false);
     if (stateName === 'vacancies')
       this.setWindowOwner(false, true);
+    if (stateName === 'notifications')
+      this.isNotifications = true;
     const state: INavbarOption = this.states.find(item => item.stateName === stateName);
     return state;
   }
@@ -73,6 +75,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   setWindowOwner(can: boolean, vac: boolean) {
     this.isCandidate = can;
     this.isVacancy = vac;
+    this.isNotifications = false;
   }
 
   goTo(newState: INavbarOption): void {
@@ -124,14 +127,14 @@ export class NavbarComponent implements OnInit, DoCheck {
     // }
     // this.toggleSortForm(true);
     if (this.sortIsClosed) {
-      $('.filter-block').css({ 
+      $('.filter-block').css({
         visibility: 'visible',
         opacity: '1',
         height: '8rem',
         'transition-duration': '500ms',
       });
     } else {
-      $('.filter-block').css({ 
+      $('.filter-block').css({
         visibility: 'hidden',
         opacity: '0',
         height: '0',
