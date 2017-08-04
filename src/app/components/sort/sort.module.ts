@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { SortComponent } from './sort.component';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
-
+import { TransferService } from '../../services/transfer.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -11,6 +11,6 @@ import { MaterialModule } from '@angular/material';
   ],
   exports: [SortComponent],
   declarations: [SortComponent],
-  providers: [],
+  providers: [TransferService],
 })
 export class SortModule { }

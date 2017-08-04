@@ -2,17 +2,21 @@ import { Injectable, HostListener, Inject } from '@angular/core';
 import { HttpService } from './http.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-// import { SearchObject } from '../components/search/search.component';
+
 @Injectable()
 export class TransferService {
-//   linkSearchAndPager(obj: any) {
-//     console.log(obj);
-//   }
   private someSubject: Subject<any> = new Subject<any>();
-  putData(data): void {
-    this.someSubject.next(data);
+
+  public putData(options: any, type?: string): void {
+    const obj = { };
+    obj['options'] = options;
+    if (type) {
+      obj['type'] = type;
+    }
+    this.someSubject.next(obj);
   }
-  getData(): Observable<any> {
+
+  public getData(): Observable<any> {
     return this.someSubject.asObservable();
   }
 }
