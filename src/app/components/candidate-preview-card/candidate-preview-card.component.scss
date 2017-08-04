@@ -10,9 +10,8 @@
   padding: 1.5rem;
 }
 .card:hover {
+  transform: scale(1.025);
   cursor: pointer;
-  // transform: scale(1.015);
-  // transition-duration: (0.3s);
 }
 .card .card-image {
   width: 100px;
