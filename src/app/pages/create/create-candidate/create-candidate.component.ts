@@ -12,33 +12,36 @@ import { MyCookieService } from '../../../services/cookie.service';
 })
 export class CreateCandidateComponent {
   candidate: any = {
-    contact: { },
+    contact: {},
     candidatePrimarySkill: {},
     candidateSecondarySkills: [],
     candidatePrevJobs: [],
   };
 
-  constructor(private cService: CandidateService, 
+  constructor(private cService: CandidateService,
               private router: Router,
               private cookie: MyCookieService,
               private snackService: SnackbarService) { }
 
   addCandidate(): void {
-    if (this.candidate.resume) {
-      const resume: File = this.candidate.resume;
-      delete this.candidate.resume;
-    }
+
     this.sendRequest(this.candidate);
   }
 
   sendRequest(candidate: any): void {
     this.cService.addCandidate(candidate)
       .then((can: any) => {
+        if (this.candidate.resume) {
+          const resume: File = this.candidate.resume;
+          this.cService.attachInterview(this.candidate.id, resume)
+            .then(res => console.log(res),
+            err => console.log(err));
+        }
         this.cookie.updateUrl('main-page/candidates');
         this.router.navigate(['main-page/candidates']);
-        this.snackService.showSnack('Candidate successfully added!','SUCCESS');
+        this.snackService.showSnack('Candidate successfully added!', 'SUCCESS');
       }, (err: any) => {
-        this.snackService.showSnack('Candidate wasn`t created','ERROR');
+        this.snackService.showSnack('Candidate wasn`t created', 'ERROR');
       });
   }
 }

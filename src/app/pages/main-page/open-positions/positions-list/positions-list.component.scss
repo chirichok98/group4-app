@@ -7,6 +7,9 @@
 position-preview-card {
   width: 32.9%;
 }
+position-preview-card:hover {
+  transform: scale(1.025);
+}
 @media (max-width: 950px) {
   position-preview-card {
     width: 49%;

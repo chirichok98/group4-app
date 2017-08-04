@@ -22,7 +22,7 @@
     <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
     <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
 
-    <input type="file" class="form-control" (change)="onChange($event)">
+    <input type="file" class="form-control" placeholder="Upload CV" (change)="onChange($event)">
 
     <div class="header-info">Person Contacts</div>
     <contacts-form [(contact)]="canInfo.contact"></contacts-form>

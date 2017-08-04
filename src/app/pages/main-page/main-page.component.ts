@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
     candidates: { name: 'CANDIDATES', stateName: 'candidates' },
     positions: { name: 'POSITIONS', stateName: 'vacancies' },
     notifications: { name: 'NOTIFICATIONS', stateName: 'notifications' },
-    news: { name: 'NEWS', stateName: 'news' },
+    news: { name: 'NEWS', stateName: 'notifications' },
   };
   navbarOptions: INavbarOption[] = [];
 

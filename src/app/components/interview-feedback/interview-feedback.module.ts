@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { RangeFormModule } from '../range-form/range-form.module';
 import { InterviewService } from '../../services/interview.service';
+import { SelectFormModule } from '../select-form/select-form.module';
+import { DictionariesService } from '../../services/dictionaries.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @NgModule({
   imports: [
@@ -13,9 +16,14 @@ import { InterviewService } from '../../services/interview.service';
     FormsModule,
     MaterialModule,
     RangeFormModule,
+    SelectFormModule,
   ],
   exports: [InterviewFeedbackComponent],
   declarations: [InterviewFeedbackComponent],
-  providers: [InterviewService],
+  providers: [
+    InterviewService,
+    DictionariesService,
+    SnackbarService,
+  ],
 })
 export class InterviewFeedbackModule { }

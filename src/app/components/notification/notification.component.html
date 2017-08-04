@@ -2,9 +2,9 @@
     <div class="notification__inner" [ngClass]="notification.notificationType">
         <div class="type">{{notification.notificationType}}</div>
         <div class="date">{{notification.date | date:"mediumDate"}}</div>
-        <div class="description">{{notification.description}}</div>
+        <div class="description">{{notification.notificationType}}</div>
 
-        <ng-container *ngIf="notification.notificationType === 'Interview'">
+        <ng-container *ngIf="notification.notificationType === 'Interview' && !interviewStatus">
             <button (click)="openInterview()">open interview blank</button>
         </ng-container>
     </div>
