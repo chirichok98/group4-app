@@ -9,21 +9,22 @@
 .basket:active {
   opacity: 1;
 }
-.scrollToTop{
-	width:100px; 
-	height:130px;
-	padding:10px; 
+.scrollToTop {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: #fff;
+	line-height: 56px;
+	color: #52c1e6;
 	text-align:center; 
-	background: whiteSmoke;
-	font-weight: bold;
-	color: #444;
 	text-decoration: none;
 	position:fixed;
-	top:75px;
-	right:40px;
+	bottom: 50%;
+	right: 30px;
 	display:none;
-	
+	opacity: 0.6;
 }
-.scrollToTop:hover{
-	text-decoration:none;
+.scrollToTop:hover {
+	text-decoration: none;
+	opacity: 1;
 }
