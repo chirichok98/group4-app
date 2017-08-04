@@ -129,7 +129,7 @@
             </ng-template>
         </div>
         <div class="candidate-info-item candidate-hr">
-            <span class="attribute">HR</span>
+            <span class="attribute">HRM</span>
             <ng-container *ngIf="can.hrm?.name as hrName; else hrName">
                 <span>{{hrName}}</span>
             </ng-container>
@@ -138,7 +138,7 @@
             </ng-template>
         </div>
         <div class="candidate-info-item candidate-last-contact">
-            <span class="attribute">Last connection date</span>
+            <span class="attribute">Last contact date</span>
             <ng-container *ngIf="can.lastContactDate as last; else last">
                 <span>{{last | date:"mediumDate"}}</span>
             </ng-container>
@@ -146,22 +146,20 @@
                 <span>none</span>
             </ng-template>
         </div>
-        <button (click)="addInterview()">Add interview</button>
-        <button (click)="goToEditForm()">Edit candidate</button>
-        <button (click)="this.isSearchShown = !this.isSearchShown">
-            <ng-container *ngIf="!isSearchShown; else hide">Show auto-search</ng-container>
-            <ng-template #hide>Hide auto-search</ng-template>
-        </button>
-        <div [hidden]="!isSearchShown">
-            <div>
-                Primary skill
-                <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
-                Secondary skills
-            </div>
-            <button (click)="autoSearch()">autosearch</button>
-            <position-preview-card *ngFor="let vac of possibleVacancies" [position]="vac" [showBasket]="true"></position-preview-card>
-            <button *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+        <button (click)="addInterview()">Assign interview</button>
+        <button (click)="goToEditForm()">Edit</button>
+
+        <position-preview-card *ngFor="let item of candidate.vacancies" [position]="item"></position-preview-card>
+
+        <div>
+            Primary skill
+            <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+            Secondary skills
         </div>
+        <button (click)="autoSearch()">search</button>
+        <position-preview-card *ngFor="let vac of possibleVacancies" [position]="vac" [showBasket]="true"></position-preview-card>
+        <button *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+
 
     </div>
 </div>

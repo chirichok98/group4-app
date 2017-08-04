@@ -20,6 +20,7 @@ import { RangeFormModule } from '../range-form/range-form.module';
     MaterialModule,
     AssignInterviewFormModule,
     RangeFormModule,
+    PositionPreviewModule,
   ],
   exports: [CandidateDetailComponent],
   declarations: [CandidateDetailComponent],

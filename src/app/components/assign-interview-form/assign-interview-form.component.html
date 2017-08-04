@@ -16,12 +16,6 @@
             </md-input-container>
         </div>
         <div>
-            <md-input-container class="">
-                To
-                <input type="time" [(ngModel)]="time.to" mdInput placeholder="To">
-            </md-input-container>
-        </div>
-        <div>
             <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
         </div>
         <ng-container *ngIf="type==='general'">

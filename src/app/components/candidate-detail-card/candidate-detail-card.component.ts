@@ -21,7 +21,6 @@ export class CandidateDetailComponent {
   skip: number;
   amount: number;
   hasNoVac: boolean = false;
-  isSearchShown: boolean = false;
 
   constructor(private router: Router,
               private cookie: MyCookieService,
