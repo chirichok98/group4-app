@@ -1,5 +1,10 @@
 <div *ngIf="candidate as can; else loading">
     <div class="candidate-info-container">
+        <span (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store <md-icon>library_add</md-icon>
+    </span>
         <div class="candidate-blocks">
             <div class="candidate-block img" *ngIf="can.picture; else defaultPic">
                 <img class="candidate-photo" [src]="can.picture" (click)="download()">
@@ -148,8 +153,10 @@
         </div>
         <button (click)="addInterview()">Assign interview</button>
         <button (click)="goToEditForm()">Edit</button>
-
-        <position-preview-mini *ngFor="let item of candidate.vacancies" [position]="item"></position-preview-mini>
+        <div *ngFor="let item of candidate.vacancies; let index = index">
+            <button (click)="rejectVacancy(item.id, index)"><md-icon>remove</md-icon></button>
+            <position-preview-mini [position]="item"></position-preview-mini>
+        </div>
 
         <div>
             Primary skill

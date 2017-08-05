@@ -45,5 +45,6 @@
     <span *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket">
         <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
         <ng-template #remove>Remove from</ng-template>
-        store <md-icon>library_add</md-icon></span>
+        store <md-icon>library_add</md-icon>
+    </span>
 </md-card>

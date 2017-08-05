@@ -48,6 +48,11 @@ export class CandidateService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
+  removeVacancy(obj: any): Promise<any> {
+    const url: string = this.concatParam('update/vacancies');
+    return this.httpService.put(url, obj, this.httpService.stringify);
+  }
+
   addCandidate(candidate): Promise<any> {
     const url: string = this.concatParam(this.httpService.ADD);
     return this.httpService.post(url,

@@ -1,7 +1,10 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
     <div class="position-blocks">
-        <div class="position-block">
-        </div>
+        <span (click)="addToBasket($event)" class="can-basket">
+            <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+            <ng-template #remove>Remove from</ng-template>
+            store <md-icon>library_add</md-icon>
+        </span>
         <div class="position-block">
             <div class="position-info-item position-status" *ngIf="pos.status">{{pos.status}}</div>
             <div class="position-feedback">

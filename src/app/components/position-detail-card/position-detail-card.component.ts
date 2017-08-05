@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IPositionDetail } from '../../interfaces/IPositionDetail';
@@ -14,25 +14,30 @@ import { SnackbarService } from '../../services/snackbar.service';
   styleUrls: ['position-detail-card.component.scss'],
 })
 
-export class PositionDetailComponent implements OnInit {
+export class PositionDetailComponent implements DoCheck {
   @Input() position: IPositionDetail;
   possibleCandidates: ICandidatePreview[] = [];
   coefficient: number;
   skip: number;
   amount: number;
   hasNoCan: boolean = false;
+  isAdded: boolean = false;
 
   constructor(private router: Router,
-    private cookie: MyCookieService,
-    private vService: PositionService,
-    private cService: CandidateService,
-    private snackService: SnackbarService) {
+              private cookie: MyCookieService,
+              private vService: PositionService,
+              private cService: CandidateService,
+              private snackService: SnackbarService) {
     this.skip = 0;
     this.amount = 5;
     this.coefficient = 50;
   }
 
-  ngOnInit() {
+  ngDoCheck() {
+    const id: number[] = this.cookie.getVacancies();
+    if (this.position && id.length && id.includes(this.position.id)) {
+      this.isAdded = true;
+    }
   }
 
   goToEditForm() {
@@ -76,5 +81,22 @@ export class PositionDetailComponent implements OnInit {
       }, (err: any) => {
         this.snackService.showSnack('Error with assigning', 'ERROR');
       });
+  }
+
+  addToBasket(event: any): void {
+    if (event.stopPropagation) {
+      event.stopPropagation();
+    }
+
+    if (this.cookie.addVacancy(this.position.id)) {
+      this.isAdded = true;
+      this.snackService.showSnack('Succesfully added to basket!', 'SUCCESS');
+    } else {
+      const index: number = this.cookie.getVacancies()
+        .findIndex(i => i === this.position.id);
+      this.cookie.removeIdFromVacancies(index);
+      this.isAdded = false;
+      this.snackService.showSnack('Position removed successfully!', 'DELETE');
+    }
   }
 }
