@@ -1,4 +1,4 @@
-<div>
+<div class="assign-interview-form-inner">
     <md-radio-group class="example-radio-group" [(ngModel)]="type">
         <md-radio-button value="general">HR manager</md-radio-button>
         <md-radio-button value="tech">Tech specialist</md-radio-button>
@@ -10,12 +10,9 @@
         <!--<input type="datetime-local">-->
         <datepicker-form [(date)]="date" [placeholder]="'Choose date'"></datepicker-form>
         <div>
-            <md-input-container class="">
+            <md-input-container class="time-container">
                 <input type="time" [(ngModel)]="time.from" mdInput placeholder="Choose time">
             </md-input-container>
-        </div>
-        <div>
-            <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
         </div>
         <ng-container *ngIf="type==='general'">
             <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager name'" [array]="hrs"></select-form>
@@ -23,6 +20,9 @@
         <ng-container *ngIf="type==='tech'">
             <select-form [(result)]="interview.interviewer" [placeholder]="'Tech specialist name'" [array]="techs"></select-form>
         </ng-container>
+        <div>
+            <textarea class="text-container" placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
+        </div>
         <md-dialog-actions>
             <button md-button (click)="sendInterview()">Submit</button>
             <button md-button [md-dialog-close]="true">Cancel</button>

@@ -213,6 +213,56 @@ select-form .mat-select-placeholder.mat-floating-placeholder {
 .mat-button-ripple.mat-ripple.mat-button-ripple-round {
   border-radius: 10%;
 }
-.cdk-overlay-pane .mat-dialog-container {
-  padding: 0.5rem 0;
+
+/*Assign Interview Form*/
+.mat-dialog-container {
+  text-align: center;
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #56CCF2;    
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color:#56CCF2;    
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(86, 204, 242, 0.1)
+}
+.assign-interview-form-inner .mat-radio-checked .mat-radio-label-content {
+  color: #56CCF2;  
+}
+.assign-interview-form-inner .mat-radio-button:hover .mat-radio-label-content,
+.assign-interview-form-inner .mat-radio-button:hover .mat-radio-outer-circle {
+  opacity: 0.6;   
+}
+.assign-interview-form-inner .mat-radio-outer-circle {
+  border-color: #273248;
+}
+.assign-interview-form-inner form {
+  text-align: center;
+}
+.assign-interview-form-inner .mat-select,
+.assign-interview-form-inner .mat-input-wrapper {
+  width: 280px;
+  text-align: left;
+}
+.assign-interview-form-inner .mat-select {
+  padding-top: 1.2rem;
+}
+.assign-interview-form-inner .mat-input-wrapper {
+  padding-top: 0.5rem;  
+}
+.assign-interview-form-inner .time-container .mat-input-wrapper {
+  padding-top: 0;
+  margin-top: -16px;
+  margin-bottom: -28px;
+}
+.assign-interview-form-inner .mat-dialog-actions {
+  justify-content: center;
+  margin: 0;
+}
+.assign-interview-form-inner .mat-dialog-actions:last-child {
+  margin: 0;
+}
+.assign-interview-form-inner datepicker-form {
+  display: block;
 }

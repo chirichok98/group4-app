@@ -1,7 +1,7 @@
 <div class="filter-block">
     <div class="form">
         <div class="more-options-wrapper" *ngIf="isCandidate">
-            <div>Sort by</div>
+            <div class="sort-header">Sort by</div>
             <div class="option creation-date" (click)="checkSortState('candidate')">
                 <span class="creation-date">Creation date</span>
                 <i class="material-icons creation-date creation-date-icon">play_arrow</i>
@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="more-options-wrapper" *ngIf="isVacancy">
+            <div class="sort-header">Sort by</div>
             <div class="option start-date" (click)="checkSortState('vacancy')">
                 <span class="start-date">Start date</span>
                 <i class="material-icons start-date start-date-icon">play_arrow</i>
