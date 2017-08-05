@@ -41,7 +41,7 @@ export class CandidatesListComponent {
           break;
         }
       }
-      this.init(httpService.CAN_SEARCH, 10, this.searchSubscription, this.sortSubscription);
+      this.init(httpService.CAN_SEARCH, 20, this.searchSubscription, this.sortSubscription);
     });
   }
   
@@ -50,7 +50,7 @@ export class CandidatesListComponent {
       this.paramsQueue.push(emmitedObject.skip);
     }
     const params = this.paramsQueue.shift();
-    this.showMore(params, 10, this.searchSubscription, this.sortSubscription);
+    this.showMore(params, 20, this.searchSubscription, this.sortSubscription);
   }
 
   private init(url: string, amount?: number, searchData?: any, sortData?: any) {
