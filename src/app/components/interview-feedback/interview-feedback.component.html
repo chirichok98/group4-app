@@ -1,13 +1,15 @@
-<div>
+<div class="interview-feedback-wrap">
+    <div class="title">Please leave feedback</div>
     <div *ngIf="data.type==='tech'">
-        Primary skill: {{data.primarySkill}}
-        <br> Mark:
-        <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+        <div class="skill"><span>Primary skill:</span><span class="skill-name">{{data.primarySkill}}</span></div>
+        <div class="mark"><span>Mark:</span>
+            <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+        </div>
     </div>
     <div *ngIf="data.type==='general'">
         <select-form [(result)]="result.engLevel" [placeholder]="'English level'" [array]="engLevel"></select-form>
     </div>
-    <textarea [(ngModel)]="result.feedback"></textarea>
+    <textarea class="text-container" [(ngModel)]="result.feedback"></textarea>
     <md-dialog-actions>
         <button md-button (click)="sendResult()">Submit</button>
         <button md-button [md-dialog-close]="true">Cancel</button>
