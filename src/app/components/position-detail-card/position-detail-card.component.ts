@@ -83,6 +83,23 @@ export class PositionDetailComponent implements DoCheck {
       });
   }
 
+  rejectVacancy(id: number, index: number): void {
+    const candidates: any = this.position.candidates.slice();
+    candidates.splice(index, 1);
+    const canIds: number[] = candidates.map(i => i.id);
+    const obj: any = {
+      vacancies: [this.position.id],
+      candidates: canIds,
+    };
+    this.vService.removeCandidate(obj)
+      .then((res) => {
+        this.position.candidates = candidates;
+        // this.candidate.vacancies = this.candidate.vacancies.splice(index, 1);
+        this.snackService.showSnack('Candidate successfully removed', 'SUCCESS');
+      },
+      () => this.snackService.showSnack('Troubles with removing', 'ERROR'));
+  }
+
   addToBasket(event: any): void {
     if (event.stopPropagation) {
       event.stopPropagation();

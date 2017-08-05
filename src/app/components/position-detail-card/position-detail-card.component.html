@@ -82,8 +82,9 @@
         <button (click)="goToEditForm()">Edit</button>
         <div class="position-info-item candidates">
             <span class="attribute">Current candidates</span>
-            <div class="candidates-list">
-                <candidate-preview-mini *ngFor="let can of pos.candidates" [candidate]="can"></candidate-preview-mini>
+            <div class="candidates-list"  *ngFor="let can of pos.candidates; let index = index">
+                <button (click)="rejectVacancy(can.id, index)"><md-icon>remove</md-icon></button>
+                <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
             </div>
         </div>
 

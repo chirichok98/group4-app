@@ -36,6 +36,11 @@ export class PositionService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
+  removeCandidate(obj: any): Promise<any> {
+    const url: string = 'api/candidate/update/vacancies';
+    return this.httpService.put(url, obj, this.httpService.stringify);
+  }
+
   addVacancy(vacancy: any): Promise<any> {
     const url = this.concatParam(this.httpService.ADD);
     return this.httpService.post(url, 
