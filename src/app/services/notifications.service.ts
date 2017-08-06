@@ -9,6 +9,7 @@ export class NotificationService {
 
   getNotifications(pag: any): Promise<INotificationOption[]> {
     const url: string = `api/notification/all`;
-    return this.httpService.get(url, pag);
+    return this.httpService.get(url, pag)
+      .then(res => res.json());
   }
 }

@@ -154,7 +154,7 @@
         <button (click)="addInterview()">Assign interview</button>
         <button (click)="goToEditForm()">Edit</button>
         <div *ngFor="let item of candidate.vacancies; let index = index">
-            <button (click)="rejectVacancy(item.id, index)"><md-icon>remove</md-icon></button>
+            <button (click)="removeVacancy(item.id, index)"><md-icon>remove</md-icon></button>
             <position-preview-mini [position]="item"></position-preview-mini>
         </div>
 

@@ -25,11 +25,11 @@ export class CandidateDetailComponent implements DoCheck {
   isAdded: boolean = false;
 
   constructor(private router: Router,
-    private cookie: MyCookieService,
-    private downloadService: DownloadService,
-    private cService: CandidateService,
-    private snackService: SnackbarService,
-    public dialog: MdDialog) {
+              private cookie: MyCookieService,
+              private downloadService: DownloadService,
+              private cService: CandidateService,
+              private snackService: SnackbarService,
+              public dialog: MdDialog) {
     this.skip = 0;
     this.amount = 5;
     this.coefficient = 50;
@@ -68,7 +68,6 @@ export class CandidateDetailComponent implements DoCheck {
       candidate: this.candidate.id,
     };
     this.cService.autoSearch(obj)
-      // .then(res => res.json())
       .then((vac: any) => {
         if (vac.length < this.amount) this.hasNoVac = true;
         this.possibleVacancies = this.possibleVacancies.concat(vac);
@@ -85,7 +84,7 @@ export class CandidateDetailComponent implements DoCheck {
           this.snackService.showSnack('Successfully assigned', 'SUCCESS');
           return;
         }
-        this.snackService.showSnack('Vacancy is already assigned', 'WARNING');
+        this.snackService.showSnack('Vacancy was assigned earlier', 'WARNING');
       }, (err: any) => {
         this.snackService.showSnack('Error with assigning', 'ERROR');
       });
@@ -106,18 +105,14 @@ export class CandidateDetailComponent implements DoCheck {
     }
   }
 
-  rejectVacancy(id: number, index: number): void {
-    const vacancies: any = this.candidate.vacancies.slice();
-    vacancies.splice(index, 1);
-    const vacIds: number[] = vacancies.map(i => i.id);
+  removeVacancy(id: number, index: number): void {
     const obj: any = {
-      vacancies: vacIds,
-      candidates: [this.candidate.id],
+      candidateId: this.candidate.id,
+      vacancyId: id,
     };
     this.cService.removeVacancy(obj)
       .then((res) => {
-        this.candidate.vacancies = vacancies;
-        // this.candidate.vacancies = this.candidate.vacancies.splice(index, 1);
+        this.candidate.vacancies.splice(index, 1);
         this.snackService.showSnack('Vacancy successfully removed', 'SUCCESS');
       },
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));

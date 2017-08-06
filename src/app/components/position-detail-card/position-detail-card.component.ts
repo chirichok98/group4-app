@@ -26,7 +26,6 @@ export class PositionDetailComponent implements DoCheck {
   constructor(private router: Router,
               private cookie: MyCookieService,
               private vService: PositionService,
-              private cService: CandidateService,
               private snackService: SnackbarService) {
     this.skip = 0;
     this.amount = 5;
@@ -69,32 +68,28 @@ export class PositionDetailComponent implements DoCheck {
   }
 
   assignCandidate(value: number): void {
-    this.cService.assignVacancies([value], [this.position.id])
-      .then((res: any) => {
+    this.vService.assignCandidates([value], [this.position.id])
+      .then(() => {
         const ids: number[] = this.position.candidates.map(i => i.id);
         if (!ids.includes(value)) {
           this.position.candidates.push(this.possibleCandidates.find(i => i.id === value));
           this.snackService.showSnack('Successfully assigned', 'SUCCESS');
           return;
         }
-        this.snackService.showSnack('Candidate is already assigned', 'WARNING');
+        this.snackService.showSnack('Candidate was assigned earlier', 'WARNING');
       }, (err: any) => {
         this.snackService.showSnack('Error with assigning', 'ERROR');
       });
   }
 
-  rejectVacancy(id: number, index: number): void {
-    const candidates: any = this.position.candidates.slice();
-    candidates.splice(index, 1);
-    const canIds: number[] = candidates.map(i => i.id);
+  removeCandidate(id: number, index: number): void {
     const obj: any = {
-      vacancies: [this.position.id],
-      candidates: canIds,
+      cancidateId: id,
+      vacancyId: this.position.id,
     };
     this.vService.removeCandidate(obj)
       .then((res) => {
-        this.position.candidates = candidates;
-        // this.candidate.vacancies = this.candidate.vacancies.splice(index, 1);
+        this.position.candidates.splice(index, 1);
         this.snackService.showSnack('Candidate successfully removed', 'SUCCESS');
       },
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));

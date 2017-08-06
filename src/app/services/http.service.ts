@@ -93,8 +93,7 @@ export class HttpService {
     }
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
     return this.http.get(urls, options)
-      .toPromise()
-      .then(res => res.json());
+      .toPromise();
   }
 
   postFile(url: string, formData: FormData): Promise<any> {
@@ -103,6 +102,7 @@ export class HttpService {
     // headers.append('Content-Type', 'boundary:aaaaa');
     const options = new RequestOptions({ headers });
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
-    return this.http.post(urls, formData, options).toPromise();
+    return this.http.post(urls, formData, options)
+      .toPromise();
   }
 }

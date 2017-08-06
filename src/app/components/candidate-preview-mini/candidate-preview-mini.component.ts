@@ -14,8 +14,7 @@ export class CandidatePreviewCardMiniComponent implements DoCheck {
   @Input() candidate: ICandidatePreview;
 
   constructor(private router: Router,
-              private cookie: MyCookieService,
-              private snackService: SnackbarService) { }
+              private cookie: MyCookieService) { }
 
   ngDoCheck() {
   }

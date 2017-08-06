@@ -27,9 +27,22 @@ export class PositionService {
   getPositionById(id: number): Promise<IPositionDetail> {
     const url: string = this.concatParam(id);
     const position: Promise<IPositionDetail> = 
-      this.httpService.get(url, null);
+      this.httpService.get(url, null)
+      .then(res => res.json());
     return position;
   }
+
+  assignCandidates(pos: number[], can: number[]): Promise<any> {
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/candidates`);
+    const res: Promise<any> = this.httpService.put(
+      url,
+      {
+        candidates: can,
+        vacancies: pos,
+      },
+      this.httpService.stringify);
+    return res;
+  } 
 
   updatePosition(obj: any): Promise<any> {
     const url: string = this.concatParam(this.httpService.UPDATE);
@@ -37,8 +50,8 @@ export class PositionService {
   }
 
   removeCandidate(obj: any): Promise<any> {
-    const url: string = 'api/candidate/update/vacancies';
-    return this.httpService.put(url, obj, this.httpService.stringify);
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/candidates/delete`);
+    return this.httpService.get(url, obj);
   }
 
   addVacancy(vacancy: any): Promise<any> {
@@ -50,8 +63,7 @@ export class PositionService {
   }
 
   autoSearch(obj: any): Promise<ICandidatePreview[]> {
-    const url: string = `api/candidate/autosearch`;
-    console.log(obj);
+    const url: string = 'api/candidate/autosearch';
     return this.httpService.post(url,
       obj,
       this.httpService.DEF_HEADERS, 
