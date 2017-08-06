@@ -1,110 +1,112 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
-    <div class="position-blocks">
-        <span (click)="addToBasket($event)" class="can-basket">
-            <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
-            <ng-template #remove>Remove from</ng-template>
-            store <md-icon>library_add</md-icon>
-        </span>
-        <div class="position-block">
-            <div class="position-info-item position-status" *ngIf="pos.status">{{pos.status}}</div>
-            <div class="position-feedback">
-                <div class="large-container">
-                    <div class="small-container">
-                        <div class="position-info-item position-project-name">
-                            <span class="attribute">Project</span>
-                            <span>{{pos.projectName}}</span>
-                        </div>
-                        <div class="position-info-item position-vacancy-name">
-                            <span class="attribute">Vacancy</span>
-                            <span>{{pos.vacancyName}}</span>
-                        </div>
-                        <div class="position-info-item position-date">
-                            <span class="attribute">Request date</span>
-                            <span>{{pos.requestDate | date : 'mediumDate'}}</span>
-                        </div>
-                        <div class="position-info-item position-date">
-                            <span class="attribute">Start date</span>
-                            <span>{{pos.startDate | date : 'mediumDate'}}</span>
-                        </div>
-                        <div class="position-info-item position-date">
-                            <span class="attribute">Close date</span>
-                            <span>{{pos.closeDate | date : 'mediumDate'}}</span>
-                        </div>
-                        <div class="position-info-item position-link">
-                            <span class="attribute">Link on project</span>
-                            <span>{{pos.link}}</span>
-                        </div>
-                        <div class="position-info-item position-skill-container">
-                            <span class="attribute attribute-skills">Primary skill</span>
-                            <md-chip-list class="position-skills">
-                                <md-chip>
-                                    <div class="position-skill-name">{{pos.primarySkill?.name}}</div>
-                                    <!-- : level - {{pos.primarySkill?.level}} -->
-                                </md-chip>
-                            </md-chip-list>
-                        </div>
-                        <div class="position-info-item position-skill-container">
-                            <span class="attribute attribute-skills">Secondary skills</span>
-                            <div class="position-skills">
-                                <ng-container *ngFor="let item of pos.secondarySkills">
-                                    <img class="position-skill-img" *ngIf="item.picture as pic; else text" [src]="pic">
-                                    <ng-template #text>
-                                        <md-chip-list>
-                                            <md-chip>
-                                                <div class="position-skill-name">{{item.name}}</div>
-                                            </md-chip>
-                                        </md-chip-list>
-                                    </ng-template>
-                                </ng-container>
-                            </div>
-                        </div>
-                        <div class="position-info-item position-english-level">
-                            <span class="attribute">English(min)</span>
-                            <span>{{pos.engLevel}}</span>
-                        </div>
-                        <div class="position-info-item position-english-level">
-                            <span class="attribute">Experience(years)</span>
-                            <span>{{pos.experience}}</span>
-                        </div>
-                        <div class="position-info-item position-english-level">
-                            <span class="attribute">City </span>
-                            <span>{{pos.city}}</span>
-                        </div>
-                        <div class="position-info-item position-english-level">
-                            <span class="attribute">HR manager</span>
-                            <span>{{pos.hrm?.name}}</span>
-                        </div>
-                    </div>
-                </div>
-
+    <div class="header-info general">General information</div>
+    <div class="item-container">
+        <div class="position-info-item position-vacancy-name">
+            <span class="attribute">Position name</span>
+            <span class="value">{{pos.vacancyName}}</span>
+        </div>
+        <div class="position-info-item position-date">
+            <span class="attribute">Request date</span>
+            <span class="value">{{pos.requestDate | date : 'mediumDate'}}</span>
+        </div>
+    </div>
+    <div class="item-container">
+        <div class="position-info-item position-project-name">
+            <span class="attribute">Project name</span>
+            <span class="value">{{pos.projectName}}</span>
+        </div>
+        <div class="position-info-item position-link">
+            <span class="attribute">Link</span>
+            <span class="value">{{pos.link}}</span>
+        </div>
+        <div class="position-info-item position-date">
+            <span class="attribute">Start date</span>
+            <span class="value">{{pos.startDate | date : 'mediumDate'}}</span>
+        </div>
+        <div class="position-info-item position-date">
+            <span class="attribute">Closure date</span>
+            <span class="value">{{pos.closeDate | date : 'mediumDate'}}</span>
+        </div>
+    </div>
+    <div class="item-container">
+        <div class="position-info-item position-english-level">
+            <span class="attribute">City </span>
+            <span class="value">{{pos.city}}</span>
+        </div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">English(min)</span>
+            <span class="value">{{pos.engLevel}}</span>
+        </div>
+        <div class="position-info-item position-status" *ngIf="pos.status">{{pos.status}}</div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">HR manager</span>
+            <span class="value">{{pos.hrm?.name}}</span>
+        </div>
+    </div>
+    <div class="header-info">Skills</div>
+    <div class="item-container">
+        <div class="position-info-item position-skill-container">
+            <span class="attribute attribute-skills">Primary skill</span>
+            <md-chip-list class="position-skills value">
+                <md-chip>
+                    <div class="position-skill-name">{{pos.primarySkill?.name}}</div>
+                    <!-- : level - {{pos.primarySkill?.level}} -->
+                </md-chip>
+            </md-chip-list>
+        </div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">Experience (years)</span>
+            <span class="value">{{pos.experience}}</span>
+        </div>
+    </div>
+    <div class="item-container">
+        <div class="position-info-item position-skill-container">
+            <span class="attribute attribute-skills">Secondary skill(s)</span>
+            <div class="position-skills value">
+                <ng-container *ngFor="let item of pos.secondarySkills">
+                    <img class="position-skill-img" *ngIf="item.picture as pic; else text" [src]="pic">
+                    <ng-template #text>
+                        <md-chip-list>
+                            <md-chip>
+                                <div class="position-skill-name">{{item.name}}</div>
+                            </md-chip>
+                        </md-chip-list>
+                    </ng-template>
+                </ng-container>
             </div>
         </div>
-        <button (click)="goToEditForm()">Edit</button>
-        <div class="position-info-item candidates">
-            <span class="attribute">Current candidates</span>
-            <div class="candidates-list"  *ngFor="let can of pos.candidates; let index = index">
-                <button (click)="rejectVacancy(can.id, index)"><md-icon>remove</md-icon></button>
+    </div>
+    <div (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store
+        <md-icon>library_add</md-icon>
+    </div>
+    <button (click)="goToEditForm()">Edit</button>
+    <div class="header-info">Current candidates</div>
+    <div class="candidates-list-wrap">
+        <div class="candidates-list-mini" *ngFor="let can of pos.candidates; let index = index">
+            <md-icon class="can-remove" (click)="rejectVacancy(can.id, index)">close</md-icon>
+            <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+        </div>
+    </div>
+    <button class="search simple-btn" (click)="this.isSearchShown = !this.isSearchShown">
+            <ng-container *ngIf="!isSearchShown; else hide">Show autosearch</ng-container>
+            <ng-template #hide>Hide autosearch</ng-template>
+    </button>
+    <div class="search-wrap" [hidden]="!isSearchShown">
+        <div class="range-container">From Primary skill
+            <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+            to Secondary skill(s)
+        </div>
+        <button class="simple-btn start-search" (click)="autoSearch()">search</button>
+        <div class="candidates-list-wrap">
+            <div class="candidates-list-mini" *ngFor="let can of possibleCandidates">
+                <md-icon class="can-add" (click)="assignCandidate(can.id)">add</md-icon>
                 <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
             </div>
         </div>
-
-        <button (click)="this.isSearchShown = !this.isSearchShown">
-            <ng-container *ngIf="!isSearchShown; else hide">Show auto-search</ng-container>
-            <ng-template #hide>Hide auto-search</ng-template>
-        </button>
-        <div [hidden]="!isSearchShown">
-            <div>
-                Primary skill
-                <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
-                Secondary skills
-            </div>
-            <button (click)="autoSearch()">autosearch</button>
-            <div *ngFor="let can of possibleCandidates">
-                <button (click)="assignCandidate(can.id)"><md-icon>add</md-icon></button>
-                <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
-            </div>
-            <button *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
-        </div>
+        <button class="simple-btn" *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
     </div>
 </div>
 <ng-template #loading>
