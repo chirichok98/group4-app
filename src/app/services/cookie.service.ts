@@ -40,7 +40,7 @@ export class MyCookieService {
     return null;
   }
 
-  getRole(): string | null {
+  getRole(): number | null {
     const cookie: any = this.getCookie();
     if (cookie) {
       return cookie.role;

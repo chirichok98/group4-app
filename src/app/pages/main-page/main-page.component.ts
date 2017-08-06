@@ -13,7 +13,7 @@ declare const $;
   styleUrls: ['main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-  role: string;
+  role: number;
   navbarConfig: any = {
     candidates: { name: 'CANDIDATES', stateName: 'candidates' },
     positions: { name: 'POSITIONS', stateName: 'vacancies' },
@@ -27,8 +27,12 @@ export class MainPageComponent implements OnInit {
               private cService: CandidateService) {
     this.role = this.cookie.getRole();
     this.getOptionsByRole(this.role);
-    $(document).ready(() => {
+    this.initBackToTop();
+    
+  }
 
+  initBackToTop(): void {
+    $(document).ready(() => {
       $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
           $('.scrollToTop').fadeIn();
@@ -41,30 +45,30 @@ export class MainPageComponent implements OnInit {
         $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
       });
-
     });
   }
 
-  getOptionsByRole(role: string): void {
+  getOptionsByRole(role: number): void {
     this.navbarOptions = [];
     switch (role) {
-      case 'Admin': {
+      case 3: {
         this.navbarOptions.push(this.navbarConfig.candidates);
         this.navbarOptions.push(this.navbarConfig.positions);
         this.navbarOptions.push(this.navbarConfig.news);
         break;
       }
-      case 'HRM': {
+      case 2: {
         this.navbarOptions.push(this.navbarConfig.candidates);
         this.navbarOptions.push(this.navbarConfig.positions);
         this.navbarOptions.push(this.navbarConfig.notifications);
         break;
       }
-      case 'Tech': {
+      case 1: {
         this.navbarOptions.push(this.navbarConfig.notifications);
         break;
       }
     }
+    console.log(this.navbarOptions);
   }
 
   ngOnInit() { }

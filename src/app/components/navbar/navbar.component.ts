@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
   isSortVisible: boolean = false;
-  isMenuVisible: boolean = false;
 
   isCandidate: boolean;
   isVacancy: boolean;
@@ -27,6 +26,7 @@ export class NavbarComponent implements OnInit, DoCheck {
               private cookie: MyCookieService) { }
 
   ngOnInit(): void {
+    console.log(this.states);
     const url: any = this.cookie.getUrl();
     if (url === 'main-page') {
       this.currentState = this.states[0];
@@ -42,6 +42,8 @@ export class NavbarComponent implements OnInit, DoCheck {
   ngDoCheck() {
     if (this.cookie.getUrl() === 'main-page') {
       this.currentState = this.states[0];
+      console.log(this.states);
+      
       const url: string = `main-page/${this.currentState.stateName}`;
       this.cookie.updateUrl(url);
       this.router.navigate([url]);
@@ -102,7 +104,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   openSearch(): void {
-    // this.toggleMenuForm(false);
     this.toggleSortForm(false);
     if (this.isSearchVisible) {
       return this.toggleSearchForm(false);
@@ -110,41 +111,16 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.toggleSearchForm(true);
   }
 
-  // showMenuForm(): void {
-  //   this.toggleSortForm(false);
-  //   this.toggleSearchForm(false);
-  //   if (this.isMenuVisible) {
-  //     return this.toggleMenuForm(false);
-  //   }
-  //   this.toggleMenuForm(true);
-  // }
-  sortIsClosed: boolean = true;
-  changeSortVisibility(): void {
-    // this.toggleSearchForm(false);
-    // this.toggleMenuForm(false);
-    // if (this.isSortVisible) {
-    //   return this.toggleSortForm(false);
-    // }
-    // this.toggleSortForm(true);
-    if (this.sortIsClosed) {
-      $('.filter-block').css({
-        visibility: 'visible',
-        opacity: '1',
-        height: '8rem',
-        'transition-duration': '500ms',
-      });
-    } else {
-      $('.filter-block').css({
-        visibility: 'hidden',
-        opacity: '0',
-        height: '0',
-        'transition-duration': '500ms',
-      });
+  openSort(): void {
+    this.toggleSearchForm(false);
+    if (this.isSortVisible) {
+      return this.toggleSortForm(false);
     }
-    this.sortIsClosed = !this.sortIsClosed;
+    this.toggleSortForm(true);
   }
 
   toggleSortForm(value): void {
+    console.log(this.isSortVisible);
     this.isSortVisible = value;
   }
 

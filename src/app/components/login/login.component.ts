@@ -45,6 +45,8 @@ export class LoginFormComponent {
 
   prepareCookie(obj: any): void {
     this.cookie.removeCookie();
+    obj.role = +obj.role;
+    console.log(obj.role);
     obj.url = 'main-page';
     this.cookie.setCookie(obj);
     this.cookie.initBasket();
