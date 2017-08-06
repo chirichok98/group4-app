@@ -99,8 +99,8 @@ export class HttpService {
 
   postFile(url: string, formData: FormData): Promise<any> {
     const headers = new Headers();
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.append('Content-Type', 'boundary:aaaaa');
+    // headers.append('Content-Type', 'multipart/form-data');
+    // headers.append('Content-Type', 'boundary:aaaaa');
     const options = new RequestOptions({ headers });
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     return this.http.post(urls, formData, options).toPromise();
