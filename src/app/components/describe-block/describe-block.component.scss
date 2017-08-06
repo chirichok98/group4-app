@@ -7,25 +7,27 @@ article {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 3rem;
 }
 .opp-content,
 .opp-media {
-  padding: 2rem 4rem;
+  padding: 0 1rem;
 }
 .image {
-  max-height: 12rem; 
+  max-height: 8rem; 
   width: auto;
   height: auto;
 }
 .title {
   font-family: "Roboto Slab";
   color: #526C7B;
-  font-size: 2rem;
+  font-size: 1.5em;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 p {
   color: #273248;
-  font-size: 1.2rem;
+  font-size: 1em;
 }
 article:hover {
   transform: scale(1.015);
