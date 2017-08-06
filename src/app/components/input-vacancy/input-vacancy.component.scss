@@ -9,24 +9,28 @@
   margin-top: 15px;
 }
 md-input-container {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 select-form {
   display: inline-block;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
 }
 datepicker-form {
-    margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 .header-info__inner {
-  font-size: 0.8em;
+  font-size: 0.7em;
   text-transform: uppercase;
-  padding: 0 1rem;
+  background: rgba(82, 108, 123, 0.07);
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.8rem;
 }
 button {
-  height: 2rem;
   width: auto;
-  display: inline-block;
+  height: auto;
+  line-height: 34px;
+  padding: 0 1rem;
+  font-size: 0.6em;
   background-color: #273248;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   border: none;
@@ -37,9 +41,7 @@ button {
   transition: .3s ease-out;
   cursor: pointer;
   text-transform: uppercase;
-  font-size: 1em;
-  margin: 1rem;
-  padding: 0 1rem;
+  margin: 0 1rem 1rem 0;
 }
 button:hover,
 button:focus,
@@ -48,4 +50,7 @@ button:active,
 	background-color: #56CCF2;
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
 }
-
+.secondary-skill skill-form {
+  display: block;
+  margin-bottom: 1rem;
+}

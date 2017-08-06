@@ -49,14 +49,6 @@
   padding: 0.5rem 1rem;
   border-top: 1px solid #e1e1e1;
 }
-img::selection {
-  background: transparent;
-}
-
-div::selection,
-span::selection {
-  color: #56ccf2;
-}
 .can-basket {
   position: absolute;
   bottom: 40px;

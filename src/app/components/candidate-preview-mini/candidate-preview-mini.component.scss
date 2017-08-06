@@ -1,35 +1,10 @@
 .card {
   border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   margin: 0.5rem 0.25rem 0;
   font-size: 0.8em;
   position: relative;
   overflow: hidden;
   padding: 1.5rem;
-}
-.card:hover {
-  transform: scale(1.025);
-  cursor: pointer;
-}
-.card .card-image {
-  width: 100px;
-  height: 100px;
-  width: 24%;
-  min-width: 120px;
-  img {
-    border-radius: 50%;
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    &::selection {
-      background: transparent;
-    }
-  }
-}
-.card-stacked {
-  width: 66%;
 }
 .card-content {
   text-align: left;
@@ -37,65 +12,26 @@
 .card-content .name {
   text-transform: uppercase;
   margin-bottom: 10px;
+  margin-top: 10px;
+  width: 73%;
   font-size: 1.2em;
   font-weight: 500;
-  width: 73%;
-  padding-right: 22%;
   border-bottom: 1px solid #e1e1e1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   color: #273248;
   padding-bottom: 5px;
-}
-.card-content .phone,
-.card-content .email,
-.card-content .skype {
-  width: 85%;
+  padding-right: 22%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 0.9em;
-}
-.content-wrapper {
-  line-height: 1.3rem;
-}
-.card-content {
-  div::selection {
-    color: #56CCF2;
-  }
-  i::selection {
-    background: transparent;
-  }
-  .status-wrapper {
-    div::selection {
-      color: white;
-      background: transparent;
-    }
-  }
-}
-.card-content .material-icons {
-  vertical-align: bottom;
-  font-size: 1.3rem;
-  color: #6d6d6d;
-  line-height: 1.4rem;
-  margin-right: 2px;
-}
-.card-content .material-icons.candidate-phone {
-  // color: #f77171;
-  font-size: 1.2rem;
-  margin-right: 4px;
 }
 .feedback-logotypes {
   display: inline-block;
   width: 1.4rem;
   height: 1.4rem;
-  vertical-align: bottom;
-  line-height: 1.4rem;
-}
-.skype .feedback-logotypes {
   background: url("/assets/skype_logo.png") no-repeat 0 0;
   background-size: contain;
+  margin-right: 4px;
+  vertical-align: middle;
 }
 .status {
   position: absolute;
