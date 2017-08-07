@@ -13,6 +13,14 @@ export class CandidateService {
     return `${this.httpService.CAN}/${param}`;
   }
 
+  getCandidateById(id: number): Promise<ICandidateDetail> {
+    const url: string = this.concatParam(id);
+    const candidate: Promise<ICandidateDetail> =
+      this.httpService.get(url, null)
+        .then(res => res.json());
+    return candidate;
+  }
+
   getCandidatesByIds(ids: number[]): Promise<ICandidatePreview[]> {
     const url: string = this.concatParam(`byids`);
     const candidates: Promise<ICandidatePreview[]> =
@@ -25,7 +33,7 @@ export class CandidateService {
   }
 
   assignVacancies(can: number[], vac: number[]): Promise<any> {
-    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies`);
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies/add`);
     const res: Promise<any> = this.httpService.put(
       url,
       {
@@ -34,14 +42,6 @@ export class CandidateService {
       },
       this.httpService.stringify);
     return res;
-  }
-
-  getCandidateById(id: number): Promise<ICandidateDetail> {
-    const url: string = this.concatParam(id);
-    const candidate: Promise<ICandidateDetail> =
-      this.httpService.get(url, null)
-      .then(res => res.json());
-    return candidate;
   }
 
   updateCandidate(obj: any): Promise<any> {
@@ -62,7 +62,7 @@ export class CandidateService {
       this.httpService.stringify);
   }
 
-  addInterview(type: string, interview: any): Promise<any> {
+  assignInterview(type: string, interview: any): Promise<any> {
     const url: string = `${this.httpService.INTERVIEW}/${type}/${this.httpService.ADD}`;
     return this.httpService.post(url,
       interview,
