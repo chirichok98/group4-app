@@ -17,6 +17,7 @@
   width: 5rem;
   width: 8rem;
   text-align: center;
+  position: relative;
 }
 .navbar-states .navbar-elem.candidates {
   text-align: right;
@@ -44,6 +45,7 @@
   transform: scale(1.1);
   background: #52c1e6;
   color: #fff;
+  z-index: 10;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 .navbar-states .navbar-elem:hover {
@@ -84,5 +86,27 @@
   .navbar-states-hidden {
     display: block;
   }
-
+}
+.news .notification-icon {
+  position: absolute;
+  font-size: 0.7em;
+  color: #56CCF2;
+  top: 2px;
+  right: 60px;
+}
+.news.active .notification-icon {
+  color: #fff;
+  font-size: 0.6em;
+  right: 62px;
+}
+.notifications .notification-icon {
+  position: absolute;
+  font-size: 0.7em;
+  color: #56CCF2;
+  top: 2px;
+  right: 60px;
+}
+.notifications.active .notification-icon {
+  color: #fff;
+  font-size: 0.6em;
 }
