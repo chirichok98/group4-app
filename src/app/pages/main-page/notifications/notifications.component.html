@@ -1,9 +1,9 @@
+<bread-crumbs></bread-crumbs>
 <div class="filter-block">
     <div class="form">
         <div class="more-options-wrapper">
-            <div class="sort-header">Sort by</div>
             <div class="option creation-date" (click)="checkSortState('candidate')">
-                <span class="creation-date">Unreaded</span>
+                <span class="creation-date">Unread</span>
             </div>
             <div class="option last-contact-date" (click)="checkSortState('candidate')">
                 <span class="last-contact-date">All</span>
@@ -14,6 +14,12 @@
         </div>
     </div>
 </div>
+<!-- <div class="notifications-indicators">
+    <div class="indicator-wrapper reminders">
+        <div class="indicator-color dark-blue" (click)="checkVisibility()"></div>
+        <div class="indicator-meaning">- Reminders</div>
+    </div>
+</div>-->
 <spinner [loading]="isSpinnerVisible"></spinner>
 <button (click)="markAsRead()">mark as read</button>
 <div *ngIf="notifications" class="notifications-wrapper">

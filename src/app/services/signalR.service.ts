@@ -11,10 +11,11 @@ export class SignalRService {
 
   initSignalR(context, stop: boolean): void {
     if (stop) {
+      console.log('stop signalR');
       $.connection.hub.stop();
       return;
     }
-
+    console.log(`init signalR ${this.cookie.getToken()}`);
     const notifications = $.connection.notifications;
 
     $.connection.hub.url = 'http://knowbase.azurewebsites.net/signalr/hubs';

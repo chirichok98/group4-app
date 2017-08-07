@@ -11,6 +11,7 @@ import { SpinnerModule } from '../../../../components/spinner/spinner.module';
 import { SearchModule } from '../../../../components/search/search.module';
 import { PagerModule } from '../../../../directives/pager/pager.module';
 import { PagerService } from '../../../../services/pager.service';
+import { BreadCrumbsModule } from '../../../../components/bread-crumbs/bread-crumbs.module';
 import { PagerDirective } from '../../../../directives/pager/pager.directive';
 import { TransferService } from '../../../../services/transfer.service';
 @NgModule({
@@ -23,6 +24,7 @@ import { TransferService } from '../../../../services/transfer.service';
     MaterialModule,
     PagerModule,
     SearchModule,
+    BreadCrumbsModule,
   ],
   exports: [RouterModule],
   declarations: [CandidatesListComponent],

@@ -41,9 +41,6 @@ edit-vacancy {
 prev-job-form .input-wrapper.contacts {
   padding: 0 50px;
 }
-prev-job-form .input-wrapper.contacts {
-  padding: 0 50px;
-}
 main,
 home,
 create-candidate,
@@ -59,8 +56,14 @@ position-detail-card {
   margin-bottom: 0.5rem;
 }
 open-positions,
-candidates {
+candidates,
+home {
   margin: 0;
+}
+home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 main {
   display: flex;
@@ -82,7 +85,15 @@ edit-candidate {
   position: relative;
   overflow: hidden;
 }
-
+@media (max-width: 992px) {
+  create-candidate,
+  create-vacancy,
+  store,
+  edit-candidate,
+  edit-vacancy {
+    padding: 0.5rem;
+  }
+}
 /*-----------------Scrollbar-----------------*/
 ::-webkit-scrollbar {
   /*Size & Position*/
