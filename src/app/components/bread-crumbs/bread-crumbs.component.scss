@@ -5,7 +5,7 @@
     margin-left: -0.5rem;
 }
 
-.crumb {
+.crumb, .crumb-main {
     height: 2rem;
     //width: auto;
     padding-left: 1rem;
@@ -13,7 +13,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/bread.png') 100% 50% no-repeat;
     font-weight: bold;
     color: white;
+    cursor: pointer;
 }
+
+.crumb-main {
+    background: url('/assets/bread2.png') 100% 50% no-repeat;
+}
+.crumb {
+    background: url('/assets/bread3.png') 100% 50% no-repeat;
+    background-size: cover;
+    padding-left: 2.5rem;
+    margin-left: -1rem;
+
+}
+
+//  .crumb:last-child {
+//      background-size: cover;
+//      padding-left: 2.5rem;
+//      margin-left: -1rem;
+//      background: url('/assets/bread5.png') 100% 50% no-repeat;
+//  }
