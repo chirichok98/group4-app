@@ -127,16 +127,12 @@ export class MyCookieService {
   }
 
   toggleChecked(id: number): boolean {
-    console.log('id');
-    console.log(id);
     const store: any = this.cookie.getObject('notifications');
     if (!store.checked.includes(id)) {
-      console.log('add');
       store.checked.push(id);
       this.cookie.putObject('notifications', { checked: store.checked || [] });
       return true;
     }
-    console.log('remove');
     const notIndex: number = store.checked.findIndex(i => i === id);
     store.checked.splice(notIndex, 1);
     this.cookie.putObject('notifications', { checked: store.checked || [] });
@@ -145,5 +141,16 @@ export class MyCookieService {
   getCheckedNotifications(): number[] {
     const notifications: any = this.cookie.getObject('notifications');
     return notifications.checked;
+  }
+
+  setUnreadAmount(amount: number): void {
+    this.cookie.putObject('amount', { amount });
+  }
+  
+  getUnreadAmount(): number {
+    const obj: any = this.cookie.getObject('amount');
+    if (obj)
+      return obj.amount;
+    return 0;
   }
 }

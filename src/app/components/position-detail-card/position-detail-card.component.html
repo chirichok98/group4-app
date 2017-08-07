@@ -1,13 +1,21 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
     <div class="header-info general">General information</div>
-    <div class="item-container">
-        <div class="position-info-item position-vacancy-name">
-            <span class="attribute">Position name</span>
-            <span class="value">{{pos.vacancyName}}</span>
+    <div class="item-container main">
+        <div class="item-container">
+            <div class="position-info-item position-vacancy-name">
+                <span class="attribute">Position name</span>
+                <span class="value">{{pos.vacancyName}}</span>
+            </div>
+            <div class="position-info-item position-date">
+                <span class="attribute">Request date</span>
+                <span class="value">{{pos.requestDate | date : 'mediumDate'}}</span>
+            </div>
         </div>
-        <div class="position-info-item position-date">
-            <span class="attribute">Request date</span>
-            <span class="value">{{pos.requestDate | date : 'mediumDate'}}</span>
+        <div (click)="addToBasket($event)" class="can-basket">
+            <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+            <ng-template #remove>Remove from</ng-template>
+            store
+            <md-icon>library_add</md-icon>
         </div>
     </div>
     <div class="item-container">
@@ -75,12 +83,6 @@
                 </ng-container>
             </div>
         </div>
-    </div>
-    <div (click)="addToBasket($event)" class="can-basket">
-        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
-        <ng-template #remove>Remove from</ng-template>
-        store
-        <md-icon>library_add</md-icon>
     </div>
     <button (click)="goToEditForm()">Edit</button>
     <div class="header-info">Current candidates</div>

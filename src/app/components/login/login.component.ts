@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { MyCookieService } from '../../services/cookie.service';
 import { MdSnackBar } from '@angular/material';
 import { SnackbarService } from '../../services/snackbar.service';
+import { SignalRService } from '../../services/signalR.service';
 
 @Component({
   selector: 'login-form',
@@ -17,6 +18,7 @@ export class LoginFormComponent {
   constructor(private router: Router,
               private cookie: MyCookieService,
               private aService: AuthenticationService,
+              private sR: SignalRService,
               private snackService: SnackbarService) { }
 
   onSubmit(): void {
@@ -26,6 +28,7 @@ export class LoginFormComponent {
       .then((obj: any) => {
         this.prepareCookie(obj);
         this.router.navigate([obj.url]);
+        this.sR.initSignalR(this.sR);
         this.snackService.showSnack('Succesfully logged in!', 'SUCCESS');
       }, (error) => {
         const err = error.json();
@@ -46,7 +49,6 @@ export class LoginFormComponent {
   prepareCookie(obj: any): void {
     this.cookie.removeCookie();
     obj.role = +obj.role;
-    console.log(obj.role);
     obj.url = 'main-page';
     this.cookie.setCookie(obj);
     this.cookie.initBasket();

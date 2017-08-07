@@ -22,12 +22,11 @@ export class NavbarComponent implements OnInit, DoCheck {
   isVacancy: boolean;
   isNotifications: boolean;
 
-  notificationAmount: number = 0;
+  notificationAmount: number;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private cookie: MyCookieService,
-              private signalR: SignalRService) { }
+              private cookie: MyCookieService) { }
 
   ngOnInit(): void {
     const url: any = this.cookie.getUrl();
@@ -43,8 +42,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    this.notificationAmount = this.signalR.amount;
-    console.log(this.notificationAmount);
+    this.notificationAmount = this.cookie.getUnreadAmount();
     if (this.cookie.getUrl() === 'main-page') {
       this.currentState = this.states[0];
 

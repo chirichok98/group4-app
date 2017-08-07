@@ -19,12 +19,11 @@ export class NotificationsComponent {
               private cookie: MyCookieService) {
     this.nService.getNotifications({ skip: 0, amount: 100 })
       .then((notif: any) => {
-        console.log(notif);
         this.notifications = notif;
       });
   }
 
-  markAsRead(id: number): void {
-    console.log(id);
+  markAsRead(): void {
+    const notif: number[] = this.cookie.getCheckedNotifications();
   }
 }

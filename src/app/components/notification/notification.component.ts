@@ -42,7 +42,6 @@ export class NotificationComponent implements DoCheck {
   }
 
   openInterview() {
-    console.log(this.notification);
     this.dialog.open(InterviewFeedbackComponent, {
       data: {
         id: this.id,
