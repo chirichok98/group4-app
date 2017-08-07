@@ -18,6 +18,7 @@
   width: 8rem;
   text-align: center;
   position: relative;
+  text-transform: uppercase;
 }
 .navbar-states .navbar-elem.candidates {
   text-align: right;
@@ -104,9 +105,10 @@
   font-size: 0.7em;
   color: #56CCF2;
   top: 2px;
-  right: 60px;
+  right: 23px;
 }
 .notifications.active .notification-icon {
   color: #fff;
   font-size: 0.6em;
+  right: 23px;
 }

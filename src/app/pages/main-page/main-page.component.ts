@@ -15,10 +15,10 @@ declare const $;
 export class MainPageComponent implements OnInit {
   role: number;
   navbarConfig: any = {
-    candidates: { name: 'CANDIDATES', stateName: 'candidates' },
-    positions: { name: 'POSITIONS', stateName: 'vacancies' },
-    notifications: { name: 'NOTIFICATIONS', stateName: 'notifications' },
-    news: { name: 'NEWS', stateName: 'notifications' },
+    candidates: { name: 'candidates', stateName: 'candidates' },
+    positions: { name: 'positions', stateName: 'vacancies' },
+    notifications: { name: 'notifications', stateName: 'notifications' },
+    news: { name: 'news', stateName: 'notifications' },
   };
   navbarOptions: INavbarOption[] = [];
 

@@ -89,19 +89,23 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.router.navigate([url]);
   }
 
-  getStyleByIndex(index: number): string {
+  getStyleByIndex(name: string): string {
+    console.log('change state ' + name);
     let classNames: string = '';
-    switch (index) {
-      case 0: classNames = 'candidates';
+    switch (name) {
+      case 'candidates': classNames = 'candidates';
         break;
-      case 1: classNames = 'positions';
+      case 'positions': classNames = 'positions';
         break;
-      case 2: classNames = 'news';
+      case 'notifications': classNames = 'notifications';
+        break;
+      case 'news': classNames = 'news';
         break;
     }
-    if (this.currentState === this.states[index]) {
+    if (this.currentState === this.states.find(i => i.name === name)) {
       classNames += ' active';
     }
+    console.log(classNames);
     return `${classNames} navbar-elem`;
   }
 
