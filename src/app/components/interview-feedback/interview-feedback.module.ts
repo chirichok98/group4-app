@@ -9,6 +9,7 @@ import { InterviewService } from '../../services/interview.service';
 import { SelectFormModule } from '../select-form/select-form.module';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { DatepickerFormModule } from '../datepicker-form/datepicker-form.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { SnackbarService } from '../../services/snackbar.service';
     MaterialModule,
     RangeFormModule,
     SelectFormModule,
+    DatepickerFormModule,
   ],
   exports: [InterviewFeedbackComponent],
   declarations: [InterviewFeedbackComponent],

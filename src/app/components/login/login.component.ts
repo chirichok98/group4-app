@@ -50,5 +50,6 @@ export class LoginFormComponent {
     obj.url = 'main-page';
     this.cookie.setCookie(obj);
     this.cookie.initBasket();
+    this.cookie.initCheckedNotifications();
   }
 }

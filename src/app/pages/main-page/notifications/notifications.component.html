@@ -13,5 +13,5 @@
     </div>
 </div> -->
 <div *ngIf="notifications" class="notifications-wrapper">
-    <notification class="notification" *ngFor="let item of notifications" [notification]="item"></notification>
+    <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
 </div>

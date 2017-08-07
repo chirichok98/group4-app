@@ -1,8 +1,9 @@
-import { Component, Input, DoCheck } from '@angular/core';
+import { Component, Input, DoCheck, Output, EventEmitter } from '@angular/core';
 
 import { INotificationOption } from '../../interfaces/INotificationOption';
 import { MdDialog } from '@angular/material';
 import { InterviewFeedbackComponent } from '../interview-feedback/interview-feedback.component';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'notification',
@@ -12,11 +13,13 @@ import { InterviewFeedbackComponent } from '../interview-feedback/interview-feed
 
 export class NotificationComponent implements DoCheck {
   @Input() notification: INotificationOption;
+  
   type: string;
   id: number;
   skill: string;
   interviewStatus: boolean = false;
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, 
+              private cookie: MyCookieService) { }
 
   ngDoCheck() {
     if (this.notification) {
@@ -32,6 +35,10 @@ export class NotificationComponent implements DoCheck {
         this.interviewStatus = this.notification.generalInterview.status;
       }
     }
+  }
+
+  markAsRead() {
+    this.cookie.toggleChecked(this.notification.id);
   }
 
   openInterview() {

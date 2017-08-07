@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, DoCheck } from '@angular/core';
 import { CookieService, CookieOptions } from 'ngx-cookie';
 
 @Injectable()
@@ -120,5 +120,30 @@ export class MyCookieService {
   getVacancies(): any {
     const basket: any = this.cookie.getObject('basket');
     return basket.positions;
+  }
+
+  initCheckedNotifications(): void {
+    this.cookie.putObject('notifications', { checked: [] });
+  }
+
+  toggleChecked(id: number): boolean {
+    console.log('id');
+    console.log(id);
+    const store: any = this.cookie.getObject('notifications');
+    if (!store.checked.includes(id)) {
+      console.log('add');
+      store.checked.push(id);
+      this.cookie.putObject('notifications', { checked: store.checked || [] });
+      return true;
+    }
+    console.log('remove');
+    const notIndex: number = store.checked.findIndex(i => i === id);
+    store.checked.splice(notIndex, 1);
+    this.cookie.putObject('notifications', { checked: store.checked || [] });
+  }
+
+  getCheckedNotifications(): number[] {
+    const notifications: any = this.cookie.getObject('notifications');
+    return notifications.checked;
   }
 }
