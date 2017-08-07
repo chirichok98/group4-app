@@ -1,6 +1,6 @@
 <div *ngIf="candidate as can; else loading" class="candidate-info-container">
     <div class="header-info general">General information</div>
-    <div class="item-container">
+    <div class="item-container main">
         <div class="candidate-block img" *ngIf="can.picture; else defaultPic">
             <img class="candidate-photo" [src]="can.picture" (click)="download()">
         </div>
@@ -9,6 +9,18 @@
                 <img src="./assets/blank-avatar.png" alt="photo">
             </div>
         </ng-template>
+        <div>
+            <div (click)="addInterview()" class="can-interview">
+                Assign interview
+                <md-icon>speaker_notes</md-icon>
+            </div>
+            <div (click)="addToBasket($event)" class="can-basket">
+                <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+                <ng-template #remove>Remove from</ng-template>
+                store
+                <md-icon>library_add</md-icon>
+            </div>
+        </div>
     </div>
     <div class="item-container candidate-name">
         <div class="candidate-info-item">
@@ -65,7 +77,7 @@
         <div class="candidate-info-item candidate-english-level">
             <span class="attribute">English</span>
             <ng-container *ngIf="can.engLevel as eng; else eng">
-                <span>{{eng}}</span>
+                <span class="value">{{eng}}</span>
             </ng-container>
             <ng-template #eng>
                 <span class="value">none</span>
@@ -185,15 +197,6 @@
                 <span class="value">none</span>
             </ng-template>
         </div>
-    </div>
-    <div (click)="addInterview()" class="can-interview">
-        Assign interview<md-icon>speaker_notes</md-icon>
-    </div>
-    <div (click)="addToBasket($event)" class="can-basket">
-        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
-        <ng-template #remove>Remove from</ng-template>
-        store
-        <md-icon>library_add</md-icon>
     </div>
     <button (click)="goToEditForm()">Edit</button>
     <div class="header-info">Current positions</div>
