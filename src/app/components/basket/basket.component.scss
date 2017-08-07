@@ -29,14 +29,18 @@ h4 {
 .container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
-.candidates {
-  width: 50%;
-  text-align: center;
-}
+.candidates,
 .positions {
   width: 50%;
   text-align: center;
+}
+@media (max-width: 1080px) {
+  .candidates,
+  .positions {
+    width: 100%;
+  }
 }
 .empty-wrapper {
   line-height: 4rem;
