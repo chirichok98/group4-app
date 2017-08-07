@@ -5,11 +5,12 @@ import { CandidatesListItemComponent } from './candidates-list-item.component';
 import { CandidateDetailModule } from '../../../../components/candidate-detail-card/candidate-detail-card.module';
 import { CommonModule } from '@angular/common';
 import { CandidateService } from '../../../../services/candidate.service';
-
+import { BreadCrumbsModule } from '../../../../components/bread-crumbs/bread-crumbs.module';
 @NgModule({
   imports: [
     CandidateDetailModule,
     CommonModule,
+    BreadCrumbsModule,
   ],
   exports: [],
   declarations: [CandidatesListItemComponent],

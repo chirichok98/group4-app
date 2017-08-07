@@ -1,5 +1,5 @@
-<spinner [loading]="isSpinnerVisible"></spinner>
 <bread-crumbs></bread-crumbs>
+<spinner [loading]="isSpinnerVisible"></spinner>
 <div class="candidate-items-wrapper" scroll (update)='onScroll($event)'>
     <button class="add-button" *ngIf="candidates" md-fab (click)="addCandidate()"><md-icon>add</md-icon></button>
     <candidate-card class="candidate-item-wrapper" *ngFor="let item of candidates" [candidate]="item"></candidate-card>

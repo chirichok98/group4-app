@@ -1,37 +1,46 @@
 .crumbs-wrapper {
-    display: flex;
-    margin-top: 0.8rem;
-    margin-bottom: 0.3rem;
-    margin-left: -0.5rem;
+  display: flex;
+  margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
+  margin-left: -0.5rem;
 }
 
-.crumb, .crumb-main {
-    height: 2rem;
-    //width: auto;
-    padding-left: 1rem;
-    padding-right: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
+.crumb,
+.crumb-main,
+.crumb:last-child,
+.crumb:first-child {
+  height: 1.6rem;
+  padding-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
-.crumb-main {
-    background: url('/assets/bread2.png') 100% 50% no-repeat;
+// .crumb-main {
+// padding-left: 1rem;
+//   background: url('/assets/bread2.png') 100% 50% no-repeat;
+// }
+
+.crumb:first-child {
+  background: url('/assets/bread2.png') 100% 50% no-repeat;
+  background-size: cover;
+  padding-left: 1rem; 
+  margin-left: 0;
 }
+
 .crumb {
-    background: url('/assets/bread3.png') 100% 50% no-repeat;
-    background-size: cover;
-    padding-left: 2.5rem;
-    margin-left: -1rem;
-
+  background: url('/assets/bread3.png') 100% 50% no-repeat;
+  background-size: cover;
+  padding-left: 2.5rem; 
+  margin-left: -1rem;
 }
 
-//  .crumb:last-child {
-//      background-size: cover;
-//      padding-left: 2.5rem;
-//      margin-left: -1rem;
-//      background: url('/assets/bread5.png') 100% 50% no-repeat;
-//  }
+.crumb:last-child {
+  background: url('/assets/bread5.png') 100% 50% no-repeat;
+  background-size: cover;
+  padding-left: 2.5rem; 
+  margin-left: 0;
+}
