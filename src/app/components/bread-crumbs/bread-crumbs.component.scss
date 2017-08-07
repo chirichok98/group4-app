@@ -1,0 +1,19 @@
+.crumbs-wrapper {
+    display: flex;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    margin-left: -0.5rem;
+}
+
+.crumb {
+    height: 2rem;
+    //width: auto;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/assets/bread.png') 100% 50% no-repeat;
+    font-weight: bold;
+    color: white;
+}
