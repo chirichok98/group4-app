@@ -68,7 +68,7 @@ export class PositionDetailComponent implements DoCheck {
   }
 
   assignCandidate(value: number): void {
-    this.vService.assignCandidates([value], [this.position.id])
+    this.vService.assignCandidates([this.position.id], [value])
       .then(() => {
         const ids: number[] = this.position.candidates.map(i => i.id);
         if (!ids.includes(value)) {

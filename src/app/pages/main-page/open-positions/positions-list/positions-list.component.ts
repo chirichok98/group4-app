@@ -28,7 +28,6 @@ export class PositionsListComponent {
               private transferService: TransferService) {
     this.init(this.httpService.VAC_SEARCH);
     transferService.getData().subscribe((data) => {
-      console.log(data);
       this.positions = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
@@ -51,7 +50,6 @@ export class PositionsListComponent {
       this.paramsQueue.push(emmitedObject.skip);
     }
     const params = this.paramsQueue.shift();
-    console.log(params);
     this.showMore(params, 20, this.searchSubscription, this.sortSubscription);
   }
 
@@ -71,7 +69,6 @@ export class PositionsListComponent {
     this.pagerService.showMore(params, amount, searchData, sortData)
       .then(res => res.json())
       .then((positions) => {
-        console.log(positions);
         this.positions = this.positions.concat(positions);
         this.isSpinnerVisible = false;
         if (this.paramsQueue.length) {

@@ -78,7 +78,6 @@ export class CandidateDetailComponent implements DoCheck {
     this.cService.assignVacancies([this.candidate.id], [value])
       .then((res: any) => {
         const ids: number[] = this.candidate.vacancies.map(i => i.id);
-        console.log(ids);
         if (!ids.includes(value)) {
           this.candidate.vacancies.push(this.possibleVacancies.find(i => i.id === value));
           this.snackService.showSnack('Successfully assigned', 'SUCCESS');

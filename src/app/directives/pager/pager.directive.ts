@@ -16,7 +16,6 @@ export class PagerDirective {
   @Output() update = new EventEmitter<any>();
   @HostListener('window:scroll') onScroll() {
     this.scrollValue = this.document.body.scrollTop;
-    console.log(this.scrollValue, this.document.body.scrollHeight - $(window).height());
     if (this.scrollValue === this.document.body.scrollHeight - $(window).height()) {
       this.skip += 20;
       this.update.emit({ skip: this.skip });

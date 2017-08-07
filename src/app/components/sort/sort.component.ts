@@ -37,7 +37,6 @@ export class SortComponent {
       }
     }
     const classlist = event.srcElement.classList;
-    console.log(classlist);
     this.currentOptions.forEach((item, index) => {
       if (classlist.contains(item)) {
         this.changeSortState(item, index);
@@ -53,14 +52,11 @@ export class SortComponent {
         this.currentStates[i] = 0;
       }
     });
-    console.log(this.currentStates);
     this.startSort();
     this.showChanges(item, this.currentStates[index]);
   }
 
   private showChanges(item, state): void {
-    console.log('.' + item + '-icon');
-    // console.log(state);
     this.currentOptions.forEach((it) => {
       $('.' + it + '-icon').css({
         opacity: '0',
@@ -87,7 +83,6 @@ export class SortComponent {
   }
 
   private startSort() {
-    console.log(this.defineSortModel());
     this.transferService.putData(this.defineSortModel(), 'sort');
   }
 
@@ -119,7 +114,6 @@ export class SortComponent {
         result += `${item[0].toUpperCase()}${item.slice(1)}`;
       }
     });
-    console.log(result);
     return result;
   }
 }

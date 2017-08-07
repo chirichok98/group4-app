@@ -6,6 +6,7 @@ import { LoginFormComponent } from './login.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { MaterialModule } from '@angular/material';
 import { SnackbarService } from '../../services/snackbar.service';
+import { SignalRService } from '../../services/signalR.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SnackbarService } from '../../services/snackbar.service';
   providers: [
     AuthenticationService,
     SnackbarService,
+    SignalRService,
   ],
 })
 export class LoginFormModule { }

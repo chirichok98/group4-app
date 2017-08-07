@@ -21,7 +21,7 @@ export class AppComponent {
     const loggedUser: any = this.cookie.getCookie();
     if (loggedUser) {
       const url: string = this.location.path();
-      this.sR.initSignalR();
+      this.sR.initSignalR(this.sR);
       this.cookie.initCheckedNotifications();
       this.cookie.initBasket();
       if (url) {

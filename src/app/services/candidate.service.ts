@@ -72,7 +72,6 @@ export class CandidateService {
 
   autoSearch(obj: any): Promise<IPositionPreview[]> {
     const url: string = `api/vacancy/autosearch`;
-    console.log(obj);
     return this.httpService.post(url,
       obj,
       this.httpService.DEF_HEADERS,
