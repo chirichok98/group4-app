@@ -53,8 +53,7 @@
   opacity: 0.6;
   color: #52c1e6;
   text-transform: uppercase;
-  font-size: 0.55em;
-  margin-top: -1rem;
+  font-size: 0.7em;
   text-align: right;
 }
 .can-basket:hover {
@@ -64,15 +63,16 @@
 .position-status {
   position: absolute;
   padding: 0.5rem 2.5rem;
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   text-transform: uppercase;
   text-align: center;
-  top: 23px;
+  top: 18px;
   right: -58px;
   background-color: #52c1e6;
   color: #fff;
   width: 100px;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 .candidates-list-wrap {
   display: flex;
@@ -98,7 +98,7 @@
   position: absolute;
   top: 12px;
   right: 7px;
-  z-index: 9999;
+  z-index: 9;
   color: #273248;
   cursor: pointer;
 }

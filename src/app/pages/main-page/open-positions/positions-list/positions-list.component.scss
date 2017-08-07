@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 position-preview-card {
-  width: 33%;
+  width: 33.3%;
 }
 @media (max-width: 1200px) {
   position-preview-card {
