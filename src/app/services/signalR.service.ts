@@ -16,6 +16,12 @@ export class SignalRService {
 
     $.connection.hub.qs = { bearer: context.cookie.getToken() };
 
+    $.connection.hub.disconnected(() => {
+      setTimeout(() => {
+        $.connection.hub.start();
+      }, 5000);
+    });
+
     notifications.client.getNotification = function (notification) {
       console.log('Notification: ' + notification);
       context.snackService.showSnack(notification);
