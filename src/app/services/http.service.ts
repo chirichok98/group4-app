@@ -23,8 +23,8 @@ export class HttpService {
   SKILLS: string = 'api/techSkill';
   VAC_STATUS: string = 'api/vacancyStatus';
   CAN_STATUS: string = 'api/candidateStatus';
-  HRS: string = 'api/users/hrms';
-  TECH: string = 'api/users/tech';
+  HRS: string = 'api/user/hrms';
+  TECH: string = 'api/user/tech';
   INTERVIEW: string = 'api/interview';
 
   constructor(private http: Http, private cookie: MyCookieService) {

@@ -27,6 +27,7 @@ import { EditCandidateModule } from './pages/edit/edit-candidate/edit-candidate.
 import { EditVacancyModule } from './pages/edit/edit-vacancy/edit-vacancy.module';
 import { StoreModule } from './pages/store/store.module';
 import { SnackbarService } from './services/snackbar.service';
+import { SignalRService } from './services/signalR.service';
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { SnackbarService } from './services/snackbar.service';
   declarations: [AppComponent],
   providers: [
     MyCookieService,
-    SnackbarService,
+    SignalRService,
   ],
   bootstrap: [AppComponent],
 })

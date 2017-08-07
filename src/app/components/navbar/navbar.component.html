@@ -5,7 +5,14 @@
         </ng-container>
 
         <div class="navbar-states">
-            <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span></div>
+            <div *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(i)" (click)="goTo(state)"><span>{{state.name}}</span>
+                <ng-container *ngIf="i == states.length - 1 && notificationAmount">
+                    <div class="notification-icon">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        <span class="badge">{{notificationAmount}}</span>
+                    </div>
+                </ng-container>
+            </div>
         </div>
         <div class="navbar-states-hidden">
             <md-icon [mdMenuTriggerFor]="menu">menu</md-icon>

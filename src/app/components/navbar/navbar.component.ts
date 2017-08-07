@@ -5,6 +5,7 @@ declare const $;
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
 import { MyCookieService } from '../../services/cookie.service';
+import { SignalRService } from '../../services/signalR.service';
 
 @Component({
   selector: 'navbar-menu',
@@ -21,9 +22,12 @@ export class NavbarComponent implements OnInit, DoCheck {
   isVacancy: boolean;
   isNotifications: boolean;
 
+  notificationAmount: number = 0;
+
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private cookie: MyCookieService) { }
+              private cookie: MyCookieService,
+              private signalR: SignalRService) { }
 
   ngOnInit(): void {
     console.log(this.states);
@@ -40,10 +44,12 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    this.notificationAmount = this.signalR.amount;
+    console.log(this.notificationAmount);
     if (this.cookie.getUrl() === 'main-page') {
       this.currentState = this.states[0];
       console.log(this.states);
-      
+
       const url: string = `main-page/${this.currentState.stateName}`;
       this.cookie.updateUrl(url);
       this.router.navigate([url]);

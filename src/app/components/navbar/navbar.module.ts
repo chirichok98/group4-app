@@ -7,6 +7,7 @@ import { SearchModule } from '../search/search.module';
 import { MaterialModule } from '@angular/material';
 import { CookieModule } from 'ngx-cookie';
 import { SortModule } from '../sort/sort.module';
+import { SignalRService } from '../../services/signalR.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SortModule } from '../sort/sort.module';
     MaterialModule,
     CookieModule,
   ],
-  declarations: [NavbarComponent],
   exports: [NavbarComponent],
+  declarations: [NavbarComponent],
+  providers: [SignalRService],
 })
 export class NavbarModule { }

@@ -4,8 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MyCookieService } from './services/cookie.service';
 import { LocationStrategy } from '@angular/common';
 import { SnackbarService } from './services/snackbar.service';
-
-declare const $;
+import { SignalRService } from './services/signalR.service';
 
 @Component({
   selector: 'app-root',
@@ -13,38 +12,21 @@ declare const $;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // signalR: any = (() => {
 
-  //   const notifications = $.connection.notifications;
-
-  //   notifications.client.getNotifications = function (newNotifications) {
-  //     console.log(`Message: ${newNotifications}`);
-  //   };
-
-  //   // const test: any = (() => { console.log('new app'); })();
-
-  //   $.connection.hub.url = 'http://knowbase.azurewebsites.net';
-
-  //   // $.connection.hub.qs = { bearer: this.cookie.getToken() };
-
-  //   $.connection.hub.start().done(() => { console.log('here'); });
-  // })();
 
   constructor(private cookie: MyCookieService,
+              private sR: SignalRService,
               private router: Router,
-              private location: LocationStrategy,
-              public snackService: SnackbarService) {
+              private location: LocationStrategy) {
     const loggedUser: any = this.cookie.getCookie();
     if (loggedUser) {
       const url: string = this.location.path();
+      this.sR.initSignalR();
       if (url) {
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
         return;
       }
-      (() => {
-
-      })();
       this.router.navigate([loggedUser.url]);
     } else {
       this.router.navigate(['home']);

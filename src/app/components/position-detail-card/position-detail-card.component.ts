@@ -84,7 +84,7 @@ export class PositionDetailComponent implements DoCheck {
 
   removeCandidate(id: number, index: number): void {
     const obj: any = {
-      cancidateId: id,
+      candidateId: id,
       vacancyId: this.position.id,
     };
     this.vService.removeCandidate(obj)
