@@ -104,7 +104,7 @@ export class SortComponent {
     });
     return sortModel;
   }
-  // abc-def-ghi -> abcDefGhi
+  
   defineOption(classname: string): string { 
     let result: string = '';
     classname.split(/-/).forEach((item, index) => {

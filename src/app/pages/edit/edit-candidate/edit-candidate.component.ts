@@ -51,6 +51,11 @@ export class EditCandidateComponent implements OnInit {
   editCandidate() {
     const resume: File = this.candidate.resume;
     delete this.candidate.resume;
+    if (resume) {
+      this.cService.attachInterview(this.candidate.id, resume)
+        .then(res => console.log(res),
+        err => console.log(err));
+    }
     this.candidate.candidatePrimarySkill =
       this.configureSkill(this.candidate.candidatePrimarySkill);
     this.candidate.candidateSecondarySkills = this.candidate.candidateSecondarySkills
@@ -59,11 +64,7 @@ export class EditCandidateComponent implements OnInit {
     delete this.candidate.lastModifier;
     this.cService.updateCandidate(this.candidate)
       .then((res: any) => {
-        if (resume) {
-          this.cService.attachInterview(this.candidate.id, resume)
-            .then(res => console.log(res),
-            err => console.log(err));
-        }
+
         const url: string = `main-page/candidates/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);

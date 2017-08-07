@@ -11,7 +11,6 @@ declare const $;
   templateUrl: 'notifications.component.html',
   styleUrls: ['notifications.component.scss'],
 })
-
 export class NotificationsComponent {
   notifications: INotificationOption[] = [];
   isSpinnerVisible: boolean = true;
@@ -29,6 +28,11 @@ export class NotificationsComponent {
   }
 
   markAsRead(): void {
-    const notif: number[] = this.cookie.getCheckedNotifications();
+    const ids: number[] = this.cookie.getCheckedNotifications();
+    this.nService.updateNotificationsStatuses(ids)
+      .then((res: any) => {
+        console.log(res);
+        this.cookie.initCheckedNotifications();
+      }, (err: any) => console.log(err));
   }
 }

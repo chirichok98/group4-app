@@ -7,9 +7,8 @@
             <div class="feedback-button" (click)="openInterview()">Leave feedback
             <md-icon>feedback</md-icon></div>
         </ng-container>
-        <md-checkbox (change)="markAsRead()">Read me!</md-checkbox>
         <ng-template #checkbox>
-            <md-checkbox (change)="markAsRead($event)">Read me!</md-checkbox>
+            <md-checkbox [checked]="isChecked" (change)="markAsRead()">Read me!</md-checkbox>
         </ng-template>
     </div>
 </ng-container>

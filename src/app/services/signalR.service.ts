@@ -9,7 +9,12 @@ export class SignalRService {
   constructor(private cookie: MyCookieService,
               public snackService: SnackbarService) { }
 
-  initSignalR(context): void {
+  initSignalR(context, stop: boolean): void {
+    if (stop) {
+      $.connection.hub.stop();
+      return;
+    }
+
     const notifications = $.connection.notifications;
 
     $.connection.hub.url = 'http://knowbase.azurewebsites.net/signalr/hubs';
@@ -33,6 +38,8 @@ export class SignalRService {
     };
 
     $.connection.hub.start().done(() => notifications.server.sendUnreadAmount());
+
+
   }
 
   setAmount(amount: number): void {

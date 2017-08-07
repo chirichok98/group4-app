@@ -37,3 +37,48 @@
 .notifications-indicators .assignments .indicator-color {
     background-color: #6d8b9c;
 }
+
+.form {
+  margin-top: 0.5rem;
+  background: #fff;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+.more-options-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  flex-direction: row;
+  padding: 0 5rem;
+}
+.sort-header {
+  text-transform: uppercase;
+  color: #273248;
+  font-size: 0.7em;
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+}
+.option {
+  height: 2rem;
+  width: 10rem;
+  line-height: 2rem;
+  margin: 0.25rem 0.5rem;
+  color: #273248;
+  background: rgba(82, 108, 123, 0.07);
+  text-align: center;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.option:hover {
+  opacity: 1;
+}
+.option .material-icons {
+  font-size: 20px;
+}

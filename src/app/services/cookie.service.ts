@@ -123,6 +123,7 @@ export class MyCookieService {
   }
 
   initCheckedNotifications(): void {
+    this.cookie.remove('notifications');
     this.cookie.putObject('notifications', { checked: [] });
   }
 

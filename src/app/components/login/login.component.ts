@@ -28,7 +28,7 @@ export class LoginFormComponent {
       .then((obj: any) => {
         this.prepareCookie(obj);
         this.router.navigate([obj.url]);
-        this.sR.initSignalR(this.sR);
+        this.sR.initSignalR(this.sR, false);
         this.snackService.showSnack('Succesfully logged in!', 'SUCCESS');
       }, (error) => {
         const err = error.json();

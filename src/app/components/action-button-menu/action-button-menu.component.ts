@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IUserPreview } from '../../interfaces/IUserPreview';
 import { Router } from '@angular/router';
 import { MyCookieService } from '../../services/cookie.service';
+import { SignalRService } from '../../services/signalR.service';
 declare const $;
 
 @Component({
@@ -13,7 +14,9 @@ declare const $;
 export class ActionButtonComponent implements OnInit {
   @Input() user: IUserPreview;
 
-  constructor(private router: Router, private cookie: MyCookieService) { }
+  constructor(private router: Router, 
+              private cookie: MyCookieService,
+              private sR: SignalRService) { }
 
   ngOnInit() {
   }
@@ -24,6 +27,7 @@ export class ActionButtonComponent implements OnInit {
   }
 
   logout(): void {
+    this.sR.initSignalR(this.sR, true);
     this.cookie.removeCookie();
     this.router.navigate(['home']);
   }

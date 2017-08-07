@@ -13,16 +13,23 @@ import { MyCookieService } from '../../services/cookie.service';
 
 export class NotificationComponent implements DoCheck {
   @Input() notification: INotificationOption;
-  
+
   type: string;
   id: number;
   skill: string;
   interviewStatus: boolean = false;
-  constructor(public dialog: MdDialog, 
+  isChecked: boolean = false;
+
+  constructor(public dialog: MdDialog,
               private cookie: MyCookieService) { }
 
   ngDoCheck() {
+    const checked: number[] = this.cookie.getCheckedNotifications();
+    console.log(checked);
     if (this.notification) {
+      if (checked.includes(this.notification.id)) {
+        this.isChecked = true;
+      }
       if (this.notification.techInterview) {
         this.type = 'tech';
         this.id = this.notification.techInterview.id;

@@ -26,6 +26,7 @@ export class HttpService {
   HRS: string = 'api/user/hrms';
   TECH: string = 'api/user/tech';
   INTERVIEW: string = 'api/interview';
+  NOTIFICATIONS: string = 'api/notification';
 
   constructor(private http: Http, private cookie: MyCookieService) {
     this.DEF_HEADERS = new Headers({ 'Content-Type': 'application/json' });
@@ -98,7 +99,8 @@ export class HttpService {
 
   postFile(url: string, formData: FormData): Promise<any> {
     const headers = new Headers();
-    // headers.append('Content-Type', 'multipart/form-data');
+    this.appendAuth(headers);
+    // headers.append('Content-Type', 'multipart/*; boundary=another cool boundary');
     // headers.append('Content-Type', 'boundary:aaaaa');
     const options = new RequestOptions({ headers });
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
