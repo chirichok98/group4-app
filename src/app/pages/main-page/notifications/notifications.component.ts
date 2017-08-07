@@ -14,12 +14,17 @@ declare const $;
 
 export class NotificationsComponent {
   notifications: INotificationOption[] = [];
+  isSpinnerVisible: boolean = true;
 
   constructor(private nService: NotificationService,
               private cookie: MyCookieService) {
-    this.nService.getNotifications({ skip: 0, amount: 100 })
+    this.nService.getUnseenNotifications({ skip: 0, amount: 100 })
       .then((notif: any) => {
         this.notifications = notif;
+        this.isSpinnerVisible = false;
+      }, (err: any) => {
+        console.log(err);
+        this.isSpinnerVisible = false;
       });
   }
 

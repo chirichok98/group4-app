@@ -33,7 +33,7 @@ export class PositionService {
   }
 
   assignCandidates(pos: number[], can: number[]): Promise<any> {
-    const url: string = this.concatParam(`${this.httpService.UPDATE}/candidates`);
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/candidates/add`);
     const res: Promise<any> = this.httpService.put(
       url,
       {

@@ -48,7 +48,7 @@ export class CandidateDetailComponent implements DoCheck {
     this.router.navigate([url]);
   }
 
-  addInterview(): void {
+  assignInterview(): void {
     this.dialog.open(AssignInterviewFormComponent, {
       data: { id: this.candidate.id },
     });

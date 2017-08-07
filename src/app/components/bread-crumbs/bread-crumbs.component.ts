@@ -40,7 +40,6 @@ export class BreadCrumbsComponent {
           name += `${' '}`;
         });
         obj['name'] = name.substring(0, name.length - 1);
-
         this.array.push(obj);
       }
     });

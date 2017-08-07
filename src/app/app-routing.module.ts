@@ -7,11 +7,17 @@ import { CreateVacancyComponent } from './pages/create/create-vacancy/create-vac
 import { EditCandidateComponent } from './pages/edit/edit-candidate/edit-candidate.component';
 import { EditVacancyComponent } from './pages/edit/edit-vacancy/edit-vacancy.component';
 import { StoreComponent } from './pages/store/store.component';
+import { HomeComponent } from './pages/home/home.component';
+
 
 const mainRoute: Route = {
   path: '',
   redirectTo: 'home',
   pathMatch: 'full',
+};
+const homeRoute: Route = {
+  path: 'home',
+  component: HomeComponent,
 };
 const storetRoute: Route = {
   path: 'store',
@@ -53,7 +59,7 @@ const editingRoute: Route = {
       ],
     },
     {
-      path:'vacancy',
+      path: 'vacancy',
       children: [
         {
           path: ':id',
@@ -66,6 +72,7 @@ const editingRoute: Route = {
 
 export const routes: Routes = [
   mainRoute,
+  homeRoute,
   storetRoute,
   creatingRoute,
   editingRoute,

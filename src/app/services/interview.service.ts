@@ -10,8 +10,13 @@ export class InterviewService {
     return `${this.httpService.INTERVIEW}/${param}`;
   }
 
-  addInterview(obj: any, type: string): Promise<any> {
+  assignInterview(obj: any, type: string): Promise<any> {
     const url: string = this.concatParam(`${type}/${this.httpService.ADD}`);
+    return this.httpService.put(url, obj, this.httpService.stringify);
+  }
+
+  sendInterviewFeedback(obj: any, type: string): Promise<any> {
+    const url: string = this.concatParam(`${type}/${this.httpService.UPDATE}/feedback`);
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 

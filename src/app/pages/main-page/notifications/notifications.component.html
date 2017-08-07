@@ -13,8 +13,8 @@
         <div class="indicator-meaning">- Assignments</div>
     </div>
 </div> -->
+<spinner [loading]="isSpinnerVisible"></spinner>
+<button (click)="markAsRead()">mark as read</button>
 <div *ngIf="notifications" class="notifications-wrapper">
     <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
 </div>
-
-<button (click)="markAsRead()">mark as read</button>
