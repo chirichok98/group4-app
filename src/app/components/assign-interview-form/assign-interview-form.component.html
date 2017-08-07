@@ -1,34 +1,28 @@
-<div>
+<div class="assign-interview-form-inner">
     <md-radio-group class="example-radio-group" [(ngModel)]="type">
         <md-radio-button value="general">HR manager</md-radio-button>
         <md-radio-button value="tech">Tech specialist</md-radio-button>
         <md-radio-button value="customer">Customer</md-radio-button>
     </md-radio-group>
     <ng-container *ngIf="type">
-        <select-form *ngIf="type !== 'customer'" [(result)]="interview.city" [placeholder]="'City'" [array]="cities"></select-form>
-        <select-form *ngIf="type !== 'customer' && type !=='general'" [(result)]="interview.techSkill" [placeholder]="'Skill'" [array]="skills"></select-form>
-        <datepicker-form [(date)]="date" [placeholder]="'Date'"></datepicker-form>
+        <select-form *ngIf="type !== 'customer'" [(result)]="interview.city" [placeholder]="'Choose city'" [array]="cities"></select-form>
+        <select-form *ngIf="type !== 'customer' && type !=='general'" [(result)]="interview.techSkill" [placeholder]="'Choose skill'" [array]="skills"></select-form>
+        <!--<input type="datetime-local">-->
+        <datepicker-form [(date)]="date" [placeholder]="'Choose date'"></datepicker-form>
         <div>
-            <md-input-container class="">
-                From
-                <input type="time" [(ngModel)]="time.from" mdInput placeholder="From">
+            <md-input-container class="time-container">
+                <input type="time" [(ngModel)]="time.from" mdInput placeholder="Choose time">
             </md-input-container>
-        </div>
-        <div>
-            <md-input-container class="">
-                To
-                <input type="time" [(ngModel)]="time.to" mdInput placeholder="To">
-            </md-input-container>
-        </div>
-        <div>
-            <textarea placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
         </div>
         <ng-container *ngIf="type==='general'">
-            <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager'" [array]="hrs"></select-form>
+            <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager name'" [array]="hrs"></select-form>
         </ng-container>
         <ng-container *ngIf="type==='tech'">
-            <select-form [(result)]="interview.interviewer" [placeholder]="'Tech specialist'" [array]="techs"></select-form>
+            <select-form [(result)]="interview.interviewer" [placeholder]="'Tech specialist name'" [array]="techs"></select-form>
         </ng-container>
+        <div>
+            <textarea class="text-container" placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
+        </div>
         <md-dialog-actions>
             <button md-button (click)="sendInterview()">Submit</button>
             <button md-button [md-dialog-close]="true">Cancel</button>

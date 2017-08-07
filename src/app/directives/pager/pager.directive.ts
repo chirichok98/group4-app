@@ -11,7 +11,6 @@ declare const $;
 export class PagerDirective {
   constructor(@Inject(DOCUMENT) private document: Document) { }
   scrollValue: number = 0;
-  scrollBorder: number = 200;
   skip: number = 0;
 
   @Output() update = new EventEmitter<any>();
@@ -19,7 +18,7 @@ export class PagerDirective {
     this.scrollValue = this.document.body.scrollTop;
     console.log(this.scrollValue, this.document.body.scrollHeight - $(window).height());
     if (this.scrollValue === this.document.body.scrollHeight - $(window).height()) {
-      this.skip += 10;
+      this.skip += 20;
       this.update.emit({ skip: this.skip });
     }
   }

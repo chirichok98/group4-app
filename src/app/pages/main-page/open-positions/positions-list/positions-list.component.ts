@@ -20,8 +20,8 @@ export class PositionsListComponent {
   searchState: boolean = false;
   public searchSubscription: any;
   public sortSubscription: any;
-  constructor(private pagerService: PagerService, 
-              private cookie: MyCookieService, 
+  constructor(private pagerService: PagerService,
+              private cookie: MyCookieService,
               private router: Router,
               private snackService: SnackbarService,
               private httpService: HttpService,
@@ -42,23 +42,23 @@ export class PositionsListComponent {
           break;
         }
       }
-      this.init(httpService.VAC_SEARCH, 10, this.searchSubscription, this.sortSubscription);
+      this.init(httpService.VAC_SEARCH, 20, this.searchSubscription, this.sortSubscription);
     });
   }
-    
+
   onScroll(emmitedObject?: PagerService) {
     if (emmitedObject) {
       this.paramsQueue.push(emmitedObject.skip);
     }
     const params = this.paramsQueue.shift();
-    this.pagerService.showMore(params, 10, this.searchSubscription, this.sortSubscription);
+    console.log(params);
+    this.showMore(params, 20, this.searchSubscription, this.sortSubscription);
   }
-  
+
   private init(url: string, amount?: number, searchData?: any, sortData?: any) {
     this.pagerService.init(url, amount, searchData, sortData)
       .then(res => res.json())
       .then((positions) => {
-        console.log(positions);
         this.positions = positions;
         this.isSpinnerVisible = false;
       }, (error) => {

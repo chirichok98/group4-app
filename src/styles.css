@@ -3,7 +3,6 @@ html {
   font-size: 20px;
   height: 100%;
 }
-
 body {
   height: 100%;
   background-color: rgba(39, 50, 72, 0.06);
@@ -14,44 +13,37 @@ body {
   margin: 0;
   padding: 0;
 }
-
 app-root {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 80%;
 }
-
 @media (max-width: 992px) {
   app-root {
     width: 90%;
   }
 }
-
 @media (max-width: 552px) {
   app-root {
     width: 100%;
   }
 }
-
 create-candidate,
 create-vacancy,
-notifications,
-store {
+store,
+edit-vacancy {
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   margin-top: 0.5rem;
   padding: 2rem;
 }
-
 prev-job-form .input-wrapper.contacts {
   padding: 0 50px;
 }
-
 prev-job-form .input-wrapper.contacts {
   padding: 0 50px;
 }
-
 main,
 home,
 create-candidate,
@@ -59,10 +51,14 @@ create-vacancy,
 notifications,
 candidates,
 edit-candidate,
-store {
+edit-vacancy,
+store,
+open-positions,
+position-detail-card {
   flex: 1 0 auto;
   margin-bottom: 0.5rem;
 }
+open-positions,
 candidates {
   margin: 0;
 }
@@ -70,14 +66,12 @@ main {
   display: flex;
   flex-direction: column;
 }
-
 notifications {
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
   height: 100%;
 }
-
 edit-candidate {
   padding: 2rem 2rem;
   margin: 0.5rem 0 0;
@@ -89,9 +83,7 @@ edit-candidate {
   overflow: hidden;
 }
 
-
 /*-----------------Scrollbar-----------------*/
-
 ::-webkit-scrollbar {
   /*Size & Position*/
   width: 0.8vw;
@@ -101,19 +93,16 @@ edit-candidate {
   opacity: 0.6;
   border-radius: 0.3vw;
 }
-
 ::-webkit-scrollbar-track {
   /*Other*/
   border-radius: 2vw;
   box-shadow: inset 0 0 0 0.1vh rgba(0, 0, 0, 0.3);
 }
-
 ::-webkit-scrollbar-track-piece {
   /*Other*/
   border-radius: 2vw;
   opacity: 0.5;
 }
-
 ::-webkit-scrollbar-thumb {
   background: -webkit-linear-gradient(0deg, #56CCF2 40%, #526C7B 100%);
   border-radius: 2vh;
@@ -122,98 +111,104 @@ edit-candidate {
   border-radius: 0.3vw;
 }
 
-
-/*-----------------Range-----------------*/
-
-input[type=range].slider {
-  background: none;
-  -webkit-appearance: none;
-  width: 10rem;
-  height: 0.8rem;
-}
-
-input[type=range].slider:focus {
-  outline: none;
-}
-
-input[type=range].slider::-webkit-slider-runnable-track {
-  width: 50%;
-  height: 0.3rem;
-  /* box-shadow: 0.07vw 0.1vw 0.1vw rgba(0, 0, 0, 0.24), 0vw 0vw 0.05vw rgba(13, 13, 13, 0.24); */
-  background: #526c7b;
-  /* #273248*/
-  /* border-radius: 1vw;
-  
-  border: 0.07vw solid rgba(1, 1, 1, 0.73); */
-}
-
-input[type=range].slider::-webkit-slider-thumb {
-  /* box-shadow: 0vw 0vw 0.25vw #5c2a00, 0vw 0vw 0.01vw #5c2a00; */
-  height: 0.6rem;
-  width: 0.6rem;
-  border-radius: 0.4rem;
-  background: -webkit-linear-gradient(0deg, #56CCF2 40%, #1287ad 100%);
-  -webkit-appearance: none;
-  margin-top: -0.15rem;
-}
-
-input[type=range]+.thumb {
-  /*display:none;*/
-  background-color: #56CCF2;
-  height: 0.5rem;
-  /* background-color: transparent; */
-}
-
-
 /*Login form*/
-
 .mat-focused .mat-input-placeholder {
   color: #56CCF2;
 }
-
 .mat-focused .mat-input-ripple {
   background-color: #56CCF2;
 }
-
 .mat-input-placeholder {
   color: #526C7B;
 }
 
 
 /*Select*/
-
 select-form .mat-select-trigger {
   font-size: 20px;
-  color: #273248;
+  color: #526C7B;
   min-width: 237px;
   height: 39px;
 }
-
 select-form .mat-select-placeholder {
   padding: 0;
 }
-
-select-form .mat-select-placeholder.mat-floating-placeholder {
-  color: #273248;
-}
-
 .mat-fab.mat-accent,
 .mat-mini-fab.mat-accent,
 .mat-raised-button.mat-accent {
   background-color: #56CCF2;
   z-index: 1000;
 }
-
 .mat-accent .mat-slider-thumb,
 .mat-accent .mat-slider-thumb-label,
 .mat-accent .mat-slider-track-fill {
   background-color: #52c1e6;
 }
-
-.container-inner .position {
-  margin: 0.5rem 0.25rem 0;
+.mat-button-ripple.mat-ripple.mat-button-ripple-round {
+  border-radius: 10%;
 }
 
-.mat-button-ripple.mat-ripple.mat-button-ripple-round {
-    border-radius: 10%;
+/*Assign Interview Form*/
+.mat-dialog-container {
+  text-align: center;
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #56CCF2;    
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color:#56CCF2;    
+}
+.assign-interview-form-inner .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(86, 204, 242, 0.1)
+}
+.assign-interview-form-inner .mat-radio-checked .mat-radio-label-content {
+  color: #56CCF2;  
+}
+.assign-interview-form-inner .mat-radio-button:hover .mat-radio-label-content,
+.assign-interview-form-inner .mat-radio-button:hover .mat-radio-outer-circle {
+  opacity: 0.6;   
+}
+.assign-interview-form-inner .mat-radio-outer-circle {
+  border-color: #273248;
+}
+.assign-interview-form-inner form {
+  text-align: center;
+}
+.assign-interview-form-inner .mat-select,
+.assign-interview-form-inner .mat-input-wrapper {
+  width: 280px;
+  text-align: left;
+}
+.assign-interview-form-inner .mat-select {
+  padding-top: 1.2rem;
+}
+.assign-interview-form-inner .mat-input-wrapper {
+  padding-top: 0.5rem;  
+}
+.assign-interview-form-inner .time-container .mat-input-wrapper {
+  padding-top: 0;
+  margin-top: -16px;
+  margin-bottom: -28px;
+}
+.assign-interview-form-inner .mat-dialog-actions {
+  justify-content: center;
+  margin: 0;
+}
+.assign-interview-form-inner .mat-dialog-actions:last-child {
+  margin: 0;
+}
+.assign-interview-form-inner datepicker-form {
+  display: block;
+}
+
+/*Interview Feedback Range*/
+.interview-feedback-wrap .mat-dialog-actions:last-child {
+  margin: 0;
+}
+.interview-feedback-wrap .mat-slider-thumb-label {
+  width: 20px;
+  height: 20px;
+}
+.interview-feedback-wrap .mat-slider-horizontal .mat-slider-thumb-label {
+  top: -30px;
 }

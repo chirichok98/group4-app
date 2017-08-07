@@ -8,11 +8,8 @@ export class NotificationService {
   constructor(private httpService: HttpService) { }
 
   getNotifications(pag: any): Promise<INotificationOption[]> {
-    const url: string = `api/notification`;
-    return this.httpService.get(url, pag);
-  }
-
-  getNot(): Promise<any> {
-    return this.httpService.get('api/notification/piska', null);
+    const url: string = `api/notification/all`;
+    return this.httpService.get(url, pag)
+      .then(res => res.json());
   }
 }

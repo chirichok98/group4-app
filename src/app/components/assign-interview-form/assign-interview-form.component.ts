@@ -18,7 +18,7 @@ export class AssignInterviewFormComponent implements OnInit {
   hrs: IGeneral[] = [];
   techs: IGeneral[] = [];
   skills: IGeneral[] = [];
-  type: string;
+  type: string = 'general';
 
   time: any = {};
   date: any;

@@ -5,9 +5,9 @@ import { HttpService } from './http.service';
 export class PagerService {
   url: string;
   constructor(private httpService: HttpService) { }
-  amount: number = 10;
-  initAmount: number = 10;
-  skip: number = 10;
+  amount: number = 20;
+  initAmount: number = 20;
+  skip: number = 20;
   private getPager(skip: number = 0, amount: number, searchModel?: any, 
                    sortModel?: any): Promise<any> {
     const pagerParams: any = { skip, amount };

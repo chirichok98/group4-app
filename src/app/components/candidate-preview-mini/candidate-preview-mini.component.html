@@ -1,0 +1,23 @@
+<md-card class="card" (click)="goToDetailView()">
+    <div class="card-stacked">
+        <div class="card-content">
+            <div class="name">
+                <ng-container *ngIf="candidate.firstNameEng; else firstNameEng">{{candidate.firstNameEng}}</ng-container>
+                <ng-template #firstNameEng>Anonymous</ng-template>
+                <ng-container *ngIf="candidate.lastNameEng; else lastNameEng">{{candidate.lastNameEng}}</ng-container>
+                <ng-template #lastNameEng>Anonymous</ng-template>
+            </div>
+            <div class="candidate-skype"><i class="feedback-logotypes"></i>{{candidate.skype}} </div>
+            <div class="skill content-wrapper">
+                <md-chip-list>
+                    <md-chip>
+                        <ng-container *ngIf="candidate.primarySkill as skill; else skill">{{skill}}</ng-container>
+                    </md-chip>
+                </md-chip-list>
+            </div>
+            <div class="status-wrapper">
+                <div class="status">{{candidate.status}}</div>
+            </div>
+        </div>
+    </div>
+</md-card>

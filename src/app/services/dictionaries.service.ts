@@ -22,7 +22,8 @@ export class DictionariesService {
     if (this.cities) {
       return this.cities;
     }
-    this.cities = this.httpService.get(this.httpService.CITY, null);
+    this.cities = this.httpService.get(this.httpService.CITY, null)
+      .then(res => res.json());
     return this.cities;
   }
 
@@ -30,7 +31,8 @@ export class DictionariesService {
     if (this.engLevel) {
       return this.engLevel;
     }
-    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null);
+    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null)
+      .then(res => res.json());
     return this.engLevel;
   }
 
@@ -38,7 +40,8 @@ export class DictionariesService {
     if (this.skills) {
       return this.skills;
     }
-    this.skills = this.httpService.get(this.httpService.SKILLS, null);
+    this.skills = this.httpService.get(this.httpService.SKILLS, null)
+      .then(res => res.json());
     return this.skills;
   }
 
@@ -46,7 +49,8 @@ export class DictionariesService {
     if (this.vacStatuses) {
       return this.vacStatuses;
     }
-    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null);
+    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null)
+      .then(res => res.json());
     return this.vacStatuses;
   }
 
@@ -54,7 +58,8 @@ export class DictionariesService {
     if (this.canStatuses) {
       return this.canStatuses;
     }
-    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null);
+    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null)
+      .then(res => res.json());
     return this.canStatuses;
   }
 
@@ -62,7 +67,8 @@ export class DictionariesService {
     if (this.hrs) {
       return this.hrs;
     }
-    this.hrs = this.httpService.get(this.httpService.HRS, null);
+    this.hrs = this.httpService.get(this.httpService.HRS, null)
+      .then(res => res.json());
     return this.hrs;
   }
 
@@ -70,7 +76,8 @@ export class DictionariesService {
     if (this.techs) {
       return this.techs;
     }
-    this.techs = this.httpService.get(this.httpService.TECH, null);
+    this.techs = this.httpService.get(this.httpService.TECH, null)
+      .then(res => res.json());
     return this.techs;
   }
 }

@@ -39,13 +39,19 @@ export class CandidateService {
   getCandidateById(id: number): Promise<ICandidateDetail> {
     const url: string = this.concatParam(id);
     const candidate: Promise<ICandidateDetail> =
-      this.httpService.get(url, null);
+      this.httpService.get(url, null)
+      .then(res => res.json());
     return candidate;
   }
 
   updateCandidate(obj: any): Promise<any> {
     const url: string = this.concatParam(this.httpService.UPDATE);
     return this.httpService.put(url, obj, this.httpService.stringify);
+  }
+
+  removeVacancy(obj: any): Promise<any> {
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies/delete`);
+    return this.httpService.get(url, obj);
   }
 
   addCandidate(candidate): Promise<any> {

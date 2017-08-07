@@ -23,8 +23,8 @@ export class HttpService {
   SKILLS: string = 'api/techSkill';
   VAC_STATUS: string = 'api/vacancyStatus';
   CAN_STATUS: string = 'api/candidateStatus';
-  HRS: string = 'api/users/hrms';
-  TECH: string = 'api/users/tech';
+  HRS: string = 'api/user/hrms';
+  TECH: string = 'api/user/tech';
   INTERVIEW: string = 'api/interview';
 
   constructor(private http: Http, private cookie: MyCookieService) {
@@ -79,6 +79,7 @@ export class HttpService {
     this.appendAuth(this.DEF_HEADERS);
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
+    console.log(this.stringify(body));
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
     return this.http.put(urls, obj, options)
       .toPromise();
@@ -92,16 +93,16 @@ export class HttpService {
     }
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
     return this.http.get(urls, options)
-      .toPromise()
-      .then(res => res.json());
+      .toPromise();
   }
 
   postFile(url: string, formData: FormData): Promise<any> {
     const headers = new Headers();
-    headers.append('Content-Type', 'multipart/form-data');
-    // headers.append('Accept', 'application/json');
+    // headers.append('Content-Type', 'multipart/form-data');
+    // headers.append('Content-Type', 'boundary:aaaaa');
     const options = new RequestOptions({ headers });
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
-    return this.http.post(urls, formData, options).toPromise();
+    return this.http.post(urls, formData, options)
+      .toPromise();
   }
 }
