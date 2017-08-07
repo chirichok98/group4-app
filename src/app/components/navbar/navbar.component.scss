@@ -12,11 +12,14 @@
 .navbar-states {
   display: flex;
 }
-.navbar-elem {
-  padding: 0 1.5rem;
-}
 .navbar-states .navbar-elem {
   padding: 0.5rem 1.5rem;
+  width: 5rem;
+  width: 8rem;
+  text-align: center;
+}
+.navbar-states .navbar-elem.candidates {
+  text-align: right;
 }
 .navbar-elem span {
   font-size: 1em;
@@ -71,7 +74,7 @@
 .navbar md-menu {
   display: none;
 }
-@media (max-width: 830px) {
+@media (max-width: 950px) {
   .navbar-states {
     display: none;
   }
