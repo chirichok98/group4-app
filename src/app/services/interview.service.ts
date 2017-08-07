@@ -15,4 +15,9 @@ export class InterviewService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
+  sendInterviewFeedback(obj: any, type: string): Promise<any> {
+    const url: string = this.concatParam(`${type}/${this.httpService.UPDATE}/feedback`);
+    return this.httpService.put(url, obj, this.httpService.stringify);
+  }
+
 }

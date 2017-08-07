@@ -7,9 +7,11 @@ export class NotificationService {
 
   constructor(private httpService: HttpService) { }
 
-  getNotifications(pag: any): Promise<INotificationOption[]> {
-    const url: string = `api/notification/all`;
+  getUnseenNotifications(pag: any): Promise<INotificationOption[]> {
+    const url: string = `api/notification/unseen`;
     return this.httpService.get(url, pag)
       .then(res => res.json());
   }
+
+
 }
