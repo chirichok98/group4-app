@@ -11,7 +11,7 @@ export class SignalRService {
   constructor(private cookie: MyCookieService,
               public snackService: SnackbarService) { }
 
-  initSignalR() {
+  initSignalR(): void {
     const notifications = $.connection.notifications;
 
     (() => { console.log('new app'); })();
@@ -20,16 +20,19 @@ export class SignalRService {
 
     $.connection.hub.qs = { bearer: this.cookie.getToken() };
 
-    notifications.client.getNotification = function (notification: string): void {
+    notifications.client.getNotification = function (notification) {
       console.log('Notification: ' + notification);
-      this.snackService.showSnack(notification);
+      // this.snackService.showSnack(notification);
     };
 
-    notifications.client.getUnreadAmount = function (amount: number): void {
-      console.log('Amount changed');
+    notifications.client.getUnreadAmount = function (amount) {
+      console.log('Amount changed' + amount);
       this.amount = amount;
     };
 
-    $.connection.hub.start().done(() => { console.log('Start SignalR'); });
+    $.connection.hub.start().done(() => { 
+      console.log('done');
+      notifications.server.sendUnreadAmount(); 
+    });
   }
 }

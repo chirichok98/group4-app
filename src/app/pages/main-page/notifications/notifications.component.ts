@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { INotificationOption } from '../../../interfaces/INotificationOption';
 import { NotificationService } from '../../../services/notifications.service';
+import { MyCookieService } from '../../../services/cookie.service';
 
 declare const $;
 
@@ -14,11 +15,16 @@ declare const $;
 export class NotificationsComponent {
   notifications: INotificationOption[] = [];
 
-  constructor(private nService: NotificationService) {
+  constructor(private nService: NotificationService,
+              private cookie: MyCookieService) {
     this.nService.getNotifications({ skip: 0, amount: 100 })
       .then((notif: any) => {
         console.log(notif);
         this.notifications = notif;
       });
+  }
+
+  markAsRead(id: number): void {
+    console.log(id);
   }
 }

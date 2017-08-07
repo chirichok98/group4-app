@@ -22,6 +22,8 @@ export class AppComponent {
     if (loggedUser) {
       const url: string = this.location.path();
       this.sR.initSignalR();
+      this.cookie.initCheckedNotifications();
+      this.cookie.initBasket();
       if (url) {
         this.cookie.updateUrl(url);
         this.router.navigate([url]);

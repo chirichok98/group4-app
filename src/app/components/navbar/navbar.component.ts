@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit, DoCheck {
               private signalR: SignalRService) { }
 
   ngOnInit(): void {
-    console.log(this.states);
     const url: any = this.cookie.getUrl();
     if (url === 'main-page') {
       this.currentState = this.states[0];
@@ -48,7 +47,6 @@ export class NavbarComponent implements OnInit, DoCheck {
     console.log(this.notificationAmount);
     if (this.cookie.getUrl() === 'main-page') {
       this.currentState = this.states[0];
-      console.log(this.states);
 
       const url: string = `main-page/${this.currentState.stateName}`;
       this.cookie.updateUrl(url);
@@ -126,15 +124,10 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   toggleSortForm(value): void {
-    console.log(this.isSortVisible);
     this.isSortVisible = value;
   }
 
   toggleSearchForm(value): void {
     this.isSearchVisible = value;
   }
-
-  // toggleMenuForm(value): void {
-  //   this.isMenuVisible = value;
-  // }
 } 
