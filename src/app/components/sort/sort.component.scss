@@ -6,11 +6,11 @@
 }
 .more-options-wrapper {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  padding: 0 0 0 5rem;
   flex-direction: row;
+  padding: 0 5rem;
 }
 .sort-header {
   text-transform: uppercase;
@@ -32,7 +32,13 @@
   text-transform: uppercase;
   opacity: 0.7;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .option:hover {
   opacity: 1;
+}
+.option .material-icons {
+  font-size: 20px;
 }
