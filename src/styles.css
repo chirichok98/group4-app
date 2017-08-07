@@ -133,9 +133,6 @@ select-form .mat-select-trigger {
 select-form .mat-select-placeholder {
   padding: 0;
 }
-select-form .mat-select-placeholder.mat-floating-placeholder {
-  color: #273248;
-}
 .mat-fab.mat-accent,
 .mat-mini-fab.mat-accent,
 .mat-raised-button.mat-accent {

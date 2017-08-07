@@ -35,9 +35,19 @@
 }
 .position-vacancy {
   padding-top: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 65%;
+  padding-right: 20%
 }
 .position-project {
   padding-bottom: 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 70%;
+  padding-right: 10%
 }
 .add-info {
   display: flex;

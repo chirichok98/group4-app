@@ -1,43 +1,49 @@
-<div class="create-wrapper">
+<div class="create-input-wrapper">
     <div class="header-info">General information</div>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.firstNameEng" mdInput placeholder="First Name (en)">
-    </md-input-container>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.firstNameRus" mdInput placeholder="First Name (ru)">
-    </md-input-container>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.lastNameEng" mdInput placeholder="Last Name (en)">
-    </md-input-container>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.lastNameRus" mdInput placeholder="Last Name (ru)">
-    </md-input-container>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.desiredSalary" mdInput placeholder="Desired salary">
-    </md-input-container>
-    <md-input-container class="">
-        <input [(ngModel)]="canInfo.picture" mdInput placeholder="Link on picture">
-    </md-input-container>
-    <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
-    <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
-    <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
-
-    <input type="file" class="form-control" placeholder="Upload CV" (change)="onChange($event)">
-
+    <div>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.firstNameEng" mdInput placeholder="First Name">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.firstNameRus" mdInput placeholder="Имя">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.lastNameEng" mdInput placeholder="Last Name">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.lastNameRus" mdInput placeholder="Фамилия">
+        </md-input-container>
+    </div>
+    <div>
+        <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
+        <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
+        <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.desiredSalary" mdInput placeholder="Desired salary">
+        </md-input-container>
+        <md-input-container class="">
+            <input [(ngModel)]="canInfo.picture" mdInput placeholder="Link on picture">
+        </md-input-container>
+        <input type="file" class="form-control" placeholder="Upload CV" (change)="onChange($event)">
+    </div>
     <div class="header-info">Person Contacts</div>
     <contacts-form [(contact)]="canInfo.contact"></contacts-form>
     <div class="header-info">Skills</div>
-    <div class="header-info__inner">Primary</div>
-    <skill-form [(skill)]="canInfo.candidatePrimarySkill" [array]="skills"></skill-form>
-    <datepicker-form [(date)]="canInfo.psExperience" [placeholder]="'First date of work with primary skill'"></datepicker-form>
-    <div class="header-info__inner">Secondary</div>
-    <skill-form *ngFor="let item of canInfo.candidateSecondarySkills; let i = index" [(skill)]="canInfo.candidateSecondarySkills[i]"
-        [array]="skills"></skill-form>
-    <div>
-        <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
-        <button *ngIf="canInfo.candidateSecondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+    <div class="skills">
+        <div class="primary-skill">
+            <div class="header-info__inner">Primary</div>
+            <skill-form [(skill)]="canInfo.candidatePrimarySkill" [array]="skills"></skill-form>
+            <datepicker-form [(date)]="canInfo.psExperience" [placeholder]="'Experience since'"></datepicker-form>
+        </div>
+        <div class="secondary-skill">
+            <div class="header-info__inner">Secondary</div>
+            <skill-form *ngFor="let item of canInfo.candidateSecondarySkills; let i = index" [(skill)]="canInfo.candidateSecondarySkills[i]" [array]="skills"></skill-form>
+            <div>
+                <button class="btn add-secondary" (click)="addSecondary()">Add secondary skill</button>
+                <button *ngIf="canInfo.candidateSecondarySkills?.length" class="btn remove-secondary" (click)="removeSecondary()">Remove secondary skill</button>
+            </div>
+        </div>
     </div>
-
     <div *ngIf="canInfo.candidatePrevJobs?.length" class="header-info jobs">Previous jobs</div>
     <div>
         <prev-job-form [(prevJob)]="canInfo.candidatePrevJobs[i]" *ngFor="let job of canInfo.candidatePrevJobs; let i = index"></prev-job-form>
