@@ -39,7 +39,6 @@ export class AppComponent {
 
   ngDoCheck() {
     const url: string = this.location.path();
-    console.log(url);
     if (url === '/home') {
       this.isHomePage = true;
       return;

@@ -25,12 +25,12 @@ export class AssignInterviewFormComponent implements OnInit {
 
   interview: any = {};
 
-  constructor( @Inject(MD_DIALOG_DATA) public data: any,
-               private cService: CandidateService,
-               private dService: DictionariesService,
-               private snackService: SnackbarService,
-               private router: Router,
-               public dialogRef: MdDialogRef<AssignInterviewFormComponent>) {
+  constructor(@Inject(MD_DIALOG_DATA) public data: any,
+              private cService: CandidateService,
+              private dService: DictionariesService,
+              private snackService: SnackbarService,
+              private router: Router,
+              public dialogRef: MdDialogRef<AssignInterviewFormComponent>) {
     this.dService.getCities().then((cities) => {
       this.cities = cities;
     });
@@ -71,7 +71,7 @@ export class AssignInterviewFormComponent implements OnInit {
   sendInterview() {
     this.setDate();
     this.interview.candidate = this.data.id;
-    this.cService.addInterview(this.type, this.interview)
+    this.cService.assignInterview(this.type, this.interview)
       .then((res: any) => {
         this.snackService.showSnack('Interview successfully assigned', 'SUCCESS');
         this.router.navigate(['main-page']);
