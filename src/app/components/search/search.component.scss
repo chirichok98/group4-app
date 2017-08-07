@@ -33,8 +33,29 @@ select-form,
 .show-more-btn:active {
   opacity: 1;
 }
-.more-options-wrapper {
-
+.advanced-search {
+  border-bottom: 1px solid #dcdcdc;
+  color: #676767;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  text-align: center;
+  height: 1.4rem;
+  margin: 1rem 1rem 0rem 1rem;
+  cursor: pointer;
+}
+.advanced-search .mat-icon {
+  position: absolute;
+  bottom: -15px;
+  background: #fff;
+  left: 49%;
+}
+.advanced-search .mat-icon.show-less {
+  bottom: -10px;
+}
+.advanced-search:hover {
+  border-bottom: 1px solid #52c1e6;
+  color: #52c1e6;
 }
 .btn {
 	background-color: #273248;

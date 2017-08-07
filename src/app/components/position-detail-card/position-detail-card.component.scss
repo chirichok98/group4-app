@@ -26,6 +26,10 @@
   display: block;
   line-height: 1.5rem;
 }
+.item-container.main {
+  justify-content: space-between;
+  align-items: center;
+}
 .attribute {
   color: #526C7B;
   font-size: 0.9em;
@@ -55,6 +59,7 @@
   text-transform: uppercase;
   font-size: 0.7em;
   text-align: right;
+  padding-left: 1rem;
 }
 .can-basket:hover {
   cursor: pointer;

@@ -6,10 +6,10 @@
             <select-form *ngIf="isVacancy" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
             <select-form [(result)]="search.primarySkill" [placeholder]="'Skill'" [array]="skills"></select-form>
             <range-form [(range)]="search.level" [min]="1" [max]="4"></range-form>
-            <button (click)="toggleAdvanced()">
-                <md-icon *ngIf="isAdvancedShown; else close">keyboard_arrow_up</md-icon>
-                <ng-template #close><md-icon>keyboard_arrow_down</md-icon></ng-template>
-            </button>
+            <div class="advanced-search" (click)="toggleAdvanced()">advanced search
+                <md-icon class="show-less" *ngIf="isAdvancedShown; else close">expand_less</md-icon>
+                <ng-template #close><md-icon>expand_more</md-icon></ng-template>
+            </div>
             <ng-container class="more-options-wrapper" *ngIf="isAdvancedShown">
                 <div class="more-options-wrapper" *ngIf="isCandidate">
                     <md-input-container class="">
