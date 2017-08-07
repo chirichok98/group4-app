@@ -12,7 +12,7 @@ declare const $;
 export class BreadCrumbsComponent {
   array: any = [];
   untilMainPage: boolean = false;
-  amount: number = 0;
+  // amount: number = 0;
   constructor(private router: Router,
               private route: ActivatedRoute,
               private cookie: MyCookieService) {
@@ -27,7 +27,7 @@ export class BreadCrumbsComponent {
         this.untilMainPage = true;
       }
       if (this.untilMainPage) {
-        this.amount++;
+        // this.amount++;
         const obj = {};
         
         url += `${item}`;
