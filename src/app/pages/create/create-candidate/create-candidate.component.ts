@@ -30,7 +30,6 @@ export class CreateCandidateComponent {
     this.sendRequest(can);
   }
 
-
   checkEmptyFields(obj: any): void {
     if (!Object.keys(obj.contact).length) {
       delete obj.contact;
