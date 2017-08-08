@@ -33,23 +33,23 @@
                 <div class="candidate">
                     Candidate info
                     <md-input-container class="">
-                        <input type="email" required [(ngModel)]="candidate.email" mdInput placeholder="Candidate email">
+                        <input type="email" required [(ngModel)]="candidate.recipient" mdInput placeholder="Candidate email">
                     </md-input-container>
                     <md-input-container class="">
-                        <input type="text" [(ngModel)]="candidate.header" mdInput placeholder="Email header">
+                        <input type="text" [(ngModel)]="candidate.subject" mdInput placeholder="Email header">
                     </md-input-container>
-                    <textarea [(ngModel)]="candidate.text" placeholder="'Email text'"></textarea>
+                    <textarea [(ngModel)]="candidate.body" placeholder="'Email text'"></textarea>
                 </div>
 
                 <div class="interviewer">
                     Interviewer info
                     <md-input-container class="">
-                        <input type="email" required [(ngModel)]="interviewer.email" mdInput placeholder="Interviewer email">
+                        <input type="email" required [(ngModel)]="interviewer.recipient" mdInput placeholder="Interviewer email">
                     </md-input-container>
                     <md-input-container class="">
-                        <input type="text" [(ngModel)]="interviewer.header" mdInput placeholder="Email header">
+                        <input type="text" [(ngModel)]="interviewer.subject" mdInput placeholder="Email header">
                     </md-input-container>
-                    <textarea [(ngModel)]="interviewer.text" placeholder="Email text"></textarea>
+                    <textarea [(ngModel)]="interviewer.body" placeholder="Email text"></textarea>
                 </div>
             </div>
         </div>

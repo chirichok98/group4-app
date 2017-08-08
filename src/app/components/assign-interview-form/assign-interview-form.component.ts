@@ -7,6 +7,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
 import { MyCookieService } from '../../services/cookie.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { InterviewService } from '../../services/interview.service';
+import { IUserPreview } from '../../interfaces/IUserPreview';
 
 @Component({
   selector: 'assign-interview-form',
@@ -15,8 +16,8 @@ import { InterviewService } from '../../services/interview.service';
 })
 export class AssignInterviewFormComponent implements DoCheck {
   cities: IGeneral[] = [];
-  hrs: IGeneral[] = [];
-  techs: IGeneral[] = [];
+  hrs: IUserPreview[] = [];
+  techs: IUserPreview[] = [];
   skills: IGeneral[] = [];
   type: string = 'general';
 
@@ -25,45 +26,55 @@ export class AssignInterviewFormComponent implements DoCheck {
 
   interview: any = {};
   interviewer: any = {
-    text: `Text for interviewer`,
+    body: `Text for interviewer`,
   };
   candidate: any = {
-    text: `Text for candidate`,
+    body: `Text for candidate`,
   };
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any,
-              private iService: InterviewService,
-              private dService: DictionariesService,
-              private snackService: SnackbarService,
-              private router: Router,
-              public dialogRef: MdDialogRef<AssignInterviewFormComponent>) {
+  constructor( @Inject(MD_DIALOG_DATA) public data: any,
+    private iService: InterviewService,
+    private dService: DictionariesService,
+    private snackService: SnackbarService,
+    private router: Router,
+    public dialogRef: MdDialogRef<AssignInterviewFormComponent>) {
     this.dService.getCities().then((cities) => {
       this.cities = cities;
     });
     this.dService.getHRs().then((hrs) => {
       this.hrs = hrs;
+      console.log(hrs);
     });
     this.dService.getTechs().then((techs) => {
       this.techs = techs;
+      console.log(techs);
     });
     this.dService.getSkills().then((skills) => {
       this.skills = skills;
+
     });
 
-    this.candidate.email = this.data.email;
+    this.candidate.recipient = this.data.email;
   }
 
   ngDoCheck() {
     let name: string = 'None';
-    if (this.type === 'general' && this.hrs.length && this.techs.length 
-      && this.interview.interviewer) {
-      name = this.hrs.find(i => i.id === this.interview.interviewer).name;
+    if (this.type === 'general' && this.hrs.length && this.interview.interviewer) {
+      const hrs: any = this.hrs.find(i => i.id === this.interview.interviewer);
+      if (hrs) {
+        name = hrs.name;
+        this.interviewer.recipient = hrs.email;
+      }
     }
-    if (this.type === 'tech' && this.hrs.length && this.techs.length 
-      && this.interview.interviewer) {
-      name = this.techs.find(i => i.id === this.interview.interviewer).name;
+    if (this.type === 'tech' && this.techs.length && this.interview.interviewer) {
+      const techs: any = this.techs.find(i => i.id === this.interview.interviewer);
+      if (techs) {
+        name = techs.name;
+        this.interviewer.recipient = techs.email;
+      }
     }
-    this.candidate.header = `New interview with ${name}`;
+    this.candidate.subject = `New interview with ${name}`;
+    this.interviewer.subject = `New interview with ${this.data.candidateName}`;
   }
 
   getMinutes(str: string): number {
@@ -88,7 +99,7 @@ export class AssignInterviewFormComponent implements DoCheck {
   }
 
   sendInterview() {
-    
+
     this.setDate();
     this.interview.candidate = this.data.id;
     this.iService.assignInterview(this.type, this.interview)

@@ -52,6 +52,7 @@ export class CandidateDetailComponent implements DoCheck {
     const data: any = {};
     if (this.candidate) {
       data.id = this.candidate.id;
+      data.candidateName = `${this.candidate.firstNameEng} ${this.candidate.lastNameEng}`;
       if (this.candidate.contact) {
         data.email = this.candidate.contact.email;
       }
