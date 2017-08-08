@@ -8,7 +8,7 @@
             <div class="option last-contact-date" (click)="getByType(1)">
                 <span class="last-contact-date">All</span>
             </div>
-            <div class="option remind-date" (click)="getByType(3)">
+            <div class="option remind-date" *ngIf="role !== 1" (click)="getByType(3)">
                 <span class="remind-date">Interview</span>
             </div>
         </div>

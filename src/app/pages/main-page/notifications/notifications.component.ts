@@ -15,6 +15,7 @@ export class NotificationsComponent {
   notifications: INotificationOption[] = [];
   isSpinnerVisible: boolean = true;
   type: any;
+  role: number;
 
   skip: number;
   amount: number;
@@ -26,6 +27,11 @@ export class NotificationsComponent {
     this.getByType(2);
   }
 
+
+  ngDoCheck() {
+    this.role = this.cookie.getRole();
+  }
+  
   markAsRead(): void {
     const ids: number[] = this.cookie.getCheckedNotifications();
     this.nService.updateNotificationsStatuses(ids)
