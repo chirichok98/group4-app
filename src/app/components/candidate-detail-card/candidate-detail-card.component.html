@@ -104,7 +104,7 @@
                 <ng-template #chip>
                     <md-chip-list>
                         <md-chip>
-                            <div class="candidate-skill-name">{{skill.name}}</div>
+                            <div class="candidate-skill-name">{{skill.name}} ({{skill.level}})</div>
                         </md-chip>
                     </md-chip-list>
                 </ng-template>
@@ -125,7 +125,7 @@
                     <img class="candidate-skill" *ngIf="item.picture as pic; else text" [src]="pic">
                     <ng-template #text>
                         <md-chip-list>
-                            <md-chip>{{item.name}}</md-chip>
+                            <md-chip>{{item.name}} ({{item.level}})</md-chip>
                         </md-chip-list>
                     </ng-template>
                 </ng-container>

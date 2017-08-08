@@ -15,7 +15,9 @@
     </div>
 </div>
 <spinner [loading]="isSpinnerVisible"></spinner>
-<button (click)="markAsRead()">mark as read</button>
+<div class="btn-wrapper">
+    <button class="mark-btn" (click)="markAsRead()">mark as read</button>
+</div>
 <div *ngIf="notifications" class="notifications-wrapper">
     <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
 </div>

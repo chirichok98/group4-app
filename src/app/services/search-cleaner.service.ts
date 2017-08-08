@@ -3,19 +3,14 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class TransferService {
+export class SearchCleanerService {
   private someSubject: Subject<any> = new Subject<any>();
 
-  public putData(options: any, type?: string): void {
-    const obj = { };
-    obj['options'] = options;
-    if (type) {
-      obj['type'] = type;
-    }
-    this.someSubject.next(obj);
+  public sendInfo(): void {
+    this.someSubject.next({ });
   }
 
-  public getData(): Observable<any> {
+  public getInfo(): Observable<any> {
     return this.someSubject.asObservable();
   }
 }

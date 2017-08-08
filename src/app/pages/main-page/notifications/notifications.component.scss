@@ -1,43 +1,3 @@
-.notifications-indicators {
-    text-transform: uppercase;
-    padding: 10px 15px;
-    color: #273248;
-    background: rgba(82, 108, 123, 0.07);
-    margin: 0 -15px;
-}
-.notifications-indicators .indicator-wrapper {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    justify-content: left;
-    padding: 0;
-    min-width: 11rem;
-}
-
- .indicator-wrapper div::selection {
-    color: #52c1e6;
- }
-.notifications-indicators .indicator-color {
-    font-size: 0;
-    height: 1.5rem;
-    padding: 0;
-    width: 2rem;
-    margin: 10px;
-}
-.notifications-indicators .indicator-color:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
-.notifications-indicators .reminders .indicator-color {
-    background-color: #374767;
-}
-.notifications-indicators .news .indicator-color {
-    background-color: #52c1e6;
-}
-.notifications-indicators .assignments .indicator-color {
-    background-color: #6d8b9c;
-}
-
 .form {
   margin-top: 0.5rem;
   background: #fff;
@@ -52,33 +12,45 @@
   flex-direction: row;
   padding: 0 5rem;
 }
-.sort-header {
-  text-transform: uppercase;
-  color: #273248;
-  font-size: 0.7em;
-  position: absolute;
-  top: 0.8rem;
-  left: 1rem;
-}
 .option {
-  height: 2rem;
-  width: 10rem;
-  line-height: 2rem;
+  height: 1.5rem;
+  width: 9rem;
+  line-height: 1.5rem;
   margin: 0.25rem 0.5rem;
-  color: #273248;
-  background: rgba(82, 108, 123, 0.07);
+  color: #fff;
+  background: rgb(141, 157, 167);
   text-align: center;
   font-size: 0.7em;
   text-transform: uppercase;
   opacity: 0.7;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 0.5rem;
 }
 .option:hover {
   opacity: 1;
 }
-.option .material-icons {
-  font-size: 20px;
+.btn-wrapper {
+  text-align: right;
+  padding: 0.5rem 1rem 0.2rem;
+
+}
+.mark-btn {
+  background-color: #273248;
+  padding: 0.2rem 1rem;
+  font-size: 0.6em;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  letter-spacing: .5px;
+  color: #fff;
+  transition: .3s ease-out;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.mark-btn:hover,
+.mark-btn:focus,
+.mark-btn:active {
+  background-color: #56CCF2;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
