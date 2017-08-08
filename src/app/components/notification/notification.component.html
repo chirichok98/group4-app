@@ -2,13 +2,17 @@
     <div class="notification__inner" [ngClass]="notification.notificationType">
         <div class="type">{{notification.notificationType}}</div>
         <div class="date">{{notification.date | date:"mediumDate"}}</div>
-        <div class="description">{{notification.notificationType}}</div>
-        <ng-container *ngIf="notification.notificationType === 'Interview' && !interviewStatus; else checkbox">
+        <div class="description">{{notification.title}}</div>
+        <ng-container *ngIf="notification.notificationType === 'Interview' && notification.active; else checkbox">
             <div class="feedback-button" (click)="openInterview()">Leave feedback
-            <md-icon>feedback</md-icon></div>
+                <md-icon>feedback</md-icon>
+            </div>
         </ng-container>
         <ng-template #checkbox>
-            <md-checkbox [checked]="isChecked" (change)="markAsRead()">mark as read</md-checkbox>
+            <ng-container *ngIf="notification.active">
+                <md-checkbox [checked]="isChecked" (change)="markAsRead()">mark as read</md-checkbox>
+            </ng-container>
+
         </ng-template>
     </div>
 </ng-container>

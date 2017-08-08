@@ -17,7 +17,6 @@ export class NotificationComponent implements DoCheck {
   type: string;
   id: number;
   skill: string;
-  interviewStatus: boolean = false;
   isChecked: boolean = false;
 
   constructor(public dialog: MdDialog,
@@ -33,12 +32,10 @@ export class NotificationComponent implements DoCheck {
         this.type = 'tech';
         this.id = this.notification.techInterview.id;
         this.skill = this.notification.techInterview.techSkill;
-        this.interviewStatus = this.notification.techInterview.status;
       }
       if (this.notification.generalInterview) {
         this.type = 'general';
         this.id = this.notification.generalInterview.id;
-        this.interviewStatus = this.notification.generalInterview.status;
       }
     }
   }

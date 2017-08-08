@@ -30,7 +30,7 @@ export class NotificationService {
   getInterviewNotifications(skip: number, amount: number): Promise<INotificationOption[]> {
     const url: string = this.concatParam('alloftype');
     const obj: any = this.makePagParams(skip, amount);
-    obj.type = 'Interview';
+    obj.type = 2;
     return this.httpService.get(url, obj)
       .then(res => res.json());
   }

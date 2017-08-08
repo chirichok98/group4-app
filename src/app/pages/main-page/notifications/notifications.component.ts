@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { INotificationOption } from '../../../interfaces/INotificationOption';
 import { NotificationService } from '../../../services/notifications.service';
@@ -18,7 +18,7 @@ export class NotificationsComponent {
 
   skip: number;
   amount: number;
-  hasMore: boolean = true;
+  hasMore: boolean;
 
   constructor(private nService: NotificationService,
               private cookie: MyCookieService) {
@@ -43,6 +43,7 @@ export class NotificationsComponent {
   }
 
   initPag(skip: number, amount: number): void {
+    this.hasMore = true;
     this.skip = skip || 0;
     this.amount = amount || 10;
   }
@@ -55,6 +56,7 @@ export class NotificationsComponent {
   getAll(): void {
     this.nService.getAllNotifications(this.skip, this.amount)
       .then((res: any) => {
+        console.log(res.length);
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;
@@ -64,6 +66,7 @@ export class NotificationsComponent {
   getInterviews(skip: number, amount: number): void {
     this.nService.getInterviewNotifications(this.skip, this.amount)
       .then((res: any) => {
+        console.log(res.length);
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;
@@ -73,6 +76,7 @@ export class NotificationsComponent {
   getUnseen(skip: number, amount: number): void {
     this.nService.getUnseenNotifications(this.skip, this.amount)
       .then((res: any) => {
+        console.log(res.length);
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;
