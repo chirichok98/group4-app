@@ -38,7 +38,7 @@ export class PositionService {
       url,
       {
         candidates: can,
-        vacancies: pos,
+        positions: pos,
       },
       this.httpService.stringify);
     return res;
@@ -54,10 +54,10 @@ export class PositionService {
     return this.httpService.get(url, obj);
   }
 
-  addVacancy(vacancy: any): Promise<any> {
+  addVacancy(position: any): Promise<any> {
     const url = this.concatParam(this.httpService.ADD);
     return this.httpService.post(url, 
-      vacancy,
+      position,
       this.httpService.DEF_HEADERS, 
       this.httpService.stringify);
   }

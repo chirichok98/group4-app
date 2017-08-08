@@ -3,7 +3,7 @@ import { ITechSkill } from './ITechSkill';
 export interface IPositionPreview {
   id: number;
   projectName: string;
-  vacancyName: string;
+  positionName: string;
   status: string;
   city: string;
   startDate: Date;

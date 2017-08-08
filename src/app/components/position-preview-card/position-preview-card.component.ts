@@ -27,7 +27,7 @@ export class PositionPreviewComponent {
   }
 
   goToDetailView() {
-    this.router.navigate([`main-page/vacancies`, this.position.id]);
+    this.router.navigate([`main-page/positions`, this.position.id]);
   }
 
   addToBasket(event: any): void {

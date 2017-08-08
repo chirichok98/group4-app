@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { InputVacancyComponent } from './input-vacancy.component';
+import { InputVacancyComponent } from './input-position.component';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

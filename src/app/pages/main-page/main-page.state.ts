@@ -27,8 +27,8 @@ const candidateRoute: Route = {
   ],
 };
 
-const vacanciesRoute: Route = {
-  path: 'vacancies',
+const positionsRoute: Route = {
+  path: 'positions',
   component: OpenPositionsComponent,
   children: [
     {
@@ -53,7 +53,7 @@ const mainPageRoutes: Routes = [
         pathMatch: 'full',
       },
       candidateRoute,
-      vacanciesRoute,
+      positionsRoute,
       {
         path: 'notifications',
         component: NotificationsComponent,

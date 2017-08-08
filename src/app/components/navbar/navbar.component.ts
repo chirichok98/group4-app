@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     }
     if (stateName === 'candidates')
       this.setWindowOwner(true, false);
-    if (stateName === 'vacancies')
+    if (stateName === 'positions')
       this.setWindowOwner(false, true);
     if (stateName === 'notifications')
       this.isNotifications = true;
@@ -90,7 +90,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   }
 
   getStyleByIndex(name: string): string {
-    console.log('change state ' + name);
     let classNames: string = '';
     switch (name) {
       case 'candidates': classNames = 'candidates';
@@ -105,7 +104,6 @@ export class NavbarComponent implements OnInit, DoCheck {
     if (this.currentState === this.states.find(i => i.name === name)) {
       classNames += ' active';
     }
-    console.log(classNames);
     return `${classNames} navbar-elem`;
   }
 

@@ -38,8 +38,10 @@ export class CreateCandidateComponent {
             .then(res => console.log(res),
             err => console.log(err));
         }
-        this.cookie.updateUrl('main-page/candidates');
-        this.router.navigate(['main-page/candidates']);
+        console.log(can);
+        const url: string = `main-page/candidates/${can.id}`;
+        this.cookie.updateUrl(url);
+        this.router.navigate([url]);
         this.snackService.showSnack('Candidate successfully added!', 'SUCCESS');
       }, (err: any) => {
         this.snackService.showSnack('Candidate wasn`t created', 'ERROR');

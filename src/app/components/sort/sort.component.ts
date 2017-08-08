@@ -12,11 +12,11 @@ export class SortComponent {
   @Input() isVacancy: boolean;
   sort: any = {};
   private candidateStates: number[] = [0, 0, 0];
-  private vacancyStates: number[] = [0, 0, 0];
+  private positionStates: number[] = [0, 0, 0];
   private currentStates: number[] = [];
 
   private candidateOptions: string[] = ['creation-date', 'last-contact-date', 'remind-date'];
-  private vacancyOptions: string[] = ['start-date', 'close-date', 'request-date'];
+  private positionOptions: string[] = ['start-date', 'close-date', 'request-date'];
   private currentOptions: string[] = [];
 
   constructor(private transferService: TransferService) { }
@@ -26,12 +26,12 @@ export class SortComponent {
       case 'candidate': {
         this.currentOptions = this.candidateOptions;
         this.currentStates = this.candidateStates;
-        this.vacancyStates = [0, 0, 0];
+        this.positionStates = [0, 0, 0];
         break;
       }
-      case 'vacancy': {
-        this.currentOptions = this.vacancyOptions;
-        this.currentStates = this.vacancyStates;
+      case 'position': {
+        this.currentOptions = this.positionOptions;
+        this.currentStates = this.positionStates;
         this.candidateStates = [0, 0, 0];
         break;
       }

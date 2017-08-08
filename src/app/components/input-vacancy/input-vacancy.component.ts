@@ -5,9 +5,9 @@ import { ITechSkill } from '../../interfaces/ITechSkill';
 import { IGeneral } from '../../interfaces/IGeneral';
 
 @Component({
-  selector: 'input-vacancy',
-  templateUrl: 'input-vacancy.component.html',
-  styleUrls: ['input-vacancy.component.scss'],
+  selector: 'input-position',
+  templateUrl: 'input-position.component.html',
+  styleUrls: ['input-position.component.scss'],
 })
 export class InputVacancyComponent implements DoCheck {
   @Input() vacInfo: any = {};

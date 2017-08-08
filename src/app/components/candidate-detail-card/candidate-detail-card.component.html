@@ -201,7 +201,7 @@
     <button (click)="goToEditForm()">Edit</button>
     <div class="header-info">Current positions</div>
     <div class="positions-list-wrap">
-        <div class="positions-list-mini" *ngFor="let item of candidate.vacancies; let index = index">
+        <div class="positions-list-mini" *ngFor="let item of candidate.positions; let index = index">
             <md-icon class="pos-remove" (click)="removeVacancy(item.id, index)">close</md-icon>
             <position-preview-mini [position]="item"></position-preview-mini>
         </div>

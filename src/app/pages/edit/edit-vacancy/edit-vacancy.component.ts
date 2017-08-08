@@ -5,14 +5,14 @@ import { PositionService } from '../../../services/position.service';
 import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
-  selector: 'edit-vacancy',
-  templateUrl: 'edit-vacancy.component.html',
-  styleUrls: ['edit-vacancy.component.scss'],
+  selector: 'edit-position',
+  templateUrl: 'edit-position.component.html',
+  styleUrls: ['edit-position.component.scss'],
 })
 export class EditVacancyComponent implements OnInit {
   isLoaded: boolean = false;
-  vacancyId: number;
-  vacancy: any;
+  positionId: number;
+  position: any;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,15 +20,15 @@ export class EditVacancyComponent implements OnInit {
               private pService: PositionService,
               private snackService: SnackbarService) {
     this.route.params.subscribe((params: ParamMap) => {
-      this.vacancyId = +params['id'];
+      this.positionId = +params['id'];
     });
-    this.getPositionById(this.vacancyId);
+    this.getPositionById(this.positionId);
   }
 
   getPositionById(id) {
     this.pService.getPositionById(id)
       .then((res: any) => {
-        this.vacancy = res;
+        this.position = res;
         this.isLoaded = true;
       }, (error: any) => {
         this.snackService.showSnack('Position wasn`t loaded!', 'ERROR');
@@ -48,14 +48,14 @@ export class EditVacancyComponent implements OnInit {
   }
 
   editVacancy() {
-    this.vacancy.candidates = this.vacancy.candidates.map(i => i.id);
-    this.vacancy.primarySkill = this.configureSkill(this.vacancy.primarySkill);
-    this.vacancy.secondarySkills = this.vacancy.secondarySkills
+    this.position.candidates = this.position.candidates.map(i => i.id);
+    this.position.primarySkill = this.configureSkill(this.position.primarySkill);
+    this.position.secondarySkills = this.position.secondarySkills
       .map((i: any) => this.configureSkill(i));
-    delete this.vacancy.hrm;
-    this.pService.updatePosition(this.vacancy)
+    delete this.position.hrm;
+    this.pService.updatePosition(this.position)
       .then((res: any) => {
-        const url: string = `main-page/vacancies/${this.vacancyId}`;
+        const url: string = `main-page/positions/${this.positionId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
         this.snackService.showSnack('Position was successfully edited!', 'SUCCESS');

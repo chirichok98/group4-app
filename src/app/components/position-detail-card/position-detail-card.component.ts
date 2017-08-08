@@ -40,7 +40,7 @@ export class PositionDetailComponent implements DoCheck {
   }
 
   goToEditForm() {
-    const url: string = `edit/vacancy/${this.position.id}`;
+    const url: string = `edit/position/${this.position.id}`;
     this.cookie.updateUrl(url);
     this.router.navigate([url]);
   }
@@ -57,7 +57,7 @@ export class PositionDetailComponent implements DoCheck {
       skip: skip || this.skip,
       amount: amount || this.amount,
       coefficient: this.coefficient,
-      vacancy: this.position.id,
+      position: this.position.id,
     };
     this.vService.autoSearch(obj)
       // .then(res => res.json())
@@ -85,7 +85,7 @@ export class PositionDetailComponent implements DoCheck {
   removeCandidate(id: number, index: number): void {
     const obj: any = {
       candidateId: id,
-      vacancyId: this.position.id,
+      positionId: this.position.id,
     };
     this.vService.removeCandidate(obj)
       .then((res) => {
