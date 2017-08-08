@@ -42,7 +42,22 @@ export class EditPositionComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkEmptyFields(obj: any): void {
+    obj.primarySkill = this.configureSkill(obj.primarySkill);
+    obj.secondarySkills = obj.secondarySkills.map(i => this.configureSkill(i));
+    console.log(obj);
+
+    Object.keys(obj).forEach((i: any) => {
+      if (!obj[i] || (Array.isArray(obj[i]) && !obj[i].length)) {
+        delete obj[i];
+      }
+    });
+
+    delete obj.hrm;
+  }
+
   configureSkill(skill): any {
+    if (!skill.id || !skill.level) return null;
     const res: any = {
       id: skill.id,
       level: skill.level,
@@ -51,12 +66,14 @@ export class EditPositionComponent implements OnInit {
   }
 
   editPosition() {
-    this.position.candidates = this.position.candidates.map(i => i.id);
-    this.position.primarySkill = this.configureSkill(this.position.primarySkill);
-    this.position.secondarySkills = this.position.secondarySkills
-      .map((i: any) => this.configureSkill(i));
-    delete this.position.hrm;
-    this.pService.updatePosition(this.position)
+    const vac: any = Object.assign({}, this.position);
+    this.checkEmptyFields(vac);
+
+    this.sendRequest(vac);
+  }
+
+  sendRequest(obj: any): void {
+    this.pService.updatePosition(obj)
       .then((res: any) => {
         const url: string = `main-page/positions/${this.positionId}`;
         this.cookie.updateUrl(url);

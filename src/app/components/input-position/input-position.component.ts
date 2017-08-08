@@ -10,8 +10,9 @@ import { IGeneral } from '../../interfaces/IGeneral';
   styleUrls: ['input-position.component.scss'],
 })
 export class InputPositionComponent implements DoCheck {
-  @Input() vacInfo: any = { };
+  @Input() vacInfo: any = {};
   @Output() vacInfoChange: EventEmitter<any> = new EventEmitter<any>();
+  changed: boolean = false;
 
   statuses: IGeneral[] = [];
   cities: IGeneral[] = [];
@@ -47,6 +48,10 @@ export class InputPositionComponent implements DoCheck {
     this.vacInfoChange.emit(this.vacInfo);
     if (!this.vacInfo.primarySkill) this.vacInfo.primarySkill = {};
     if (!this.vacInfo.secondarySkills) this.vacInfo.secondarySkills = [];
+    if (this.statuses && this.vacInfo.status && !this.changed) {
+      this.changed = true;
+      this.vacInfo.status = this.statuses.find(i => i.name === this.vacInfo.status).id;
+    }
   }
 
 

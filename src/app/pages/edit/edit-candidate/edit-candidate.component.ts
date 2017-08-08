@@ -40,7 +40,24 @@ export class EditCandidateComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkEmptyFields(obj: any): void {
+    obj.candidatePrimarySkill = this.configureSkill(obj.candidatePrimarySkill);
+    obj.candidateSecondarySkills = obj.candidateSecondarySkills.map((i: any) =>
+      this.configureSkill(i));
+
+    if (!Object.keys(obj.candidatePrimarySkill).length) delete obj.candidatePrimarySkill;
+    if (!Object.keys(obj.contact).length) delete obj.contact;
+    Object.keys(obj).forEach((i: any) => {
+      if (!obj[i] || (Array.isArray(obj[i]) && !obj[i].length)) {
+        delete obj[i];
+      }
+    });
+    delete obj.hrm;
+    delete obj.lastModifier;
+  }
+
   configureSkill(skill): any {
+    if (!skill.id || !skill.level) return {};
     const res: any = {
       id: skill.id,
       level: skill.level,
@@ -51,20 +68,21 @@ export class EditCandidateComponent implements OnInit {
   editCandidate() {
     const resume: File = this.candidate.resume;
     delete this.candidate.resume;
-    if (resume) {
-      this.cService.attachInterview(this.candidate.id, resume)
-        .then(res => console.log(res),
-        err => console.log(err));
-    }
-    this.candidate.candidatePrimarySkill =
-      this.configureSkill(this.candidate.candidatePrimarySkill);
-    this.candidate.candidateSecondarySkills = this.candidate.candidateSecondarySkills
-      .map((i: any) => this.configureSkill(i));
-    delete this.candidate.hrm;
-    delete this.candidate.lastModifier;
-    this.cService.updateCandidate(this.candidate)
-      .then((res: any) => {
 
+    const can: any = Object.assign({}, this.candidate);
+    this.checkEmptyFields(can);
+
+    this.sendRequest(can, resume);
+  }
+
+  sendRequest(candidate: any, resume: any): void {
+    this.cService.updateCandidate(candidate)
+      .then((res: any) => {
+        if (resume) {
+          this.cService.attachInterview(this.candidateId, resume)
+            .then(res => console.log(res),
+            err => console.log(err));
+        }
         const url: string = `main-page/candidates/${this.candidateId}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
