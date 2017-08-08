@@ -85,4 +85,9 @@ export class CandidateService {
     const url = `api/file/candidate/resume/add/${id}`;
     return this.httpService.postFile(url, formData);
   }
+
+  downloadCV(id: number): Promise<any> {
+    const url: string = `api/file/candidate/resume/get/${id}`;
+    return this.httpService.get(url, null);
+  }
 }

@@ -24,22 +24,40 @@ export class CreateCandidateComponent {
               private snackService: SnackbarService) { }
 
   addCandidate(): void {
+    const can: any = Object.assign({}, this.candidate);
+    this.checkEmptyFields(can);
 
-    this.sendRequest(this.candidate);
+    this.sendRequest(can);
+  }
+
+
+  checkEmptyFields(obj: any): void {
+    if (!Object.keys(obj.contact).length) {
+      delete obj.contact;
+    }
+    if (!Object.keys(obj.candidatePrimarySkill).length) {
+      delete obj.candidatePrimarySkill;
+    }
+    if (!obj.candidatePrevJobs.length) {
+      delete obj.candidatePrevJobs;
+    }
+    if (!obj.candidateSecondarySkills.length) {
+      delete obj.candidateSecondarySkills;
+    }
   }
 
   sendRequest(candidate: any): void {
     const resume: File = this.candidate.resume;
     delete this.candidate.resume;
     this.cService.addCandidate(candidate)
+      .then(res => res.json())
       .then((can: any) => {
         if (this.candidate.resume) {
           this.cService.attachInterview(this.candidate.id, resume)
             .then(res => console.log(res),
             err => console.log(err));
         }
-        console.log(can);
-        const url: string = `main-page/candidates/${can.id}`;
+        const url: string = `main-page/candidates/${can}`;
         this.cookie.updateUrl(url);
         this.router.navigate([url]);
         this.snackService.showSnack('Candidate successfully added!', 'SUCCESS');

@@ -49,7 +49,7 @@ const mainPageRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'candidates',
+        redirectTo: 'notifications',
         pathMatch: 'full',
       },
       candidateRoute,

@@ -5,10 +5,14 @@
                 <div class="status">{{pos.status}}</div>
             </div>
             <div class="skill">
-                <img class="position-img" *ngIf="pos.primarySkill?.picture as pic; else chip" [src]="pic">
+                <ng-container *ngIf="pos.primarySkill as skill; else chip">
+                    <md-chip-list>
+                        <md-chip>{{skill.name}}</md-chip>
+                    </md-chip-list>
+                </ng-container>
                 <ng-template #chip>
                     <md-chip-list>
-                        <md-chip>{{pos.primarySkill?.name}}</md-chip>
+                        <md-chip>none</md-chip>
                     </md-chip-list>
                 </ng-template>
                 <span *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket">
@@ -18,12 +22,32 @@
                 </span>
             </div>
 
-            <div class="position-position">{{pos.positionName}}</div>
-            <div class="position-project">{{pos.projectName}}</div>
+            <div class="position-position">
+                <ng-container *ngIf="pos.vacancyName as name; else none">
+                    <span>{{name}}</span>
+                </ng-container>
+            </div>
+            <div class="position-project">
+                <ng-container *ngIf="pos.projectName as name; else none">
+                    <span>{{name}}</span>
+                </ng-container>
+            </div>
             <div class="add-info">
-                <div class="position-city">{{pos.city}}</div>
-                <div class="position-date"><span>Close date: </span>{{pos.closeDate | date:"mediumDate"}}</div>
+                <div class="position-city">
+                    <ng-container *ngIf="pos.city; else none">
+                        <span>{{pos.city}}</span>
+                    </ng-container>
+                </div>
+                <div class="position-date"><span>Closure date: </span>
+                    <ng-container *ngIf="pos.closeDate; else none">
+                        <span class="value">{{pos.closeDate | date : 'mediumDate'}}</span>
+                    </ng-container>
+                </div>
             </div>
         </div>
     </div>
 </ng-container>
+
+<ng-template #none>
+    <span>none</span>
+</ng-template>

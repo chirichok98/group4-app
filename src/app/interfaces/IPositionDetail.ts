@@ -5,7 +5,7 @@ import { IUserPreview } from './IUserPreview';
 export interface IPositionDetail {
   id: number;
   projectName: string;
-  positionName: string;
+  vacancyName: string;
   requestDate: Date;
   startDate: Date;
   closeDate: Date;
