@@ -4,13 +4,13 @@ import { SnackbarService } from '../../../services/snackbar.service';
 import { PositionService } from '../../../services/position.service';
 
 @Component({
-  selector: 'create-vacancy',
-  templateUrl: 'create-vacancy.component.html',
-  styleUrls: ['create-vacancy.component.scss'],
+  selector: 'create-position',
+  templateUrl: 'create-position.component.html',
+  styleUrls: ['create-position.component.scss'],
 })
 
-export class CreateVacancyComponent implements OnInit {
-  vacancy: any = {
+export class CreatePositionComponent implements OnInit {
+  position: any = {
     secondarySkills: [],
     primarySkill: {},
   };
@@ -21,14 +21,15 @@ export class CreateVacancyComponent implements OnInit {
 
   ngOnInit() { }
 
-  addVacancy(): void {
-    this.sendPostRequest(this.vacancy);
+  addPosition(): void {
+    this.sendPostRequest(this.position);
   }
 
-  sendPostRequest(vacancy: any): void {
-    this.pService.addVacancy(vacancy)
+  sendPostRequest(position: any): void {
+    this.pService.addPosition(position)
       .then((vac: any) => {
-        this.router.navigate(['main-page/vacancies']);
+        console.log(vac);
+        this.router.navigate(['main-page/positions']);
         this.snackService.showSnack('Position successfully added!','SUCCESS');
       }, (err: any) => {
         this.snackService.showSnack('Positions wasn`t created','ERROR');

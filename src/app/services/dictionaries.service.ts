@@ -45,7 +45,7 @@ export class DictionariesService {
     return this.skills;
   }
 
-  getVacancyStatuses(): Promise<IGeneral[]> {
+  getPositionStatuses(): Promise<IGeneral[]> {
     if (this.vacStatuses) {
       return this.vacStatuses;
     }

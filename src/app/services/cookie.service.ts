@@ -90,7 +90,7 @@ export class MyCookieService {
     });
   }
 
-  addVacancy(obj: number): boolean {
+  addPosition(obj: number): boolean {
     const store: any = this.cookie.getObject('basket');
     if (!store.positions.includes(obj)) {
       store.positions.push(obj);
@@ -103,7 +103,7 @@ export class MyCookieService {
     return false;
   }
 
-  removeIdFromVacancies(index: any): void {
+  removeIdFromPositions(index: any): void {
     const store: any = this.cookie.getObject('basket');
     store.positions.splice(index, 1);
     this.cookie.putObject('basket', {
@@ -117,7 +117,7 @@ export class MyCookieService {
     return basket.candidates;
   }
 
-  getVacancies(): any {
+  getPositions(): any {
     const basket: any = this.cookie.getObject('basket');
     return basket.positions;
   }

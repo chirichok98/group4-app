@@ -33,14 +33,14 @@ export class PositionDetailComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    const id: number[] = this.cookie.getVacancies();
+    const id: number[] = this.cookie.getPositions();
     if (this.position && id.length && id.includes(this.position.id)) {
       this.isAdded = true;
     }
   }
 
   goToEditForm() {
-    const url: string = `edit/vacancy/${this.position.id}`;
+    const url: string = `edit/position/${this.position.id}`;
     this.cookie.updateUrl(url);
     this.router.navigate([url]);
   }
@@ -57,7 +57,7 @@ export class PositionDetailComponent implements DoCheck {
       skip: skip || this.skip,
       amount: amount || this.amount,
       coefficient: this.coefficient,
-      vacancy: this.position.id,
+      position: this.position.id,
     };
     this.vService.autoSearch(obj)
       // .then(res => res.json())
@@ -85,7 +85,7 @@ export class PositionDetailComponent implements DoCheck {
   removeCandidate(id: number, index: number): void {
     const obj: any = {
       candidateId: id,
-      vacancyId: this.position.id,
+      positionId: this.position.id,
     };
     this.vService.removeCandidate(obj)
       .then((res) => {
@@ -100,13 +100,13 @@ export class PositionDetailComponent implements DoCheck {
       event.stopPropagation();
     }
 
-    if (this.cookie.addVacancy(this.position.id)) {
+    if (this.cookie.addPosition(this.position.id)) {
       this.isAdded = true;
       this.snackService.showSnack('Succesfully added to basket!', 'SUCCESS');
     } else {
-      const index: number = this.cookie.getVacancies()
+      const index: number = this.cookie.getPositions()
         .findIndex(i => i === this.position.id);
-      this.cookie.removeIdFromVacancies(index);
+      this.cookie.removeIdFromPositions(index);
       this.isAdded = false;
       this.snackService.showSnack('Position removed successfully!', 'DELETE');
     }

@@ -16,10 +16,10 @@ export class EditCandidateComponent implements OnInit {
   candidate: any;
 
   constructor(private route: ActivatedRoute,
-    private router: Router,
-    private cookie: MyCookieService,
-    private cService: CandidateService,
-    private snackService: SnackbarService) {
+              private router: Router,
+              private cookie: MyCookieService,
+              private cService: CandidateService,
+              private snackService: SnackbarService) {
     this.route.params.subscribe((params: ParamMap) => {
       this.candidateId = +params['id'];
     });

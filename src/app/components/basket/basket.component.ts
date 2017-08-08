@@ -24,7 +24,7 @@ export class BasketComponent implements OnInit {
               private router: Router,
               public snackService: SnackbarService) {
     this.canIds = this.cookie.getCandidates();
-    this.vacIds = this.cookie.getVacancies();
+    this.vacIds = this.cookie.getPositions();
     this.cService.getCandidatesByIds(this.canIds)
       .then((res: any) => {
         this.candidates = res;
@@ -47,13 +47,13 @@ export class BasketComponent implements OnInit {
   deletePosition(index: any): void {
     this.positions.splice(index, 1);
     this.vacIds.splice(index, 1);
-    this.cookie.removeIdFromVacancies(index);
+    this.cookie.removeIdFromPositions(index);
     this.snackService.showSnack('Position was successfully removed!', 'SUCCESS');
   }
 
   assign(): void {
     if (!this.isChecked(this.canIds, this.vacIds)) return;
-    this.cService.assignVacancies(this.canIds, this.vacIds)
+    this.cService.assignPositions(this.canIds, this.vacIds)
       .then((res: any) => {
         if (res.status === 200) {
           this.positions = [];

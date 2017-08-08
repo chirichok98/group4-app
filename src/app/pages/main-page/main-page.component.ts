@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
   role: number;
   navbarConfig: any = {
     candidates: { name: 'candidates', stateName: 'candidates' },
-    positions: { name: 'positions', stateName: 'vacancies' },
+    positions: { name: 'positions', stateName: 'positions' },
     notifications: { name: 'notifications', stateName: 'notifications' },
     news: { name: 'news', stateName: 'notifications' },
   };

@@ -20,14 +20,14 @@ export class PositionPreviewComponent {
   isAdded: boolean = false;
 
   ngDoCheck() {
-    const id: number[] = this.cookie.getVacancies();
+    const id: number[] = this.cookie.getPositions();
     if (this.position && id.length && id.includes(this.position.id)) {
       this.isAdded = true;
     }
   }
 
   goToDetailView() {
-    this.router.navigate([`main-page/vacancies`, this.position.id]);
+    this.router.navigate([`main-page/positions`, this.position.id]);
   }
 
   addToBasket(event: any): void {
@@ -35,13 +35,13 @@ export class PositionPreviewComponent {
       event.stopPropagation();
     }
 
-    if (this.cookie.addVacancy(this.position.id)) {
+    if (this.cookie.addPosition(this.position.id)) {
       this.isAdded = true;
       this.snackService.showSnack('Succesfully added to basket!','SUCCESS');
     } else {
-      const index: number = this.cookie.getVacancies()
+      const index: number = this.cookie.getPositions()
         .findIndex(i => i === this.position.id);
-      this.cookie.removeIdFromVacancies(index);
+      this.cookie.removeIdFromPositions(index);
       this.isAdded = false;
       this.snackService.showSnack('Position removed successfully!','DELETE');
     }

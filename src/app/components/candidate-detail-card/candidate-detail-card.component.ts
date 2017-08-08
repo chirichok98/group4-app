@@ -17,7 +17,7 @@ import { SnackbarService } from '../../services/snackbar.service';
 })
 export class CandidateDetailComponent implements DoCheck {
   @Input() candidate: ICandidateDetail;
-  possibleVacancies: IPositionPreview[] = [];
+  possiblePositions: IPositionPreview[] = [];
   coefficient: number;
   skip: number;
   amount: number;
@@ -60,7 +60,7 @@ export class CandidateDetailComponent implements DoCheck {
   }
 
   autoSearch(skip: number, amount: number, notFirst: boolean): void {
-    if (!notFirst) this.possibleVacancies = [];
+    if (!notFirst) this.possiblePositions = [];
     const obj: any = {
       skip: skip || this.skip,
       amount: amount || this.amount,
@@ -70,20 +70,20 @@ export class CandidateDetailComponent implements DoCheck {
     this.cService.autoSearch(obj)
       .then((vac: any) => {
         if (vac.length < this.amount) this.hasNoVac = true;
-        this.possibleVacancies = this.possibleVacancies.concat(vac);
+        this.possiblePositions = this.possiblePositions.concat(vac);
       });
   }
 
-  assignVacancy(value: number): void {
-    this.cService.assignVacancies([this.candidate.id], [value])
+  assignPosition(value: number): void {
+    this.cService.assignPositions([this.candidate.id], [value])
       .then((res: any) => {
-        const ids: number[] = this.candidate.vacancies.map(i => i.id);
+        const ids: number[] = this.candidate.positions.map(i => i.id);
         if (!ids.includes(value)) {
-          this.candidate.vacancies.push(this.possibleVacancies.find(i => i.id === value));
+          this.candidate.positions.push(this.possiblePositions.find(i => i.id === value));
           this.snackService.showSnack('Successfully assigned', 'SUCCESS');
           return;
         }
-        this.snackService.showSnack('Vacancy was assigned earlier', 'WARNING');
+        this.snackService.showSnack('Position was assigned earlier', 'WARNING');
       }, (err: any) => {
         this.snackService.showSnack('Error with assigning', 'ERROR');
       });
@@ -104,15 +104,15 @@ export class CandidateDetailComponent implements DoCheck {
     }
   }
 
-  removeVacancy(id: number, index: number): void {
+  removePosition(id: number, index: number): void {
     const obj: any = {
       candidateId: this.candidate.id,
-      vacancyId: id,
+      positionId: id,
     };
-    this.cService.removeVacancy(obj)
+    this.cService.removePosition(obj)
       .then((res) => {
-        this.candidate.vacancies.splice(index, 1);
-        this.snackService.showSnack('Vacancy successfully removed', 'SUCCESS');
+        this.candidate.positions.splice(index, 1);
+        this.snackService.showSnack('Position successfully removed', 'SUCCESS');
       },
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));
   }

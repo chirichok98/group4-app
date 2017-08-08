@@ -3,7 +3,7 @@
         <div class="form-inner">
             <select-form class="select" [(result)]="search.city" [placeholder]="'City'" [array]="cities"></select-form>
             <select-form *ngIf="isCandidate" [(result)]="search.status" [placeholder]="'Status'" [array]="canSt"></select-form>
-            <select-form *ngIf="isVacancy" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
+            <select-form *ngIf="isPosition" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
             <select-form [(result)]="search.primarySkill" [placeholder]="'Skill'" [array]="skills"></select-form>
             <range-form [(range)]="search.level" [min]="1" [max]="4"></range-form>
             <div class="advanced-search" (click)="toggleAdvanced()">advanced search
@@ -29,9 +29,9 @@
                     </md-input-container>
                     <select-form [(result)]="search.hrm" [placeholder]="'HR name'" [array]="hr"></select-form>
                 </div>
-                <div class="more-options-wrapper" *ngIf="isVacancy">
+                <div class="more-options-wrapper" *ngIf="isPosition">
                     <md-input-container class="">
-                        <input [(ngModel)]="search.vacancyName" mdInput placeholder="Vacancy name">
+                        <input [(ngModel)]="search.positionName" mdInput placeholder="Position name">
                     </md-input-container>
                     <md-input-container class="">
                         <input [(ngModel)]="search.projectName" mdInput placeholder="Project name">
