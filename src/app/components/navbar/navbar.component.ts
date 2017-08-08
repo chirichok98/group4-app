@@ -6,7 +6,7 @@ declare const $;
 import { INavbarOption } from '../../interfaces/INavbarOption';
 import { MyCookieService } from '../../services/cookie.service';
 import { SignalRService } from '../../services/signalR.service';
-
+import { SearchCleanerService } from '../../services/search-cleaner.service';
 @Component({
   selector: 'navbar-menu',
   templateUrl: './navbar.component.html',
@@ -26,7 +26,8 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private cookie: MyCookieService) { }
+              private cookie: MyCookieService,
+              private searchCleanerService: SearchCleanerService) { }
 
   ngOnInit(): void {
     const url: any = this.cookie.getUrl();
@@ -85,6 +86,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   goTo(newState: INavbarOption): void {
     this.currentState = newState;
     const url: string = `main-page/${this.currentState.stateName}`;
+    this.searchCleanerService.sendInfo();
     this.cookie.updateUrl(url);
     this.router.navigate([url]);
   }

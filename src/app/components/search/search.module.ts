@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { DatepickerFormModule } from '../datepicker-form/datepicker-form.module';
 import { TransferService } from '../../services/transfer.service';
 import { RangeFormModule } from '../range-form/range-form.module';
+import { SearchCleanerService } from '../../services/search-cleaner.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { RangeFormModule } from '../range-form/range-form.module';
   ],
   declarations: [SearchComponent],
   exports: [SearchComponent],
-  providers: [TransferService],
+  providers: [TransferService, SearchCleanerService],
 })
 export class SearchModule { }

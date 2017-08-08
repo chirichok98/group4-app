@@ -8,6 +8,7 @@ import { SnackbarService } from '../../../../services/snackbar.service';
 import { TransferService } from '../../../../services/transfer.service';
 import { HttpService } from '../../../../services/http.service';
 declare const $;
+
 @Component({
   selector: 'candidates-list',
   templateUrl: 'candidates-list.component.html',

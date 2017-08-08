@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { TransferService } from '../../services/transfer.service';
+import { SearchCleanerService } from '../../services/search-cleaner.service';
 import { RangeFormComponent } from '../range-form/range-form.component';
 declare const $;
 
@@ -22,7 +23,13 @@ export class SearchComponent {
   vacSt: any;
   hr: any;
 
-  constructor(private ds: DictionariesService, private transferService: TransferService) {
+  constructor(private ds: DictionariesService, 
+              private transferService: TransferService,
+              private searchCleanerService: SearchCleanerService) {
+    searchCleanerService.getInfo().subscribe((data) => {
+      this.search = data;
+    });
+                
     this.ds.getCities().then((cities) => {
       this.cities = cities;
     });
