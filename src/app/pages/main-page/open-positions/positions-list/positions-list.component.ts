@@ -27,10 +27,9 @@ export class PositionsListComponent {
               private snackService: SnackbarService,
               private httpService: HttpService,
               private transferService: TransferService) {
-    this.init(this.httpService.VAC_SEARCH);
     setTimeout(() => {
       $('.search-button').trigger('click');
-    }, 700);
+    }, 0);
     transferService.getData().subscribe((data) => {
       this.positions = [];
       this.paramsQueue = [];

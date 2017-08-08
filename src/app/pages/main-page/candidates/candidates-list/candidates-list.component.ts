@@ -26,10 +26,10 @@ export class CandidatesListComponent {
               private transferService: TransferService,
               private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
-    this.init(httpService.CAN_SEARCH);
+    // this.init(httpService.CAN_SEARCH);
     setTimeout(() => {
       $('.search-button').trigger('click');
-    }, 700);
+    }, 0);
     transferService.getData().subscribe((data) => {
       console.log(data);
       this.candidates = [];
