@@ -5,7 +5,7 @@ html {
 }
 body {
   height: 100%;
-  background-color: rgba(39, 50, 72, 0.06);
+  background-color: rgba(39, 50, 72, 0.11);
   overflow-y: scroll;
   display: flex;
   justify-content: center;
