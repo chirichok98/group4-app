@@ -23,6 +23,7 @@
 .navbar-elem span {
   font-size: 1em;
   line-height: 1.5rem;
+  text-transform: uppercase;
 }
 .navbar-icon {
   padding: 5px 25px;
@@ -56,10 +57,10 @@
 }
 .navbar .mat-icon {
   padding: 5px 25px;
-    font-size: 2rem;
-    width: 40px;
-    height: 40px;
-    color: #374767;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  color: #374767;
 }
 .navbar .mat-icon:hover,
 .navbar .mat-icon:active {
