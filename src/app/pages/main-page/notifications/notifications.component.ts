@@ -17,6 +17,8 @@ export class NotificationsComponent {
   type: any;
   role: number;
 
+  unseenAmount: number;
+
   skip: number;
   amount: number;
   hasMore: boolean;
@@ -82,7 +84,7 @@ export class NotificationsComponent {
   getUnseen(skip: number, amount: number): void {
     this.nService.getUnseenNotifications(this.skip, this.amount)
       .then((res: any) => {
-        console.log(res.length);
+        this.unseenAmount = res.length || this.unseenAmount;
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;
