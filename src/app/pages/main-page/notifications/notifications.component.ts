@@ -39,6 +39,10 @@ export class NotificationsComponent {
     this.nService.updateNotificationsStatuses(ids)
       .then((res: any) => {
         console.log(res);
+        ids.forEach((i: number) => {
+          const index: number = this.notifications.findIndex(item => item.id === i);
+          this.notifications.splice(index, 1);
+        });
         this.cookie.initCheckedNotifications();
       }, (err: any) => console.log(err));
   }
