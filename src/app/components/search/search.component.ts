@@ -14,7 +14,7 @@ export class SearchComponent {
   @Input() isCandidate: boolean;
   @Input() isVacancy: boolean;
   isAdvancedShown: boolean = false;
-  search: any = { };
+  search: any = {};
   statuses: any = [];
   cities: any;
   skills: any;
@@ -47,5 +47,10 @@ export class SearchComponent {
   startSearch() {
     this.transferService.putData(this.search, 'search');
   }
-
+  isSearchEmpty() {
+    for (const key in this.search) {
+      return false;
+    }
+    return true;
+  }
 }

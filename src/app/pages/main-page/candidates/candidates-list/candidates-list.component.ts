@@ -7,6 +7,7 @@ import { PagerService } from '../../../../services/pager.service';
 import { SnackbarService } from '../../../../services/snackbar.service';
 import { TransferService } from '../../../../services/transfer.service';
 import { HttpService } from '../../../../services/http.service';
+declare const $;
 @Component({
   selector: 'candidates-list',
   templateUrl: 'candidates-list.component.html',
@@ -26,6 +27,10 @@ export class CandidatesListComponent {
               private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
     this.init(httpService.CAN_SEARCH);
+    setTimeout(function(){
+        console.log('qq');
+        $('.search-button').trigger('click');
+      }, 500);
     transferService.getData().subscribe((data) => {
       console.log(data);
       this.candidates = [];
@@ -41,6 +46,7 @@ export class CandidatesListComponent {
           break;
         }
       }
+      
       this.init(httpService.CAN_SEARCH, 20, this.searchSubscription, this.sortSubscription);
     });
   }
