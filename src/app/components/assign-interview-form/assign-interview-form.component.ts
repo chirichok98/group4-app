@@ -32,7 +32,7 @@ export class AssignInterviewFormComponent implements DoCheck {
     body: `Text for candidate`,
   };
 
-  constructor( @Inject(MD_DIALOG_DATA) public data: any,
+  constructor(@Inject(MD_DIALOG_DATA) public data: any,
     private iService: InterviewService,
     private dService: DictionariesService,
     private snackService: SnackbarService,
@@ -99,18 +99,51 @@ export class AssignInterviewFormComponent implements DoCheck {
   }
 
   sendInterview() {
-
     this.setDate();
     this.interview.candidate = this.data.id;
     this.iService.assignInterview(this.type, this.interview)
       .then((res: any) => {
         this.snackService.showSnack('Interview successfully assigned', 'SUCCESS');
-        // this.iService.sendEmail(this.candidate, 'candidate');
-        // this.iService.sendEmail(this.candidate, 'interviewer');
+        this.sendEmail(this.candidate, 'candidate');
+        this.sendEmail(this.interviewer, 'interviewer');
+        this.setCalendar();
         this.router.navigate(['main-page']);
         this.dialogRef.close();
       }, (error: any) => {
         this.snackService.showSnack('Troubles with assigning', 'ERROR');
+      });
+  }
+
+  sendEmail(obj: any, reciever: string): void {
+    console.log(obj);
+    this.iService.sendEmail(this.candidate)
+      .then((res: any) => {
+        console.log(res);
+        this.snackService.showSnack(`Email to ${reciever} sended`, 'SUCCESS');
+      }, (err: any) => {
+        console.log(err);
+        this.snackService.showSnack(`Email to ${reciever} wasn't sended`, 'ERROR');
+      });
+  }
+
+  setCalendar(): void {
+    const city: string = this.cities.find(i => i.id === this.interview.city).name;
+    const obj: any = {
+      techEmail: this.interviewer.recipient,
+      candidateEmail: this.data.email,
+      startTime: this.interview.date,
+      endTime: this.interview.endDate,
+      location: city,
+      description: `Interview with candidate at ${this.interview.date}`,
+      summary: `Interview with candidate at ${this.interview.date}`,
+    };
+    this.iService.setCalendarEvent(obj)
+      .then((res: any) => {
+        console.log(res);
+        this.snackService.showSnack(`Event in calendar added`, 'SUCCESS');
+      }, (err: any) => {
+        console.log(err);
+        this.snackService.showSnack(`Event in calendar wasn't added`, 'ERROR');
       });
   }
 }
