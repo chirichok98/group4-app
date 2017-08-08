@@ -221,7 +221,7 @@ select-form .mat-select-placeholder {
   top: -30px;
 }
 
-/* Snackbar */
+ /*Snackbar 
 snack-bar-container {
   background: #fff!important;
 }
@@ -230,7 +230,7 @@ snack-bar-container {
 }
 .cdk-global-overlay-wrapper {
   align-items: flex-start!important;
-}
+}*/
 
 /* Checkbox */
 .mat-checkbox-layout {

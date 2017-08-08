@@ -1,7 +1,25 @@
 app-footer {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
 }
 
 .go-back {
     position: fixed;
+    height: 100%;
+    width: 4%;
+    left: 6%;
+    background: #fff;
+    opacity: 0.1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+md-icon {
+    color: #52c1e6;
+    font-size: 2em;
+    height: 40px;
+    width: 40px;
+}
+.go-back:hover {
+    opacity: 0.3;
 }
