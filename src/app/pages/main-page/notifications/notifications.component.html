@@ -2,13 +2,13 @@
 <div class="filter-block">
     <div class="form">
         <div class="more-options-wrapper">
-            <div class="option creation-date" (click)="checkSortState('candidate')">
+            <div class="option creation-date" (click)="getByType(2)">
                 <span class="creation-date">Unread</span>
             </div>
-            <div class="option last-contact-date" (click)="checkSortState('candidate')">
+            <div class="option last-contact-date" (click)="getByType(1)">
                 <span class="last-contact-date">All</span>
             </div>
-            <div class="option remind-date" (click)="checkSortState('candidate')">
+            <div class="option remind-date" (click)="getByType(3)">
                 <span class="remind-date">Interview</span>
             </div>
         </div>
@@ -21,3 +21,4 @@
 <div *ngIf="notifications" class="notifications-wrapper">
     <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
 </div>
+<button (click)="nextPage()">show more</button>

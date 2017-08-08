@@ -49,9 +49,14 @@ export class CandidateDetailComponent implements DoCheck {
   }
 
   assignInterview(): void {
-    this.dialog.open(AssignInterviewFormComponent, {
-      data: { id: this.candidate.id },
-    });
+    const data: any = {};
+    if (this.candidate) {
+      data.id = this.candidate.id;
+      if (this.candidate.contact) {
+        data.email = this.candidate.contact.email;
+      }
+    }
+    this.dialog.open(AssignInterviewFormComponent, { data });
   }
 
   nextPage(): void {

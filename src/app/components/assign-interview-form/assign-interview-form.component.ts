@@ -1,19 +1,19 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject, DoCheck } from '@angular/core';
 import { MD_DIALOG_DATA, MdDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { DictionariesService } from '../../services/dictionaries.service';
 import { IGeneral } from '../../interfaces/IGeneral';
-import { CandidateService } from '../../services/candidate.service';
 import { MyCookieService } from '../../services/cookie.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { InterviewService } from '../../services/interview.service';
 
 @Component({
   selector: 'assign-interview-form',
   templateUrl: 'assign-interview-form.component.html',
   styleUrls: ['assign-interview-form.component.scss'],
 })
-export class AssignInterviewFormComponent implements OnInit {
+export class AssignInterviewFormComponent implements DoCheck {
   cities: IGeneral[] = [];
   hrs: IGeneral[] = [];
   techs: IGeneral[] = [];
@@ -24,9 +24,15 @@ export class AssignInterviewFormComponent implements OnInit {
   date: any;
 
   interview: any = {};
+  interviewer: any = {
+    text: `Text for interviewer`,
+  };
+  candidate: any = {
+    text: `Text for candidate`,
+  };
 
   constructor(@Inject(MD_DIALOG_DATA) public data: any,
-              private cService: CandidateService,
+              private iService: InterviewService,
               private dService: DictionariesService,
               private snackService: SnackbarService,
               private router: Router,
@@ -43,9 +49,22 @@ export class AssignInterviewFormComponent implements OnInit {
     this.dService.getSkills().then((skills) => {
       this.skills = skills;
     });
+
+    this.candidate.email = this.data.email;
   }
 
-  ngOnInit() { }
+  ngDoCheck() {
+    let name: string = 'None';
+    if (this.type === 'general' && this.hrs.length && this.techs.length 
+      && this.interview.interviewer) {
+      name = this.hrs.find(i => i.id === this.interview.interviewer).name;
+    }
+    if (this.type === 'tech' && this.hrs.length && this.techs.length 
+      && this.interview.interviewer) {
+      name = this.techs.find(i => i.id === this.interview.interviewer).name;
+    }
+    this.candidate.header = `New interview with ${name}`;
+  }
 
   getMinutes(str: string): number {
     if (str) {
@@ -69,11 +88,14 @@ export class AssignInterviewFormComponent implements OnInit {
   }
 
   sendInterview() {
+    
     this.setDate();
     this.interview.candidate = this.data.id;
-    this.cService.assignInterview(this.type, this.interview)
+    this.iService.assignInterview(this.type, this.interview)
       .then((res: any) => {
         this.snackService.showSnack('Interview successfully assigned', 'SUCCESS');
+        // this.iService.sendEmail(this.candidate, 'candidate');
+        // this.iService.sendEmail(this.candidate, 'interviewer');
         this.router.navigate(['main-page']);
         this.dialogRef.close();
       }, (error: any) => {

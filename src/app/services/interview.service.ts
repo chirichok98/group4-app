@@ -20,4 +20,11 @@ export class InterviewService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
+  sendEmail(obj: any, type: string): Promise<any> {
+    const url: string = `api/mail/interview/add/${type}`;
+    return this.httpService.post(url,
+      obj,
+      this.httpService.DEF_HEADERS,
+      this.httpService.stringify);
+  }
 }

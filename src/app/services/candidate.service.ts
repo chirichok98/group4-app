@@ -62,14 +62,6 @@ export class CandidateService {
       this.httpService.stringify);
   }
 
-  assignInterview(type: string, interview: any): Promise<any> {
-    const url: string = `${this.httpService.INTERVIEW}/${type}/${this.httpService.ADD}`;
-    return this.httpService.post(url,
-      interview,
-      this.httpService.DEF_HEADERS,
-      this.httpService.stringify);
-  }
-
   autoSearch(obj: any): Promise<IPositionPreview[]> {
     const url: string = `api/vacancy/autosearch`;
     return this.httpService.post(url,

@@ -9,17 +9,29 @@ export class NotificationService {
 
   concatParam(param: string): string {
     return `${this.httpService.NOTIFICATIONS}/${param}`;
-  } 
+  }
 
-  getAllNotifications(pag: any): Promise<INotificationOption[]> {
+  makePagParams(skip: number, amount: number): any {
+    return { skip, amount };
+  }
+
+  getAllNotifications(skip: number, amount: number): Promise<INotificationOption[]> {
     const url: string = this.concatParam('all');
-    return this.httpService.get(url, pag)
+    return this.httpService.get(url, this.makePagParams(skip, amount))
       .then(res => res.json());
   }
 
-  getUnseenNotifications(pag: any): Promise<INotificationOption[]> {
+  getUnseenNotifications(skip: number, amount: number): Promise<INotificationOption[]> {
     const url: string = this.concatParam('unseen');
-    return this.httpService.get(url, pag)
+    return this.httpService.get(url, this.makePagParams(skip, amount))
+      .then(res => res.json());
+  }
+
+  getInterviewNotifications(skip: number, amount: number): Promise<INotificationOption[]> {
+    const url: string = this.concatParam('alloftype');
+    const obj: any = this.makePagParams(skip, amount);
+    obj.type = 'Interview';
+    return this.httpService.get(url, obj)
       .then(res => res.json());
   }
 

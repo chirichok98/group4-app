@@ -1,23 +1,30 @@
 .assign-interview-form-inner .mat-radio-button {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #273248;
-    line-height: 48px;
-    height: 48px;
-    padding: 0 16px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #273248;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px;
 }
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
 .text-container {
-    font-family: sans-serif;
-    padding: 0.2rem;
-    width: 280px;
-    height: 5rem;
-    font-size: 0.7em;
-    box-sizing: border-box;
-    resize: none;
-    margin-top: 1rem;
-    border: 1px solid rgb(224, 224, 224);
-    width: 100%;
+  font-family: sans-serif;
+  padding: 0.2rem;
+  width: 280px;
+  height: 5rem;
+  font-size: 0.7em;
+  box-sizing: border-box;
+  resize: none;
+  margin-top: 1rem;
+  border: 1px solid rgb(224, 224, 224);
+  width: 100%;
 }
+
 button {
   background-color: #273248;
   width: auto;
@@ -40,4 +47,12 @@ button:focus,
 button:active {
   background-color: #56CCF2;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+.main_info {
+  width: 48%;
+}
+
+.addition {
+  border-left: 1px solid #273248;
 }
