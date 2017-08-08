@@ -223,3 +223,13 @@ select-form .mat-select-placeholder {
 .interview-feedback-wrap .mat-slider-horizontal .mat-slider-thumb-label {
   top: -30px;
 }
+
+snack-bar-container {
+  background: #fff!important;
+}
+.mat-simple-snackbar {
+  color: #000!important;
+}
+.cdk-global-overlay-wrapper {
+  align-items: flex-start!important;
+}

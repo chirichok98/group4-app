@@ -27,10 +27,9 @@ export class CandidatesListComponent {
               private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
     this.init(httpService.CAN_SEARCH);
-    setTimeout(function(){
-        console.log('qq');
-        $('.search-button').trigger('click');
-      }, 500);
+    setTimeout(() => {
+      $('.search-button').trigger('click');
+    }, 700);
     transferService.getData().subscribe((data) => {
       console.log(data);
       this.candidates = [];
