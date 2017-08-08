@@ -1,4 +1,10 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
+    <div (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store
+        <md-icon>library_add</md-icon>
+    </div>
     <div class="header-info general">General information</div>
     <div class="item-container main">
         <div class="item-container">
@@ -22,13 +28,6 @@
             </div>
         </div>
     </div>
-    <div (click)="addToBasket($event)" class="can-basket">
-        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
-        <ng-template #remove>Remove from</ng-template>
-        store
-        <md-icon>library_add</md-icon>
-    </div>
-
     <div class="item-container">
         <div class="position-info-item position-date">
             <span class="attribute">Request date</span>

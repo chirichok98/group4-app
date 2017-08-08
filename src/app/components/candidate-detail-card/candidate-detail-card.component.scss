@@ -39,10 +39,6 @@
   display: block;
   line-height: 1.5rem;
 }
-.item-container.main {
-  justify-content: space-between;  
-  align-items: center;
-}
 .attribute {
   color: #526C7B;
   font-size: 0.9em;
@@ -72,7 +68,6 @@
   color: #52c1e6;
   text-transform: uppercase;
   font-size: 0.7em;
-  text-align: right;
   padding-left: 1rem;
 }
 .can-basket:hover,
@@ -148,11 +143,17 @@ button:active {
   background-color: #56CCF2;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
+.download-cv {
+  width: auto;
+  min-width: 9rem;
+  height: auto;
+  font-size: 0.6em;
+  padding: 0.2rem 1rem;
+}
 .simple-btn {
   width: auto;
   height: auto;
-  line-height: 34px;
-  padding: 0 1rem;
+  padding: 0.3rem 1rem;
   font-size: 0.6em;
 }
 .start-search {

@@ -1,5 +1,16 @@
 <div *ngIf="candidate as can; else loading" class="candidate-info-container">
-    <button (click)="getCV()">Download CV</button>
+    <div>
+        <div (click)="assignInterview()" class="can-interview">
+            Assign interview
+            <md-icon>speaker_notes</md-icon>
+        </div>
+        <div (click)="addToBasket($event)" class="can-basket">
+            <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+            <ng-template #remove>Remove from</ng-template>
+            store
+            <md-icon>library_add</md-icon>
+        </div>
+    </div>
     <div class="header-info general">General information</div>
     <div class="item-container main">
         <div class="candidate-block img">
@@ -7,18 +18,6 @@
             <ng-template #defaultPic>
                 <img src="./assets/blank-avatar.png" alt="photo">
             </ng-template>
-        </div>
-        <div>
-            <div (click)="assignInterview()" class="can-interview">
-                Assign interview
-                <md-icon>speaker_notes</md-icon>
-            </div>
-            <div (click)="addToBasket($event)" class="can-basket">
-                <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
-                <ng-template #remove>Remove from</ng-template>
-                store
-                <md-icon>library_add</md-icon>
-            </div>
         </div>
     </div>
     <div class="item-container candidate-name">
@@ -68,7 +67,7 @@
             </ng-container>
         </div>
     </div>
-    <div class="header-info">Person Contacts</div>
+    <div class="header-info">Contacts</div>
     <div class="item-container">
         <div class="candidate-feedback-item candidate-info-item candidate-email">
             <span class="attribute">Email</span>
@@ -132,7 +131,7 @@
             </div>
         </div>
     </div>
-    <div class="header-info">Assigned manager</div>
+    <div class="header-info">manager</div>
     <div class="item-container">
         <div class="candidate-info-item candidate-hr">
             <span class="attribute">HRM</span>
@@ -147,6 +146,7 @@
             </ng-container>
         </div>
     </div>
+    <button class="download-cv"  (click)="getCV()">Download CV</button>
     <button (click)="goToEditForm()">Edit</button>
     <div class="header-info">Current positions</div>
     <div class="positions-list-wrap">
