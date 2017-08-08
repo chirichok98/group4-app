@@ -44,4 +44,10 @@ export class AppComponent {
     }
     this.isHomePage = false;
   }
+
+  goBack(): void {
+    this.location.back();
+    const url: string = this.location.path();
+    this.cookie.updateUrl(url);
+  }
 }

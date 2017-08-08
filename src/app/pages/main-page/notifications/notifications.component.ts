@@ -20,6 +20,7 @@ export class NotificationsComponent {
     this.nService.getUnseenNotifications({ skip: 0, amount: 100 })
       .then((notif: any) => {
         this.notifications = notif;
+        console.log(this.notifications);
         this.isSpinnerVisible = false;
       }, (err: any) => {
         console.log(err);

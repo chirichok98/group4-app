@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <div class="search-wrap">
+    <div class="search-wrap" *ngIf="can.candidatePrimarySkill">
         <div class="range-container">From Primary skill
             <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
             to Secondary skill(s)

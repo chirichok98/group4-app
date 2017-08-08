@@ -68,7 +68,6 @@ export class MainPageComponent implements OnInit {
         break;
       }
     }
-    console.log(this.navbarOptions);
   }
 
   ngOnInit() { }
