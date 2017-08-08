@@ -107,26 +107,33 @@
         </div>
     </div>
     <button (click)="goToEditForm()">Edit</button>
-    <div class="header-info">Current candidates</div>
-    <div class="candidates-list-wrap">
-        <div class="candidates-list-mini" *ngFor="let can of pos.candidates; let index = index">
-            <md-icon class="can-remove" (click)="removeCandidate(can.id, index)">close</md-icon>
-            <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
-        </div>
-    </div>
-    <div class="search-wrap">
-        <div class="range-container">From Primary skill
-            <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
-            to Secondary skill(s)
-        </div>
-        <button class="simple-btn start-search" (click)="autoSearch()">search</button>
-        <div class="candidates-list-wrap">
-            <div class="candidates-list-mini" *ngFor="let can of possibleCandidates">
-                <md-icon class="can-add" (click)="assignCandidate(can.id)">add</md-icon>
-                <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+    <div class="current-candidates-wrapper">
+        <div>
+            <div class="header-info">Current candidates</div>
+            <div class="candidates-list-wrap">
+                <div class="candidates-list-mini" *ngFor="let can of pos.candidates; let index = index">
+                    <md-icon class="can-remove" (click)="removeCandidate(can.id, index)">close</md-icon>
+                    <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+                </div>
             </div>
         </div>
-        <button class="simple-btn" *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
+        <div class="search-wrap">
+            <div class="header-info">Search</div>
+            <div class="search-wrapper">
+                <div class="range-container">Primary skill
+                    <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+                    Secondary skill(s)
+                </div>
+                <button class="simple-btn start-search" (click)="autoSearch()">search</button>
+            </div>
+            <div class="candidates-list-wrap">
+                <div class="candidates-list-mini" *ngFor="let can of possibleCandidates">
+                    <md-icon class="can-add" (click)="assignCandidate(can.id)">add</md-icon>
+                    <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+                </div>
+            </div>
+            <button class="simple-btn" *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
+        </div>
     </div>
 </div>
 
