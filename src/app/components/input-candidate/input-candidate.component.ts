@@ -48,8 +48,10 @@ export class InputCandidateComponent implements DoCheck {
   }
 
   ngDoCheck(): void {
-    if (!this.canInfo.candidatePrevJobs)
-      this.canInfo.candidatePrevJobs = [];
+    if (!this.canInfo.candidatePrevJobs) this.canInfo.candidatePrevJobs = [];
+    if (!this.canInfo.contact) this.canInfo.contact = { };
+    if (!this.canInfo.candidatePrimarySkill) this.canInfo.candidatePrimarySkill = { };
+    if (!this.canInfo.candidateSecondarySkills) this.canInfo.candidateSecondarySkills = [];
     this.canInfoChange.emit(this.canInfo);
   }
 

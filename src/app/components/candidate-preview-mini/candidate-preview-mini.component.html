@@ -1,13 +1,23 @@
 <md-card class="card" (click)="goToDetailView()">
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">
-                <ng-container *ngIf="candidate.firstNameEng; else firstNameEng">{{candidate.firstNameEng}}</ng-container>
-                <ng-template #firstNameEng>Anonymous</ng-template>
-                <ng-container *ngIf="candidate.lastNameEng; else lastNameEng">{{candidate.lastNameEng}}</ng-container>
-                <ng-template #lastNameEng>Anonymous</ng-template>
+            <div class="name" *ngIf="candidate.firstNameEng || candidate.lastNameEng; else anon">
+                <ng-container *ngIf="candidate.firstNameEng">
+                    {{candidate.firstNameEng}}
+                </ng-container>
+                <ng-container *ngIf="candidate.lastNameEng">
+                    {{candidate.lastNameEng}}
+                </ng-container>
             </div>
-            <div class="candidate-skype"><i class="feedback-logotypes"></i>{{candidate.skype}} </div>
+            <ng-template #anon>
+                <div class="name">Anonymous</div>
+            </ng-template>
+            <div class="candidate-skype">
+                <i class="feedback-logotypes"></i>
+                <ng-container *ngIf="candidate.skype; else none">
+                    {{candidate.skype}}
+                </ng-container>
+            </div>
             <div class="skill content-wrapper">
                 <md-chip-list>
                     <md-chip>
@@ -21,3 +31,7 @@
         </div>
     </div>
 </md-card>
+
+<ng-template #none>
+    none
+</ng-template>

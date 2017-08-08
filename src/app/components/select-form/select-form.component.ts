@@ -11,7 +11,7 @@ declare const $;
 export class SelectFormComponent {
   @Input() array: any;
   @Input() placeholder: string;
-
+  @Input() required: boolean;
   @Input() result: number;
   @Output() resultChange: EventEmitter<number> = new EventEmitter<number>();
 

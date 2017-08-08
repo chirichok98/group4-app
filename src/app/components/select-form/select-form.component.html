@@ -1,6 +1,6 @@
 <ng-container *ngIf="array?.length">
     <form>
-        <md-select [placeholder]="placeholder" [ngModel]="result" (change)="onChange($event.value)" name="skill">
+        <md-select [placeholder]="placeholder" [ngModel]="result" [required]="required" (change)="onChange($event.value)" name="skill">
             <md-option value="">Choose option</md-option>
             <md-option *ngFor="let item of array" [value]="item.id">
                 {{item.name}}

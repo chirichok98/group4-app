@@ -77,9 +77,9 @@ export class CandidateDetailComponent implements DoCheck {
   assignPosition(value: number): void {
     this.cService.assignPositions([this.candidate.id], [value])
       .then((res: any) => {
-        const ids: number[] = this.candidate.positions.map(i => i.id);
+        const ids: number[] = this.candidate.vacancies.map(i => i.id);
         if (!ids.includes(value)) {
-          this.candidate.positions.push(this.possiblePositions.find(i => i.id === value));
+          this.candidate.vacancies.push(this.possiblePositions.find(i => i.id === value));
           this.snackService.showSnack('Successfully assigned', 'SUCCESS');
           return;
         }
@@ -111,10 +111,15 @@ export class CandidateDetailComponent implements DoCheck {
     };
     this.cService.removePosition(obj)
       .then((res) => {
-        this.candidate.positions.splice(index, 1);
+        this.candidate.vacancies.splice(index, 1);
         this.snackService.showSnack('Position successfully removed', 'SUCCESS');
       },
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));
+  }
+
+  getCV(): void {
+    this.cService.downloadCV(this.candidate.id)
+      .then(res => console.log(res), err => console.log(err));
   }
 
   download(): void {

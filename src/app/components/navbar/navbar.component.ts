@@ -9,8 +9,8 @@ import { SignalRService } from '../../services/signalR.service';
 
 @Component({
   selector: 'navbar-menu',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  templateUrl: 'navbar.component.html',
+  styleUrls: ['navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit, DoCheck {
   @Input() states: INavbarOption[];

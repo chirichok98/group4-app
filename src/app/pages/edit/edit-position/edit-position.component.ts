@@ -12,7 +12,10 @@ import { SnackbarService } from '../../../services/snackbar.service';
 export class EditPositionComponent implements OnInit {
   isLoaded: boolean = false;
   positionId: number;
-  position: any;
+  position: any = {
+    primarySkill: {},
+    secondarySkills: [],
+  };
 
   constructor(private route: ActivatedRoute,
               private router: Router,

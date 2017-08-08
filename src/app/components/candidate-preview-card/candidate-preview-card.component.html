@@ -9,31 +9,39 @@
     </ng-template>
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">
-                <ng-container *ngIf="candidate.firstNameEng; else firstNameEng">{{candidate.firstNameEng}}</ng-container>
-                <ng-template #firstNameEng>Anonymous</ng-template>
-                <ng-container *ngIf="candidate.lastNameEng; else lastNameEng">{{candidate.lastNameEng}}</ng-container>
-                <ng-template #lastNameEng>Anonymous</ng-template>
+            <div class="name" *ngIf="candidate.firstNameEng || candidate.lastNameEng; else anon">
+                <ng-container *ngIf="candidate.firstNameEng">
+                    {{candidate.firstNameEng}}
+                </ng-container>
+                <ng-container *ngIf="candidate.lastNameEng">
+                    {{candidate.lastNameEng}}
+                </ng-container>
             </div>
+            <ng-template #anon>
+                <div class="name">Anonymous</div>
+            </ng-template>
             <div class="phone content-wrapper">
                 <i class="small material-icons candidate-phone">call</i>
-                <ng-container *ngIf="candidate.phone; else phone">{{candidate.phone}}</ng-container>
-                <ng-template #phone>Phone</ng-template>
+                <ng-container *ngIf="candidate.phone; else none">
+                    {{candidate.phone}}
+                </ng-container>
             </div>
             <div class="email content-wrapper">
                 <i class="small material-icons candidate-email">email</i>
-                <ng-container *ngIf="candidate.email; else email">{{candidate.email}}</ng-container>
-                <ng-template #email>E-mail</ng-template>
+                <ng-container *ngIf="candidate.email; else none">
+                    {{candidate.email}}
+                </ng-container>
             </div>
             <div class="skype content-wrapper">
                 <i class="feedback-logotypes"></i>
-                <ng-container *ngIf="candidate.skype; else skype">{{candidate.skype}}</ng-container>
-                <ng-template #skype>Skype</ng-template>
+                <ng-container *ngIf="candidate.skype; else none">
+                    {{candidate.skype}}
+                </ng-container>
             </div>
             <div class="skill content-wrapper">
                 <md-chip-list>
                     <md-chip>
-                        <ng-container *ngIf="candidate.primarySkill as skill; else skill">{{skill}}</ng-container>
+                        <ng-container *ngIf="candidate.primarySkill as skill; else none">{{skill}}</ng-container>
                     </md-chip>
                 </md-chip-list>
             </div>
@@ -48,3 +56,7 @@
         store <md-icon>library_add</md-icon>
     </span>
 </md-card>
+
+<ng-template #none>
+    none
+</ng-template>

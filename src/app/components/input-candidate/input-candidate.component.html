@@ -15,9 +15,11 @@
         </md-input-container>
     </div>
     <div>
+        <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [required]="true" [array]="statuses"></select-form>
         <select-form [(result)]="canInfo.city" [placeholder]="'City'" [array]="cities"></select-form>
         <select-form [(result)]="canInfo.engLevel" [placeholder]="'English level'" [array]="englishLevel"></select-form>
-        <select-form [(result)]="canInfo.status" [placeholder]="'Status'" [array]="statuses"></select-form>
+    </div>
+    <div>
         <md-input-container class="">
             <input [(ngModel)]="canInfo.desiredSalary" mdInput placeholder="Desired salary">
         </md-input-container>

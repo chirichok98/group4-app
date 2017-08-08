@@ -10,7 +10,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
   styleUrls: ['input-position.component.scss'],
 })
 export class InputPositionComponent implements DoCheck {
-  @Input() vacInfo: any = {};
+  @Input() vacInfo: any = { };
   @Output() vacInfoChange: EventEmitter<any> = new EventEmitter<any>();
 
   statuses: IGeneral[] = [];
@@ -45,6 +45,8 @@ export class InputPositionComponent implements DoCheck {
 
   ngDoCheck() {
     this.vacInfoChange.emit(this.vacInfo);
+    if (!this.vacInfo.primarySkill) this.vacInfo.primarySkill = {};
+    if (!this.vacInfo.secondarySkills) this.vacInfo.secondarySkills = [];
   }
 
 

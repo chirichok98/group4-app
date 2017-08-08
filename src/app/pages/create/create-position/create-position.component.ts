@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../../../services/snackbar.service';
 import { PositionService } from '../../../services/position.service';
+import { MyCookieService } from '../../../services/cookie.service';
 
 @Component({
   selector: 'create-position',
@@ -17,19 +18,34 @@ export class CreatePositionComponent implements OnInit {
 
   constructor(private router: Router, 
               private pService: PositionService,
-              private snackService: SnackbarService) { }
+              private snackService: SnackbarService,
+              private cookie: MyCookieService) { }
 
   ngOnInit() { }
 
   addPosition(): void {
-    this.sendPostRequest(this.position);
+    const pos: any = Object.assign({}, this.position);
+    this.checkEmptyFields(pos);
+    
+    this.sendPostRequest(pos);
   }
 
-  sendPostRequest(position: any): void {
-    this.pService.addPosition(position)
+  checkEmptyFields(obj: any): void {
+    if (!Object.keys(obj.primarySkill).length) {
+      delete obj.primarySkill;
+    }
+    if (!obj.secondarySkills.length) {
+      delete obj.secondarySkills;
+    }
+  }
+
+  sendPostRequest(pos: any): void {
+    this.pService.addPosition(pos)
+      .then(res => res.json())
       .then((vac: any) => {
-        console.log(vac);
-        this.router.navigate(['main-page/positions']);
+        const url: string = `main-page/positions/${vac}`;
+        this.cookie.updateUrl(url);
+        this.router.navigate([url]);
         this.snackService.showSnack('Position successfully added!','SUCCESS');
       }, (err: any) => {
         this.snackService.showSnack('Positions wasn`t created','ERROR');
