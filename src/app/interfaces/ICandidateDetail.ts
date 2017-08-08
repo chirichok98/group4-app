@@ -29,5 +29,5 @@ export interface ICandidateDetail {
   customerInterviewDate: Date | null;
   lastModifier: IUserPreview | null;
   candidatePrevJobsContacts: ICandidatePrevJob[] | null;
-  vacancies: IPositionPreview[] | null;
+  positions: IPositionPreview[] | null;
 }

@@ -8,7 +8,7 @@ export interface INotificationOption {
   date: Date | null;
   active: boolean | null;
   candidate: ICandidatePreview | null;
-  vacancy: IPositionPreview | null;
+  position: IPositionPreview | null;
   techInterview: ITechInterview | null;
   generalInterview: IGeneralInterview | null;
   id: number | null;

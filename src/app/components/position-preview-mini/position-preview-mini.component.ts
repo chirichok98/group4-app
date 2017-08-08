@@ -21,6 +21,6 @@ export class PositionPreviewCardMiniComponent {
   }
 
   goToDetailView() {
-    this.router.navigate([`main-page/vacancies`, this.position.id]);
+    this.router.navigate([`main-page/positions`, this.position.id]);
   }
 }

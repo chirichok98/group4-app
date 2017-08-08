@@ -16,14 +16,14 @@ export class PagerService {
       console.log('candidate', searchModel);
       pagerParams.searchModel = searchModel;
     } else if (searchModel && this.url === this.httpService.VAC_SEARCH) {
-      console.log('vacancy', searchModel);
+      console.log('position', searchModel);
       pagerParams.searchModel = searchModel;
     }
     if (sortModel && this.url === this.httpService.CAN_SEARCH) {
       console.log('candidate', sortModel);
       pagerParams.sortModel = sortModel;
     } else if (sortModel && this.url === this.httpService.VAC_SEARCH) {
-      console.log('vacancy', sortModel);
+      console.log('position', sortModel);
       pagerParams.sortModel = sortModel;
     }
     console.log(pagerParams);

@@ -32,13 +32,13 @@ export class CandidateService {
     return candidates;
   }
 
-  assignVacancies(can: number[], vac: number[]): Promise<any> {
-    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies/add`);
+  assignPositions(can: number[], vac: number[]): Promise<any> {
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/positions/add`);
     const res: Promise<any> = this.httpService.put(
       url,
       {
         candidates: can,
-        vacancies: vac,
+        positions: vac,
       },
       this.httpService.stringify);
     return res;
@@ -49,8 +49,8 @@ export class CandidateService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
-  removeVacancy(obj: any): Promise<any> {
-    const url: string = this.concatParam(`${this.httpService.UPDATE}/vacancies/delete`);
+  removePosition(obj: any): Promise<any> {
+    const url: string = this.concatParam(`${this.httpService.UPDATE}/positions/delete`);
     return this.httpService.get(url, obj);
   }
 
@@ -71,7 +71,7 @@ export class CandidateService {
   }
 
   autoSearch(obj: any): Promise<IPositionPreview[]> {
-    const url: string = `api/vacancy/autosearch`;
+    const url: string = `api/position/autosearch`;
     return this.httpService.post(url,
       obj,
       this.httpService.DEF_HEADERS,

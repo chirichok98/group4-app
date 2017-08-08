@@ -3,9 +3,9 @@ import { Routes, RouterModule, Route } from '@angular/router';
 
 // tslint:disable-next-line:max-line-length
 import { CreateCandidateComponent } from './pages/create/create-candidate/create-candidate.component';
-import { CreateVacancyComponent } from './pages/create/create-vacancy/create-vacancy.component';
+import { CreatePositionComponent } from './pages/create/create-position/create-position.component';
 import { EditCandidateComponent } from './pages/edit/edit-candidate/edit-candidate.component';
-import { EditVacancyComponent } from './pages/edit/edit-vacancy/edit-vacancy.component';
+import { EditPositionComponent } from './pages/edit/edit-position/edit-position.component';
 import { StoreComponent } from './pages/store/store.component';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -36,8 +36,8 @@ const creatingRoute: Route = {
       component: CreateCandidateComponent,
     },
     {
-      path: 'vacancy',
-      component: CreateVacancyComponent,
+      path: 'position',
+      component: CreatePositionComponent,
     },
   ],
 };
@@ -59,11 +59,11 @@ const editingRoute: Route = {
       ],
     },
     {
-      path: 'vacancy',
+      path: 'position',
       children: [
         {
           path: ':id',
-          component: EditVacancyComponent,
+          component: EditPositionComponent,
         },
       ],
     },
