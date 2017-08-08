@@ -28,3 +28,9 @@
 	text-decoration: none;
 	opacity: 1;
 }
+@media (max-width: 830px) {
+    .basket {
+        right: 30px;
+				left: inherit;
+    }
+}
