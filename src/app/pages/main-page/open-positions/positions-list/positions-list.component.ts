@@ -7,6 +7,7 @@ import { PagerService } from '../../../../services/pager.service';
 import { HttpService } from '../../../../services/http.service';
 import { TransferService } from '../../../../services/transfer.service';
 import { SnackbarService } from '../../../../services/snackbar.service';
+declare const $;
 
 @Component({
   selector: 'positions-list',
@@ -27,6 +28,9 @@ export class PositionsListComponent {
               private httpService: HttpService,
               private transferService: TransferService) {
     this.init(this.httpService.VAC_SEARCH);
+    setTimeout(() => {
+      $('.search-button').trigger('click');
+    }, 700);
     transferService.getData().subscribe((data) => {
       this.positions = [];
       this.paramsQueue = [];

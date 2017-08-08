@@ -14,7 +14,7 @@ export class SearchComponent {
   @Input() isCandidate: boolean;
   @Input() isPosition: boolean;
   isAdvancedShown: boolean = false;
-  search: any = { };
+  search: any = {};
   statuses: any = [];
   cities: any;
   skills: any;
@@ -40,12 +40,17 @@ export class SearchComponent {
     });
   }
 
-  toggleAdvanced(): void {
+  private toggleAdvanced(): void {
     this.isAdvancedShown = !this.isAdvancedShown;
   }
 
-  startSearch() {
+  private startSearch() {
     this.transferService.putData(this.search, 'search');
   }
-
+  private isSearchEmpty() {
+    for (const key in this.search) {
+      return false;
+    }
+    return true;
+  }
 }
