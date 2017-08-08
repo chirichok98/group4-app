@@ -20,8 +20,16 @@ export class InterviewService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
-  sendEmail(obj: any, type: string): Promise<any> {
-    const url: string = `api/mail/interview/add/${type}`;
+  sendEmail(obj: any): Promise<any> {
+    const url: string = `api/mail/send`;
+    return this.httpService.post(url,
+      obj,
+      this.httpService.DEF_HEADERS,
+      this.httpService.stringify);
+  }
+
+  setCalendarEvent(obj: any): Promise<any> {
+    const url: string = `api/calendar`;
     return this.httpService.post(url,
       obj,
       this.httpService.DEF_HEADERS,
