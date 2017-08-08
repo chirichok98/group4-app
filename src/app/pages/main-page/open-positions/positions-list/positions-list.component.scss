@@ -28,3 +28,8 @@ position-preview-card {
 .add-button:active {
   opacity: 1;
 }
+@media (max-width: 830px) {
+    .add-button {
+        display: none;
+    }
+}

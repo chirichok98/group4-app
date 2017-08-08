@@ -70,7 +70,7 @@ export class HttpService {
     }
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
-    console.log(cb(body));
+    // console.log(cb(body));
     const options = new RequestOptions({ headers });
     return this.http.post(urls, obj, options)
       .toPromise();
@@ -80,7 +80,7 @@ export class HttpService {
     this.appendAuth(this.DEF_HEADERS);
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
-    console.log(this.stringify(body));
+    // console.log(this.stringify(body));
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
     return this.http.put(urls, obj, options)
       .toPromise();

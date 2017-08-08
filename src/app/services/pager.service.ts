@@ -13,20 +13,20 @@ export class PagerService {
     const pagerParams: any = { skip, amount };
     let items: Promise<any>;
     if (searchModel && this.url === this.httpService.CAN_SEARCH) {
-      console.log('candidate', searchModel);
+      // console.log('candidate', searchModel);
       pagerParams.searchModel = searchModel;
     } else if (searchModel && this.url === this.httpService.VAC_SEARCH) {
-      console.log('position', searchModel);
+      // console.log('position', searchModel);
       pagerParams.searchModel = searchModel;
     }
     if (sortModel && this.url === this.httpService.CAN_SEARCH) {
-      console.log('candidate', sortModel);
+      // console.log('candidate', sortModel);
       pagerParams.sortModel = sortModel;
     } else if (sortModel && this.url === this.httpService.VAC_SEARCH) {
-      console.log('position', sortModel);
+      // console.log('position', sortModel);
       pagerParams.sortModel = sortModel;
     }
-    console.log(pagerParams);
+    // console.log(pagerParams);
     items = this.httpService.post(this.url, pagerParams,
       this.httpService.DEF_HEADERS,
       this.httpService.stringify);

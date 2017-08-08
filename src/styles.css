@@ -160,9 +160,9 @@ select-form .mat-select-placeholder {
 }
 
 /*Assign Interview Form*/
-.mat-dialog-container {
+/*.mat-dialog-container {
   text-align: center;
-}
+}*/
 .assign-interview-form-inner .mat-radio-button.mat-accent .mat-radio-inner-circle {
   background-color: #56CCF2;    
 }
@@ -181,9 +181,6 @@ select-form .mat-select-placeholder {
 }
 .assign-interview-form-inner .mat-radio-outer-circle {
   border-color: #273248;
-}
-.assign-interview-form-inner form {
-  text-align: center;
 }
 .assign-interview-form-inner .mat-select,
 .assign-interview-form-inner .mat-input-wrapper {
@@ -250,4 +247,14 @@ snack-bar-container {
 }
 .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
   background-color: rgba(0, 188, 212, 0.1);
+}
+.interview-feedback-wrap md-input-container,
+.interview-feedback-wrap .mat-select,
+.assign-interview-form-inner md-input-container,
+.assign-interview-form-inner .mat-select,
+.assign-interview-form-inner .mat-input-wrapper {
+    width: 100%;
+}
+select-form .mat-select-trigger {
+  min-width: 207px;
 }
