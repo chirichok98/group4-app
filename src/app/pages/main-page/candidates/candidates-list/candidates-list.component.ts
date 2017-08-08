@@ -27,12 +27,11 @@ export class CandidatesListComponent {
               private transferService: TransferService,
               private httpService: HttpService,
               @Inject(DOCUMENT) private document: Document) {
-    // this.init(httpService.CAN_SEARCH);
     setTimeout(() => {
       $('.search-button').trigger('click');
     }, 0);
     transferService.getData().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.candidates = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
@@ -63,7 +62,7 @@ export class CandidatesListComponent {
     this.pagerService.init(url, amount, searchData, sortData)
       .then(res => res.json())
       .then((candidates) => {
-        console.log(candidates);
+        // console.log(candidates);
         this.candidates = candidates;
         this.isSpinnerVisible = false;
       }, (error) => {
