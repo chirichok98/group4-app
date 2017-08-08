@@ -224,6 +224,7 @@ select-form .mat-select-placeholder {
   top: -30px;
 }
 
+/* Snackbar */
 snack-bar-container {
   background: #fff!important;
 }
@@ -232,4 +233,21 @@ snack-bar-container {
 }
 .cdk-global-overlay-wrapper {
   align-items: flex-start!important;
+}
+
+/* Checkbox */
+.mat-checkbox-layout {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.mat-checkbox-layout .mat-checkbox-inner-container {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, 
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #56CCF2;
+}
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: rgba(0, 188, 212, 0.1);
 }
