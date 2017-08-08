@@ -1,4 +1,4 @@
 <app-header [hidden]="isHomePage"></app-header>
 <router-outlet></router-outlet>
 <app-footer [hidden]="isHomePage"></app-footer>
-<button class="go-back" *ngIf="!isHomePage" (click)="goBack()">go  back</button>
+<div class="go-back" *ngIf="!isHomePage" (click)="goBack()"><md-icon>chevron_left</md-icon></div>
