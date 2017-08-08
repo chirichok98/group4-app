@@ -80,7 +80,7 @@ export class PositionsListComponent {
       });
   }
 
-  addVacancy(): void {
+  addPosition(): void {
     const url: string = 'create/position';
     this.cookie.updateUrl(url);
     this.router.navigate([url]);

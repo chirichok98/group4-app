@@ -12,7 +12,7 @@ declare const $;
 
 export class SearchComponent {
   @Input() isCandidate: boolean;
-  @Input() isVacancy: boolean;
+  @Input() isPosition: boolean;
   isAdvancedShown: boolean = false;
   search: any = { };
   statuses: any = [];
@@ -32,7 +32,7 @@ export class SearchComponent {
     this.ds.getCandidateStatuses().then((statuses) => {
       this.canSt = statuses;
     });
-    this.ds.getVacancyStatuses().then((statuses) => {
+    this.ds.getPositionStatuses().then((statuses) => {
       this.vacSt = statuses;
     });
     this.ds.getHRs().then((hr) => {

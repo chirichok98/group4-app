@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { InputVacancyComponent } from './input-position.component';
+import { InputPositionComponent } from './input-position.component';
 import { DictionariesService } from '../../services/dictionaries.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,8 +19,8 @@ import { PositionService } from '../../services/position.service';
     SkillFormModule,
     MaterialModule,
   ],
-  exports: [InputVacancyComponent],
-  declarations: [InputVacancyComponent],
+  exports: [InputPositionComponent],
+  declarations: [InputPositionComponent],
   providers: [DictionariesService],
 })
-export class InputVacancyModule { }
+export class InputPositionModule { }

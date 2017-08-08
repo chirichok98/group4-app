@@ -32,7 +32,7 @@ export class CandidateService {
     return candidates;
   }
 
-  assignVacancies(can: number[], vac: number[]): Promise<any> {
+  assignPositions(can: number[], vac: number[]): Promise<any> {
     const url: string = this.concatParam(`${this.httpService.UPDATE}/positions/add`);
     const res: Promise<any> = this.httpService.put(
       url,
@@ -49,7 +49,7 @@ export class CandidateService {
     return this.httpService.put(url, obj, this.httpService.stringify);
   }
 
-  removeVacancy(obj: any): Promise<any> {
+  removePosition(obj: any): Promise<any> {
     const url: string = this.concatParam(`${this.httpService.UPDATE}/positions/delete`);
     return this.httpService.get(url, obj);
   }

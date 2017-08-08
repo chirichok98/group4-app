@@ -9,7 +9,7 @@ declare const $;
 
 export class SortComponent {
   @Input() isCandidate: boolean;
-  @Input() isVacancy: boolean;
+  @Input() isPosition: boolean;
   sort: any = {};
   private candidateStates: number[] = [0, 0, 0];
   private positionStates: number[] = [0, 0, 0];

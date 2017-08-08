@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit, DoCheck {
   isSortVisible: boolean = false;
 
   isCandidate: boolean;
-  isVacancy: boolean;
+  isPosition: boolean;
   isNotifications: boolean;
 
   notificationAmount: number;
@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   setWindowOwner(can: boolean, vac: boolean) {
     this.isCandidate = can;
-    this.isVacancy = vac;
+    this.isPosition = vac;
     this.isNotifications = false;
   }
 

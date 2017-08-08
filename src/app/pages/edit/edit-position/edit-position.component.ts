@@ -9,7 +9,7 @@ import { SnackbarService } from '../../../services/snackbar.service';
   templateUrl: 'edit-position.component.html',
   styleUrls: ['edit-position.component.scss'],
 })
-export class EditVacancyComponent implements OnInit {
+export class EditPositionComponent implements OnInit {
   isLoaded: boolean = false;
   positionId: number;
   position: any;
@@ -47,7 +47,7 @@ export class EditVacancyComponent implements OnInit {
     return res;
   }
 
-  editVacancy() {
+  editPosition() {
     this.position.candidates = this.position.candidates.map(i => i.id);
     this.position.primarySkill = this.configureSkill(this.position.primarySkill);
     this.position.secondarySkills = this.position.secondarySkills

@@ -1,6 +1,6 @@
 <bread-crumbs></bread-crumbs>
 <spinner [loading]="isSpinnerVisible"></spinner>
 <div class="positions" scroll (update)='onScroll($event)'>
-    <button *ngIf="positions" class="add-button" md-fab (click)="addVacancy()"><md-icon>add</md-icon></button>
+    <button *ngIf="positions" class="add-button" md-fab (click)="addPosition()"><md-icon>add</md-icon></button>
     <position-preview-card *ngFor="let item of positions" [position]="item"></position-preview-card>
 </div>

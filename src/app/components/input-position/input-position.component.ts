@@ -9,7 +9,7 @@ import { IGeneral } from '../../interfaces/IGeneral';
   templateUrl: 'input-position.component.html',
   styleUrls: ['input-position.component.scss'],
 })
-export class InputVacancyComponent implements DoCheck {
+export class InputPositionComponent implements DoCheck {
   @Input() vacInfo: any = {};
   @Output() vacInfoChange: EventEmitter<any> = new EventEmitter<any>();
 
@@ -35,7 +35,7 @@ export class InputVacancyComponent implements DoCheck {
     this.hService.getSkills().then((skills) => {
       this.skills = skills;
     });
-    this.hService.getVacancyStatuses().then((statuses) => {
+    this.hService.getPositionStatuses().then((statuses) => {
       this.statuses = statuses;
       if (this.vacInfo.status) {
         this.vacInfo.status = this.statuses.find(i => i.name === this.vacInfo.status).id;

@@ -9,7 +9,7 @@ import { PositionService } from '../../../services/position.service';
   styleUrls: ['create-position.component.scss'],
 })
 
-export class CreateVacancyComponent implements OnInit {
+export class CreatePositionComponent implements OnInit {
   position: any = {
     secondarySkills: [],
     primarySkill: {},
@@ -21,12 +21,12 @@ export class CreateVacancyComponent implements OnInit {
 
   ngOnInit() { }
 
-  addVacancy(): void {
+  addPosition(): void {
     this.sendPostRequest(this.position);
   }
 
   sendPostRequest(position: any): void {
-    this.pService.addVacancy(position)
+    this.pService.addPosition(position)
       .then((vac: any) => {
         console.log(vac);
         this.router.navigate(['main-page/positions']);

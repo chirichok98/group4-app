@@ -202,7 +202,7 @@
     <div class="header-info">Current positions</div>
     <div class="positions-list-wrap">
         <div class="positions-list-mini" *ngFor="let item of candidate.positions; let index = index">
-            <md-icon class="pos-remove" (click)="removeVacancy(item.id, index)">close</md-icon>
+            <md-icon class="pos-remove" (click)="removePosition(item.id, index)">close</md-icon>
             <position-preview-mini [position]="item"></position-preview-mini>
         </div>
     </div>
@@ -217,12 +217,12 @@
         </div>
         <button class="simple-btn start-search" (click)="autoSearch()">search</button>
         <div class="positions-list-wrap">
-            <div class="positions-list-mini" *ngFor="let vac of possibleVacancies">
-                <md-icon class="pos-add" (click)="assignVacancy(vac.id)">add</md-icon>
+            <div class="positions-list-mini" *ngFor="let vac of possiblePositions">
+                <md-icon class="pos-add" (click)="assignPosition(vac.id)">add</md-icon>
                 <position-preview-mini [position]="vac"></position-preview-mini>
             </div>
         </div>
-        <button class="simple-btn" *ngIf="possibleVacancies.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+        <button class="simple-btn" *ngIf="possiblePositions.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
     </div>
 
 </div>

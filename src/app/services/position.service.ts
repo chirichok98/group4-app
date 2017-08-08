@@ -54,7 +54,7 @@ export class PositionService {
     return this.httpService.get(url, obj);
   }
 
-  addVacancy(position: any): Promise<any> {
+  addPosition(position: any): Promise<any> {
     const url = this.concatParam(this.httpService.ADD);
     return this.httpService.post(url, 
       position,

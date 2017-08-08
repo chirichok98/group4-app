@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import { EditVacancyComponent } from './edit-position.component';
+import { EditPositionComponent } from './edit-position.component';
 import { SpinnerModule } from '../../../components/spinner/spinner.module';
-import { InputVacancyModule } from '../../../components/input-position/input-position.module';
+import { InputPositionModule } from '../../../components/input-position/input-position.module';
 import { CommonModule } from '@angular/common';
 import { PositionService } from '../../../services/position.service';
 
 @NgModule({
   imports: [
     SpinnerModule,
-    InputVacancyModule,
+    InputPositionModule,
     CommonModule,
   ],
   exports: [],
-  declarations: [EditVacancyComponent],
+  declarations: [EditPositionComponent],
   providers: [PositionService],
 })
-export class EditVacancyModule { }
+export class EditPositionModule { }
