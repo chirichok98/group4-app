@@ -111,7 +111,7 @@ export class AssignInterviewFormComponent implements DoCheck {
         this.sendEmail(this.candidate, 'candidate');
         this.sendEmail(this.interviewer, 'interviewer');
         this.setCalendar();
-        this.router.navigate(['main-page']);
+        this.router.navigate([`main-page/candidates/${this.data.id}`]);
         this.dialogRef.close();
       }, (error: any) => {
         this.snackService.showSnack('Troubles with assigning', 'ERROR');

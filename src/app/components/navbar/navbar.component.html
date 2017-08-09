@@ -18,7 +18,15 @@
             <md-icon [mdMenuTriggerFor]="menu">menu</md-icon>
         </div>
         <md-menu class="navbar-menu-hidden" #menu="mdMenu" [overlapTrigger]="false">
-            <div class="navbar-hidden" md-menu-item *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(state.name)" (click)="goTo(state)"><span>{{state.name}}</span></div>
+            <div class="navbar-hidden" md-menu-item *ngFor="let state of states; let i = index" [ngClass]="getStyleByIndex(state.name)"
+                (click)="goTo(state)"><span>{{state.name}}</span>
+                <ng-container *ngIf="i == states.length - 1 && notificationAmount">
+                    <div class="notification-icon">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        <span class="badge">{{notificationAmount}}</span>
+                    </div>
+                </ng-container>
+            </div>
         </md-menu>
         <ng-container *ngIf="!isNotifications; else temp">
             <md-icon class="navbar-icon" (click)="openSort()">sort</md-icon>

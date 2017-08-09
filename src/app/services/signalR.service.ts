@@ -28,12 +28,12 @@ export class SignalRService {
     });
 
     notifications.client.getNotification = function (notification) {
-      console.log('Notification: ' + notification);
+      // console.log('Notification: ' + notification);
       context.snackService.showSnack(notification);
     };
 
     notifications.client.getUnreadAmount = function (amount) {
-      console.log('Amount changed ' + amount);
+      // console.log('Amount changed ' + amount);
       context.setAmount(amount);
     };
 
