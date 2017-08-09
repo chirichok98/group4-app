@@ -158,16 +158,21 @@ button:active {
   font-size: 0.8em;
   padding: 0 0.5rem;
 }
-.current-positions-wrapper {
+.current-positions-wrapper,
+.interview-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.current-positions-wrapper >  div {
+.current-positions-wrapper >  div,
+.interview-wrapper > div {
   width: 49%;
 }
 @media (max-width: 992px) {
   .current-positions-wrapper >  div {
+    width: 100%;
+  }
+  .interview-wrapper > div {
     width: 100%;
   }
 }
@@ -179,4 +184,7 @@ button:active {
 }
 .start-search {
   min-width: auto;
+}
+.get-interview {
+  margin-bottom: 0;
 }

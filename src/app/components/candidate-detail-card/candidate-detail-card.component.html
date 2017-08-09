@@ -148,14 +148,14 @@
     </div>
 
     <button class="download-cv simple-btn"  (click)="getCV()">Download CV</button> 
-    <button class="download-cv simple-btn"  (click)="getInterviews()">Show interviews feedbac</button>
-    <div *ngIf="isInterviewsShown">
+    <div><button class="get-interview simple-btn"  (click)="getInterviews()">Show interviews feedback</button></div>
+    <div class="interview-wrapper" *ngIf="isInterviewsShown">
         <div class="tech">
-            Tech Interviews
+             <div class="header-info">Tech Interviews</div>
             <interview-result *ngFor="let item of techFeedback" [interview]="item" [type]="'tech'"></interview-result>
         </div>
         <div class="general">
-            HRM Interviews
+             <div class="header-info">HRM Interviews</div>
             <interview-result *ngFor="let item of generalFeedback" [interview]="item" [type]="'general'"></interview-result>
         </div>
     </div>
