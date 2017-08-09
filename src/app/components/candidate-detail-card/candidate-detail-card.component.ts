@@ -19,7 +19,7 @@ export class CandidateDetailComponent implements DoCheck {
   @Input() candidate: ICandidateDetail;
   possiblePositions: IPositionPreview[] = [];
   coefficient: number;
-  
+
   skip: number;
   amount: number;
   hasNoVac: boolean = false;
@@ -30,11 +30,11 @@ export class CandidateDetailComponent implements DoCheck {
   generalFeedback: any = [];
 
   constructor(private router: Router,
-              private cookie: MyCookieService,
-              private downloadService: DownloadService,
-              private cService: CandidateService,
-              private snackService: SnackbarService,
-              public dialog: MdDialog) {
+    private cookie: MyCookieService,
+    private downloadService: DownloadService,
+    private cService: CandidateService,
+    private snackService: SnackbarService,
+    public dialog: MdDialog) {
     this.skip = 0;
     this.amount = 5;
     this.coefficient = 50;
@@ -86,6 +86,7 @@ export class CandidateDetailComponent implements DoCheck {
   }
 
   assignPosition(value: number): void {
+    console.log(value);
     this.cService.assignPositions([this.candidate.id], [value])
       .then((res: any) => {
         const ids: number[] = this.candidate.vacancies.map(i => i.id);
@@ -128,14 +129,23 @@ export class CandidateDetailComponent implements DoCheck {
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));
   }
 
-  getCV(): void {
+  getCV() {
+    console.log('start download');
     this.cService.downloadCV(this.candidate.id)
-      .then(res => console.log(res), err => console.log(err));
+      .subscribe((data: any) => {
+        console.log(data);
+        this.downloadFile(data);
+      }),
+      error => console.log('Error downloading the file.'),
+      () => console.log('Completed file download.');
   }
 
-  download(): void {
-    alert('qq');
-    // this.downloadService.downloadFile();
+  downloadFile(data) {
+    const blob = new Blob([(<any>data)],
+      { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+    console.log('here should be downloaded file');
   }
 
   getInterviews(): void {
@@ -149,6 +159,6 @@ export class CandidateDetailComponent implements DoCheck {
       .then((res: any) => {
         this.generalFeedback = res;
         console.log(res);
-      }, (err: any) => console.log(err));  
+      }, (err: any) => console.log(err));
   }
 }

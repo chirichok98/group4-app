@@ -38,7 +38,7 @@ export class PositionService {
       url,
       {
         candidates: can,
-        positions: pos,
+        vacancies: pos,
       },
       this.httpService.stringify);
     return res;
