@@ -21,4 +21,4 @@
 <div *ngIf="notifications" class="notifications-wrapper">
     <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
 </div>
-<button class="mark-btn" *ngIf="hasMore" (click)="nextPage()">show more</button>
+<button class="mark-btn more" *ngIf="hasMore" (click)="nextPage()">show more</button>
