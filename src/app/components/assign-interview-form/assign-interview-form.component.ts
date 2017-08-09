@@ -26,10 +26,10 @@ export class AssignInterviewFormComponent implements DoCheck {
 
   interview: any = {};
   interviewer: any = {
-    body: `Text for interviewer`,
+    body: ``,
   };
   candidate: any = {
-    body: `Text for candidate`,
+    body: ``,
   };
 
   isFirst: boolean = true;

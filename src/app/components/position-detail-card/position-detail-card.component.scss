@@ -88,12 +88,7 @@
 .candidates-list-mini {
   position: relative;
   min-width: 50%;
-  width: 50%;
-}
-@media (max-width: 830px) {
-  .candidates-list-mini {
-    width: 100%;
-  }
+  width: 100%;
 }
 .candidates-list-mini:hover {
   transform: scale(1.010);
@@ -138,14 +133,34 @@ button:active {
   width: auto;
   height: auto;
   padding: 0.3rem 1rem;
-  font-size: 0.6em;
-}
-.start-search {
-  margin: 0;
+  font-size: 0.7em;
+  min-width: 10rem;
+  margin: 0.5rem;
 }
 .range-container {
   text-transform: uppercase;
   font-size: 0.8em;
-  padding: 1rem;
+  padding: 0 0.5rem;
 }
-
+.current-candidates-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.current-candidates-wrapper >  div {
+  width: 49%;
+}
+@media (max-width: 992px) {
+  .current-candidates-wrapper >  div {
+    width: 100%;
+  }
+}
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.start-search {
+  min-width: auto;
+}

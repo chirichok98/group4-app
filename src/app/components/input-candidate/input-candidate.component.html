@@ -26,7 +26,7 @@
         <md-input-container class="">
             <input [(ngModel)]="canInfo.picture" mdInput placeholder="Link on picture">
         </md-input-container>
-        <input type="file" class="form-control" placeholder="Upload CV" (change)="onChange($event)">
+        <input type="file" class="btn form-control" placeholder="Upload CV" (change)="onChange($event)">
     </div>
     <div class="header-info">Contacts</div>
     <contacts-form [(contact)]="canInfo.contact"></contacts-form>

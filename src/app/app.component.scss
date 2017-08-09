@@ -1,14 +1,10 @@
-app-footer {
-    flex: 1 0 auto;
-}
-
 .go-back {
     position: fixed;
     height: 100%;
-    width: 4%;
-    left: 6%;
+    width: 8%;
+    left: 1.5%;
     background: #fff;
-    opacity: 0.1;
+    opacity: 0.2;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -21,5 +17,10 @@ md-icon {
     width: 40px;
 }
 .go-back:hover {
-    opacity: 0.3;
+    opacity: 0.5;
+}
+@media (max-width: 992px) {
+    .go-back {
+        display: none;
+    }
 }

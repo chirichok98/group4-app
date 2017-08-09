@@ -93,6 +93,12 @@ edit-candidate {
   edit-position {
     padding: 0.5rem;
   }
+  .basket .card .card-image {
+    display: none;
+  }
+  .basket .card-content .name {
+    width: 100%!important;
+  }
 }
 /*-----------------Scrollbar-----------------*/
 ::-webkit-scrollbar {

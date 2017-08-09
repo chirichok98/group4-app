@@ -146,29 +146,34 @@
             </ng-container>
         </div>
     </div>
-    <button class="download-cv"  (click)="getCV()">Download CV</button>
+    <button class="download-cv simple-btn"  (click)="getCV()">Download CV</button>
     <button (click)="goToEditForm()">Edit</button>
-    <div class="header-info">Current positions</div>
-    <div class="positions-list-wrap">
-        <div class="positions-list-mini" *ngFor="let item of candidate.vacancies; let index = index">
-            <md-icon class="pos-remove" (click)="removePosition(item.id, index)">close</md-icon>
-            <position-preview-mini [position]="item"></position-preview-mini>
-        </div>
-    </div>
-
-    <div class="search-wrap" *ngIf="can.candidatePrimarySkill">
-        <div class="range-container">From Primary skill
-            <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
-            to Secondary skill(s)
-        </div>
-        <button class="simple-btn start-search" (click)="autoSearch()">search</button>
-        <div class="positions-list-wrap">
-            <div class="positions-list-mini" *ngFor="let vac of possiblePositions">
-                <md-icon class="pos-add" (click)="assignPosition(vac.id)">add</md-icon>
-                <position-preview-mini [position]="vac"></position-preview-mini>
+    <div class="current-positions-wrapper">
+        <div>
+            <div class="header-info">Current positions</div>
+            <div class="positions-list-wrap">
+                <div class="positions-list-mini" *ngFor="let item of candidate.vacancies; let index = index">
+                    <md-icon class="pos-remove" (click)="removePosition(item.id, index)">close</md-icon>
+                    <position-preview-mini [position]="item"></position-preview-mini>
+                </div>
             </div>
         </div>
-        <button class="simple-btn" *ngIf="possiblePositions.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+        <div class="search-wrap" *ngIf="can.candidatePrimarySkill">
+            <div class="header-info">Search</div>
+            <div class="search-wrapper">
+                <div class="range-container">Primary skill
+                    <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>Secondary skill(s)
+                </div>
+                <button class="simple-btn start-search" (click)="autoSearch()">search</button>
+            </div>
+            <div class="positions-list-wrap">
+                <div class="positions-list-mini" *ngFor="let vac of possiblePositions">
+                    <md-icon class="pos-add" (click)="assignPosition(vac.id)">add</md-icon>
+                    <position-preview-mini [position]="vac"></position-preview-mini>
+                </div>
+            </div>
+            <button class="simple-btn" *ngIf="possiblePositions.length" [hidden]="hasNoVac" (click)="nextPage()">show more</button>
+        </div>
     </div>
 </div>
 
