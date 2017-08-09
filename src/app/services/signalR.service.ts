@@ -17,7 +17,7 @@ export class SignalRService {
     
     const notifications = $.connection.notifications;
 
-    $.connection.hub.url = 'http://kbback.azurewebsites.net/signalr/hubs';
+    $.connection.hub.url = 'http://knowbase.azurewebsites.net/signalr/hubs';
 
     $.connection.hub.qs = { bearer: context.cookie.getToken() };
 

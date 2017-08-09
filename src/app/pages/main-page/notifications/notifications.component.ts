@@ -32,6 +32,7 @@ export class NotificationsComponent {
 
   ngDoCheck() {
     this.role = this.cookie.getRole();
+    console.log(this.notifications);
   }
   
   markAsRead(): void {

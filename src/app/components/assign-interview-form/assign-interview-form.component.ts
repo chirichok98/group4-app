@@ -105,6 +105,7 @@ export class AssignInterviewFormComponent implements DoCheck {
   sendInterview() {
     this.setDate();
     this.interview.candidate = this.data.id;
+    console.log(this.interview);
     this.iService.assignInterview(this.type, this.interview)
       .then((res: any) => {
         this.snackService.showSnack('Interview successfully assigned', 'SUCCESS');
@@ -119,6 +120,7 @@ export class AssignInterviewFormComponent implements DoCheck {
   }
 
   sendEmail(obj: any, reciever: string): void {
+    console.log(obj);
     console.log(obj);
     this.iService.sendEmail(this.candidate)
       .then((res: any) => {

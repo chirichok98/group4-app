@@ -14,11 +14,11 @@ export class InterviewFeedbackComponent implements OnInit {
   result: any = {};
   engLevel: IGeneral[] = [];
 
-  constructor(@Inject(MD_DIALOG_DATA) public data: any,
-              public dialogRef: MdDialogRef<InterviewFeedbackComponent>,
-              private snackService: SnackbarService,
-              private iService: InterviewService,
-              private dService: DictionariesService) {
+  constructor( @Inject(MD_DIALOG_DATA) public data: any,
+    public dialogRef: MdDialogRef<InterviewFeedbackComponent>,
+    private snackService: SnackbarService,
+    private iService: InterviewService,
+    private dService: DictionariesService) {
     this.dService.getEnglishLevel()
       .then(eng => this.engLevel = eng);
   }
@@ -30,7 +30,11 @@ export class InterviewFeedbackComponent implements OnInit {
     this.iService.sendInterviewFeedback(this.result, this.data.type)
       .then((res: any) => {
         this.dialogRef.close();
+        this.snackService.showSnack('Feedback was sended', 'ERROR');
         console.log(res);
-      }, (err: any) => console.log(err));
+      }, (err: any) => { 
+        this.snackService.showSnack('Can`t send feedback', 'ERROR');
+        console.log(err); 
+      });
   }
 }

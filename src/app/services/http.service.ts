@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HttpService {
-  BASE_URL = 'http://kbback.azurewebsites.net';
+  BASE_URL = 'http://knowbase.azurewebsites.net';
   DEF_HEADERS: Headers;
   AUTH_HEADERS = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   token: string;
@@ -79,9 +79,10 @@ export class HttpService {
 
   put(url: string, body: any, cb): Promise<any> {
     this.appendAuth(this.DEF_HEADERS);
+    console.log(this.DEF_HEADERS);
     const urls: string = this.concatUrl(this.BASE_URL, url, false);
     const obj: string = cb(body);
-    // console.log(this.stringify(body));
+    console.log(this.stringify(body));
     const options = new RequestOptions({ headers: this.DEF_HEADERS });
     return this.http.put(urls, obj, options)
       .toPromise();
@@ -111,28 +112,26 @@ export class HttpService {
 
   exportFile(id, path: string): Observable<Object[]> {
     return Observable.create((observer: any) => {
-      // const xhr = new XMLHttpRequest();
-      // // tslint:disable-next-line:max-line-length
-      // xhr.open('GET', this.concatUrl(this.BASE_URL, path, false), true);
-      // xhr.setRequestHeader('Content-type', 'application/json');
-      // const token: any = this.cookie.getToken();
-      // xhr.setRequestHeader('Authorization', `Bearer ${token}`);
-      // xhr.responseType = 'blob';
+      const xhr = new XMLHttpRequest();
+      // tslint:disable-next-line:max-line-length
+      xhr.open('GET', this.concatUrl(this.BASE_URL, path, false), true);
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.responseType = 'blob';
 
-      // xhr.onreadystatechange = function () {
-      //   if (xhr.readyState === 4) {
-      //     if (xhr.status === 200) {
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
 
-      //       const contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-      //       const blob = new Blob([xhr.response], { type: contentType });
-      //       observer.next(blob);
-      //       observer.complete();
-      //     } else {
-      //       observer.error(xhr.response);
-      //     }
-      //   }
-      // };
-      // xhr.send();
+            const contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+            const blob = new Blob([xhr.response], { type: contentType });
+            observer.next(blob);
+            observer.complete();
+          } else {
+            observer.error(xhr.response);
+          }
+        }
+      };
+      xhr.send();
 
     });
   }

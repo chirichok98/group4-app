@@ -3,13 +3,13 @@
         <div class="type">{{not.notificationType}}</div>
         <div class="date">{{not.date | date:"mediumDate"}}</div>
         <div class="description">{{not.title}}</div>
-        <ng-container *ngIf="not.notificationType === 'Interview' && not.active; else checkbox">
+        <ng-container *ngIf="not.notificationType === 'Interview' && !not.active; else checkbox">
             <div class="feedback-button" (click)="openInterview()">Leave feedback
                 <md-icon>feedback</md-icon>
             </div>
         </ng-container>
         <ng-template #checkbox>
-            <ng-container *ngIf="not.active">
+            <ng-container *ngIf="!not.active">
                 <md-checkbox [checked]="isChecked" (change)="markAsRead()">mark as read</md-checkbox>
             </ng-container>
 
