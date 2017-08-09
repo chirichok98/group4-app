@@ -72,7 +72,6 @@ export class EditCandidateComponent implements OnInit {
     const can: any = Object.assign({}, this.candidate);
     this.checkEmptyFields(can);
 
-    console.log(can);
     this.sendRequest(can, resume);
   }
 

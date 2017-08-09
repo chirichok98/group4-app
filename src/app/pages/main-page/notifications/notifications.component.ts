@@ -38,7 +38,6 @@ export class NotificationsComponent {
     const ids: number[] = this.cookie.getCheckedNotifications();
     this.nService.updateNotificationsStatuses(ids)
       .then((res: any) => {
-        console.log(res);
         ids.forEach((i: number) => {
           const index: number = this.notifications.findIndex(item => item.id === i);
           this.notifications.splice(index, 1);
@@ -68,7 +67,6 @@ export class NotificationsComponent {
   getAll(): void {
     this.nService.getAllNotifications(this.skip, this.amount)
       .then((res: any) => {
-        console.log(res.length);
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;
@@ -78,7 +76,6 @@ export class NotificationsComponent {
   getInterviews(skip: number, amount: number): void {
     this.nService.getInterviewNotifications(this.skip, this.amount)
       .then((res: any) => {
-        console.log(res.length);
         if (res.length < this.amount) this.hasMore = false;
         this.notifications = this.notifications.concat(res);
         this.isSpinnerVisible = false;

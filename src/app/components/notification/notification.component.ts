@@ -25,7 +25,6 @@ export class NotificationComponent implements DoCheck {
   ngDoCheck() {
     const checked: number[] = this.cookie.getCheckedNotifications();
     if (this.notification) {
-      console.log(this.notification);
       if (checked.includes(this.notification.id)) {
         this.isChecked = true;
       }

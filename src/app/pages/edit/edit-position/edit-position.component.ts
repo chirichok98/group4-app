@@ -45,7 +45,6 @@ export class EditPositionComponent implements OnInit {
   checkEmptyFields(obj: any): void {
     obj.primarySkill = this.configureSkill(obj.primarySkill);
     obj.secondarySkills = obj.secondarySkills.map(i => this.configureSkill(i));
-    console.log(obj);
 
     Object.keys(obj).forEach((i: any) => {
       if (!obj[i] || (Array.isArray(obj[i]) && !obj[i].length)) {

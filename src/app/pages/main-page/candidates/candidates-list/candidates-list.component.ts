@@ -31,7 +31,6 @@ export class CandidatesListComponent {
       $('.search-button').trigger('click');
     }, 0);
     transferService.getData().subscribe((data) => {
-      // console.log(data);
       this.candidates = [];
       this.paramsQueue = [];
       document.body.scrollTop = 0;
@@ -75,7 +74,6 @@ export class CandidatesListComponent {
     this.pagerService.showMore(params, amount, searchData, sortData)
       .then(res => res.json())
       .then((candidates) => {
-        console.log(candidates);
         this.candidates = this.candidates.concat(candidates);
         this.isSpinnerVisible = false;
         if (this.paramsQueue.length) {
