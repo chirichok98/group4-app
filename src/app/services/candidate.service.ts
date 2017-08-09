@@ -3,6 +3,7 @@ import { HttpService } from './http.service';
 import { ICandidatePreview } from '../interfaces/ICandidatePreview';
 import { ICandidateDetail } from '../interfaces/ICandidateDetail';
 import { IPositionPreview } from '../interfaces/IPositionPreview';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CandidateService {
@@ -38,7 +39,7 @@ export class CandidateService {
       url,
       {
         candidates: can,
-        positions: vac,
+        vacancies: vac,
       },
       this.httpService.stringify);
     return res;
@@ -78,9 +79,9 @@ export class CandidateService {
     return this.httpService.postFile(url, formData);
   }
 
-  downloadCV(id: number): Promise<any> {
+  downloadCV(id: number): Observable<any> {
     const url: string = `api/file/candidate/resume/get/${id}`;
-    return this.httpService.get(url, null);
+    return this.httpService.exportFile.call(this.httpService, id, url);
   }
 
   getInterviewFedbacks(id: number, type: string): Promise<any> {
@@ -88,4 +89,6 @@ export class CandidateService {
     return this.httpService.get(url, null)
       .then(res => res.json());
   }
+
+  
 }
