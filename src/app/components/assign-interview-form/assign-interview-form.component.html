@@ -29,27 +29,27 @@
             </div>
 
             <div class="addition">
-                Example
+                <!--Example-->
                 <div class="candidate">
-                    Candidate info
+                    <!--<div class="header-info">Candidate info</div>-->
                     <md-input-container class="">
                         <input type="email" required [(ngModel)]="candidate.recipient" mdInput placeholder="Candidate email">
                     </md-input-container>
                     <md-input-container class="">
                         <input type="text" [(ngModel)]="candidate.subject" mdInput placeholder="Email header">
                     </md-input-container>
-                    <textarea [(ngModel)]="candidate.body" placeholder="'Email text'"></textarea>
+                    <textarea class="text-container" placeholder="Text" [(ngModel)]="candidate.body"></textarea>
                 </div>
 
                 <div class="interviewer">
-                    Interviewer info
+                    <!--<div class="header-info">Interviewer info</div>-->
                     <md-input-container class="">
                         <input type="email" required [(ngModel)]="interviewer.recipient" mdInput placeholder="Interviewer email">
                     </md-input-container>
                     <md-input-container class="">
                         <input type="text" [(ngModel)]="interviewer.subject" mdInput placeholder="Email header">
                     </md-input-container>
-                    <textarea [(ngModel)]="interviewer.body" placeholder="Email text"></textarea>
+                    <textarea class="text-container" [(ngModel)]="interviewer.body" placeholder="Text"></textarea>
                 </div>
             </div>
         </div>

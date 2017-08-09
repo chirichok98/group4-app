@@ -26,10 +26,10 @@ export class AssignInterviewFormComponent implements DoCheck {
 
   interview: any = {};
   interviewer: any = {
-    body: `Text for interviewer`,
+    body: ``,
   };
   candidate: any = {
-    body: `Text for candidate`,
+    body: ``,
   };
 
   constructor(@Inject(MD_DIALOG_DATA) public data: any,
