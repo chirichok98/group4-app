@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'interview-result',
-    templateUrl: 'interview-result.component.html',
-      styleUrls: ['interview-result.component.scss'],
+  selector: 'interview-result',
+  templateUrl: 'interview-result.component.html',
+  styleUrls: ['interview-result.component.scss'],
 })
 
 export class InterviewResultComponent implements OnInit {
-    constructor() { }
+  @Input() interview: any = {};
+  @Input() type: string;
+  
+  constructor() { }
 
-    ngOnInit() { }
+  ngOnInit() { }
 }

@@ -12,6 +12,7 @@ import { CandidateService } from '../../services/candidate.service';
 import { RangeFormModule } from '../range-form/range-form.module';
 // tslint:disable-next-line:max-line-length
 import { PositionPreviewCardMiniModule } from '../position-preview-mini/position-preview-mini.module';
+import { InterviewResultModule } from '../interview-result/interview-result.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PositionPreviewCardMiniModule } from '../position-preview-mini/position
     AssignInterviewFormModule,
     RangeFormModule,
     PositionPreviewCardMiniModule,
+    InterviewResultModule,
   ],
   exports: [CandidateDetailComponent],
   declarations: [CandidateDetailComponent],

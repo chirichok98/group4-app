@@ -82,4 +82,10 @@ export class CandidateService {
     const url: string = `api/file/candidate/resume/get/${id}`;
     return this.httpService.get(url, null);
   }
+
+  getInterviewFedbacks(id: number, type: string): Promise<any> {
+    const url: string = `api/interview/${type}/bycandidate/${id}`;
+    return this.httpService.get(url, null)
+      .then(res => res.json());
+  }
 }

@@ -1,34 +1,47 @@
-<div class="interview-result-wrapper">
+<div *ngIf="interview" class="interview-result-wrapper">
     <div class="item-wrap">
-        <div class="item-name">City</div>
-        <div class="item-value">{{city}}</div>
-    </div>  
+        <span class="item-name">Status:</span>
+        <span class="item-value">{{interview.status}}</span>
+    </div>
     <div class="item-wrap">
-        <div class="item-name">Commentary</div>
-        <div class="item-value">{{commentary}}</div>
-    </div> 
+        <span class="item-name">City:</span>
+        <span *ngIf="interview.city; else none" class="item-value">{{interview.city}}</span>
+    </div>
     <div class="item-wrap">
-        <div class="item-name">Date</div>
-        <div class="item-value">{{date}}</div>
-    </div> 
+        <span class="item-name">Date:</span>
+        <span *ngIf="interview.date; else none" class="item-value">{{interview.date | date: 'mediumDate'}}</span>
+    </div>
+    <ng-container *ngIf="type==='tech'">
+        <div class="item-wrap">
+            <span class="item-name">Tech skill:</span>
+            <span *ngIf="interview.techSkill; else none" class="item-value">{{interview.techSkill}}</span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="type==='general'">
+        <div class="item-wrap">
+            <span class="item-name">Status:</span>
+            <span *ngIf="interview.engLevel; else none" class="item-value">{{interview.engLevel}}</span>
+        </div>
+    </ng-container>
+
     <div class="item-wrap">
-        <div class="item-name">Feedback</div>
-        <div class="item-value">{{feedback}}</div>
-    </div>    
+        <span class="item-name">Feedback:</span>
+        <span *ngIf="interview.feedback; else none" class="item-value">{{interview.feedback}}</span>
+    </div>
     <div class="item-wrap">
-        <div class="item-name">Assigned by </div>
-        <div class="item-value">{{name}}</div>
-    </div>    
+        <span class="item-name">Assigned by:</span>
+        <span *ngIf="interview.hrm; else none" class="item-value">{{interview.hrm?.name}}</span>
+    </div>
     <div class="item-wrap">
-        <div class="item-name">Interviewer</div>
-        <div class="item-value">{{interviewer}}</div>
-    </div>   
+        <span class="item-name">Interviewer:</span>
+        <span *ngIf="interview.interviewer; else none" class="item-value">{{interview.interviewer?.name}}</span>
+    </div>
+
     <div class="item-wrap">
-        <div class="item-name">Status</div>
-        <div class="item-value">{{status}}</div>
-    </div>  
-    <div class="item-wrap">
-        <div class="item-name">Skill</div>
-        <div class="item-value">{{techSkill}}</div>
-    </div>  
+        <span class="item-name">Commentary:</span>
+        <span *ngIf="interview.commentary; else none" class="item-value">{{interview.commentary}}</span>
+    </div>
 </div>
+<br>
+
+<ng-template #none></ng-template>

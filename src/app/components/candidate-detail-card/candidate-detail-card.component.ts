@@ -19,10 +19,15 @@ export class CandidateDetailComponent implements DoCheck {
   @Input() candidate: ICandidateDetail;
   possiblePositions: IPositionPreview[] = [];
   coefficient: number;
+  
   skip: number;
   amount: number;
   hasNoVac: boolean = false;
   isAdded: boolean = false;
+
+  isInterviewsShown: boolean = false;
+  techFeedback: any = [];
+  generalFeedback: any = [];
 
   constructor(private router: Router,
               private cookie: MyCookieService,
@@ -131,5 +136,19 @@ export class CandidateDetailComponent implements DoCheck {
   download(): void {
     alert('qq');
     // this.downloadService.downloadFile();
+  }
+
+  getInterviews(): void {
+    this.isInterviewsShown = true;
+    this.cService.getInterviewFedbacks(this.candidate.id, 'tech')
+      .then((res: any) => {
+        this.techFeedback = res;
+        console.log(res);
+      }, (err: any) => console.log(err));
+    this.cService.getInterviewFedbacks(this.candidate.id, 'general')
+      .then((res: any) => {
+        this.generalFeedback = res;
+        console.log(res);
+      }, (err: any) => console.log(err));  
   }
 }

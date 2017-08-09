@@ -16,9 +16,9 @@ export class AppComponent {
   isHomePage: boolean = true;
 
   constructor(private cookie: MyCookieService,
-              private sR: SignalRService,
-              private router: Router,
-              private location: LocationStrategy) {
+    private sR: SignalRService,
+    private router: Router,
+    private location: LocationStrategy) {
     const loggedUser: any = this.cookie.getCookie();
     if (loggedUser) {
       const url: string = this.location.path();
@@ -49,5 +49,27 @@ export class AppComponent {
     this.location.back();
     const url: string = this.location.path();
     this.cookie.updateUrl(url);
+    if (url.includes('edit') || url.includes('create')) {
+      const u: string = this.parseUrl(url);
+      this.cookie.updateUrl(u);
+      this.router.navigate([u]);
+    }
+  }
+
+  parseUrl(url: string): string {
+    let u: string = url;
+    if (u.includes('edit')) {
+      u = u.replace('edit', 'main-page');
+    }
+    if (u.includes('create')) {
+      u = u.replace('create', 'main-page');
+    }
+    if (u.includes('candidate')) {
+      u = u.replace('candidate', 'candidates');
+    }
+    if (u.includes('position')) {
+      u = u.replace('position', 'positions');
+    }
+    return u;
   }
 }

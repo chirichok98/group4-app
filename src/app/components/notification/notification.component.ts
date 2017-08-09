@@ -50,6 +50,7 @@ export class NotificationComponent implements DoCheck {
         id: this.id,
         type: this.type,
         primarySkill: this.skill,
+        notificationId: this.notification.id,
       },
     });
   }

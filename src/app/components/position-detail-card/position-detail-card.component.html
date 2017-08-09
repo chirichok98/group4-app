@@ -76,7 +76,7 @@
             <div class="candidate-skills value" *ngIf="pos.primarySkill as skill; else none">
                 <md-chip-list class="position-skills value">
                     <md-chip>
-                        <div class="position-skill-name">{{skill.name}}</div>
+                        <div class="position-skill-name">{{skill.name}} ({{skill.level}})</div>
                         <!-- : level - {{pos.primarySkill?.level}} -->
                     </md-chip>
                 </md-chip-list>
@@ -98,7 +98,7 @@
                     <ng-template #text>
                         <md-chip-list>
                             <md-chip>
-                                <div class="position-skill-name">{{item.name}}</div>
+                                <div class="position-skill-name">{{item.name}} ({{item.level}})</div>
                             </md-chip>
                         </md-chip-list>
                     </ng-template>
