@@ -50,7 +50,9 @@ export class InputPositionComponent implements DoCheck {
     if (!this.vacInfo.secondarySkills) this.vacInfo.secondarySkills = [];
     if (this.statuses && this.vacInfo.status && !this.changed) {
       this.changed = true;
-      this.vacInfo.status = this.statuses.find(i => i.name === this.vacInfo.status).id;
+      const st: any = this.statuses.find(i => i.name === this.vacInfo.status);
+      if (st)
+        this.vacInfo.status = st.id;
     }
   }
 

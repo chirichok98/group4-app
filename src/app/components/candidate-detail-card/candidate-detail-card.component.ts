@@ -129,24 +129,24 @@ export class CandidateDetailComponent implements DoCheck {
       () => this.snackService.showSnack('Troubles with removing', 'ERROR'));
   }
 
-  // getCV() {
-  //   console.log('start download');
-  //   this.cService.downloadCV(this.candidate.id)
-  //     .subscribe((data: any) => {
-  //       console.log(data);
-  //       this.downloadFile(data);
-  //     }),
-  //     error => console.log('Error downloading the file.'),
-  //     () => console.log('Completed file download.');
-  // }
+  getCV() {
+    console.log('start download');
+    this.cService.downloadCV(this.candidate.id)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.downloadFile(data);
+      }),
+      error => console.log('Error downloading the file.'),
+      () => console.log('Completed file download.');
+  }
 
-  // downloadFile(data) {
-  //   const blob = new Blob([(<any>data)],
-  //     { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-  //   const url = window.URL.createObjectURL(blob);
-  //   window.open(url);
-  //   console.log('here should be downloaded file');
-  // }
+  downloadFile(data) {
+    const blob = new Blob([(<any>data)],
+      { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+    console.log('here should be downloaded file');
+  }
 
   getInterviews(): void {
     this.isInterviewsShown = true;

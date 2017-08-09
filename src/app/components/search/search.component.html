@@ -22,9 +22,6 @@
                         <input [(ngModel)]="search.lastNameEng" mdInput placeholder="Surname(EN)">
                     </md-input-container>
                     <md-input-container class="">
-                        <input [(ngModel)]="search.lastNameRus" mdInput placeholder="Surname(RU)">
-                    </md-input-container>
-                    <md-input-container class="">
                         <input [(ngModel)]="search.phone" mdInput pattern="^[0-9\-\+]{9,15}$" placeholder="Phone">
                     </md-input-container>
                     <select-form [(result)]="search.hrm" [placeholder]="'HR name'" [array]="hr"></select-form>

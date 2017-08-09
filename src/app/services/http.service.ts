@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HttpService {
-  BASE_URL = 'http://knowbase.azurewebsites.net';
+  BASE_URL = 'http://kbback.azurewebsites.net';
   DEF_HEADERS: Headers;
   AUTH_HEADERS = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   token: string;
