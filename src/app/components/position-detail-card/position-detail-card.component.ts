@@ -57,7 +57,7 @@ export class PositionDetailComponent implements DoCheck {
       skip: skip || this.skip,
       amount: amount || this.amount,
       coefficient: this.coefficient,
-      position: this.position.id,
+      vacancy: this.position.id,
     };
     this.vService.autoSearch(obj)
       // .then(res => res.json())

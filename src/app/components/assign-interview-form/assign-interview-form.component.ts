@@ -32,6 +32,8 @@ export class AssignInterviewFormComponent implements DoCheck {
     body: `Text for candidate`,
   };
 
+  isFirst: boolean = true;
+
   constructor(@Inject(MD_DIALOG_DATA) public data: any,
     private iService: InterviewService,
     private dService: DictionariesService,
@@ -61,16 +63,18 @@ export class AssignInterviewFormComponent implements DoCheck {
     let name: string = 'None';
     if (this.type === 'general' && this.hrs.length && this.interview.interviewer) {
       const hrs: any = this.hrs.find(i => i.id === this.interview.interviewer);
-      if (hrs) {
+      if (hrs && this.isFirst) {
         name = hrs.name;
         this.interviewer.recipient = hrs.email;
+        this.isFirst = false;
       }
     }
     if (this.type === 'tech' && this.techs.length && this.interview.interviewer) {
       const techs: any = this.techs.find(i => i.id === this.interview.interviewer);
-      if (techs) {
+      if (techs && this.isFirst) {
         name = techs.name;
         this.interviewer.recipient = techs.email;
+        this.isFirst = false;
       }
     }
     this.candidate.subject = `New interview with ${name}`;
@@ -127,7 +131,10 @@ export class AssignInterviewFormComponent implements DoCheck {
   }
 
   setCalendar(): void {
-    const city: string = this.cities.find(i => i.id === this.interview.city).name;
+    const checkedCity: any = this.cities.find(i => i.id === this.interview.city);
+    console.log(checkedCity);
+    let city: string;
+    if (checkedCity) city = checkedCity.name;
     const obj: any = {
       techEmail: this.interviewer.recipient,
       candidateEmail: this.data.email,

@@ -22,6 +22,7 @@ export class InterviewService {
 
   sendEmail(obj: any): Promise<any> {
     const url: string = `api/mail/send`;
+    console.log(obj);
     return this.httpService.post(url,
       obj,
       this.httpService.DEF_HEADERS,

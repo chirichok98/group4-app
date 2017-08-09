@@ -26,7 +26,7 @@ export class InterviewFeedbackComponent implements OnInit {
   ngOnInit() { }
 
   sendResult() {
-    this.iService.sendInterviewFeedback(this.result, 'tech')
+    this.iService.sendInterviewFeedback(this.result, this.data.type)
       .then(res => console.log(res));
   }
 }
