@@ -85,25 +85,27 @@
 }
 .news .notification-icon {
   position: absolute;
-  font-size: 0.7em;
-  color: #56CCF2;
   top: 2px;
   right: 60px;
 }
 .news.active .notification-icon {
-  color: #fff;
-  font-size: 0.6em;
   right: 62px;
 }
 .notifications .notification-icon {
   position: absolute;
+  top: 0;
+  right: 18px;
+}
+.news .notification-icon .badge,
+.notifications .notification-icon .badge {
   font-size: 0.7em;
   color: #56CCF2;
-  top: 2px;
-  right: 23px;
 }
 .notifications.active .notification-icon {
+  right: 18px;
+}
+.news.active .notification-icon .badge,
+.notifications.active .notification-icon .badge {
   color: #fff;
   font-size: 0.6em;
-  right: 23px;
 }
