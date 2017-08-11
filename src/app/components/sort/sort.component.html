@@ -1,0 +1,34 @@
+<div class="filter-block">
+    <div class="form">
+        <div class="more-options-wrapper" *ngIf="isCandidate">
+            <div class="sort-header">Sort by</div>
+            <div class="option creation-date" (click)="checkSortState('candidate')">
+                <span class="creation-date">Creation date</span>
+                <i class="material-icons creation-date creation-date-icon">play_arrow</i>
+            </div>
+            <div class="option last-contact-date" (click)="checkSortState('candidate')">
+                <span class="last-contact-date">Last contact date</span>
+                <i class="material-icons last-contact-date last-contact-date-icon">play_arrow</i>
+            </div>
+            <div class="option remind-date" (click)="checkSortState('candidate')">
+                <span class="remind-date">Remind date</span>
+                <i class="material-icons remind-date remind-date-icon">play_arrow</i>
+            </div>
+        </div>
+        <div class="more-options-wrapper" *ngIf="isPosition">
+            <div class="sort-header">Sort by</div>
+            <div class="option start-date" (click)="checkSortState('position')">
+                <span class="start-date">Start date</span>
+                <i class="material-icons start-date start-date-icon">play_arrow</i>
+            </div>
+            <div class="option close-date" (click)="checkSortState('position')">
+                <span class="close-date">Closure date</span>
+                <i class="material-icons close-date close-date-icon">play_arrow</i>
+            </div>
+            <div class="option request-date" (click)="checkSortState('position')">
+                <span class="request-date">Request date</span>
+                <i class="material-icons request-date request-date-icon">play_arrow</i>
+            </div>
+        </div>
+    </div>
+</div>

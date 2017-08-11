@@ -1,5 +1,5 @@
-<div class="card" (click)="goToDetailView()">
-    <div class="card-image" *ngIf="candidate.picture; else default">
+<md-card class="card" (click)="goToDetailView()">
+    <div class="card-image hide-on-med-and-down" *ngIf="candidate.picture; else default">
         <img [src]="candidate.picture" alt="photo">
     </div>
     <ng-template #default>
@@ -9,9 +9,54 @@
     </ng-template>
     <div class="card-stacked">
         <div class="card-content">
-            <div class="name">{{candidate.firstNameEng}} {{candidate.lastNameEng}}</div>
-            <div class="phone"><i class="small material-icons candidate-phone">call</i>{{candidate.phone}}</div>
-            <div class="email"><i class="small material-icons candidate-email">email</i>{{candidate.email}}</div>
+            <div class="name" *ngIf="candidate.firstNameEng || candidate.lastNameEng; else anon">
+                <ng-container *ngIf="candidate.firstNameEng">
+                    {{candidate.firstNameEng}}
+                </ng-container>
+                <ng-container *ngIf="candidate.lastNameEng">
+                    {{candidate.lastNameEng}}
+                </ng-container>
+            </div>
+            <ng-template #anon>
+                <div class="name">Anonymous</div>
+            </ng-template>
+            <div class="phone content-wrapper">
+                <i class="small material-icons candidate-phone">call</i>
+                <ng-container *ngIf="candidate.phone; else none">
+                    {{candidate.phone}}
+                </ng-container>
+            </div>
+            <div class="email content-wrapper">
+                <i class="small material-icons candidate-email">email</i>
+                <ng-container *ngIf="candidate.email; else none">
+                    {{candidate.email}}
+                </ng-container>
+            </div>
+            <div class="skype content-wrapper">
+                <i class="feedback-logotypes"></i>
+                <ng-container *ngIf="candidate.skype; else none">
+                    {{candidate.skype}}
+                </ng-container>
+            </div>
+            <div class="skill content-wrapper">
+                <md-chip-list>
+                    <md-chip>
+                        <ng-container *ngIf="candidate.primarySkill as skill; else none">{{skill}}</ng-container>
+                    </md-chip>
+                </md-chip-list>
+            </div>
+            <div class="status-wrapper">
+                <div class="status">{{candidate.status}}</div>
+            </div>
         </div>
     </div>
-</div>
+    <span *ngIf="showBasket" (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store <md-icon>library_add</md-icon>
+    </span>
+</md-card>
+
+<ng-template #none>
+    none
+</ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { ContactsFormComponent } from '../contacts-form/contacts-form.component';
 
 @Component({
@@ -6,15 +6,13 @@ import { ContactsFormComponent } from '../contacts-form/contacts-form.component'
   templateUrl: 'prev-job-form.component.html',
   styleUrls: ['prev-job-form.component.scss'],
 })
-export class PrevJobFormComponent implements OnInit, AfterViewInit {
-  @ViewChild('contacts') private contactsForm: ContactsFormComponent;
-  prevJob: any = {};
+export class PrevJobFormComponent implements DoCheck {
+  @Input() prevJob: any = {};
+  @Output() prevJobChange: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
-  ngOnInit() { }
-
-  ngAfterViewInit() {
-    this.prevJob.contact = this.contactsForm.contact;
+  ngDoCheck() {
+    this.prevJobChange.emit(this.prevJob);
   }
-  
 }

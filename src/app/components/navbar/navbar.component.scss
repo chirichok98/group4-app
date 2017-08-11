@@ -1,62 +1,111 @@
 .navbar {
   height: auto;
   width: 100%;
-  vertical-align: center;
-  color: #424242;
+  color: #273248;
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-
 .navbar-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
-
 .navbar-states {
   display: flex;
 }
-
-.navbar-elem {
-  height: 100%;
+.navbar-states .navbar-elem {
   padding: 0.5rem 1.5rem;
+  width: 5rem;
+  width: 8rem;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
 }
 .navbar-elem span {
   font-size: 1em;
+  line-height: 1.5rem;
+  text-transform: uppercase;
 }
-
 .navbar-icon {
-  margin: 0;
-  padding: 0.25rem;
+  padding: 5px 25px;
   font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  color: #374767;
 }
-
-.navbar-elem.active {
+.navbar-icon:hover,
+.navbar-icon:active {
+  color: #52c1e6;
+  cursor: pointer;
+}
+.navbar-states .navbar-elem.active {
   transform: scale(1.1);
   background: #52c1e6;
   color: #fff;
+  z-index: 10;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-.navbar-elem:hover {
+.navbar-states .navbar-elem:hover {
   cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);  
 }
-.material-icons.search {
-   color: #424242;
-   margin: 0 1rem;
+.mat-menu-item:hover {
+    background: #56CCF2;
+    color: #fff;
 }
-.material-icons.search:hover {
-   color: #52c1e6; 
-   cursor: pointer;
+.mat-menu-item.active {
+  color: #56CCF2;
 }
-i::selection,
-div::selection,
-img::selection {
-  background: transparent;
+.navbar .mat-icon {
+  padding: 5px 25px;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  color: #374767;
 }
-
-.nb-icon {
-  height: 2.5rem;
-  padding-left: 0.35rem;
-  padding-right: 0.35em;
+.navbar .mat-icon:hover,
+.navbar .mat-icon:active {
+  color: #52c1e6;
+  cursor: pointer;
+}
+.mat-menu-item.active:hover {
+    background: #56CCF2;
+    color: #fff;
+}
+.navbar-states-hidden,
+.navbar md-menu {
+  display: none;
+}
+@media (max-width: 1070px) {
+  .navbar-states {
+    display: none;
+  }
+  .navbar-states-hidden {
+    display: block;
+  }
+}
+.news .notification-icon {
+  position: absolute;
+  top: 2px;
+  right: 60px;
+}
+.news.active .notification-icon {
+  right: 62px;
+}
+.notifications .notification-icon {
+  position: absolute;
+  top: 0;
+  right: 18px;
+}
+.news .notification-icon .badge,
+.notifications .notification-icon .badge {
+  font-size: 0.7em;
+  color: #56CCF2;
+}
+.notifications.active .notification-icon {
+  right: 18px;
+}
+.news.active .notification-icon .badge,
+.notifications.active .notification-icon .badge {
+  color: #fff;
+  font-size: 0.6em;
 }

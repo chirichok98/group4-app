@@ -1,0 +1,36 @@
+<div class="interview-feedback-wrap">
+    <div class="title">Please leave feedback</div>
+    <div *ngIf="data.type==='tech'">
+        <div class="skill"><span>Primary skill:</span><span class="skill-name">{{data.primarySkill}}</span></div>
+        <div class="mark"><span>Mark:</span>
+            <range-form [min]="1" max="4" [(range)]="result.mark"></range-form>
+        </div>
+    </div>
+    <div class="feedback-container" *ngIf="data.type==='general'">
+        <div class="feedback-block">
+            <md-input-container class="">
+                <input [(ngModel)]="result.jobChangeReason" mdInput placeholder="Job change reason">
+            </md-input-container>
+        </div>
+        <datepicker-form [(date)]="result.whenCanStart" [placeholder]="'When can start'"></datepicker-form>
+        <div class="feedback-block">
+            <span>Ready for business trips:</span> <md-checkbox [(ngModel)]="result.readyForBusinessTrips"></md-checkbox>
+        </div>
+        <div class="feedback-block">
+            <div class="interest-header">Interests:</div>
+            <textarea class="text-container" [(ngModel)]="result.interests"></textarea>
+        </div>
+        <div class="feedback-block">
+            <md-input-container class="">
+                <input [(ngModel)]="result.salaryExpectations" mdInput type="number" placeholder="Salary expectations">
+            </md-input-container>
+        </div>
+        <select-form [(result)]="result.engLevel" [placeholder]="'English level'" [array]="engLevel"></select-form>
+
+    </div>
+    <textarea class="text-container" [(ngModel)]="result.feedback"></textarea>
+    <md-dialog-actions>
+        <button md-button (click)="sendResult()">Submit</button>
+        <button md-button [md-dialog-close]="true">Cancel</button>
+    </md-dialog-actions>
+</div>

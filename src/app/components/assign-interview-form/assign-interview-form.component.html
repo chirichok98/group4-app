@@ -1,0 +1,63 @@
+<md-dialog-content class="assign-interview-form-inner">
+    <md-radio-group class="example-radio-group" [(ngModel)]="type">
+        <md-radio-button value="general">HR manager</md-radio-button>
+        <md-radio-button value="tech">Tech specialist</md-radio-button>
+        <md-radio-button value="customer">Customer</md-radio-button>
+    </md-radio-group>
+    <div *ngIf="type">
+        <div class="content">
+            <div class="main_info">
+                <select-form *ngIf="type !== 'customer'" [(result)]="interview.city" [placeholder]="'Choose city'" [array]="cities"></select-form>
+                <select-form *ngIf="type !== 'customer' && type !=='general'" [(result)]="interview.techSkill" [placeholder]="'Choose skill'"
+                    [array]="skills"></select-form>
+                <!--<input type="datetime-local">-->
+                <datepicker-form [(date)]="date" [placeholder]="'Choose date'"></datepicker-form>
+                <div>
+                    <md-input-container class="time-container">
+                        <input type="time" [(ngModel)]="time.from" mdInput placeholder="Choose time">
+                    </md-input-container>
+                </div>
+                <ng-container *ngIf="type==='general'">
+                    <select-form [(result)]="interview.interviewer" [placeholder]="'HR manager name'" [array]="hrs"></select-form>
+                </ng-container>
+                <ng-container *ngIf="type==='tech'">
+                    <select-form [(result)]="interview.interviewer" [placeholder]="'Tech specialist name'" [array]="techs"></select-form>
+                </ng-container>
+                <div>
+                    <textarea class="text-container" placeholder="Comments" [(ngModel)]="interview.commentary"></textarea>
+                </div>
+            </div>
+
+            <div class="addition">
+                <!--Example-->
+                <div class="candidate">
+                    <!--<div class="header-info">Candidate info</div>-->
+                    <md-input-container class="">
+                        <input type="email" required [(ngModel)]="candidate.recipient" mdInput placeholder="Candidate email">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input type="text" [(ngModel)]="candidate.subject" mdInput placeholder="Email header">
+                    </md-input-container>
+                    <textarea class="text-container" placeholder="Text" [(ngModel)]="candidate.body"></textarea>
+                </div>
+
+                <div class="interviewer">
+                    <!--<div class="header-info">Interviewer info</div>-->
+                    <md-input-container class="">
+                        <input type="email" required [(ngModel)]="interviewer.recipient" mdInput placeholder="Interviewer email">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input type="text" [(ngModel)]="interviewer.subject" mdInput placeholder="Email header">
+                    </md-input-container>
+                    <textarea class="text-container" [(ngModel)]="interviewer.body" placeholder="Text"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <md-dialog-actions>
+            <button md-button (click)="sendInterview()">Submit</button>
+            <button md-button [md-dialog-close]="true">Cancel</button>
+        </md-dialog-actions>
+    </div>
+
+</md-dialog-content>

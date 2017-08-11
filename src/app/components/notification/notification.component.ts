@@ -1,12 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, DoCheck, Output, EventEmitter } from '@angular/core';
 
 import { INotificationOption } from '../../interfaces/INotificationOption';
-
-export enum NotificationType {
-  Reminders,
-  News,
-  Assignments,
-}
+import { MdDialog } from '@angular/material';
+import { InterviewFeedbackComponent } from '../interview-feedback/interview-feedback.component';
+import { MyCookieService } from '../../services/cookie.service';
 
 @Component({
   selector: 'notification',
@@ -14,12 +11,47 @@ export enum NotificationType {
   styleUrls: ['notification.component.scss'],
 })
 
-export class NotificationComponent implements OnInit {
+export class NotificationComponent implements DoCheck {
   @Input() notification: INotificationOption;
-  currentNotification: INotificationOption;
-  constructor() { }
 
-  ngOnInit() {
-    this.currentNotification = this.notification;
+  type: string;
+  id: number;
+  skill: string;
+  isChecked: boolean = false;
+
+  constructor(public dialog: MdDialog,
+              private cookie: MyCookieService) { }
+
+  ngDoCheck() {
+    const checked: number[] = this.cookie.getCheckedNotifications();
+    if (this.notification) {
+      if (checked.includes(this.notification.id)) {
+        this.isChecked = true;
+      }
+      if (this.notification.techInterview) {
+        this.type = 'tech';
+        this.id = this.notification.techInterview.id;
+        this.skill = this.notification.techInterview.techSkill;
+      }
+      if (this.notification.generalInterview) {
+        this.type = 'general';
+        this.id = this.notification.generalInterview.id;
+      }
+    }
+  }
+
+  markAsRead() {
+    this.cookie.toggleChecked(this.notification.id);
+  }
+
+  openInterview() {
+    this.dialog.open(InterviewFeedbackComponent, {
+      data: {
+        id: this.id,
+        type: this.type,
+        primarySkill: this.skill,
+        notificationId: this.notification.id,
+      },
+    });
   }
 }

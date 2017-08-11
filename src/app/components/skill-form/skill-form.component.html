@@ -1,4 +1,4 @@
-<div class="row">
-  <select-form #select [placeholder]="Skill" [array]="array"></select-form>
-  <range-form #range [min]="1" [max]="4"></range-form>
-</div>
+<ng-container *ngIf="array?.length">
+    <select-form [(result)]="skill.id" [placeholder]="'Skill'" [array]="array"></select-form>
+    <range-form [(range)]="skill.level" [min]="1" [max]="4"></range-form>
+</ng-container>

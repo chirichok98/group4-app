@@ -1,0 +1,4 @@
+<div class="crumbs-wrapper">
+    <!--div class="crumb-main">MAIN PAGE</div-->
+    <div class="crumb" *ngFor="let item of array" (click)="navigate(item.url)">{{item.name}}</div>
+</div>

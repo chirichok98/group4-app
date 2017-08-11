@@ -1,43 +1,104 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { INotificationOption } from '../../../interfaces/INotificationOption';
-import { NotificationType } from '../../../components/notification/notification.component';
+import { NotificationService } from '../../../services/notifications.service';
+import { MyCookieService } from '../../../services/cookie.service';
+
+declare const $;
 
 @Component({
   selector: 'notifications',
   templateUrl: 'notifications.component.html',
   styleUrls: ['notifications.component.scss'],
 })
+export class NotificationsComponent {
+  notifications: INotificationOption[] = [];
+  isSpinnerVisible: boolean = true;
+  type: any;
+  role: number;
 
-export class NotificationsComponent implements OnInit {
-  notifications: INotificationOption[] = [
-    {
-      type: NotificationType[NotificationType.Reminders],
-      date: new Date(2017, 7, 16),
-      description: 'You have the Interview with Artem Krotov',
-    },
-    {
-      type: NotificationType[NotificationType.News],
-      date: new Date(2017, 6, 14),
-      description: 'You created the new candidate card for Artem Krotov',
-    },
-    {
-      type: NotificationType[NotificationType.Assignments],
-      date: new Date(2017, 7, 10),
-      description: 'Natasha assigned the Vladislav Popov candidate to you',
-    },
-    {
-      type: NotificationType[NotificationType.Assignments],
-      date: new Date(2017, 7, 10),
-      description: 'Natasha assigned the Vladislav Popov candidate to you',
-    },
-    {
-      type: NotificationType[NotificationType.News],
-      date: new Date(2017, 6, 14),
-      description: 'You created the new candidate card for Artem Krotov',
-    },
-  ];
-  constructor() { }
+  unseenAmount: number;
 
-  ngOnInit() { }
+  skip: number;
+  amount: number;
+  hasMore: boolean;
+
+  constructor(private nService: NotificationService,
+              private cookie: MyCookieService) {
+    this.initPag(0, 10);
+    this.getByType(2);
+  }
+
+
+  ngDoCheck() {
+    this.role = this.cookie.getRole();
+    console.log(this.notifications);
+  }
+  
+  markAsRead(): void {
+    const ids: number[] = this.cookie.getCheckedNotifications();
+    this.nService.updateNotificationsStatuses(ids)
+      .then((res: any) => {
+        ids.forEach((i: number) => {
+          const index: number = this.notifications.findIndex(item => item.id === i);
+          this.notifications.splice(index, 1);
+        });
+        this.cookie.initCheckedNotifications();
+      }, (err: any) => console.log(err));
+  }
+
+  getByType(id: number): void {
+    this.notifications = [];
+    this.initPag(0, 10);
+    this.type = this.getFunctionByType(id);
+    this.type();
+  }
+
+  initPag(skip: number, amount: number): void {
+    this.hasMore = true;
+    this.skip = skip || 0;
+    this.amount = amount || 10;
+  }
+
+  nextPage(): void {
+    this.skip += this.amount;
+    this.type();
+  }
+
+  getAll(): void {
+    this.nService.getAllNotifications(this.skip, this.amount)
+      .then((res: any) => {
+        if (res.length < this.amount) this.hasMore = false;
+        this.notifications = this.notifications.concat(res);
+        this.isSpinnerVisible = false;
+      });
+  }
+
+  getInterviews(skip: number, amount: number): void {
+    this.nService.getInterviewNotifications(this.skip, this.amount)
+      .then((res: any) => {
+        if (res.length < this.amount) this.hasMore = false;
+        this.notifications = this.notifications.concat(res);
+        this.isSpinnerVisible = false;
+      });
+  }
+
+  getUnseen(skip: number, amount: number): void {
+    this.nService.getUnseenNotifications(this.skip, this.amount)
+      .then((res: any) => {
+        this.unseenAmount = res.length || this.unseenAmount;
+        if (res.length < this.amount) this.hasMore = false;
+        this.notifications = this.notifications.concat(res);
+        this.isSpinnerVisible = false;
+      });
+  }
+
+
+  getFunctionByType(id: number): any {
+    switch (id) {
+      case 1: return this.getAll;
+      case 2: return this.getUnseen;
+      case 3: return this.getInterviews;
+    }
+  }
 }

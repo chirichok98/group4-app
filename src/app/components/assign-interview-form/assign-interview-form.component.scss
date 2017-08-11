@@ -1,0 +1,71 @@
+.assign-interview-form-inner .mat-radio-button {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #273248;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px;
+}
+.text-container {
+  font-family: sans-serif;
+  padding: 0.2rem;
+  width: 280px;
+  height: 5rem;
+  font-size: 0.7em;
+  box-sizing: border-box;
+  resize: none;
+  margin-top: 1rem;
+  border: 1px solid rgb(224, 224, 224);
+  width: 100%;
+}
+
+button {
+  background-color: #273248;
+  width: auto;
+  height: auto;
+  margin: 0.3rem 0.5rem 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  border: none;
+  min-width: 10rem;
+  padding: 0.3rem 1rem;
+  border-radius: 2px;
+  font-size: 0.7em;
+  text-align: center;
+  letter-spacing: .5px;
+  line-height: initial;
+  color: #fff;
+  transition: .3s ease-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  min-width: 10rem;
+}
+
+button:hover,
+button:focus,
+button:active {
+  background-color: #56CCF2;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+}
+.addition,
+.main_info {
+  width: 49%;
+}
+@media (max-width: 992px) {
+  .addition,
+  .main_info {
+    width: 100%;
+  }
+}
+.addition .text-container {
+  margin-top: 0;
+}
+.mat-input-wrapper {
+  padding-top: 0;
+} 

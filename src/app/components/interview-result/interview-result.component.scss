@@ -1,0 +1,22 @@
+.item-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.item-wrap span {
+    padding: 0.2rem 0.5rem;
+    box-sizing: border-box;
+    font-size: 0.8em;
+    color: #273248;
+}
+.item-wrap .item-name {
+    text-transform: uppercase;
+    font-size: 0.6em;
+    width: 30%;
+}
+.item-wrap .item-value {
+    width: 70%;
+}
+.interview-result-wrapper {
+    background: rgba(243, 245, 246, 0.4);
+}

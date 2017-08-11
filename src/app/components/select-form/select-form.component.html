@@ -1,7 +1,10 @@
-<div class="input-field col m6 s12">
-  <select [(ngModel)]="result" #select>
-    <option value="" disabled selected>Choose option</option>
-    <option *ngFor="let item of array" [ngValue]="item.id">{{item.name}}</option>
-  </select>
-  <label>{{placeholder}}</label>
-</div>
+<ng-container *ngIf="array?.length">
+    <form>
+        <md-select [placeholder]="placeholder" [ngModel]="result" [required]="required" (change)="onChange($event.value)" name="skill">
+            <md-option value="">Choose option</md-option>
+            <md-option *ngFor="let item of array" [value]="item.id">
+                {{item.name}}
+            </md-option>
+        </md-select>
+    </form>
+</ng-container>

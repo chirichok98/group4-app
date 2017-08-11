@@ -1,133 +1,135 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 declare const $;
 
 import { INavbarOption } from '../../interfaces/INavbarOption';
-
+import { MyCookieService } from '../../services/cookie.service';
+import { SignalRService } from '../../services/signalR.service';
+import { SearchCleanerService } from '../../services/search-cleaner.service';
 @Component({
   selector: 'navbar-menu',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  templateUrl: 'navbar.component.html',
+  styleUrls: ['navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
   @Input() states: INavbarOption[];
   currentState: INavbarOption;
   isSearchVisible: boolean = false;
-  isFilterVisible: boolean = false;
-  isMenuVisible: boolean = false;
+  isSortVisible: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  isCandidate: boolean;
+  isPosition: boolean;
+  isNotifications: boolean;
+
+  notificationAmount: number;
+
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private cookie: MyCookieService,
+              private searchCleanerService: SearchCleanerService) { }
 
   ngOnInit(): void {
-    const url: string = this.router.url.substring(1);
+    const url: any = this.cookie.getUrl();
+    if (url === 'main-page') {
+      this.currentState = this.states[0];
+      const url: string = `main-page/${this.currentState.stateName}`;
+      this.cookie.updateUrl(url);
+      this.router.navigate([url]);
+      return;
+    }
+    this.currentState = this.getStateFromUrl(url);
+    this.router.navigate([url]);
+  }
+
+  ngDoCheck() {
+    this.notificationAmount = this.cookie.getUnreadAmount();
+    if (this.cookie.getUrl() === 'main-page') {
+      this.currentState = this.states[0];
+
+      const url: string = `main-page/${this.currentState.stateName}`;
+      this.cookie.updateUrl(url);
+      this.router.navigate([url]);
+      return;
+    }
+    const url: string = this.router.url.slice(1);
+    const state: INavbarOption = this.getStateFromUrl(url);
+    this.cookie.updateUrl(url);
+    this.currentState = state;
+  }
+
+  getStateFromUrl(url: string): INavbarOption {
     const start: number = url.indexOf('/');
     const end: number = url.lastIndexOf('/');
     let stateName: string;
     if (start === end) {
-      stateName = url.substring(start + 1);
+      stateName = url.slice(start + 1);
     } else {
-      stateName = url.substring(start + 1, end);
+      stateName = url.slice(start + 1, end);
     }
-    const state = this.states.find(item => item.stateName === stateName);
-    this.currentState = state;
+    if (stateName === 'candidates')
+      this.setWindowOwner(true, false);
+    if (stateName === 'positions')
+      this.setWindowOwner(false, true);
+    if (stateName === 'notifications')
+      this.isNotifications = true;
+    const state: INavbarOption = this.states.find(item => item.stateName === stateName);
+    return state;
+  }
+
+  setWindowOwner(can: boolean, vac: boolean) {
+    this.isCandidate = can;
+    this.isPosition = vac;
+    this.isNotifications = false;
   }
 
   goTo(newState: INavbarOption): void {
     this.currentState = newState;
-    this.router.navigate([`./main-page/${this.currentState.stateName}`]);
+    const url: string = `main-page/${this.currentState.stateName}`;
+    this.searchCleanerService.sendInfo();
+    this.cookie.updateUrl(url);
+    this.router.navigate([url]);
   }
 
-  getStyleByIndex(index: number): string {
+  getStyleByIndex(name: string): string {
     let classNames: string = '';
-    switch (index){
-      case 0: classNames = "candidates";
+    switch (name) {
+      case 'candidates': classNames = 'candidates';
         break;
-      case 1: classNames = "positions";
+      case 'positions': classNames = 'positions';
         break;
-      case 2: classNames = "news";
+      case 'notifications': classNames = 'notifications';
+        break;
+      case 'news': classNames = 'news';
         break;
     }
-    if (this.currentState === this.states[index]) {
+    if (this.currentState === this.states.find(i => i.name === name)) {
       classNames += ' active';
     }
     return `${classNames} navbar-elem`;
   }
 
   openSearch(): void {
-    const filter = $('.filter-block');
-    const search = $('.search-block');
-    const detailed = $('.detailed-search');
-    if (!filter.height()) {
-      if (!search.height()) {
-        if (!detailed.height()) {
-          search.animate({ height: '16rem', opacity: '1' });
-        } else {
-          search.animate({ height: '24rem', opacity: '1' });
-        }
-        search.css({ visibility: 'visible' });
-
-      } else {
-        search.animate({ height: '0', opacity: '0' });
-        search.css({ visibility: 'hidden' });
-      }
-    }
-  }
-
-  openFilter(): void {
-    const filter = $('.filter-block');
-    const search = $('.search-block');
-    if (!search.height()) {
-      if (!filter.height()) {
-        filter.animate({ height: '20rem', opacity: '1' });
-        filter.css({ visibility: 'visible' });
-      } else {
-        filter.animate({ height: '0', opacity: '0' });
-        filter.css({ visibility: 'hidden' });
-      }
-    }
-  }
-  openMenu(): void {
-
-  }
-}
-
-
-/* showSearchForm(): void {
-    this.toggleMenuForm(false);
-    this.toggleFilterForm(false);
+    this.toggleSortForm(false);
     if (this.isSearchVisible) {
       return this.toggleSearchForm(false);
     }
     this.toggleSearchForm(true);
   }
 
-  showMenuForm(): void {
-    this.toggleFilterForm(false);
+  openSort(): void {
     this.toggleSearchForm(false);
-    if (this.isMenuVisible) {
-      return this.toggleMenuForm(false);
+    if (this.isSortVisible) {
+      return this.toggleSortForm(false);
     }
-    this.toggleMenuForm(true);
+    this.toggleSortForm(true);
   }
 
-  showFilterForm(): void {
-    this.toggleSearchForm(false);
-    this.toggleMenuForm(false);
-    if (this.isFilterVisible) {
-      return this.toggleFilterForm(false);
-    }
-    this.toggleFilterForm(true);
-  }
-  toggleFilterForm(value): void {
-    this.isFilterVisible = value;
+  toggleSortForm(value): void {
+    this.isSortVisible = value;
   }
 
   toggleSearchForm(value): void {
     this.isSearchVisible = value;
   }
-
-  toggleMenuForm(value): void {
-    this.isMenuVisible = value;
-  }
-} */
+} 

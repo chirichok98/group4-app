@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenPositionsComponent implements OnInit {
   
-
   constructor() { }
 
   ngOnInit() { }
+
 }

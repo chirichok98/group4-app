@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { IGeneral } from '../interfaces/IGeneral';
 import { ITechSkill } from '../interfaces/ITechSkill';
 import { HttpService } from './http.service';
+import { IUserPreview } from '../interfaces/IUserPreview';
 
 @Injectable()
 export class DictionariesService {
@@ -12,6 +13,8 @@ export class DictionariesService {
   private skills: Promise<ITechSkill[]>;
   private vacStatuses: Promise<IGeneral[]>;
   private canStatuses: Promise<IGeneral[]>;
+  private hrs: Promise<IUserPreview[]>;
+  private techs: Promise<IUserPreview[]>;
 
   constructor(private http: Http, private httpService: HttpService) { }
 
@@ -19,7 +22,8 @@ export class DictionariesService {
     if (this.cities) {
       return this.cities;
     }
-    this.cities = this.httpService.get(this.httpService.CITY, null);
+    this.cities = this.httpService.get(this.httpService.CITY, null)
+      .then(res => res.json());
     return this.cities;
   }
 
@@ -27,7 +31,8 @@ export class DictionariesService {
     if (this.engLevel) {
       return this.engLevel;
     }
-    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null);
+    this.engLevel = this.httpService.get(this.httpService.ENGLISH, null)
+      .then(res => res.json());
     return this.engLevel;
   }
 
@@ -35,15 +40,17 @@ export class DictionariesService {
     if (this.skills) {
       return this.skills;
     }
-    this.skills = this.httpService.get(this.httpService.SKILLS, null);
+    this.skills = this.httpService.get(this.httpService.SKILLS, null)
+      .then(res => res.json());
     return this.skills;
   }
 
-  getVacancyStatuses(): Promise<IGeneral[]> {
+  getPositionStatuses(): Promise<IGeneral[]> {
     if (this.vacStatuses) {
       return this.vacStatuses;
     }
-    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null);
+    this.vacStatuses = this.httpService.get(this.httpService.VAC_STATUS, null)
+      .then(res => res.json());
     return this.vacStatuses;
   }
 
@@ -51,7 +58,26 @@ export class DictionariesService {
     if (this.canStatuses) {
       return this.canStatuses;
     }
-    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null);
+    this.canStatuses = this.httpService.get(this.httpService.CAN_STATUS, null)
+      .then(res => res.json());
     return this.canStatuses;
+  }
+
+  getHRs(): Promise<IUserPreview[]> {
+    if (this.hrs) {
+      return this.hrs;
+    }
+    this.hrs = this.httpService.get(this.httpService.HRS, null)
+      .then(res => res.json());
+    return this.hrs;
+  }
+
+  getTechs(): Promise<IUserPreview[]> {
+    if (this.techs) {
+      return this.techs;
+    }
+    this.techs = this.httpService.get(this.httpService.TECH, null)
+      .then(res => res.json());
+    return this.techs;
   }
 }

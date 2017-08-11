@@ -1,0 +1,50 @@
+.crumbs-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.5rem 0 0;
+}
+.crumb {
+  font-size: 0.6em;
+  color: #fff;
+  padding: 0.1rem 0.5rem 0.1rem 1rem;
+  background: #526c7b;
+  position: relative;
+  cursor: pointer;
+  margin-right: 0.7rem;
+  opacity: 0.6;
+}
+.crumb::before {
+	width: 0;
+	height: 0;
+	border-top: 9px solid transparent;
+	border-left: 13px solid #e7e8ea;
+	border-bottom: 9px solid transparent;
+  content: ''; 
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.crumb::after {
+	width: 0;
+	height: 0;
+	border-top: 9px solid transparent;
+	border-left: 13px solid #526c7b;
+	border-bottom: 9px solid transparent;
+  content: ''; 
+  right: -13px;
+  top: 0;
+  position: absolute;
+}
+.crumb:first-child::before {
+  border: none;
+}
+.crumb:last-child {
+  background: #52c1e6;
+}
+.crumb:last-child::after {
+	border-left: 13px solid #52c1e6;
+}
+.crumb:hover {
+  opacity: 1;
+}

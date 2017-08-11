@@ -1,5 +1,18 @@
-<div class="notification__inner" [ngClass]="currentNotification.type">
-    <div class="type">{{currentNotification.type}}</div>
-    <div class="date">{{currentNotification.date | date:"mediumDate"}}</div>
-    <div class="description">{{currentNotification.description}}</div>
-</div>
+<ng-container *ngIf="notification as not">
+    <div class="notification__inner" [ngClass]="not.notificationType">
+        <div class="type">{{not.notificationType}}</div>
+        <div class="date">{{not.date | date:"mediumDate"}}</div>
+        <div class="description">{{not.title}}</div>
+        <ng-container *ngIf="not.notificationType === 'Interview' && !not.active; else checkbox">
+            <div class="feedback-button" (click)="openInterview()">Leave feedback
+                <md-icon>feedback</md-icon>
+            </div>
+        </ng-container>
+        <ng-template #checkbox>
+            <ng-container *ngIf="!not.active">
+                <md-checkbox [checked]="isChecked" (change)="markAsRead()">mark as read</md-checkbox>
+            </ng-container>
+
+        </ng-template>
+    </div>
+</ng-container>

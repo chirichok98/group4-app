@@ -1,36 +1,28 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 import { CreateCandidateComponent } from './create-candidate.component';
-import { ContactsFormModule } from '../../../components/contacts-form/contacts-form.module';
-import { PrevJobFormModule } from '../../../components/prev-job-form/prev-job-form.module';
-import { SelectFormModule } from '../../../components/select-form/select-form.module';
-import { DatepickerFormModule } from '../../../components/datepicker-form/datepicker-form.module';
-import { RangeFormModule } from '../../../components/range-form/range-form.module';
-import { SkillFormModule } from '../../../components/skill-form/skill-form.module';
 import { DictionariesService } from '../../../services/dictionaries.service';
-import { CreateCandidateService } from '../../../services/create-candidate.service';
 import { HttpService } from '../../../services/http.service';
+import { InputCandidateModule } from '../../../components/input-candidate/input-candidate.module';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { CandidateService } from '../../../services/candidate.service';
 
 @NgModule({
   imports: [
-    HttpModule,
+    MaterialModule,
     FormsModule,
-    ContactsFormModule,
-    PrevJobFormModule,
-    SelectFormModule,
-    DatepickerFormModule,
-    CommonModule,
-    SkillFormModule,
+    InputCandidateModule,
   ],
   exports: [],
   declarations: [CreateCandidateComponent],
   providers: [
-    CreateCandidateService,
+    CandidateService,
     DictionariesService,
     HttpService,
+    SnackbarService,
   ],
 })
 export class CreateCandidateModule { }

@@ -1,0 +1,30 @@
+<div class="basket">
+    <md-icon class="close-basket" (click)="openPage('main-page')">clear</md-icon>
+    <div class="container">
+        <div class="candidates">
+            <h4>Candidates</h4>
+            <ng-container *ngIf="candidates.length; else emptyCan">
+                <div class="container-inner" *ngFor="let item of candidates; let i = index">
+                    <md-icon class="can-remove" data-id="i" (click)="deleteCandidate(i)">clear</md-icon>
+                    <candidate-card [showBasket]="false" [candidate]="item"></candidate-card>
+                </div>
+            </ng-container>
+            <ng-template #emptyCan><span class="empty-wrapper">No candidate</span></ng-template>
+        </div>
+        <div class="positions">
+            <h4>Positions</h4>
+            <ng-container *ngIf="positions.length; else emptyPos">
+                <div class="container-inner" *ngFor="let item of positions; let i = index">
+                    <md-icon class="vac-remove" data-id="i" (click)="deletePosition(i)">clear</md-icon>
+                    <position-preview-card [showBasket]="false" [position]="item"></position-preview-card>
+                </div>
+            </ng-container>
+            <ng-template #emptyPos><span class="empty-wrapper">No position</span></ng-template>
+        </div>
+
+    </div>
+
+    <div>
+        <button *ngIf="canIds.length && vacIds.length" (click)="assign()" md-button class="btn submit">Submit</button>
+    </div>
+</div>

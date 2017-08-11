@@ -1,17 +1,24 @@
-<div class="notifications-indicators">
-    <div class="indicator-wrapper reminders">
-        <div class="indicator-color"></div>
-        <div class="indicator-meaning">- Reminders</div>
-    </div>
-    <div class="indicator-wrapper news">
-        <div class="indicator-color"></div>
-        <div class="indicator-meaning">- News</div>
-    </div>
-    <div class="indicator-wrapper assignments">
-        <div class="indicator-color"></div>
-        <div class="indicator-meaning">- Assignments</div>
+<bread-crumbs></bread-crumbs>
+<div class="filter-block">
+    <div class="form">
+        <div class="more-options-wrapper">
+            <div class="option creation-date" (click)="getByType(2)">
+                <span class="creation-date">Unread</span>
+            </div>
+            <div class="option last-contact-date" (click)="getByType(1)">
+                <span class="last-contact-date">All</span>
+            </div>
+            <div class="option remind-date" *ngIf="role !== 1" (click)="getByType(3)">
+                <span class="remind-date">Interview</span>
+            </div>
+        </div>
     </div>
 </div>
-<div class="notifications-wrapper">
-    <notification class="notification" *ngFor="let item of notifications" [notification]="item"></notification>
+<spinner [loading]="isSpinnerVisible"></spinner>
+<div class="btn-wrapper" *ngIf="unseenAmount">
+    <button class="mark-btn" (click)="markAsRead()">mark as read</button>
 </div>
+<div *ngIf="notifications" class="notifications-wrapper">
+    <notification class="notification" *ngFor="let item of notifications; let i = index" [notification]="item"></notification>
+</div>
+<button class="mark-btn more" *ngIf="hasMore" (click)="nextPage()">show more</button>

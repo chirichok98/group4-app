@@ -1,25 +1,145 @@
 <div *ngIf="position as pos; else loading" class="position-info-container">
-    <div class="position-blocks">
-        <div class="position-block" *ngIf="pos.primarySkill?.picture; else defaultPic">
-            <img class="position-photo" [src]="position.primarySkill.picture">
-        </div>
-        <ng-template #defaultPic>
-            <div class="position-block">
-                <img class="position-photo" src="./assets/def-skill.png">
+    <div (click)="addToBasket($event)" class="can-basket">
+        <ng-container *ngIf="!isAdded; else remove">Add to</ng-container>
+        <ng-template #remove>Remove from</ng-template>
+        store
+        <md-icon>library_add</md-icon>
+    </div>
+    <div class="header-info general">General information</div>
+    <div class="item-container main">
+        <div class="item-container">
+            <div class="position-info-item position-project-name">
+                <span class="attribute">Project name</span>
+                <ng-container *ngIf="pos.projectName as name; else none">
+                    <span class="value">{{name}}</span>
+                </ng-container>
             </div>
-        </ng-template>
-        <div class="position-block">
-            <div class="position-feedback">
-                <div class="position-info-item position-status"><span>Status: </span>{{pos.status}}</div>
-                <div class="position-info-item position-date"><span>Date: </span>{{pos.requestDate | date : 'mediumDate'}}</div>
-                <div class="position-info-item position-skill-name"><span>Language: </span>{{pos.primarySkill.name}}</div>
-                <div class="position-info-item position-project-name"><span>Project: </span>{{pos.projectName}}</div>
-                <div class="position-info-item position-vacancy-name"><span>Vacancy: </span>{{pos.vacancyName}}</div>
-                <div class="position-info-item position-english-level"><span>English(min): </span>{{pos.engLevel}}</div>
+            <div class="position-info-item position-position-name">
+                <span class="attribute">Position name</span>
+                <ng-container *ngIf="pos.vacancyName as name; else none">
+                    <span class="value">{{name}}</span>
+                </ng-container>
+            </div>
+            <div class="position-info-item position-link">
+                <span class="attribute">Link</span>
+                <ng-container *ngIf="pos.link as name; else none">
+                    <span class="value">{{name}}</span>
+                </ng-container>
             </div>
         </div>
     </div>
+    <div class="item-container">
+        <div class="position-info-item position-date">
+            <span class="attribute">Request date</span>
+            <ng-container *ngIf="pos.requestDate; else none">
+                <span class="value">{{pos.requestDate | date : 'mediumDate'}}</span>
+            </ng-container>
+        </div>
+        <div class="position-info-item position-date">
+            <span class="attribute">Start date</span>
+            <ng-container *ngIf="pos.startDate; else none">
+                <span class="value">{{pos.startDate | date : 'mediumDate'}}</span>
+            </ng-container>
+        </div>
+        <div class="position-info-item position-date">
+            <span class="attribute">Closure date</span>
+            <ng-container *ngIf="pos.closeDate; else none">
+                <span class="value">{{pos.closeDate | date : 'mediumDate'}}</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="item-container">
+        <div class="position-info-item position-status" *ngIf="pos.status">{{pos.status}}</div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">City </span>
+            <ng-container *ngIf="pos.city; else none">
+                <span class="value">{{pos.city}}</span>
+            </ng-container>
+        </div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">English(min)</span>
+            <ng-container *ngIf="pos.engLevel; else none">
+                <span class="value">{{pos.engLevel}}</span>
+            </ng-container>
+        </div>
+        <div class="position-info-item position-english-level">
+            <span class="attribute">HR manager</span>
+            <ng-container *ngIf="pos.hrm?.name as name; else none">
+                <span class="value">{{name}}</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="header-info">Skills</div>
+    <div class="item-container">
+        <div class="position-info-item position-skill-container">
+            <span class="attribute attribute-skills">Primary skill</span>
+            <div class="candidate-skills value" *ngIf="pos.primarySkill as skill; else none">
+                <md-chip-list class="position-skills value">
+                    <md-chip>
+                        <div class="position-skill-name">{{skill.name}} ({{skill.level}})</div>
+                    </md-chip>
+                </md-chip-list>
+            </div>
+        </div>
+        <div class="position-info-item position-experience">
+            <span class="attribute">Experience (years)</span>
+            <ng-container *ngIf="pos.experience as exp; else none">
+                <span class="value">{{exp}}</span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="item-container">
+        <div class="position-info-item position-skill-container">
+            <span class="attribute attribute-skills">Secondary skill(s)</span>
+            <div class="position-skills value" *ngIf="pos.secondarySkills.length; else none">
+                <ng-container *ngFor="let item of pos.secondarySkills">
+                    <img class="position-skill-img" *ngIf="item.picture as pic; else text" [src]="pic">
+                    <ng-template #text>
+                        <md-chip-list>
+                            <md-chip>
+                                <div class="position-skill-name">{{item.name}} ({{item.level}})</div>
+                            </md-chip>
+                        </md-chip-list>
+                    </ng-template>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <button (click)="goToEditForm()">Edit</button>
+    <div class="current-candidates-wrapper">
+        <div>
+            <div class="header-info">Current candidates</div>
+            <div class="candidates-list-wrap">
+                <div class="candidates-list-mini" *ngFor="let can of pos.candidates; let index = index">
+                    <md-icon class="can-remove" (click)="removeCandidate(can.id, index)">close</md-icon>
+                    <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+                </div>
+            </div>
+        </div>
+        <div class="search-wrap">
+            <div class="header-info">Search</div>
+            <div class="search-wrapper">
+                <div class="range-container">Primary skill
+                    <range-form [(range)]="coefficient" [min]="0" [max]="100"></range-form>
+                    Secondary skill(s)
+                </div>
+                <button class="simple-btn start-search" (click)="autoSearch()">search</button>
+            </div>
+            <div class="candidates-list-wrap">
+                <div class="candidates-list-mini" *ngFor="let can of possibleCandidates">
+                    <md-icon class="can-add" (click)="assignCandidate(can.id)">add</md-icon>
+                    <candidate-preview-mini [candidate]="can"></candidate-preview-mini>
+                </div>
+            </div>
+            <button class="simple-btn" *ngIf="possibleCandidates.length" [hidden]="hasNoCan" (click)="nextPage()">show more</button>
+        </div>
+    </div>
 </div>
+
 <ng-template #loading>
     <spinner [loading]="true"></spinner>
+</ng-template>
+
+<ng-template #none>
+    <span class="value">none</span>
 </ng-template>

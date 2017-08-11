@@ -1,21 +1,34 @@
-<div *ngIf="user">
-    <div class="fixed-action-btn horizontal">
-        <ul>
-            <li><button (click)="openPage('create/candidate')" class="btn-floating add">Add candidate</button></li>
-            <li><button (click)="openPage('create/vacancy')" class="btn-floating add">Add position</button></li>
-            <li><button class="btn-floating logout">Log out</button></li>
-        </ul>
-        <a class="btn-floating btn-large">
-            <div class="user-info__photo-wrap" *ngIf="user?.picture; else default">
-                <img class="user-info__photo" [src]="user.picture" alt="photo">
-            </div>
+<div class="user-info-wrapper" *ngIf="user">
+    <button *ngIf="user.role !== 1"  class="add-wrap" md-icon-button [mdMenuTriggerFor]="add">
+        <div class="open-pages-wrap">
+            <span class="add-name">manage</span>
+            <md-icon class="arrow-icon">keyboard_arrow_down</md-icon>
+        </div>
+    </button>   
+    <button class="log-wrap" md-icon-button [mdMenuTriggerFor]="log">
+        <div class="user-info__photo-wrap">
+            <img  *ngIf="user.picture; else default" class="user-info__photo" [src]="user.picture" alt="photo">
             <ng-template #default>
-                <div class="user-info__photo-wrap">
-                    <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
-                </div>
+                <img class="user-info__photo" src="./assets/blank-avatar.png" alt="photo">
             </ng-template>
-
-            <div class="user-info__name">{{user.name}}</div>
-        </a>
-    </div>
+            <md-icon class="arrow-icon">keyboard_arrow_down</md-icon>
+        </div>
+    </button>    
+    <md-menu #log="mdMenu" [overlapTrigger]="false">
+        <div class="user-info__name">{{user.name}}</div>
+        <button (click)="logout()" c md-menu-item>
+            <md-icon>power_settings_new</md-icon>
+            <span>Log out</span>
+        </button>
+    </md-menu>
+    <md-menu #add="mdMenu" yPosition="below" xPosition="after" [overlapTrigger]="false">
+        <button (click)="openPage('create/candidate')" md-menu-item>
+            <md-icon>add</md-icon>
+            <span>New candidate</span>
+        </button>
+        <button (click)="openPage('create/position')" md-menu-item>
+            <md-icon>add</md-icon>
+            <span>New position</span>
+        </button>
+    </md-menu>
 </div>

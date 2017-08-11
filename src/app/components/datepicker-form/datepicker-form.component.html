@@ -1,4 +1,5 @@
-<div class="datepicker-wrapper">
-  <label for="date">{{placeholder}}</label>
-  <input #date id="date" type="date" class="datepicker">
-</div>
+<md-input-container class="example-full-width">
+  <input mdInput [min]="minDate" [max]="maxDate" [mdDatepicker]="picker" [value]="date" [placeholder]="placeholder">
+  <button mdSuffix [mdDatepickerToggle]="picker"></button>
+</md-input-container>
+<md-datepicker #picker (selectedChanged)="onChange($event)"></md-datepicker>

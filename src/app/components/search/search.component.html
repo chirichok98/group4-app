@@ -1,17 +1,43 @@
 <div class="search-block">
     <div class="form">
-        <search-option></search-option>
-        <!--<div class="flex-container">
-            <div class="form__item arrow-block" (click)="openAdvancedSearch()"><img class="arrow-img" src="/assets/arrow3.png">
+        <div class="form-inner">
+            <select-form class="select" [(result)]="search.city" [placeholder]="'City'" [array]="cities"></select-form>
+            <select-form *ngIf="isCandidate" [(result)]="search.status" [placeholder]="'Status'" [array]="canSt"></select-form>
+            <select-form *ngIf="isPosition" [(result)]="search.status" [placeholder]="'Status'" [array]="vacSt"></select-form>
+            <select-form [(result)]="search.primarySkill" [placeholder]="'Skill'" [array]="skills"></select-form>
+            <range-form [(range)]="search.level" [min]="1" [max]="4"></range-form>
+            <div class="advanced-search" (click)="toggleAdvanced()">advanced search
+                <md-icon class="show-less" *ngIf="isAdvancedShown; else close">expand_less</md-icon>
+                <ng-template #close><md-icon>expand_more</md-icon></ng-template>
             </div>
-            <div class="form__item">
-                <input #search type="text" placeholder="what are you looking for?" class="form__input validate">
-            </div>
+            <ng-container class="more-options-wrapper" *ngIf="isAdvancedShown">
+                <div class="more-options-wrapper" *ngIf="isCandidate">
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.skype" mdInput placeholder="Skype">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.email" mdInput pattern="\S+@\S+\.\S+" placeholder="Email">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.lastNameEng" mdInput placeholder="Surname(EN)">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.phone" mdInput pattern="^[0-9\-\+]{9,15}$" placeholder="Phone">
+                    </md-input-container>
+                    <select-form [(result)]="search.hrm" [placeholder]="'HR name'" [array]="hr"></select-form>
+                </div>
+                <div class="more-options-wrapper" *ngIf="isPosition">
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.positionName" mdInput placeholder="Position name">
+                    </md-input-container>
+                    <md-input-container class="">
+                        <input [(ngModel)]="search.projectName" mdInput placeholder="Project name">
+                    </md-input-container>
+                    <datepicker-form [(date)]="search.requestDate" [placeholder]="'Request date'"></datepicker-form>
+                    <datepicker-form [(date)]="search.startDate" [placeholder]="'Start date'"></datepicker-form>
+                </div>
+            </ng-container>
+            <button class="btn waves-effect waves-light search-button" (click)="startSearch()">search</button>
         </div>
-        <div class="search__inner container detailed-search">
-            <div class="aaa">
-            </div>
-        </div>-->
-        <button class="btn waves-effect waves-light" (click)="startSearch()">Find</button>
     </div>
 </div>

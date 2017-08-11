@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 
 declare const $;
 
@@ -7,19 +7,18 @@ declare const $;
   templateUrl: 'datepicker-form.component.html',
   styleUrls: ['datepicker-form.component.scss'],
 })
-export class DatepickerFormComponent implements OnInit {
-  @ViewChild('date') date: ElementRef;
+export class DatepickerFormComponent {
   @Input() placeholder: string;
+  
+  minDate = new Date(2010, 0, 1);
+  maxDate = new Date(2040, 0, 1);
+
+  @Input() date: Date;
+  @Output() dateChange: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
-  ngOnInit() {
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 30, // Creates a dropdown of 15 years to control year,
-      today: 'Today',
-      clear: 'Clear',
-      close: 'Ok',
-    });
+  onChange(date: any) {
+    this.dateChange.emit(date);
   }
 }

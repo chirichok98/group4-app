@@ -1,0 +1,59 @@
+.header-info {
+  text-transform: uppercase;
+  margin: 20px 0;
+  padding: 10px 15px;
+  color: #273248;
+  background: rgba(82, 108, 123, 0.07);
+}
+.header-info.jobs {
+  margin-top: 15px;
+}
+md-input-container {
+  margin: 0 0.5rem;
+}
+select-form {
+  display: inline-block;
+  margin: 1rem 0.5rem;
+}
+datepicker-form {
+  margin: 0 0.5rem;
+}
+.header-info__inner {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  background: rgba(82, 108, 123, 0.07);
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.8rem;
+}
+button {
+  width: auto;
+  height: auto;
+  padding: 0.3rem 1rem;
+  font-size: 0.7em;
+  min-width: 10rem;
+  background-color: #273248;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  letter-spacing: .5px;
+  color: #fff;
+  transition: .3s ease-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0 1rem 1rem 0;
+}
+button:hover,
+button:focus,
+button:active,
+ {
+	background-color: #56CCF2;
+	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
+.secondary-skill skill-form {
+  display: block;
+  margin-bottom: 1rem;
+}
+.btn.remove-prev-job {
+  margin-top: 1rem;
+}

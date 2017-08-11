@@ -1,0 +1,39 @@
+.basket {
+  position: fixed;
+  background: #52c1e6;
+  bottom: 30px;
+  left: 30px;
+  opacity: 0.8;
+}
+.basket:hover,
+.basket:active {
+  opacity: 1;
+}
+.scrollToTop {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: #fff;
+	line-height: 56px;
+	color: #52c1e6;
+	text-align:center; 
+	text-decoration: none;
+	position:fixed;
+	bottom: 50%;
+	right: 30px;
+	display:none;
+	opacity: 0.6;
+}
+.scrollToTop:hover {
+	text-decoration: none;
+	opacity: 1;
+}
+@media (max-width: 830px) {
+    .basket {
+        right: 30px;
+				left: inherit;
+    }
+		.scrollToTop {
+			display: none!important;
+		}
+}
